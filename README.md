@@ -1,1 +1,1 @@
-# new-repo-template
+# ontap-system-manager-classic
