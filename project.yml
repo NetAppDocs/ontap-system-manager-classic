@@ -1,5 +1,7 @@
 settings:
   name: "Product Name"
+  noindex: true
+  
   internal:
     pdf_enabled: true
   prod:
