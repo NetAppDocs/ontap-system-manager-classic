@@ -1,0 +1,53 @@
+---
+permalink: expansion/task_verifying_health_system.html
+sidebar: sidebar
+keywords: expand, cluster, verify, component, healthy, config, advisor, tool, run, ontap, cli, command, verify the health of the system
+summary: "Before you expand a cluster, you must verify that all components of the cluster are healthy by running the Config Advisor tool and running several ONTAP CLI commands."
+---
+= Verify the health of the system
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before you expand a cluster, you must verify that all components of the cluster are healthy by running the Config Advisor tool and running several ONTAP CLI commands.
+
+.Steps
+
+. Verify that you have the latest version of Config Advisor:
+ ** If you do not have Config Advisor on your laptop, download it.
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor[NetApp Downloads: Config Advisor]
+
+ ** If you have Config Advisor, start it, click *Help* > *Check for Updates*, and follow the prompts to upgrade it if necessary.
++
+[NOTE]
+====
+Do not uninstall the previous version of the tool or delete the data folder during the upgrade. The tool uninstalls the previous version and replaces it with the latest version. It renames the data folder as the latest folder and retains all of the contents in the folder.
+====
+. Verify the cabling and configuration by running Config Advisor:
+ .. Connect your laptop to the management network for the cluster.
+ .. Click *Collect Data*.
++
+Config Advisor displays any problems found.
+
+ .. If problems are found, correct them and run the tool again.
+. Check the health of the system with the following commands:
+ .. Verify that the cluster is in a healthy state by using the `system health status show` command and verifying that the Status is `ok`.
++
+----
+cluster1::> system health status show
+Status
+---------------
+ok
+----
+
+ .. Verify that all nodes in the cluster are in a healthy state by using the `cluster show` command and verifying that the Health of each node is `true`.
++
+----
+cluster1::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+cluster1-1            true    true
+cluster1-2            true    true
+2 entries were displayed.
+----

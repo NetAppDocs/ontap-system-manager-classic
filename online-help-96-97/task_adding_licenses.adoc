@@ -1,0 +1,90 @@
+---
+permalink: online-help-96-97/task_adding_licenses.html
+sidebar: sidebar
+keywords: system, manager, add, license, storage, software, online, help
+summary: "If your storage system software was installed at the factory, System Manager automatically adds the software to its list of licenses. If the software was not installed at the factory or if you want to add additional software licenses, you can add the software license by using System Manager."
+---
+= Add licenses with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to add the software license if the software was not installed at the factory or if you want to add additional software licenses.
+
+If your storage system software was installed at the factory, System Manager automatically adds the software to its list of licenses.
+
+.Before you begin
+
+The software license code for the specific ONTAP service must be available.
+
+.About this task
+
+* Beginning with ONTAP 9.10.1, you use System Manager to install a NetApp License File (NLF) to enable multiple licensed features all at once. Using a NetApp License File simplifies license installation because you no longer have to add separate feature license keys. You download the NetApp License File from the NetApp Support Site.
++
+For more information, see link:https://docs.netapp.com/us-en/ontap/task_admin_enable_new_features.html[Enable new features by adding license keys]
++
+For information about managing licenses, see link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html[Manage licenses overview (cluster administrators only)^]
+
+* When you add a new license in a MetroCluster configuration, it is a best practice to add the license on the surviving site cluster as well.
+* You cannot use System Manager to add the Cloud Volumes ONTAP license.
++
+The Cloud Volumes ONTAP license is not listed in the license page. System Manager does not raise any alert about the entitlement risk status of the Cloud Volumes ONTAP license.
+
+* You can upload only capacity-based licenses.
++
+The capacity-based licenses are of "`json`" type.
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Licenses*.
+. Click *Add*.
+. In the *Add License* dialog box, perform the appropriate steps:
++
+[options="header"]
+|===
+| If you want to...| Do this...
+a|
+Add a license for a specific ONTAP service
+a|
+
+ .. Enter the software license key.
++
+You can add multiple licenses by entering the software license keys separated by commas.
+
+ .. Click *Add*.
+
+a|
+Add a capacity based license
+a|
+
+ .. Click Browse, and then select the capacity based license file.
+ .. Click *Add*.
+
+a|
+Add a license for a specific ONTAP service and add a capacity-based license
+a|
+
+ .. Enter the software license key.
++
+You can add multiple licenses by entering the software license keys separated by commas.
+
+ .. Click Browse, and then select the capacity based license file.
+ .. Click *Add*.
+
++
+|===
+The new license is added.
++
+The Add License Status dialog box displays the list of licenses that were added successfully. The dialog box also displays the license keys of the licenses that were not added and the reason why the licenses were not added.
+
+. Click *Close*.
+
+.Results
+
+The software license is added to your storage system and is displayed in the list of licenses in the Licenses window.
+
+*Related information*
+
+xref:reference_licenses_window.adoc[Licenses window]
+
+// 2022-July-18, add links to newer ONTAP license topics

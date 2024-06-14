@@ -1,0 +1,16 @@
+---
+permalink: iscsi-config-esxi/concept_iscsi_configuration_provisioning_workflow.html
+sidebar: sidebar
+keywords: storage, esx, iscsi, provision, volume, lun, virtual, machine, svm, vmware, host, configuration, workflow, esxi
+summary: "When you make storage available to an ESXi host using iSCSI, you provision a volume and LUN on the storage virtual machine using Virtual Storage Console for VMware vSphere, and then connect to the LUN from the host."
+---
+= iSCSI configuration workflow
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When you make storage available to an ESXi host using iSCSI, you provision a volume and LUN on the storage virtual machine (SVM) using Virtual Storage Console for VMware vSphere, and then connect to the LUN from the host.
+
+image::../media/iscsi_esx_workflow.gif[This illustration is a flowchart of the iSCSI workflow. The steps in the workflow match the topics.]
+
+// BURT 1448684, 31 JAN 2022

@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/reference_icons_used_application_interface.html
+redirect: ontap-sm-classic/online-help-96-97/index.html
+---

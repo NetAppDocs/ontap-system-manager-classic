@@ -1,0 +1,34 @@
+---
+permalink: nfs-config-esxi/index.html
+sidebar: sidebar
+keywords: nfs, access, esxi, host, datastores, ontap, volume, configuration, overview, vsc
+summary: "Using the ONTAP System Manager classic interface (ONTAP 9.7 and earlier), you can quickly set up NFS access for ESXi hosts to datastores using ONTAP volumes."
+---
+= NFS configuration for ESXi using VSC overview
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Using the ONTAP System Manager classic interface (ONTAP 9.7 and earlier), you can quickly set up NFS access for ESXi hosts to datastores using ONTAP volumes.
+
+Use this procedure if:
+
+* You are using a supported version of Virtual Storage Console for VMware vSphere (VSC) to provision a datastore and create a volume.
+** Beginning with VSC 7.0, VSC is part of the https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere/index.html[ONTAP Tools for VMware vSphere^] virtual appliance, which includes VSC, vStorage APIs for Storage Awareness (VASA) Provider, and Storage Replication Adapter (SRA) for VMware vSphere capabilities.
+** Be sure to check the https://imt.netapp.com/matrix/[NetApp Interoperability Matrix Tool^] to confirm compatibility between your current ONTAP and VSC releases.
+* Your data network uses the default IPspace, the default broadcast domain, and the default failover group.
++
+If your data network is flat, these default objects prescribe that LIFs will fail over correctly in the event of a link failure. If you are not using the default objects, you should refer to https://docs.netapp.com/us-en/ontap/networking/index.html[Network Management^] for information about how to configure LIF path failover.
+
+* You want to use the Plug-In for VMware VAAI.
+** VMware vStorage APIs for Array Integration (VAAI) enable you to perform copy offload and space reservations. The Plug-In for VMware VAAI uses this to improve host performance because operations do not need to go through the ESXi host, thereby taking advantage of space- and time-efficient cloning in ONTAP.
+** Using VMware VAAI for datastore provisioning is a best practice.
+** The NFS Plug-In for VMware VAAI is available from the https://mysupport.netapp.com/site/global/dashboard[NetApp Support^] site.
+
+* NFS access will be through NFSv3 and NFSv4 for use with VMware VAAI.
+
+For more information, see https://docs.netapp.com/us-en/netapp-solutions/virtualization/vsphere_ontap_ontap_for_vsphere.html[TR-4597: VMware vSphere for ONTAP^] and the documentation for your VSC release.
+
+// BURT 1416400, 2022 Feb 16
+// BURT 1455451, 04 FEB 2022
+// BURT 1448684, 31 JAN 2022

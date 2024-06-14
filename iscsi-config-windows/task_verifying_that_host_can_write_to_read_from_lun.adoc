@@ -1,0 +1,35 @@
+---
+permalink: iscsi-config-windows/task_verifying_that_host_can_write_to_read_from_lun.html
+sidebar: sidebar
+keywords: lun, verify, host, write, data, verify that the host can write to and read from the lun
+summary: "Before using the LUN, you should verify that the host can write data to the LUN and read it back."
+---
+= Verify that the host can write to and read from the LUN
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before using the LUN, you should verify that the host can write data to the LUN and read it back.
+
+.Before you begin
+
+The LUN must be initialized and formatted with a file system.
+
+.About this task
+
+If the storage cluster node on which the LUN is created can be failed over to its partner node, you should verify reading the data while the node is failed over. This test might not be possible if the storage cluster is in production use.
+
+If any of the tests fail, you should verify that the iSCSI service is running and check the iSCSI paths to the LUN.
+
+.Steps
+
+. On the host, copy one or more files to the LUN.
+. Copy the files back to a different folder on the original disk.
+. Compare the copied files to the original.
++
+You can use the `comp` command at the Windows command prompt to compare two files.
+
+. *Optional:* Fail over the storage cluster node containing the LUN and verify that you can still access the files on the LUN.
+. Use the native DSM to view the paths to the LUN and verify that you have the expected number of paths.
++
+You should see two paths to the storage cluster node on which the LUN is created, and two paths to the partner node.

@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_adding_nis_domains.html
+redirect: ontap-sm-classic/online-help-96-97/concept_nis_services.html
+---

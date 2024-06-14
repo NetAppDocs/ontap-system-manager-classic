@@ -1,0 +1,79 @@
+---
+permalink: expansion/task_verifying_planned_configuration.html
+sidebar: sidebar
+keywords: expand, cluster, ensure, follow, plan, configuration, support, require, license, exist, ontap, verify, verify the planned configuration
+summary: "Before you expand a cluster, you must ensure the following: the planned configuration is supported, the required licenses exist, the site is ready, the cluster switches support the expansion, and the existing nodes are using the same version of ONTAP 9."
+---
+= Verify the planned configuration
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before you expand a cluster, you must ensure the following: the planned configuration is supported, the required licenses exist, the site is ready, the cluster switches support the expansion, and the existing nodes are using the same version of ONTAP 9.
+
+.Before you begin
+
+You must have two sets of credentials--the user name and password required to log in to the cluster as an administrator, and the user name and password required to log in to the NetApp Support Site.
+
+.Steps
+
+. Verify the planned configuration:
+ .. Verify that the platform of the new controllers can be mixed with the cluster's existing controllers.
+ .. Verify that the expanded cluster does not exceed the system limits for the platforms.
++
+https://hwu.netapp.com[NetApp Hardware Universe^]
+
+ .. If your cluster is configured for SAN, verify that the expanded cluster does not exceed the configuration limits for FC, FCoE, and iSCSI.
++
+https://docs.netapp.com/us-en/ontap/san-config/index.html[SAN configuration^]
+
++
+If these requirements are not met, you cannot proceed with the expansion.
+. Ensure that licenses cover the new nodes:
+ .. On the existing cluster, view the licenses by using the `system license show` command.
++
+----
+cluster1::> system license show
+
+Serial Number: 9-99-999999
+Owner: cluster1
+Package           Type    Description           Expiration
+----------------- ------- --------------------- --------------------
+Base              site    Cluster Base License  -
+NFS               license NFS License           -
+CIFS              license CIFS License          -
+...
+----
+
+ .. Review the output to identify the node-locked licenses (identified by the type `license`) that will be required for the additional nodes.
+ .. Ensure that the licenses that are included with the additional nodes are consistent with the cluster's existing node-locked licenses.
++
+http://mysupport.netapp.com/licenses[NetApp Software License Search^]
+
++
+If you do not have the required licenses for the additional nodes, you must purchase additional licenses before you proceed.
+. Verify that the site is ready for all the new equipment.
++
+https://hwu.netapp.com[NetApp Hardware Universe^]
++
+If the site is not ready, you must prepare the site before continuing with the expansion.
+
+. Verify that the existing switches support the additional controllers.
++
+https://hwu.netapp.com[NetApp Hardware Universe^]
++
+If the cluster is switchless or if the existing switches do not support the additional nodes, you must obtain cluster switches, which you can install later in the expansion process.
+
+. Verify that all nodes in the existing cluster are running the same version of ONTAP 9--including the same minor release and patch, if applicable--by using the `cluster image show` command.
++
+----
+cluster1::> cluster image show
+                 Current                 Installation
+Node             Version                 Date
+---------------- ----------------------- ------------
+cluster1-1       8.3RC1                  12/15/2014 17:37:26
+cluster1-2       8.3RC1                  12/15/2014 17:37:42
+2 entries were displayed.
+----
++
+You should make note of the version of ONTAP software for reference later in this workflow.

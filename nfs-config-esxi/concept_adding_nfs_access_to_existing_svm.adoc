@@ -1,0 +1,41 @@
+---
+permalink: nfs-config-esxi/concept_adding_nfs_access_to_existing_svm.html
+sidebar: sidebar
+keywords: nfs, access, exist, create, data, logical, interface, lif, configure, esxi, host, verify, add, add nfs access to an existing SVM
+summary: "To add NFS access to an existing SVM, you must first create a data logical interface (LIF). You can then configure NFS access on the ESXi host and verify that NFS is enabled for ESXi using Virtual Storage Console."
+---
+= Add NFS access to an existing SVM
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+To add NFS access to an existing SVM, you must first create a data logical interface (LIF). You can then configure NFS access on the ESXi host and verify that NFS is enabled for ESXi using Virtual Storage Console.
+
+.Before you begin
+
+* You must know which of the following networking components the will use:
+ ** The node and the specific port on that node where the data LIF will be created
+ ** The subnet from which the data LIF's IP address will be provisioned, or optionally the specific IP address you want to assign to the data LIF
+* Any external firewalls must be appropriately configured to allow access to network services.
+* The NFS protocol must be allowed on the SVM.
++
+This is the case if you did not follow this procedure to create the SVM while configuring a different protocol.
+
+.Steps
+
+. Navigate to the *Details* pane where you can configure the protocols of the SVM:
+ .. Select the SVM that you want to configure.
+ .. In the *Details* pane, next to *Protocols*, click *NFS*.
++
+image::../media/svm_add_protocol_nfs_nfs_esxi.gif[This image is explained by the surrounding text.]
+. In the *Configure NFS protocol* dialog box, create a data LIF:
+ .. Assign an IP address to the LIF automatically from a subnet you specify or manually enter the address.
+ .. Click *Browse* and select a node and port that will be associated with the LIF.
++
+image::../media/svm_setup_cifs_nfs_page_lif_multi_nas_nfs_esxi.gif[This graphic is described by the surrounding text.]
+
++
+Do not enter any information to provision a volume. You can provision datastores later using the Virtual Storage Console.
+. Click *Submit & Close*, and then click *OK*.
+
+// BURT 1448684, 31 JAN 2022

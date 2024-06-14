@@ -1,0 +1,73 @@
+---
+permalink: online-help-96-97/task_creating_qos_policy_groups.html
+sidebar: sidebar
+keywords: online, help, create, qos, policy, groups, system, manager, quality, service
+summary: "You can use System Manager to create storage Quality of Service (QoS) policy groups to limit the throughput of workloads and to monitor workload performance."
+---
+= Manage QoS policy groups with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create storage Quality of Service (QoS) policy groups to limit the throughput of workloads and to monitor workload performance.
+
+== Create QoS policy groups
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Policies* pane, click *QoS Policy Groups*.
+. In the *QoS Policy Groups* window, click *Create*.
+. In the *Create Policy Group* dialog box, specify a group name for the policy.
+. Specify the minimum throughput limit.
+ ** In System Manager 9.5, you can set the minimum throughput limit only on a performance-based All Flash Optimized personality. In System Manager 9.6, you can also set the minimum throughput limit for ONTAP Select Premium systems.
+ ** You cannot set the minimum throughput limit for volumes on a FabricPool-enabled aggregate.
+ ** If you do not specify the minimum throughput value or if the minimum throughput value is set to 0, the system automatically displays "`None`" as the value.
++
+This value is case-sensitive.
+. Specify the maximum throughput limit.
+ ** The minimum throughput limit and the maximum throughput limit must be of the same unit type.
+ ** If you do not specify the minimum throughput limit, you can set the maximum throughput limit in IOPS and B/s, KB/s, MB/s, and so on.
+ ** If you do not specify the maximum throughput limit, the system automatically displays "`Unlimited`" as the value.
++
+This value is case-sensitive. The unit that you specify does not affect the maximum throughput.
+. Click *OK*.
+
+== Delete QoS policy groups
+
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to delete a Storage Quality of Service (QoS) policy group that is no longer required.
+
+.Before you begin
+
+You must have unassigned all of the storage objects that are assigned to the policy group.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Policies* pane, click *QoS Policy Groups*.
+. In the *QoS Policy Groups* window, select the policy group that you want to delete, and then click *Delete*.
+. In the confirmation dialog box, click *Delete*.
+
+== Edit QoS policy groups
+
+You can use the Edit Policy Group dialog box in ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to modify the name and maximum throughput of an existing storage Quality of Service (QoS) policy group.
+
+.About this task
+
+* In System Manager 9.5, you can set the minimum throughput limit only on a performance-based All Flash Optimized personality. In System Manager 9.6, you can also set the minimum throughput limit for ONTAP Select Premium systems.
+* You cannot set the minimum throughput limit for volumes on a FabricPool-enabled aggregate.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Policies* pane, click *QoS Policy Groups*.
+. Select the QoS policy group that you want to edit, and then click *Edit*.
+ ** The minimum throughput limit and the maximum throughput limit must be of the same unit type.
+ ** If you do not specify the minimum throughput limit, you can set the maximum throughput limit in IOPS and B/s, KB/s, MB/s, and so on.
+ ** If you do not specify the maximum throughput limit, the value is set to unlimited, and the unit that you specify does not affect the maximum throughput.
+. In the *Edit Policy Group* dialog box, edit the QoS policy group details, and then click *Save*.
+
+// sm-classic rework, 11/05/2022

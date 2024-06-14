@@ -1,0 +1,40 @@
+---
+permalink: iscsi-config-esxi/index.html
+sidebar: sidebar
+keywords: iscsi, service, storage, virtual, machine, svm, provision, lun, esx, host, computer
+summary: "Using the ONTAP System Manager classic interface (ONTAP 9.7 and earlier), you can quickly set up the iSCSI service on a storage virtual machine (SVM), provision a LUN, and make the LUN available using an iSCSI initiator on an ESXi host computer."
+---
+= iSCSI configuration for ESXi using VSC overview
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Using the ONTAP System Manager classic interface (ONTAP 9.7 and earlier), you can quickly set up the iSCSI service on a storage virtual machine (SVM), provision a LUN, and make the LUN available using an iSCSI initiator on an ESXi host computer.
+
+Use this procedure if:
+
+* You are using the native ESXi iSCSI software initiator on ESXi 5.x.
+* You are not using CHAP authentication for iSCSI.
+* You are using a supported version of Virtual Storage Console for VMware vSphere (VSC) to configure storage settings for your ESX host.
+** Beginning with VSC 7.0, VSC is part of the https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere/index.html[ONTAP Tools for VMware vSphere^] virtual appliance, which includes VSC, vStorage APIs for Storage Awareness (VASA) Provider, and Storage Replication Adapter (SRA) for VMware vSphere capabilities.
+** Be sure to check the https://imt.netapp.com/matrix/[NetApp Interoperability Matrix Tool^] to confirm compatibility between your current ONTAP and VSC releases.
+* Your network uses IPv4 addressing.
+* You want to assign addresses to logical interfaces using any of the following methods:
+ ** Automatically from a subnet you define
+ ** Manually, using an address selected from an existing subnet
+ ** Manually, using an address that will be added to an existing subnet
+* You have at least two high-speed Ethernet ports (1 GbE minimum, 10 GbE recommended) available on each node in the cluster.
++
+Onboard UTA2 (also called `CNA`) ports are configurable. You configure those ports in the ONTAP CLI; that process is not covered in his procedure.
++
+See link:https://docs.netapp.com/us-en/ontap/networking/index.html[Network Management^] for using the CLI to configure Ethernet port flow control.
+
+* You are not configuring iSCSI SAN boot.
+* You are providing storage to VMs through the ESXi hypervisor and not running an iSCSI initiator within the VM.
+
+For more information, see https://docs.netapp.com/us-en/netapp-solutions/virtualization/vsphere_ontap_ontap_for_vsphere.html[TR-4597: VMware vSphere for ONTAP^] and the documentation for your VSC release.
+
+
+// BURT 1449741, 2022 Feb 16
+// BURT 1448684, 31 JAN 2022
+// BURT 1418089, 17 DEC 2021

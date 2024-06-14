@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_ways_to_respond_to_system_health_alerts.html
+redirect: ontap-sm-classic/online-help-96-97/concept_system_alerts.html
+---

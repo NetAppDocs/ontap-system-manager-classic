@@ -1,0 +1,30 @@
+---
+permalink: online-help-96-97/task_configuring_system_manager_options.html
+sidebar: sidebar
+keywords: system, manager, configure, system, manager, option, online, help
+summary: "You can enable logging and specify the inactivity timeout value for System Manager."
+---
+= Configure System Manager options - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can enable logging and specify the inactivity timeout value for ONTAP System Manager classic (available in ONTAP 9.7 or earlier).
+
+.About this task
+
+You can configure the options from the System Manager login window. However, you must log in to the application to specify the inactivity timeout value.
+
+.Steps
+
+. Click *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[]*.
+. In the *Setup* pane, click *General*.
+. Specify a log level.
+. Specify the inactivity timeout value in minutes.
++
+[NOTE]
+====
+This option is not available if you have enabled Security Assertion Markup Language (SAML) authentication.
+====
+
+. Click *OK*.

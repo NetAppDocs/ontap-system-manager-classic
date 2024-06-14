@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_initializing_mirror_relationships.html
+redirect: ontap-sm-classic/online-help-96-97/task_editing_mirror_relationships.html
+---

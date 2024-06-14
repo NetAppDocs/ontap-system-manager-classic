@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_nvme_namespaces.html
+redirect: ontap/san-admin/nvme-namespaces-considerations-concept.html
+---

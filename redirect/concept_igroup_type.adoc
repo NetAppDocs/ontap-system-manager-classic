@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_igroup_type.html
+redirect: ontap/san-admin/igroups-concept.html
+---

@@ -1,0 +1,39 @@
+---
+permalink: expansion/index.html
+sidebar: sidebar
+keywords: nondisruptive, expand, exist, cluster, ha, pair, expansion, overview
+summary: "You can quickly and nondisruptively expand an existing cluster by adding an HA pair. A larger cluster increases performance and storage capacity available in the cluster."
+---
+= Cluster expansion overview
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can quickly and nondisruptively expand an existing cluster by adding an HA pair. A larger cluster increases performance and storage capacity available in the cluster.
+
+You should use this procedure only if the following is true:
+
+* The existing cluster meets the following requirements:
+ ** It is running ONTAP 9.
+ ** It contains at least two nodes.
++
+Although examples in this procedure use a two-node cluster, it also applies to clusters with more than two nodes.
++
+If you want to add a node to a single-node cluster, you must follow a different procedure.
++
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-controller-add/home.html[Adding a second controller to create an HA pair]
+
+ ** It does not use IPv6 addressing or Storage Encryption.
+ ** It is not a MetroCluster configuration.
+* The controller modules that you plan to add meet the following requirements:
+ ** If they are not new, they have been wiped clean, are no longer part of a cluster, and are ready to be added to the new cluster.
+ ** They support ONTAP 9.
+ ** They are running a version of the ONTAP 9 release family.
+* When completing ONTAP configuration tasks with System Manager, you want to use the _Classic_ System Manager UI for ONTAP 9.7 and earlier releases, not the ONTAP System Manager UI for ONTAP 9.7 and later.
++
+https://docs.netapp.com/us-en/ontap/[ONTAP System Manager documentation]
+
+* You want to use best practices, not explore every available option.
+* You do not want to read a lot of conceptual background.
+
+// BURT 1448684, 31 JAN 2022

@@ -1,0 +1,18 @@
+section: volume-move
+title: Volume move management
+entries:
+      - title: Overview
+        url: "/volume-move/index.html"
+      - title: Volume move workflow
+        url: "/volume-move/concept_volume_move_workflow.html"
+        entries:
+        - title: Plan the method and timing of a volume move
+          url: "/volume-move/task_planning_method_timing_volume_move.html"
+        - title: Move a volume using System Manager
+          url: "/volume-move/task_moving_volume_using_system_manager.html"
+        - title: Verify LUN reporting nodes after moving a volume
+          url: "/volume-move/task_verifying_lun_reporting_nodes_after_moving_volume.html"
+        - title: Update LUN reporting nodes after moving a volume
+          url: "/volume-move/task_updating_lun_reporting_nodes_after_moving_volume.html"
+        - title: Update NDMP backup after moving a volume
+          url: "/volume-move/task_updating_ndmp_backup_after_moving_volume.html"

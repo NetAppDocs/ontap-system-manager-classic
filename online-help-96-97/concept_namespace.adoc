@@ -1,0 +1,108 @@
+---
+permalink: online-help-96-97/concept_namespace.html
+sidebar: sidebar
+keywords: junction, path, window, system, manager, mount, unmount, flexvol, volume, svm, namespace, online, help, policies, export
+summary: "You can use the Junction Path window in System Manager to mount or unmount FlexVol volumes to a junction in the SVM namespace."
+---
+= Junction Path window in System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the Junction Path window in ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to mount or unmount FlexVol volumes to a junction in the SVM namespace.
+
+== Mount volumes
+
+You can use System Manager to mount volumes to a junction in the storage virtual machine (SVM) namespace.
+
+.About this task
+
+* If you mount a volume to a junction path with a language setting that is different from that of the immediate parent volume in the path, NFSv3 clients cannot access some of the files because some characters might not be decoded correctly.
++
+This issue does not occur if the immediate parent directory is the root volume.
+
+* You can mount a SnapLock volume only under the root of the SVM.
+* You cannot mount a regular volume under a SnapLock volume.
+
+.Steps
+
+. Click *Storage* > *Junction Path*.
+. From the drop-down menu in the *SVM* field, select the SVM on which you want to mount a volume.
+. Click *Mount*, and then select the volume that is to be mounted.
+. *Optional:* If you want to change the default junction name, specify a new name.
+. Click *Browse*, and then select the junction path to which you want to mount the volume.
+. Click *OK*, and then click *Mount*.
+. Verify the new junction path in the *Details* tab.
+
+== Unmount FlexVol volumes
+
+You can use the Junction Path option of Storage pane in System Manager to unmount FlexVol volumes from a junction in the storage virtual machine (SVM) namespace.
+
+.Steps
+
+. Click *Storage* > *Junction Path*.
+. From the drop-down menu in the *SVM* field, select the SVM from which you want to unmount a volume.
+. Select the volumes that have to be unmounted, and then click *Unmount*.
+. Select the confirmation check box, and then click *Unmount*.
+
+== Change export policies
+
+When a volume is created, the volume automatically inherits the default export policy of the root volume of the storage virtual machine (SVM). You can use System Manager to change the default export policy that is associated with the volume to redefine the client access to data.
+
+.Steps
+
+. Click *Storage* > *Junction Path*.
+. From the drop-down menu in the *SVM* field, select the SVM in which the volume that you want to modify resides.
+. Select the volume, and then click *Change Export Policy*.
+. Select the export policy, and then click *Change*.
+. Verify that the *Export Policy* column in the *Junction Path* window displays the export policy that you applied to the volume.
+
+.Results
+
+The default export policy is replaced with the export policy that you selected.
+
+== Junction Path window
+
+You can use the Junction Path menu to manage the NAS namespace of storage virtual machines (SVMs).
+
+=== Command buttons
+
+* *Mount*
++
+Opens the Mount Volume dialog box, which enables you to mount a volume to the junction in an SVM namespace.
+
+* *Unmount*
++
+Opens the Unmount Volume dialog box, which enables you to unmount a volume from its parent volume.
+
+* *Change Export Policy*
++
+Opens the Change Export Policy dialog box, which enables you to change the existing export policy associated with the volume.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Junction Path list
+
+* *Path*
++
+Specifies the junction path of the mounted volume. You can click the junction path to view the related volumes and qtrees.
+
+* *Storage Object*
++
+Specifies the name of the volume mounted on the junction path. You can also view the qtrees that the volume contains.
+
+* *Export Policy*
++
+Specifies the export policy of the mounted volume.
+
+* *Security Style*
++
+Specifies the security style for the volume. Possible values include UNIX (for UNIX mode bits), NTFS (for CIFS ACLs), and Mixed (for mixed NFS and CIFS permissions).
+
+=== Details tab
+
+Displays general information about the selected volume or qtree, such as the name, type of storage object, junction path of the mounted object, and export policy. If the selected object is a qtree, details about the space hard limit, space soft limit, and space usage are displayed.
+
+// 2021-12-15, Created by Aoife, sm-classic rework

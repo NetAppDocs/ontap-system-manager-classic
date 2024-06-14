@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_how_maximum_throughput_limit_works.html
+redirect: ontap/performance-admin/guarantee-throughput-qos-task.html
+---

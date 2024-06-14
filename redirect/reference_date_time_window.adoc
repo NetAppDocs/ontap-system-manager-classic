@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/reference_date_time_window.html
+redirect: ontap-sm-classic/online-help-96-97/concept_date_time.html
+---

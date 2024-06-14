@@ -1,0 +1,37 @@
+---
+permalink: snmp-config/task_adding_snmp_traphost.html
+sidebar: sidebar
+keywords: system, manager, add, traphost, snmp, notification, trap, protocol, generate, cluster, data, host, add an snmp traphost
+summary: "You can use the ONTAP System Manager 'classic' interface with ONTAP 9.7 or earlier to add a traphost (SNMP manager) to receive SNMP notifications (SNMP trap protocol data units) when traps are generated in the cluster."
+---
+= Add an SNMP traphost
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the ONTAP System Manager _classic_ interface with ONTAP 9.7 or earlier to  add a traphost (SNMP manager) to receive SNMP notifications (SNMP trap protocol data units) when traps are generated in the cluster.
+
+.Before you begin
+
+IPv6 must be enabled on the cluster if you configure SNMP traphosts that have IPv6 addresses.
+
+.About this task
+
+SNMP and SNMP traps are enabled by default. The NetApp Technical Report TR-4220 on SNMP support contains lists of all default events that are supported by SNMP traps.
+
+http://www.netapp.com/us/media/tr-4220.pdf[NetApp Technical Report 4220: SNMP Support in Data ONTAP^]
+
+.Steps
+
+. In the SNMP window, click *EDIT* to open the *Edit SNMP Settings* dialog box.
+. [[step2-verify-enable-traps]]In the *Trap Hosts* tab, verify that the *Enable traps* check box is selected and click *Add*.
+. [[step3-enter-traphost-ip]]Enter the traphost IP address, and then click *OK* in the *Trap Hosts* pane.
++
+The IP address of an SNMP traphost can be IPv4 or IPv6.
++
+image::../media/snmp_add_traphost.gif[This image shows the Edit SNMP Settings dialog box, Traphosts tab, in which the traphost status "enabled" is checked and the example traphost IP address "192.0.2.0" is entered.]
+
+. To add another traphost, repeat <<step2-verify-enable-traps,Step 2>> and <<step3-enter-traphost-ip,Step 3>>.
+. When you finish adding traphosts, click *OK* in the *Edit SNMP Settings* dialog box.
+
+// BURT 1415755, 11 JAN 2022

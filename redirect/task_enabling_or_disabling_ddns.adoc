@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_enabling_or_disabling_ddns.html
+redirect: ontap-sm-classic/online-help-96-97/concept_dns_ddns_services.html
+---

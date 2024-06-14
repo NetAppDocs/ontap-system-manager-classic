@@ -1,0 +1,25 @@
+---
+permalink: online-help-96-97/task_changing_deduplication_schedule.html
+sidebar: sidebar
+keywords: change, deduplication, schedule, online, help, system, manager
+summary: "You can use System Manager to change the deduplication schedule by choosing to run deduplication manually, automatically, or on a schedule that you specify."
+---
+= Change the deduplication schedule with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to change the deduplication schedule by choosing to run deduplication manually, automatically, or on a schedule that you specify.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Select the read/write volume for which you want to modify the deduplication schedule.
+. Click *Edit*, and then click the *Storage Efficiency* tab.
+. Change the deduplication schedule as required.
+. Click *Save and Close*.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

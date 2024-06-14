@@ -1,0 +1,82 @@
+---
+permalink: online-help-96-97/concept_fc_fcoe_protocol.html
+sidebar: sidebar
+keywords: system, manager, configure, fc, fcoe, protocol, online, help, change, node, name, fibre, channel, san, start, stop
+summary: "You can use System Manager to configure FC/FCoE protocols."
+---
+= Configure the FC/FCoE protocol with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to configure FC/FCoE protocols.
+
+== Start or stop the FC or FCoE service
+
+The FC service enables you to manage FC target adapters for use with LUNs. You can use System Manager to start the FC service to bring the adapters online and to enable access to the LUNs on the storage system. You can stop the FC service to take the FC adapters offline and to disable access to the LUNs.
+
+.Before you begin
+
+* The FC license must be installed.
+* An FC adapter must be present in the target storage system.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Protocols* pane, click *FC/FCoE*.
+. Click *Start* or *Stop*, as required.
+
+== Change an FC or FCoE node name
+
+If you replace a storage system chassis and reuse it in the same Fibre Channel SAN, the node name of the replaced storage system might be duplicated in certain cases. You can change the node name of the storage system by using System Manager.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Protocols* pane, click *FC/FCoE*.
+. Click *Edit*.
+. Type the new name, and then click *OK*.
+
+== The FCoE protocol
+
+Fibre Channel over Ethernet (FCoE) is a new model for connecting hosts to storage systems. Like the traditional FC protocol, FCoE maintains existing FC management and controls, but it uses a 10-gigabit Ethernet network as the hardware transport.
+
+Setting up an FCoE connection requires one or more supported converged network adapters (CNAs) in the host, connected to a supported data center bridging (DCB) Ethernet switch. The CNA is a consolidation point and effectively serves as both an HBA and an Ethernet adapter.
+
+In general, you can configure and use FCoE connections the same way you use traditional FC connections.
+
+== FC/FCoE window
+
+You can use the FC/FCoE window to start or stop the FC service.
+
+=== Command buttons
+
+* *Edit*
++
+Opens the Edit Node Name dialog box, which enables you to change the FC or FCoE node name.
+
+* *Start*
++
+Starts the FC/FCoE service.
+
+* *Stop*
++
+Stops the FC/FCoE service.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== FC/FCoE details
+
+The details area displays information about the status of FC/FCoE service, the node name, and the FC/FCoE adapters.
+
+*Related information*
+
+xref:task_configuring_fc_fcoe_protocol_on_svms.adoc[Configuring FC protocol and FCoE protocol on SVMs]
+
+https://docs.netapp.com/us-en/ontap/san-admin/index.html[SAN administration^]
+
+// 2021-12-20, Created by Aoife, sm-classic rework

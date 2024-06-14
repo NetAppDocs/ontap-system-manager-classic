@@ -1,0 +1,47 @@
+---
+permalink: nfs-config/task_creating_configuring_volume.html
+sidebar: sidebar
+keywords: create, flexvol, volume, contain, data, security, style, inherit, root, namespace, virtual, machine, storage, svm, configure, create and configure a volume
+summary: "You must create a FlexVol volume to contain your data. You can optionally change the volume’s default security style, which is inherited from the security style of the root volume. You can also optionally change the volume’s default location in the namespace, which is at the root volume of the storage virtual machine (SVM)."
+---
+= Create and configure a volume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You must create a FlexVol volume to contain your data. You can optionally change the volume's default security style, which is inherited from the security style of the root volume. You can also optionally change the volume's default location in the namespace, which is at the root volume of the storage virtual machine (SVM).
+
+.Steps
+
+. Navigate to the *Volumes* window.
+. Click *Create* > *Create FlexVol*.
++
+The Create Volume dialog box is displayed.
+
+. If you want to change the default name, which ends in a date and time stamp, specify a new name, such as `vol1`.
+. Select an aggregate for the volume.
+. Specify the size of the volume.
+. Click *Create*.
++
+Any new volume created in System Manager is mounted by default at the root volume using the volume name as the junction name. NFS clients use the junction path and the junction name when mounting the volume.
+
+. If you do not want the volume to be located at the root of the SVM, modify the place of the new volume in the existing namespace:
+ .. Navigate to the *Namespace* window.
+ .. Select the *SVM* from the drop-down menu.
+ .. Click *Mount*.
+ .. In the *Mount Volume* dialog box, specify the volume, the name of its junction path, and the junction path on which you want the volume mounted.
+ .. Verify the new junction path in the *Namespace* window.
+
++
+If you want to organize certain volumes under a main volume named "`data`", you can move the new volume "`vol1`" from the root volume to the "`data`" volume.
+
++
+image::../media/namespace_1_before_nfs.gif[This graphic is described by the surrounding text.]
+. Review the volume's security style and change it, if necessary:
+ .. In the *Volume* window, select the volume you just created, and click *Edit*.
++
+The Edit Volume dialog box is displayed, showing the volume's current security style, which is inherited from the security style of the SVM root volume.
+
+ .. Make sure the security style is UNIX.
++
+image::../media/volume_edit_security_style_ntfs_to_unix.gif[This graphic is described by the surrounding text.]

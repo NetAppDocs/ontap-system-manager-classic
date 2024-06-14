@@ -1,0 +1,114 @@
+---
+permalink: online-help-96-97/concept_configuration_update.html
+sidebar: sidebar
+keywords: configuration, update, system, manager, administration, detail, storage, virtual, machine, svm, online, help, window, tab, node, command, button
+summary: "You can use System Manager to configure the administration details of storage virtual machines (SVMs)."
+---
+= Configuration update with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to configure the administration details of storage virtual machines (SVMs).
+
+== Configure the adminstration details of an SVM
+You can use System Manager to quickly configure the administration details of astorage virtual machine (SVM). You can optionally delegate the administration of the SVM to SVM administrators.
+
+.About this task
+
+As an SVM administrator, you cannot use System Manager to manage delegated SVMs. You can manage theSVMsonly by using the command-line interface (CLI).
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Configuration Updates*.
+. In the *SVMs* tab, select the node, and then click *Configure Administration Details*.
+. In the *Administrator Details* section, set up a password for the `vsadmin` user account.
+. If you want a dedicated LIF for SVM management, select *Create a LIF for SVM management*, and then specify the network details.
++
+A dedicated SVM management LIF is required for SAN protocols, where data and management protocols cannot share the same LIF. SVM management LIFs can be created only on data ports.
+
+. Specify the network details:
++
+[options="header"]
+|===
+| If you want to...| Then...
+a|
+Specify the IP address by using a subnet
+a|
+
+ .. Select *Using a subnet*.
+ .. In the Add Details dialog box, select the subnet from which the IP address must be assigned.
++
+For intercluster LIFs, only the subnets that are associated with the selected IPspace are displayed.
+
+ .. If you want to assign a specific IP address to the interface, select *Use a specific IP address*, and then type the IP address.
++
+The IP address that you specify is added to the subnet if that IP address is not already present in the subnet range.
+
+ .. Click *OK*.
+
+a|
+Specify the IP address manually without using a subnet
+a|
+
+ .. Select *Without a subnet*.
+ .. In the Add Details dialog box, perform the following steps:
+  ... Specify the IP address and network mask or prefix.
+  ... Optional: Specify the gateway.
++
+The destination field is populated with the default value based on the family of the IP address.
+
+  ... If you do not want the default value, specify a new destination value.
+If a route does not exist, a new route is automatically created based on the gateway and destination.
+ .. Click *OK*.
+|===
+
+. Specify a port to create a data LIF:
+ .. Click *Browse*.
+ .. In the *Select Network Port or Adapter* dialog box, select a port, and then click *OK*.
+
+== Configuration updates window
+
+You can use the Configuration Updates window to update the configuration details of the cluster, storage virtual machine (SVM), and nodes.
+
+=== Tabs
+
+* *Nodes*
++
+Enables you to configure details of the node.
+
+* *SVMs*
++
+Enables you to configure details of the SVM.
+
+=== Nodes tab
+
+=== Command buttons
+
+* *Edit Node Name*
++
+Opens the Edit Node Name dialog box, which enables you to modify the name of the node.
+
+* *Create Node-management LIF*
++
+Opens the Create Node-management LIF dialog box, which enables you to create a node-management LIF for managing a specific node.
+
+* *Edit AutoSupport*
++
+Opens the Edit AutoSupport Settings dialog box, which enables you to specify an email address from which email notifications are sent and to add multiple email addresses of the host names.
+
+=== SVMs tab
+
+=== Command button
+
+* *Configure Administration Details*
++
+Opens the Configure Administration Details dialog box, which enables you configure the administration details of the SVM.
+
+*Related information*
+
+xref:task_creating_cluster.adoc[Creating a cluster]
+
+xref:task_setting_up_network_when_ip_address_range_is_disabled.adoc[Setting up a network when an IP address range is disabled]
+
+// 2021-12-08, Created by Aoife, sm-classic rework

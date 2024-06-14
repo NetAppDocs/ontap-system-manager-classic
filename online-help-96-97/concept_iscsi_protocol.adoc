@@ -1,0 +1,169 @@
+---
+permalink: online-help-96-97/concept_iscsi_protocol.html
+sidebar: sidebar
+keywords: iscsi, protocol, system, manager, configure, block, data, host, tcp, ip, online, help, initiate, disable, enable, dialog, box, security, authentication, default
+summary: "You can use System Manager to configure the iSCSI protocol that enables you to transfer block data to hosts using SCSI protocol over TCP/IP."
+---
+= Configure the iSCSI protocol with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to configure the iSCSI protocol that enables you to transfer block data to hosts using SCSI protocol over TCP/IP.
+
+== Create iSCSI aliases
+
+An iSCSI alias is a user-friendly identifier that you assign to an iSCSI target device (in this case, the storage system) to make it easier to identify the target device in user interfaces. You can use System Manager to create an iSCSI alias.
+
+.About this task
+
+An iSCSI alias is a string of 1 to 128 printable characters.An iSCSI alias must not include spaces.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Protocols* pane, click *iSCSI*.
+. In the *Service* tab of the *iSCSI* window, click *Edit*.
+. In the *Edit iSCSI Service Configuration* dialog box, enter an iSCSI alias in the *Target Alias* field, and then click *OK*.
+
+== Enable or disable the iSCSI service on storage system interfaces
+
+You can use System Manager to control which network interfaces are used for iSCSI communication by enabling or disabling the interfaces. When the iSCSI service is enabled, iSCSI connections and requests are accepted over those network interfaces that are enabled for iSCSI, but not over disabled interfaces.
+
+.Before you begin
+
+You must have terminated any outstanding iSCSI connections and sessions that are currently using the interface. By default, the iSCSI service is enabled on all of the Ethernet interfaces after you enable the iSCSI license.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Protocols* pane, click *iSCSI*.
+. In the *iSCSI Interfaces* area, select the interface on which you want to enable or disable the iSCSI service.
+. Click *Enable* or *Disable*, as required.
+
+== Add the security method for iSCSI initiators
+
+You can use System Manager to add an initiator and to specify the security method that is used to authenticate the initiator.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Protocols* pane, click *iSCSI*.
+. In the *iSCSI* window, click the *Initiator Security* tab.
+. Click *Add* in the *Initiator Security* area.
+. Specify the initiator name and the security method for authenticating the initiator.
++
+For CHAP authentication, you must provide the user name and password, and then confirm your password for inbound settings. For outbound settings, this login information is optional.
+
+. Click *OK*.
+
+== Edit default security settings
+
+You can use the Edit Default Security dialog box in System Manager to edit the default security settings for the iSCSI initiators that are connected to the storage system.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Protocols* pane, click *iSCSI*.
+. In the *Default Security* area of the *Initiator Security* tab, click *Edit*.
+. In the *Edit Default Security* dialog box, change the security type.
++
+For CHAP authentication, you must provide the user name and password, and then confirm your password for inbound settings. For outbound settings, this login information is optional.
+
+. Click *OK*.
+
+== Change the default iSCSI initiator authentication method
+
+You can use System Manager to change the default iSCSI authentication method, which is the authentication method that is used for any initiator that is not configured with a specific authentication method.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Protocols* pane, click *iSCSI*.
+. In the *Initiator Security* tab, click *Edit* in the *Default Security* area.
+. Change the security type.
++
+For CHAP authentication, you must provide the user name and password, and then confirm your password for inbound settings. For outbound settings, this login information is optional.
+
+. Click *OK*.
+
+== Set the default security for iSCSI initiators
+
+You can use System Manager to remove the authentication settings for an initiator and to use the default security method to authenticate the initiator.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Protocols* pane, click *iSCSI*.
+. In the *Initiator Security* tab, select the initiator for which you want to change the security setting.
+. Click *Set Default* in the *Initiator Security* area, and then click *Set Default* in the confirmation dialog box.
+
+== Start or stop the iSCSI service
+
+You can use System Manager to start or stop the iSCSI service on your storage system.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Protocols* pane, click *iSCSI*.
+. Click *Start* or *Stop*, as required.
+
+== View initiator security information
+
+You can use System Manager to view the default authentication information and all the initiator-specific authentication information.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Protocols* pane, click *iSCSI*.
+. In the *Initiator Security* tab of the *iSCSI* window, review the details.
+
+== iSCSI window
+
+You can use the iSCSI window to start or stop the iSCSI service, change a storage system iSCSI node name, and create or change the iSCSI alias of a storage system. You can also add or change the initiator security setting for an iSCSI initiator that is connected to your storage system.
+
+=== Tabs
+
+* *Service*
++
+You can use the *Service* tab to start or stop the iSCSI service, change a storage system iSCSI node name, and create or change the iSCSI alias of a storage system.
+
+* *Initiator Security*
++
+You can use the *Initiator Security* tab to add or change the initiator security setting for an iSCSI initiator that is connected to your storage system.
+
+=== Command buttons
+
+* *Edit*
++
+Opens Edit iSCSI Service Configurations dialog box, which enables you to change iSCSI node name and iSCSI alias of the storage system.
+
+* *Start*
++
+Starts the iSCSI service.
+
+* *Stop*
++
+Stops the iSCSI service.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Details area
+
+The details area displays information about the status of the iSCSI service, iSCSI target node name, and iSCSI target alias. You can use this area to enable or disable the iSCSI service on a network interface.
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/san-admin/index.html[SAN administration^]
+
+// 2021-12-20, Created by Aoife, sm-classic rework

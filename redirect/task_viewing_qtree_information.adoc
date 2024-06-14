@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_viewing_qtree_information.html
+redirect: ontap-sm-classic/online-help-96-97/concept_qtrees.html
+---

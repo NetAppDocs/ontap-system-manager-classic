@@ -1,0 +1,45 @@
+---
+permalink: volume-backup-snapvault/index.html
+sidebar: sidebar
+keywords: content, configure, snapvault, backup, relationship, volume, cluster, read-only, copies, copy, locate, destination, volume, restoring, restore, data, corrupt, lost, volume backup using snapvault overview
+summary: "You can quickly configure SnapVault backup relationships between volumes that are located in different clusters. The SnapVault backup contains a set of read-only backup copies, which are located on a destination volume that you can use for restoring data when data is corrupted or lost."
+---
+= Volume backup using SnapVault overview
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can quickly configure SnapVault backup relationships between volumes that are located in different clusters. The SnapVault backup contains a set of read-only backup copies, which are located on a destination volume that you can use for restoring data when data is corrupted or lost.
+
+Use this procedure if you want to create SnapVault backup relationships for volumes in the following way:
+
+* You are working with clusters running ONTAP 9.
+* You are a cluster administrator.
+* You have configured the cluster peer relationship and the SVM peer relationship.
++
+link:../peering/index.html[Cluster and SVM peering configuration]
+
+* You must have enabled either the SnapMirror or SnapVault license, after all of the nodes in the cluster have been upgraded to the same version of ONTAP 9.
+* You want to use default protection policies and schedules, and not create custom policies.
+* You do not want to back up data for a single file or LUN restore.
+* You want to use best practices, not explore every available option.
+* You do not want to read a lot of conceptual background.
+* You want to use System Manager, not the ONTAP command-line interface or an automated scripting tool.
+* You want to use the System Manager classic interface for ONTAP 9.7 and earlier releases, not the ONTAP System Manager UI for ONTAP 9.7 and later.
+
+If these assumptions are not correct for your situation, or if you want more conceptual background information, you should see the following resource:
+
+link:http://www.netapp.com/us/media/tr-4183.pdf[NetApp Technical Report 4183: SnapVault Best Practices^]
+
+== Other ways to do this in ONTAP
+
+[cols=2,options="header"]
+|===
+| To perform these tasks with... | See this content...
+| The redesigned System Manager (available with ONTAP 9.7 and later) | link:https://docs.netapp.com/us-en/ontap/task_dp_configure_mirror.html[Configure mirrors and vaults^]
+| The ONTAP command line interface | link:https://docs.netapp.com/us-en/ontap/data-protection/create-replication-relationship-task.html[Create a replication relationship^]
+
+|===
+
+// 2022-1-24, BURT 1446399
+// 2022-1-27, update CLI link in table

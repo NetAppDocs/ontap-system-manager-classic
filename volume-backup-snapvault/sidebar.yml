@@ -1,0 +1,17 @@
+section: volume-backup-snapvault
+title: Volume backup using SnapVault
+entries:
+  - title: Overview
+    url: "/volume-backup-snapvault/index.html"
+  - title: SnapVault backup configuration workflow
+    url: "/volume-backup-snapvault/concept_snapvault_configuration_workflow.html"
+    entries:
+    - title: Verify cluster peer relationship and SVM peer relationship
+      url: "/volume-backup-snapvault/task_verify_cluster_peer_relationship.html"
+    - title: Create a SnapVault relationship (Beginning with ONTAP 9.3)
+      url: "/volume-backup-snapvault/task_creating_snapvault_relationship_93_later.html"
+    - title: Create the SnapVault relationship (ONTAP 9.2 or earlier)
+      url: "/volume-backup-snapvault/task_creating_snapvault_relationship_92_earlier.html"
+    - title: Monitor the SnapVault relationship
+      url: "/volume-backup-snapvault/task_monitoring_snapvault_relationship.html"
+  

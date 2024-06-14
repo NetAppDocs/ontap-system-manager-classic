@@ -1,0 +1,49 @@
+---
+permalink: online-help-96-97/task_reassigning_disks_to_nodes.html
+sidebar: sidebar
+keywords: system, manager, reassign, disks, node, online, help, node, aggregate, storage, pool
+summary: "You can use System Manager to reassign the ownership of spare disks from one node to another node to increase the capacity of an aggregate or storage pool."
+---
+= Reassign disks to nodes with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to reassign the ownership of spare disks from one node to another node to increase the capacity of an aggregate or storage pool.
+
+.About this task
+
+* You can reassign disks if the following conditions are true:
+ ** The container type of the selected disks must be "`spare`" or "`shared`".
+ ** The disks must be connected to nodes in an HA configuration.
+ ** The disks must be visible to the node.
+* You _cannot_ reassign a disk if the following conditions are true:
+ ** The container type of the selected disk is "`shared`", and the data partition is not spare.
+ ** The disk is associated with a storage pool.
+* You cannot reassign the data partition of shared disks if storage failover is not enabled on the nodes that are associated with the shared disks.
+* For partition disks, you can reassign only the data partition of the disks.
+* For MetroCluster configurations, you cannot use System Manager to reassign disks.
++
+You must use the command-line interface to reassign disks for MetroCluster configurations.
+
+[NOTE]
+====
+In later ONTAP releases, you use the ONTAP CLI to remove disk ownership and then assign a new owner. 
+====
+
+.Steps
+
+. Click *Storage* > *Aggregates & Disks* > *Disks*.
+. In the *Disks* window, select the *Inventory* tab.
+. Select the disks that you want to reassign, and then click *Assign*.
+. In the *Warning* dialog box, click *Continue*.
+. In the *Assign Disks* dialog box, select the node to which you want to reassign the disks.
+. Click *Assign*.
+
+.Related information
+
+* link:https://docs.netapp.com/us-en/ontap/disks-aggregates/remove-ownership-disk-task.html[Remove disk ownership using the ONTAP CLI (ONTAP 9.3 and later)]
+* link:https://docs.netapp.com/us-en/ontap/disks-aggregates/disk-autoassignment-policy-concept.html[Assign disks automatically using the ONTAP CLI (ONTAP 9.3 and later)]
+* link:https://docs.netapp.com/us-en/ontap/disks-aggregates/manual-assign-disks-ownership-manage-task.html[Manually assign disks using the ONTAP CLI (ONTAP 9.3 and later)]
+
+// 2023-Aug-9, issue# 81

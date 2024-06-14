@@ -1,0 +1,29 @@
+---
+permalink: fc-config-rhel/task_installing_linux_unified_host_utilities_optimizing_i_o_performance.html
+sidebar: sidebar
+keywords: linux, unified, host, utilities, software, sanlun, utility, netapp, lun, report, tool, display, information, storage, cluster, node, bus, adapter, hba, correct, server, profile, linux, optimize, performance, install linux unified host utilities and optimize i/o performance
+summary: "Linux Unified Host Utilities software includes the sanlun utility, a NetApp LUN reporting tool that you can use to display information about storage cluster nodes and Host Bus Adapters that are on the Linux host."
+---
+= Install Linux Unified Host Utilities and optimize I/O performance
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Linux Unified Host Utilities software includes the `sanlun` utility, a NetApp LUN reporting tool that you can use to display information about storage cluster nodesand Host Bus Adapters (HBAs) that are on the Linux host. You must also enable the correct server profile on the Linux host to optimize NetApp storage performance.
+
+.Before you begin
+
+You must have identified the supported Linux Unified Host Utilities version for your configuration by using the Interoperability Matrix. You must also have the `tuned` package, which is part of your Linux OS distribution and contains the `tuned-adm` command, which you use to set the server profile on the host.
+
+.Steps
+
+. Download the supported Linux Unified Host Utilities version from the NetApp Support Site.
++
+http://mysupport.netapp.com/NOW/cgi-bin/software[NetApp Downloads: Software]
+
+. Install Linux Unified Host Utilities software by following the instructions in the installation documentation.
+. If the `tuned` package is not installed, enter the following command:``yum install tuned``
+. For a physical host, ensure that you have set the `enterprise-storage` profile: `tuned-adm profile enterprise-storage`
+. For a virtual host, ensure that you have set the `virtual-guest` profile: `tuned-adm profile virtual-guest`
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2547936[Linux Unified Host Utilities 7.1 Installation]

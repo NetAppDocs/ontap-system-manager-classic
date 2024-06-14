@@ -1,0 +1,150 @@
+---
+permalink: online-help-96-97/concept_cluster_user_accounts.html
+sidebar: sidebar
+keywords: user, system, manager, add, edit, manage, account, login, online, help, cluster, administration, online, help, modify, lock, delete, unlock, create
+summary: "You can use System Manager to add, edit, and manage a cluster user account, and specify a login user method to access the storage system."
+---
+= Manage user accounts with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to add, edit, and manage a cluster user account, and specify a login user method to access the storage system.
+
+== Add a cluster user account
+
+You can use System Manager to add a cluster user account and to specify a user login method for accessing the storage system.
+
+.About this task
+
+In clusters on which SAML authentication is enabled, for a particular application, you can add either SAML authentication or password-based authentication, or you can add both types of authentication.
+
+.Steps
+
+. Click *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[]*.
+. In the *Management* pane, click *Users*.
+. Click *Add*.
+. Type a user name for the new user.
+. Type a password for the user to connect to the storage system, and then confirm the password.
+. Add one or more user login methods, and then click *Add*.
+
+== Edit a cluster user account
+
+You can use System Manager to edit a cluster user account by modifying the user login methods for accessing the storage system.
+
+.Steps
+
+. Click *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[]*.
+. In the *Management* pane, click *Users*.
+. In the *Users* window, select the user account that you want to modify, and then click *Edit*.
+. In the *Modify User* dialog box, modify the user login methods, and then click *Modify*.
+
+== Change passwords for cluster user accounts
+
+You can use System Manager to reset the password for a cluster user account.
+
+.Steps
+
+. Click *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[]*.
+. In the *Management* pane, click *Users*.
+. Select the user account for which you want to modify the password, and then click *Change Password*.
+. In the *Change Password* dialog box, type the new password, confirm the new password, and then click *Change*.
+
+== Lock or unlock cluster user accounts
+
+You can use System Manager to lock or unlock cluster user accounts.
+
+.Steps
+
+. Click *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[]*.
+. In the *Management* pane, click *Users*.
+. Select the user account for which you want to modify the status, and click either *Lock* or *Unlock*.
+
+== User accounts (cluster administrators only)
+
+You can create, modify, lock, unlock, or delete a cluster user account, reset a user's password, or display information about all user accounts.
+
+You can manage cluster user accounts in the following ways:
+
+* Creating a login method for a user by specifying the user's account name, the access method, the authentication method, and, optionally, the access-control role that the user is assigned
+* Displaying users' login information, such as the account name, allowed access method, authentication method, access-control role, and account status
+* Modifying the access-control role that is associated with a user's login method
++
+[NOTE]
+====
+It is best to use a single role for all the access and authentication methods of a user account.
+====
+
+* Deleting a user's login method, such as the access method or the authentication method
+* Changing the password for a user account
+* Locking a user account to prevent the user from accessing the system
+* Unlocking a previously locked user account to enable the user to access the system again
+
+== Users window
+
+You can use the Users window to manage user accounts, to reset the password of a user, and to view information about all of the user accounts.
+
+=== Command buttons
+
+* *Add*
++
+Opens the Add User dialog box, which enables you to add user accounts.
+
+* *Edit*
++
+Opens the Modify User dialog box, which enables you to modify user login methods.
++
+[NOTE]
+====
+It is a best practice to use a single role for all of the access and authentication methods of a user account.
+====
+
+* *Delete*
++
+Enables you to delete a selected user account.
+
+* *Change Password*
++
+Opens the Change Password dialog box, which enables you to reset a selected user's password.
+
+* *Lock*
++
+Locks the user account.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Users list
+
+The area below the users list displays detailed information about the selected user.
+
+* *User*
++
+Displays the name of the user account.
+
+* *Account Locked*
++
+Displays whether the user account is locked.
+
+=== User Login Methods area
+
+* *Application*
++
+Displays the access method that a user can use to access the storage system. The supported access methods include the following:
+
+ ** System console (console)
+ ** HTTP(S) (http)
+ ** ONTAP API (ontapi)
+ ** Service Processor (service-processor)
+ ** SSH (ssh)
+
+* *Authentication*
++
+Displays the default supported authentication method, which is "`password`".
+
+* *Role*
++
+Displays the role of a selected user.
+
+// 2021-12-09, Created by Aoife, sm-classic rework

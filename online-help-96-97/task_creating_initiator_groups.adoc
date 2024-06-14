@@ -1,0 +1,73 @@
+---
+permalink: online-help-96-97/task_creating_initiator_groups.html
+sidebar: sidebar
+keywords: create, initiator, group, system, manager, lun, online, help, manage, delete, edit, add
+summary: "You can use System Manager to create an initiator group. Initiator groups enable you to control host access to specific LUNs. You can use portsets to limit which LIFs an initiator can access."
+---
+= Manage initiator groups with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to manage an initiator group. Initiator groups enable you to control host access to specific LUNs. You can use portsets to limit which LIFs an initiator can access.
+
+== Create initiator groups
+
+.Steps
+
+. Click *Storage* > *LUNs*.
+. In the *Initiator Groups* tab, click *Create*.
+. In the *General* tab of the *Create Initiator Group* dialog box, specify the initiator group name, operating system, host alias name, portset, and supported protocol for the group.
+. Click *Create*.
+
+== Delete initiator groups
+
+You can use the Initiator Groups tab in System Manager to delete initiator groups.
+
+.Before you begin
+
+All the LUNs mapped to the initiator group must be manually unmapped.
+
+.Steps
+
+. Click *Storage* > *LUNs*.
+. In the *Initiator Groups* tab, select one or more initiator groups that you want to delete, and then click *Delete*.
+. Click *Delete*.
+. Verify that the initiator groups you deleted are no longer displayed in the *Initiator Groups* tab.
+
+== Add initiators
+
+You can use System Manager to add initiators to an initiator group. An initiator provides access to a LUN when the initiator group that it belongs to is mapped to that LUN.
+
+.Steps
+
+. Click *Storage* > *LUNs*.
+. In the *LUN Management* tab, select the initiator group to which you want to add initiators and click *Edit*.
+. In the *Edit Initiator Group* dialog box, click *Initiators*.
+. Click *Add*.
+. Specify the initiator name and click *OK*.
+. Click *Save and Close*.
+
+== Delete initiators from an initiator group
+
+You can use the Initiator Groups tab in System Manager to delete an initiator. To delete an initiator from an initiator group, you must disassociate the initiator from the initiator group.
+
+.Before you begin
+
+All of the LUNs that are mapped to the initiator group that contains the initiator that you want to delete must be manually unmapped.
+
+.Steps
+
+. Click *Storage* > *LUNs*.
+. In the *Initiator Groups* tab, select the initiator group from which you want to delete the initiator, and then click *Edit*.
+. In the *Edit Initiator Group* dialog box, click the *Initiators* tab.
+. Select and delete the initiator from the text box, and click *Save*.
++
+The initiator is disassociated from the initiator group.
+
+*Related information*
+
+xref:reference_luns_window.adoc[LUNs window]
+
+
+// sm-classic rework, 2022-04-13

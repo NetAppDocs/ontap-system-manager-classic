@@ -1,0 +1,34 @@
+---
+permalink: online-help-96-97/task_editing_data_protection_volumes.html
+sidebar: sidebar
+keywords: edit, data, protection, system, manager, online, help, dp, volume
+summary: "You can use System Manager to modify the volume name for a data protection (DP) volume. If the source volume does not have storage efficiency enabled, you might want to enable storage efficiency only on the destination volume."
+---
+= Edit data protection volumes with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to modify the volume name for a data protection (DP) volume. If the source volume does not have storage efficiency enabled, you might want to enable storage efficiency only on the destination volume.
+
+.About this task
+
+You cannot modify storage efficiency on a mirror DP volume.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select the storage virtual machine (SVM) in which the DP volume that you want to edit resides.
+. Select the volume that you want to modify, and then click *Edit*.
+. In the *Edit Data Protection Volume* dialog box, modify the volume name.
+. Ensure the *Enable Storage Efficiency* option is selected.
++
+If storage efficiency is already enabled on the volume, then the check box is selected by default.
+
+. *Optional:* Click the *Advanced* tab, and perform the following steps:
+ .. Select the caching policy that you want to assign to the volume.
+ .. Select the retention priority for the cached data in the volume.
+
++
+These options are available only for data protection FlexVol volumes in a Flash Pool aggregate.
+. Click *Save*.

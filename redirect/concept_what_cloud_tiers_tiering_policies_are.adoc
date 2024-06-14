@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_what_cloud_tiers_tiering_policies_are.html
+redirect: ontap-sm-classic/online-help-96-97/task_configuring_managing_cloud_tiers.html
+---

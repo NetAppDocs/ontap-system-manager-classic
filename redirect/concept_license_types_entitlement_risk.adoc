@@ -1,0 +1,5 @@
+---
+permalink: online-help-96-97/concept_license_types_entitlement_risk.html
+redirect: ontap-sm-classic/online-help-96-97/concept_licenses.html
+---
+

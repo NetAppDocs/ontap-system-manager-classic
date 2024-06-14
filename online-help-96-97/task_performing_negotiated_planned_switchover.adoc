@@ -1,0 +1,45 @@
+---
+permalink: online-help-96-97/task_performing_negotiated_planned_switchover.html
+sidebar: sidebar
+keywords: online, help, perform, negotiated, switchover, system, help
+summary: "Beginning with System Manager 9.6, you can initiate a negotiated (planned) switchover of a MetroCluster site. This operation is useful when you want to perform disaster recovery testing or planned maintenance on the site."
+---
+= Performing a negotiated switchover
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with System Manager 9.6, you can initiate a negotiated (planned) switchover of a MetroCluster site. This operation is useful when you want to perform disaster recovery testing or planned maintenance on the site.
+
+.Steps
+
+. In System Manager, use the cluster administrator credentials to log on to the local MetroCluster site (Site A).
+. Click *Configuration* > *MetroCluster*
++
+TheMetroCluster Switchover/Switchback Operations window displays.
+
+. Click *Next*.
++
+The MetroCluster Switchover and Switchback Operations window displays the status of the operations, and System Manager verifies whether a negotiated switchover is possible.
+
+. Perform one of the following substeps when the validation process has completed:
+ ** If validation is successful, proceed to Step <<STEP_D638BF6093764719A0CF7421E478CF70,5>>.
+ ** If validation fails, but Site B is up, then an error has occurred, such as a problem with a subsystem or NVram mirroring is not synchronized. You can perform either of the following processes:
+  *** Fix the issue that is causing the error, click *Close*, and then start again at Step <<STEP_2BC62367710D4E23B278E2B70B80EB27,1>>.
+  *** Halt the Site B nodes, click *Close*, and then perform the steps in xref:task_performing_unplanned_switchover.adoc[Performing an unplanned switchover].
+ ** If validation fails, and Site B is down, then most likely there is a connection problem. Verify that Site B is really down, then perform the steps in xref:task_performing_unplanned_switchover.adoc[Performing an unplanned switchover].
+. Click *Switchover from Site B to Site A* to initiate the switchover process.
++
+A warning message displays, warning you that the switchover operation stops all data SVMs on Site B and restarts them on Site A.
+
+. If you want to proceed, click *Yes*.
++
+The switchover process begins. The states of Site A and Site B are displayed above the graphic representations of their configurations. If the switchover operation fails, an error message displays. Click *Close*. Correct any errors and start again at Step<<STEP_2BC62367710D4E23B278E2B70B80EB27,1>>
+
+. Wait until System Manager shows that healing has been completed.
++
+When healing is completed, Site B is operational, and systems prepare for the switchback process.
++
+When the preparations for the switchback process are complete, the *Switchback from Site A to Site B* button is active at the bottom of the window.
+
+. To proceed with the switchback operation, perform the steps in xref:task_performing_switchback.adoc[Performing a switchback].

@@ -1,0 +1,40 @@
+---
+permalink: volume-backup-snapvault/task_monitoring_snapvault_relationship.html
+sidebar: sidebar
+keywords: periodically, monitor, status, snapvault, relationship, ensure, data, back, up, volume, schedule, monitor the snapvault relationship
+summary: "You should periodically monitor the status of the SnapVault relationships to ensure that the data is backed up on the destination volume per the specified schedule."
+---
+= Monitor the SnapVault relationship
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You should periodically monitor the status of the SnapVault relationships to ensure that the data is backed up on the destination volume per the specified schedule.
+
+.About this task
+
+You must perform this task from the *destination* cluster.
+
+.Steps
+
+. Depending on the System Manager version that you are running, perform one of the following steps:
+ ** ONTAP 9.4 or earlier: Click *Protection* > *Relationships*.
+ ** Beginning with ONTAP 9.5: Click *Protection* > *Volume Relationships*.
+. Select the SnapVault relationship between the source and the destination volumes, and then verify the status in the *Details* bottom tab.
++
+The health status of the SnapVault relationship, any transfer errors, and the lag time are displayed:
+
+ ** The Is Healthy field must display `Yes`.
++
+For most data transfer failures, the field displays `No`. In some failure cases, however, the field continues to display `Yes`. You must check the transfer errors in the Details section to ensure that no data transfer failure occurred.
+
+ ** The Relationship State field must display `Snapmirrored`.
+ ** The Lag Time must be not more than the transfer schedule interval.
++
+For example, if the transfer schedule is daily, then the lag time must not be more than a day.
++
+You should troubleshoot any issues in the SnapVault relationships. The troubleshooting procedures for SnapMirror relationships are also applicable to SnapVault relationships.
++
+http://www.netapp.com/us/media/tr-4015.pdf[NetApp Technical Report 4015: SnapMirror Configuration and Best Practices for ONTAP 9.1, 9.2^]
++
+image::../media/monitor_sv.gif[]

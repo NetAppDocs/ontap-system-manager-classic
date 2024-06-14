@@ -1,0 +1,80 @@
+---
+permalink: online-help-96-97/task_delegating_administration_to_svm_administrators.html
+sidebar: sidebar
+keywords: online, help, delegate, administration, svm, administrator
+summary: "After setting up a functional storage virtual machine (SVM) or SVMs with basic network configuration, you can optionally delegate the administration of the SVM to SVM administrators."
+---
+= Delegate administration to SVM administrators with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to optionally delegate the administration of the SVM to SVM administrators after setting up a functional storage virtual machine (SVM) or SVMs with basic network configuration. 
+
+.About this task
+
+SVM administrators cannot use System Manager to manage delegated SVMs. Administrators can manage them only by using the command-line interface (CLI).
+
+.Steps
+
+. In the *Administrator Details* section, set up a password for the `vsadmin` user account.
+. If you want a dedicated LIF for SVM management, select *Create a LIF for SVM management*, and then specify the network details.
++
+A dedicated SVM management LIF is required for SAN protocols, where data and management protocols cannot share the same LIF. SVM management LIFs can be created only on data ports.
+
+. Specify the network details, including subnet details, for creating iSCSI LIFs:
++
+[options="header"]
+|===
+| If you want to...| Then...
+a|
+Specify the IP address by using a subnet
+a|
+
+ .. Select *Using a subnet*.
+ .. In the Add Details dialog box, select the subnet from which the IP address must be assigned.
++
+For intercluster LIFs, only the subnets that are associated with the selected IPspace are displayed.
+
+ .. If you want to assign a specific IP address to the interface, select *Use a specific IP address*, and then type the IP address.
++
+The IP address that you specify is added to the subnet if the IP address is not already present in the subnet range.
+
+ .. Click *OK*.
+
+a|
+Specify the IP address manually without using a subnet
+a|
+
+ .. Select *Without a subnet*.
+ .. In the Add Details dialog box, perform the following steps:
+  ... Specify the IP address and the network mask or prefix.
+  ... Optional: Specify the gateway.
+  ... If you do not want to use the default value for the Destination field, specify a new destination value.
++
+If you do not specify a custom value, the Destination field is populated with the default value based on the family of the IP address.
++
+If a route does not exist, a new route is automatically created based on the gateway and destination.
+ .. Click *OK*.
+
+|===
+
+. Specify a port for creating a data LIF:
+ .. Click *Browse*.
+ .. Select a port from the Select Network Port or Adapter dialog box.
+ .. Click *OK*.
+
+.Results
+
+The `vsadmin` account is unlocked and configured with the password.
+
+The default access methods for the `vsadmin` account are ONTAP API `(ontapi)` and SSH `(ssh)`. The SVM administrator can log in to the storage system by using the management IP address.
+
+== What to do next
+
+You must assign aggregates to the SVM by using the Edit Storage Virtual Machine dialog box.
+
+[NOTE]
+====
+If the SVM does not have any assigned aggregates, the SVM administrator cannot create volumes.
+====

@@ -1,0 +1,14 @@
+---
+permalink: smb-config/concept_cifs_nfs_configuration_workflow.html
+sidebar: sidebar
+keywords: configure, configuring, smb, cifs, creating, create, aggregate, workflow, goal-creating, cifs-enabled, svm, smb/cifs configuration workflow
+summary: "Configuring SMB/CIFS involves optionally creating an aggregate and then choosing a workflow that is specific to your goal—creating a new CIFS-enabled SVM, configuring CIFS access to an existing SVM, or simply adding a CIFS volume to an existing SVM that is already fully configured for CIFS access."
+---
+= SMB/CIFS configuration workflow
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Configuring SMB/CIFS involves optionally creating an aggregate and then choosing a workflow that is specific to your goal--creating a new CIFS-enabled SVM, configuring CIFS access to an existing SVM, or simply adding a CIFS volume to an existing SVM that is already fully configured for CIFS access.
+
+image::../media/cifs_config.gif[Shows an overview of the steps involved in setup of CIFS in ONTAP.]

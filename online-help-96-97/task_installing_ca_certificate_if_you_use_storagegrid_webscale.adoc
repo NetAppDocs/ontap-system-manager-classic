@@ -1,0 +1,31 @@
+---
+permalink: online-help-96-97/task_installing_ca_certificate_if_you_use_storagegrid_webscale.html
+sidebar: sidebar
+keywords: install, ca, certificate, storagegrid, fabricpool, aggregate, online, help
+summary: "For ONTAP to authenticate with StorageGRID as the object store for a FabricPool-enabled aggregate, you can install a StorageGRID CA certificate on the cluster."
+---
+= Install a CA certificate if you use StorageGRID with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+For ONTAP to authenticate with StorageGRID as the object store for a FabricPool-enabled aggregate, you can install a StorageGRID CA certificate on the cluster with System Manager classic (available in ONTAP 9.7 and earlier).
+
+.Steps
+
+. Follow the StorageGRID system documentation to copy the CA certificate of the StorageGRID system by using the Grid Management Interface.
++
+https://docs.netapp.com/sgws-113/topic/com.netapp.doc.sg-admin/home.html[StorageGRID 11.3 Administrator Guide]
++
+While adding StorageGRID as a cloud tier, a message is displayed if the CA certificate is not installed.
+
+. Add the StorageGRID CA certificate.
++
+[NOTE]
+====
+The fully qualified domain name (FQDN) that you specify must match the custom common name on the StorageGRID CA certificate.
+====
+
+*Related information*
+
+xref:task_adding_cloud_tier.adoc[Adding a cloud tier]

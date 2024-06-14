@@ -1,0 +1,37 @@
+---
+permalink: online-help-96-97/task_provisioning_basic_template.html
+sidebar: sidebar
+keywords: sap, hana, provisioning, basic, template, online, help, system, manager
+summary: "You can use System Manager to quickly provision basic templates for SAP HANA."
+---
+= Provision a basic template with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to quickly provision basic templates for SAP HANA.
+
+.About this task
+
+As the cluster administrator, you can provision applications by configuring a basic template. The example describes how to configure the *SAP HANA Server*.
+
+.Steps
+
+. Click *Applications & Tiers* > *Applications*
+. In the *Basic* tab, select the *SAP HANA Server* template.
+. In the **Database Details**section, specify the following:
+ ** Database name
+ ** Database size
+ ** Log size
+ ** Tempdb size
+ ** Number of server cores
+ ** Span HA Controller Notes
+. Click *Provision Storage*
+
+.Results
+
+The SAP HANA Server application is provisioned.
+
+*Related information*
+
+link:reference_application_provisioning_settings.md#GUID-00EAA47A-D310-4ED6-8D1B-7AE16AB3E6A5[Refer to Application Provisioning Settings for field descriptions]

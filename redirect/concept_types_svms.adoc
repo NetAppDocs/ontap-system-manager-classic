@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_types_svms.html
+redirect: ontap/system-admin/types-svms-concept.html
+---

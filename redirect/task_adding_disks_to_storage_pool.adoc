@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_adding_disks_to_storage_pool.html
+redirect: ontap-sm-classic/online-help-96-97/concept_storage_pools.html
+---

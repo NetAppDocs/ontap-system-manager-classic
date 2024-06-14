@@ -1,0 +1,83 @@
+---
+permalink: peering/task_preparing_for_cluster_peering.html
+sidebar: sidebar
+keywords: create, creating, cluster, peer, relationship, verify, time, synchronized, external, network, procotol, ntp, server, subnet, port, passphrase, prepare, prepare for cluster peering
+summary: "Before creating a cluster peering relationship using the ONTAP System Manager 'classic' interface with ONTAP 9.7 or earlier, you must verify that the time on each cluster is synchronized with an external Network Time Protocol (NTP) server, and determine the subnets, ports, and passphrases that you want to use."
+---
+= Prepare for cluster peering
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before creating a cluster peering relationship using the ONTAP System Manager _classic_ interface with ONTAP 9.7 or earlier, you must verify that the time on each cluster is synchronized with an external Network Time Protocol (NTP) server, and determine the subnets, ports, and passphrases that you want to use.
+
+.Steps
+
+. If you are running ONTAP 9.2 or earlier, determine the passphrase that you want to use for each cluster peer relationship.
++
+The passphrase must include at least eight characters.
++
+
+|===
+
+h| For the relationship between... h| The passphrase is...
+
+a|
+Cluster A and Cluster B
+a|
+
+|===
+Beginning with ONTAP 9.3, you can generate the passphrase from the remote cluster while creating the cluster peer relationship.
++
+link:task_creating_cluster_peer_relationship_starting_with_ontap_9_3.html[Creating a cluster peer relationship (Beginning with ONTAP 9.3)]
+
+. Identify the subnets, IP addresses, and ports that you will use for intercluster LIFs.
++
+By default, the IP address is automatically selected from the subnet. If you want to specify the IP address manually, you must ensure that the IP address either is already available in the subnet or can be added to the subnet later. Information about subnets is available in the Network tab.
++
+Create a table similar to the following table to record information about the clusters.  The following table assumes that each cluster has four nodes. If a cluster has more than four nodes, add rows for the additional information.
++
+
+|===
+
+h|  h| Cluster A h| Cluster B
+
+a|
+Subnet (ONTAP 9.2 or earlier)
+a|
+
+a|
+
+a|
+IP address (Beginning with ONTAP 9.3, optional for ONTAP 9.2 or earlier)
+a|
+
+a|
+
+a|
+Node 1 port
+a|
+
+a|
+
+a|
+Node 2 port
+a|
+
+a|
+
+a|
+Node 3 port
+a|
+
+a|
+
+a|
+Node 4 port
+a|
+
+a|
+
+|===
+
+// BURT 1415746, 10 JAN 2022

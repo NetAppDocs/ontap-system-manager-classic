@@ -1,0 +1,24 @@
+---
+permalink: expansion/task_adding_or_replacing_switches.html
+sidebar: sidebar
+keywords: expand, cluster, ensure, configuration, switch, exist, port, add, replace, add or replace switches
+summary: "Before you expand the cluster, you must ensure that the cluster switches support the expanded configuration. If the cluster is switchless, you must add switches."
+---
+= Add or replace switches
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before you expand the cluster, you must ensure that the cluster switches support the expanded configuration. If the cluster is switchless, you must add switches. If the existing switches do not have enough ports available to support the new configuration, you must replace the switches.
+
+== Procedure
+
+* If the cluster is currently a two-node switchless cluster, migrate the cluster to a two-node switched cluster using the type of switch you prefer.
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536[Migrating to a two-node switched cluster with Cisco cluster switches]
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535[Migrating to a two-node switched cluster with NetApp CN1610 cluster switches]
+
+* If the existing switches do not have enough ports available to support the future configuration, replace the switches by using the appropriate replacement procedure.
++
+https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62371[NetApp Documentation: Cluster, Management and Storage Switches]

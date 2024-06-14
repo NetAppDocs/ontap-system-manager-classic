@@ -1,0 +1,293 @@
+---
+permalink: online-help-96-97/concept_quotas.html
+sidebar: sidebar
+keywords: system, manager, quota, online, help, view, activate, deactivate, information, types, targets, default, limits, space, files, manage, tree, group
+summary: "You can use System Manager to create, edit, and delete quotas."
+---
+= Manage Quotas with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create, edit, and delete quotas.
+
+== Create quotas
+
+Quotas enable you to restrict or track the disk space and number of files that are used by a user, group, or qtree. You can use the Add Quota wizard in System Manager to create a quota and to apply the quota to a specific volume or qtree.
+
+.About this task
+
+Using System Manager, the minimum value that you can specify for the hard limit and soft limit on the number of files that the quota can own is 1000. If you want to specify a value lower than 1000, you should use the command-line interface (CLI).
+
+.Steps
+
+. Click *Storage* > *Quotas*.
+. From the drop-down menu in the *SVM* field, select the storage virtual machine (SVM) on which you want to create a quota.
+. In the *User Defined Quotas* tab, click *Create*.
++
+The Create Quota Wizard is displayed.
+
+. Type or select information as prompted by the wizard.
+. Confirm the details, and then click *Finish* to complete the wizard.
+
+=== What to do next
+
+You can use the local user name or RID to create user quotas. If you create the user quota or group quota by using the user name or group name, then the ``/etc/passwd``file and the``/etc/group``file must be updated, respectively.
+
+== Delete quotas
+
+You can use System Manager to delete one or more quotas when your users and their storage requirements and limitations change.
+
+.Steps
+
+. Click *Storage* > *Quotas*.
+. From the drop-down menu in the *SVM* field, select the storage virtual machine (SVM) on which the quotas that you want to delete reside.
+. Select one or more quotas that you want to delete, and then click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+
+== Edit quota limits
+
+You can use System Manager to edit the disk space threshold, the hard limit and soft limit on the amount of disk space that the quota target can use, and the hard limit and soft limit on the number of files that the quota target can own.
+
+.Steps
+
+. Click *Storage* > *Quotas*.
+. From the drop-down menu in the *SVM* field, select the storage virtual machine (SVM) on which the quota that you want to edit resides.
+. Select the quota that you want to edit, and click *Edit Limits*.
+. In the *Edit Limits* dialog box, edit the quota settings as required.
++
+One hundred (100) is the minimum value that you can specify for the hard limit and soft limit on the number of files that the quota can own. If you want to specify a value lower than 100, you should use the command-line interface (CLI).
+
+. Click *Save and Close*.
+. Verify the changes that you made to the selected quota in the *User Defined Quotas* tab.
+
+== Activate or deactivate quotas
+
+You can use System Manager to activate or deactivate quotas on one or more volumes that you select on your storage system. You can activate or deactivate quotas when you users and their storage requirements and limitations change.
+
+.Steps
+
+. Click *Storage* > *Quotas*.
+. From the drop-down menu in the SVM field, select the storage virtual machine (SVM) on which the quotas that you want to activate or deactivate reside.
+. In the *Quota Status on Volumes* tab, select one or more volumes for which you want to activate or deactivate quotas.
+. Click *Activate* or *Deactivate*, as required.
+. If you are deactivating a quota, select the confirmation check box, and then click *OK*.
+. Verify the quota status on the volumes in the *Status* column.
+
+== Resize quotas
+
+You can use the Resize Quota dialog box in System Manager to adjust the active quotas in the specified volume so that they reflect the changes that you have made to a quota.
+
+.Before you begin
+
+Quotas must be enabled for the volumes for which you want to resize quotas.
+
+.Steps
+
+. Click *Storage* > *Quotas*.
+. In the *Quota Status on Volumes* tab of the *Quotas* window, select one or more volumes for which you want to resize the quotas.
+. Click *Resize*.
+
+== View quota information
+
+You can use the Quotas window in System Manager to view quota details such as the volume and qtrees to which the quota is applied, the type of quota, the user or group to which the quota is applied, and the space and file usage.
+
+.Steps
+
+. Click *Storage* > *Quotas*.
+. From the drop-down menu in the *SVM* field, select the storage virtual machine (SVM) on which the quota that you want to view information about resides.
+. Perform the appropriate action:
++
+[cols="1a,1a" options="header"]
+|===
+| If...| Then...
+a|
+You want to view details of all of the quotas that you created
+a|
+Click the *User Defined Quotas* tab.
+a|
+You want to view details of the quotas that are currently active
+a|
+Click the *Quota Report* tab.
+|===
+
+. Select the quota that you want to view information about from the displayed list of quotas.
+. Review the quota details.
+
+== Types of quotas
+
+Quotas can be classified on the basis of the targets to which they are applied.
+
+The following are the types of quotas based on the targets to which they are applied:
+
+* *User quota*
++
+The target is a user.
++
+The user can be represented by a UNIX user name, UNIX UID, a Windows SID, a file or directory whose UID matches the user, Windows user name in pre-Windows 2000 format, and a file or directory with an ACL owned by the user's SID. You can apply it to a volume or a qtree.
+
+* *Group quota*
++
+The target is a group.
++
+The group is represented by a UNIX group name, a GID, or a file or directory whose GID matches the group. ONTAP does not apply group quotas based on a Windows ID. You can apply a quota to a volume or a qtree.
+
+* *Qtree quota*
++
+The target is a qtree, specified by the path name to the qtree.
++
+You can determine the size of the target qtree.
+
+* *Default quota*
++
+Automatically applies a quota limit to a large set of quota targets without creating separate quotas for each target.
++
+Default quotas can be applied to all three types of quota target (users, groups, and qtrees). The quota type is determined by the value of the type field.
+
+== Quota limits
+
+You can apply a disk space limit or limit the number of files for each quota type. If you do not specify a limit for a quota, none is applied.
+
+Quotas can be soft or hard. Soft quotas cause Data ONTAP to send a notification when specified limits are exceeded, and hard quotas prevent a write operation from succeeding when specified limits are exceeded.
+
+Hard quotas impose a hard limit on system resources; any operation that would result in exceeding the limit fails. The following settings create hard quotas:
+
+* Disk Limit parameter
+* Files Limit parameter
+
+Soft quotas send a warning message when resource usage reaches a certain level, but do not affect data access operations, so you can take appropriate action before the quota is exceeded. The following settings create soft quotas:
+
+* Threshold for Disk Limit parameter
+* Soft Disk Limit parameter
+* Soft Files Limit parameter
+
+Threshold and Soft Disk quotas enable administrators to receive more than one notification about a quota. Typically, administrators set the Threshold for Disk Limit to a value that is only slightly smaller than the Disk Limit, so that the threshold provides a "final warning" before writes start to fail.
+
+* *Disk space hard limit*
++
+Disk space limit applied to hard quotas.
+
+* *Disk space soft limit*
++
+Disk space limit applied to soft quotas.
+
+* *Threshold limit*
++
+Disk space limit applied to threshold quotas.
+
+* *Files hard limit*
++
+The maximum number of files on a hard quota.
+
+* *Files soft limit*
++
+The maximum number of files on a soft quota.
+
+== Quota management
+
+System Manager includes several features that help you to create, edit, or delete quotas. You can create a user, group, or tree quota and you can specify quota limits at the disk and file levels. All quotas are established on a per-volume basis.
+
+After creating a quota, you can perform the following tasks:
+
+* Enable and disable quotas
+* Resize quotas
+
+== Quotas window
+
+You can use the Quotas window to create, display, and manage information about quotas.
+
+=== Tabs
+
+* *User Defined Quotas*
++
+You can use the *User Defined Quotas* tab to view details of the quotas that you create and to create, edit, or delete quotas.
+
+* *Quota Report*
++
+You can use the Quota Report tab to view the space and file usage and to edit the space and file limits of quotas that are active.
+
+* *Quota Status on Volumes*
++
+You can use the Quota Status on Volumes tab to view the status of a quota and to turn quotas on or off and to resize quotas.
+
+=== Command buttons
+
+* *Create*
++
+Opens the Create Quota wizard, which enables you to create quotas.
+
+* *Edit Limits*
++
+Opens the Edit Limits dialog box, which enables you to edit settings of the selected quota.
+
+* *Delete*
++
+Deletes the selected quota from the quotas list.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== User Defined Quotas list
+
+The quotas list displays the name and storage information for each quota.
+
+* *Volume*
++
+Specifies the volume to which the quota is applied.
+
+* *Qtree*
++
+Specifies the qtree associated with the quota. "`All Qtrees`" indicates that the quota is associated with all the qtrees.
+
+* *Type*
++
+Specifies the quota type: user, or group, or tree.
+
+* *User/Group*
++
+Specifies a user or a group associated with the quota. "All Users" indicates that the quota is associated with all the users. "All groups" indicates that the quota is associated with all the groups.
+
+* *Quota Target*
++
+Specifies the type of target that the quota is assigned to. The target can be qtree, user, or group.
+
+* *Space Hard Limit*
++
+Specifies the disk space limit applied to hard quotas.
++
+This field is hidden by default.
+
+* *Space Soft Limit*
++
+Specifies the disk space limit applied to soft quotas.
++
+This field is hidden by default.
+
+* *Threshold*
++
+Specifies the disk space limit applied to threshold quotas.
++
+This field is hidden by default.
+
+* *File Hard Limit*
++
+Specifies the maximum number of files in a hard quota.
++
+This field is hidden by default.
+
+* *File Soft Limit*
++
+Specifies the maximum number of files in a soft quota.
++
+This field is hidden by default.
+
+=== Details area
+
+The area below the quotas list displays quota details such as the quota error, space usage and limits, and file usage and limits.
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/volumes/index.html[Logical storage management^]
+
+// 2021-12-17, Created by Aoife, sm-classic rework

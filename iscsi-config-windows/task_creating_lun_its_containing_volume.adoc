@@ -1,0 +1,53 @@
+---
+permalink: iscsi-config-windows/task_creating_lun_its_containing_volume.html
+sidebar: sidebar
+keywords: create, lun, wizard, igroup, enable, host, access, create a lun
+summary: "You use the Create LUN wizard to create a LUN. The wizard also creates the igroup and maps the LUN to the igroup, which enables the specified host to access the LUN."
+---
+= Create a LUN
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You use the Create LUN wizard to create a LUN. The wizard also creates the igroup and maps the LUN to the igroup, which enables the specified host to access the LUN.
+
+.Before you begin
+
+* There must be an aggregate with enough free space to contain the LUN.
+* There must be a storage virtual machine (SVM) with the iSCSI protocol enabled and the appropriate logical interfaces (LIFs) created.
+* You must have recorded the iSCSI initiator node name of the host.
+
+LUNs are mapped to a subset of the initiators in the igroup to limit the number of paths from the host to the LUN.
+
+* By default, ONTAP uses Selective LUN Map (SLM) to make the LUN accessible only through paths on the node owning the LUN and its high-availability (HA) partner.
+* You still must configure all of the iSCSI LIFs on every node for LUN mobility in case the LUN is moved to another node in the cluster.
+* When moving a volume or a LUN, you must modify the SLM reporting-nodes list before moving.
+
+.About this task
+
+If your organization has a naming convention, you should use names for the LUN, volume, and so on that fit your convention. Otherwise, you should accept the default names.
+
+.Steps
+
+. Navigate to the *LUNs* window.
+. Click *Create.*
+. Browse and select an SVM in which you want to create the LUNs.
++
+The Create LUN Wizard is displayed.
+
+. On the *General Properties* page, select the LUN type *Windows 2008 or later* for LUNs used directly by the Windows host, or select *Hyper-V* for LUNs containing virtual hard disks (VHDs) for Hyper-V virtual machines.
++
+Leave the *Thin Provisioned* check box unselected.
++
+image::../media/lun_creation_thin_provisioned_windows_iscsi_windows.gif[Illustration shows dialog box with Thin Provisioned check box unselected.]
+
+. On the *LUN Container* page, select an existing FlexVol volume.
++
+You must ensure that there is enough space in the volume. If sufficient space is not available in the existing volumes, you can create a new volume.
+
+. On the *Initiators Mapping* page, click *Add Initiator Group*, enter the required information on the *General* tab, and then on the *Initiators* tab, enter the iSCSI initiator node name of the host that you recorded.
+. Confirm the details, and then click *Finish* to complete the wizard.
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/system-admin/index.html[System administration]

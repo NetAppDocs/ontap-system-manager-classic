@@ -1,0 +1,38 @@
+---
+permalink: iscsi-config-esxi/task_testing_iscsi_paths.html
+sidebar: sidebar
+keywords: storage, failover, data, mobility, path, host, node, cluster, advertise, iscsi, ping, host, test, test iscsi paths from the host to the storage cluster
+summary: "To ensure successful storage failover and data mobility, you need to ensure that you have two paths from the host to every node in the storage cluster. Because the number of paths advertised by the iSCSI target is limited, you need to ping the storage cluster ports from the host."
+---
+= Test iSCSI paths from the host to the storage cluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+To ensure successful storage failover and data mobility, you need to ensure that you have two paths from the host to every node in the storage cluster. Because the number of paths advertised by the iSCSI target is limited, you need to ping the storage cluster ports from the host.
+
+.Before you begin
+
+You must know the IP address or host name of all of the logical interfaces (LIFs) to be used for iSCSI paths.
+
+.About this task
+
+LUNs are mapped to a subset of the initiators in the igroup to limit the number of paths from the host to the LUN.
+
+* By default, only paths from the host to the node containing the storage virtual machine (SVM) where the LUN was created, and paths to the HA partner of that node, are visible to the host.
+* You still must create and test paths from the host to every node in the cluster, but the host can access only those paths on the owning node and its HA partner.
+* You should use the default LUN mapping behavior.
++
+Only add nodes in other HA pairs to the LUN map in preparation for moving the LUN to a different node.
+
+.Steps
+
+. From the ESXi host, use the `ping` command to verify the path to the first LIF.
++
+The `ping` command is available from the ESXi service console.
+
+. Repeat the `ping` command to verify connectivity to each iSCSI LIF on each node in the cluster.
+
+*Related information*
+
+http://kb.vmware.com/kb/1003486[VMware KB article 1003486: Testing network connectivity with the ping command]

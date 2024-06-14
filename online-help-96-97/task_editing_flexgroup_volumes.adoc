@@ -1,0 +1,54 @@
+---
+permalink: online-help-96-97/task_editing_flexgroup_volumes.html
+sidebar: sidebar
+keywords: edit, flexgroup, volume, system, volume, online, help
+summary: "Beginning with System Manager 9.6, you can edit the properties of an existing FlexGroup volume."
+---
+= Editing FlexGroup volumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with System Manager 9.6, you can edit the properties of an existing FlexGroup volume.
+
+.Before you begin
+
+The FlexGroup volume must be online.
+
+.About this task
+
+FabricPool FlexGroup volumes can be expanded under the following conditions:
+
+* A FabricPool FlexGroup volume can be expanded only with FabricPool aggregates.
+* A non-FabricPool FlexGroup volume can be expanded only with non-FabricPool aggregates.
+* If the FlexGroup volume contains a mix of FabricPool and non-FabricPool volumes, then the FlexGroup volume can be expanded with both FabricPool and non-FabricPool aggregates.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Select the FlexGroup volume that you want to modify, and click *Edit*.
+. *Optional:* If you want to rename the FlexGroup volume, enter the new name in the *Name* field.
++
+Beginning with System Manager 9.6, you can also rename FlexGroup DP volumes.
+
+. *Optional:* Enable the *Encrypted* option to enable encryption for the volume.
++
+This option is available only if you have enabled the Volume Encryption license and if the corresponding platform supports encryption.
+
+. Specify the percentage of the Snapshot copy reserve.
+. *Optional:* Click image:../media/advanced_options.gif[] to modify the FlexGroup volume settings. Refer to link:task_specifying_advanced_options_for_flexgroup_volume.md#GUID-021C533F-BBA1-41A9-A191-DE223A158B4B[Specifying advanced options for a FlexGroup volume].
+. Specify the size to which you want to resize the FlexGroup volume.
++
+By default, existing aggregates are used to resize the FlexGroup volume. The minimum size that is allowed for the volume is displayed next to the size fields.
++
+[NOTE]
+====
+If you want to expand the FlexGroup volume by adding new resources, click image:../media/advanced_options.gif[] (advanced options). Refer to link:task_specifying_advanced_options_for_flexgroup_volume.md#GUID-021C533F-BBA1-41A9-A191-DE223A158B4B[Specifying advanced options for a FlexGroup volume].
+====
+
+. Click *Save* to save the changes.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

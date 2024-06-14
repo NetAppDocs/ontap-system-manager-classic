@@ -1,0 +1,27 @@
+---
+permalink: volume-disaster-recovery/concept_volume_disaster_recovery_workflow.html
+sidebar: sidebar
+keywords: volume, disaster recovery, workflow, activating, activate, destination, configuring, configure, access, reactivate, reactivating, original, source, volume disaster recovery workflow
+summary: "The volume disaster recovery workflow includes activating the destination volume, configuring the destination volume for data access, and reactivating the original source volume."
+---
+= Volume disaster recovery workflow
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The volume disaster recovery workflow includes activating the destination volume, configuring the destination volume for data access, and reactivating the original source volume.
+
+image::../media/snapmirror_failover_resync_workflow_eg.gif[This illustration is a flowchart of the SnapMirror Intercluster Failover and Resync workflow. The steps in the workflow match the topics.]
+
+Additional information is available to help you to manage the volume-level disaster recovery relationships and provides other methods of disaster recovery to protect the availability of your data resources.
+
+* xref:../volume-backup-snapvault/index.html[Volume backup using SnapVault]
++
+Describes how to quickly configure backup vault relationships between volumes that are located in different ONTAP clusters.
+
+* xref:../volume-restore-snapvault/index.html[Volume restore management using SnapVault]
++
+Describes how to quickly restore a volume from a backup vault in ONTAP.
+
+// 2022-6-30, Feedback from Ed to move Additional info statement to this topic
+// BURT 1448684, 31 JAN 2022

@@ -1,0 +1,85 @@
+---
+permalink: online-help-96-97/concept_events.html
+sidebar: sidebar
+keywords: event, log, notification, system, manager, online, help, view
+summary: "You can use System Manager to view the event log and event notifications."
+---
+= Manage events with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to view the event log and event notifications.
+
+== Events window
+
+You can use the Events window to view the event log and event notifications.
+
+=== Command buttons
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Events list
+
+* *Time*
++
+Displays the time when the event occurred.
+
+* *Node*
++
+Displays the node and the cluster on which the event occurred.
+
+* *Severity*
++
+Displays the severity of the event. The possible severity levels are:
+
+ ** Emergency
++
+Specifies that the event source unexpectedly stopped, and the system experienced unrecoverable data loss. You must take corrective action immediately to avoid extended downtime.
+
+ ** Alert
++
+Specifies that the event source has an alert, and action must be taken to avoid downtime.
+
+ ** Critical
++
+Specifies that the event source is critical, and might lead to service disruption if corrective action is not taken immediately.
+
+ ** Error
++
+Specifies that the event source is still performing, and a corrective action is required to avoid service disruption.
+
+ ** Warning
++
+Specifies that the event source experienced an occurrence that you must be aware of. Events of this severity might not cause service disruption; however, corrective action might be required.
+
+ ** Notice
++
+Specifies that the event source is normal, but the severity is a significant condition that you must be aware of.
+
+ ** Informational
++
+Specifies that the event source has an occurrence that you must be aware of. No corrective action might be required.
+
+ ** Debug
++
+Specifies that the event source includes a debugging message.
+
++
+By default, the alert severity type, emergency severity type, and the error severity type are displayed.
+
+* *Source*
++
+Displays the source of the event.
+
+* *Event*
++
+Displays the description of the event.
+
+=== Details area
+
+Displays the event details, including the event description, message name, sequence number, message description, and corrective action for the selected event.
+
+// 2021-12-15, Created by Aoife, sm-classic rework

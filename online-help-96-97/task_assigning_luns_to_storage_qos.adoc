@@ -1,0 +1,80 @@
+---
+permalink: online-help-96-97/task_assigning_luns_to_storage_qos.html
+sidebar: sidebar
+keywords: qos, quality, service, assign, lun, storage, system, manager, lun, online, help, policy, group
+summary: "You can use System Manager to limit the throughput of LUNs by assigning them to storage Quality of Service (QoS) policy groups. You can assign storage QoS for new LUNs or modify storage QoS details for LUNs that are already assigned to a policy group."
+---
+= Assign LUNs to storage QoS with System Manager - ONTAP  9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to limit the throughput of LUNs by assigning them to storage Quality of Service (QoS) policy groups. You can assign storage QoS for new LUNs or modify storage QoS details for LUNs that are already assigned to a policy group.
+
+.About this task
+
+* You cannot assign storage QoS to a LUN if the following storage objects are assigned to a policy group:
+ ** Parent volume of the LUN
+ ** Parent storage virtual machine (SVM) of the LUN
+* You can assign storage QoS or modify the QoS details for a maximum of 10 LUNs simultaneously.
+
+.Steps
+
+. Click *Storage* > *LUNs*.
+. In the *LUN Management* tab, select one or more LUNs for which you want to assign storage QoS.
+. Click *Storage QoS*.
+. In the *Quality of Service Details* dialog box, select the *Manage Storage Quality of Service* check box if you want to manage the workload performance of the LUN.
++
+If some of the LUNs that you selected are already assigned to a policy group, the changes that you make might affect the performance of these LUNs.
+
+. Create a new storage QoS policy group or select an existing policy group to control the input/output (I/O) performance of the LUN:
++
+[options="header"]
+|===
+| If you want to...| Do this...
+a|
+Create a new policy group
+a|
+
+ .. Select *New Policy Group*.
+ .. Specify the policy group name.
+ .. Specify the minimum throughput limit.
+  *** In System Manager 9.5, you can set the minimum throughput limit only on a performance-based All Flash Optimized personality. In System Manager 9.6, you can also set the minimum throughput limit for ONTAP Select Premium systems.
+  *** You cannot set the minimum throughput limit for volumes on a FabricPool-enabled aggregate.
+  *** If you do not specify the minimum throughput value or if the minimum throughput value is set to 0, the system automatically displays "`None`" as the value.
++
+This value is case-sensitive.
+ .. Specify the maximum throughput limit to ensure that the workload of the objects in the policy group does not exceed the specified throughput limit.
+  *** The minimum throughput limit and the maximum throughput limit must be of the same unit type.
+  *** If you do not specify the minimum throughput limit, then you can set the maximum throughput limit in IOPS and B/s, KB/s, MB/s, and so on.
+  *** If you do not specify the maximum throughput value, the system automatically displays "`Unlimited`" as the value and this value is case-sensitive.
++
+The unit that you specify does not affect the maximum throughput.
+
+a|
+Select an existing policy group
+a|
+
+ .. Select *Existing Policy Group*, and then click *Choose* to select an existing policy group from the Select Policy Group dialog box.
+ .. Specify the minimum throughput limit.
+  *** In System Manager 9.5, you can set the minimum throughput limit only on a performance-based All Flash Optimized personality. In System Manager 9.6, you can also set the minimum throughput limit for ONTAP Select Premium systems.
+  *** You cannot set the minimum throughput limit for volumes on a FabricPool-enabled aggregate.
+  *** If you do not specify the minimum throughput value or if the minimum throughput value is set to 0, the system automatically displays "`None`" as the value.
++
+This value is case-sensitive.
+ .. Specify the maximum throughput limit to ensure that the workload of the objects in the policy group does not exceed the specified throughput limit.
+  *** The minimum throughput limit and the maximum throughput limit must be of the same unit type.
+  *** If you do not specify the minimum throughput limit, then you can set the maximum throughput limit in IOPS and B/s, KB/s, MB/s, and so on.
+  *** If you do not specify the maximum throughput value, the system automatically displays "`Unlimited`" as the value and this value is case-sensitive.
+ +
+The unit that you specify does not affect the maximum throughput.
+
++
+If the policy group is assigned to more than one object, the maximum throughput that you specify is shared among the objects.
+|===
+
+. *Optional:* Click the link that specifies the number of LUNs to review the list of selected LUNs, and click *Discard* if you want to remove any LUNs from the list.
++
+The link is displayed only when multiple LUNs are selected.
+
+. Click *OK*.

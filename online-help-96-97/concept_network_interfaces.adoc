@@ -1,0 +1,182 @@
+---
+permalink: online-help-96-97/concept_network_interfaces.html
+sidebar: sidebar
+keywords: system, manager, network, interface, create, manage, online, help, create, lif, intercluster, svm, migrate, data
+summary: "You can use System Manager to create and manage network interfaces."
+---
+= Manage network interfaces with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create and manage network interfaces.
+
+== Create network interfaces
+
+You can use System Manager to create a network interface or LIF to access data from storage virtual machines (SVMs), to manage SVMs and to provide an interface for intercluster connectivity.
+
+.Before you begin
+
+The broadcast domain that is associated with the subnet must have allocated ports.
+
+.About this task
+
+* Dynamic DNS (DDNS) is enabled by default when a LIF is created.
++
+However, DDNS is disabled if you configure the LIF for intercluster communication using iSCSI, NVMe, or FC/FCoE protocols, or for management access only.
+
+* You can specify an IP address by using a subnet or by not using a subnet.
+* You cannot use System Manager to create a network interface if the ports are degraded.
++
+You must use the command-line interface (CLI) to create a network interface in such cases.
+
+* To create NVMeoF data LIF the SVM must already be set up, the NVMe service must already exist on the SVM and the NVMeoF capable adapters should be available.
+* NVMe protocol is enabled only if the selected SVM has the NVMe service configured.
+
+.Steps
+
+. Click *Network* > *Network Interfaces*.
+. Click *Create*.
+. In the *Create Network Interface* dialog box, specify an interface name.
+. Specify an interface role:
++
+[options="header"]
+|===
+| If you want to...| Then...
+a|
+Associate the network interface with a data LIF
+a|
+
+ .. Select *Serves Data*.
+ .. Select the SVM for the network interface.
+
+a|
+Associate the network interface with an intercluster LIF
+a|
+
+ .. Select *Intercluster Connectivity*.
+ .. Select the IPspace for the network interface.
+
+|===
+
+. Select the appropriate protocols.
++
+The interface uses the selected protocols to access data from the SVM.
++
+[NOTE]
+====
+If you select the NVMe protocol, the rest of the protocols are disabled. If NAS (CIFS and NFS) protocols are supported then they remain available. The NVMe transports field is displayed when you select the NVMe protocol and FC-NVMe is shown as the transport protocol.
+====
+
+. If you want to enable management access on the data LIF, select the *Enable Management Access* check box.
++
+You cannot enable management access for intercluster LIFs or LIFs with FC/FCoE or NVMe protocols.
+
+. Assign the IP address:
++
+[options="header"]
+|===
+| If you want to...| Then...
+a|
+Specify the IP address by using a subnet
+a|
+
+ .. Select *Using a subnet*.
+ .. In the Add Details dialog box, select the subnet from which the IP address must be assigned.
++
+For intercluster LIF, only the subnets that are associated with the selected IPspace are displayed.
+
+ .. If you want to assign a specific IP address to the interface, select *Use a specific IP address*, and then type the IP address.
++
+The IP address that you specify is added to the subnet if the IP address is not already present in the subnet range.
+
+ .. Click *OK*.
+
+a|
+Specify the IP address manually without using a subnet
+a|
+
+ .. Select *Without a subnet*.
+ .. In the Add Details dialog box, perform the following steps:
+  ... Specify the IP address and the network mask or prefix.
+  ... Optional: Specify the gateway.
+  ... If you do not want to use the default value for the Destination field, specify a new destination value.
++
+If you do not specify a destination value, the Destination field is populated with the default value based on the family of the IP address.
+
++
+If a route does not exist, a new route is automatically created based on the gateway and destination.
+ .. Click *OK*.
+
+|===
+
+. Select the required ports from the *Port* details area.
+ ** For data LIFs, the Port details area displays all of the ports from the broadcast domain that is associated with the IPspace of the SVM.
+ ** For intercluster LIFs, the Port details area displays all of the ports from the broadcast domain that is associated with the required IPspace.
+ ** The Port details area will display only NVMe capable adapters if the NVMe protocol is selected.
+. *Optional:* Select the *Dynamic DNS (DDNS)* check box to enable DDNS.
+. Click *Create*.
+
+== Edit network interface settings
+
+You can use System Manager to modify the network interface to enable management access for a data LIF.
+
+.About this task
+
+* You cannot modify the network settings of cluster LIFs, cluster management LIFs, or node management LIFs through System Manager.
+* You cannot enable management access for an intercluster LIF.
+
+.Steps
+
+. Click *Network* > *Network Interfaces*.
+. Select the interface that you want to modify, and then click *Edit*.
+. In the *Edit Network Interface* dialog box, modify the network interface settings as required.
+. Click *Save and Close*.
+
+== Delete network interfaces
+
+You can use System Manager to delete a network interface to free the IP address of the interface and then use the IP address for a different purpose.
+
+.Before you begin
+
+The status of the network interface must be disabled.
+
+.Steps
+
+. Click *Network* > *Network Interfaces*.
+. Select the interface that you want to delete, and then click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+
+== Migrate a LIF
+
+You can use System Manager to migrate a data LIF or a cluster management LIF to a different port on the same node or on a different node within the cluster if the source port is faulty or requires maintenance.
+
+.Before you begin
+
+The destination node and ports must be operational and must be able to access the same network as the source port.
+
+.About this task
+
+* If you are removing the NIC from the node, you must migrate the LIFs that are hosted on the ports belonging to the NIC to other ports in the cluster.
+* You cannot migrate iSCSI LIFs or FC LIFs.
+
+.Steps
+
+. Click *Network* > *Network Interfaces*.
+. Select the interface that you want to migrate, and then click *Migrate*.
+. In the *Migrate Interface* dialog box, select the destination port to which you want to migrate the LIF.
+. *Optional:* Select the *Migrate Permanently* check box if you want to set the destination port as the new home port for the LIF.
+. Click *Migrate*.
+
+
+*Related information*
+
+xref:reference_network_window.adoc[Network window]
+
+xref:task_configuring_iscsi_protocol_on_svms.adoc[Configuring iSCSI protocol on SVMs]
+
+https://docs.netapp.com/us-en/ontap/concepts/index.html[ONTAP concepts]
+
+https://docs.netapp.com/us-en/ontap/networking/index.html[Network management]
+
+// 2021-12-10, Created by Aoife, sm-classic-rework

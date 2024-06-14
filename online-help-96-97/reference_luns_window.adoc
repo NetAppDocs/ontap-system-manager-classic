@@ -1,0 +1,230 @@
+---
+permalink: online-help-96-97/reference_luns_window.html
+sidebar: sidebar
+keywords: online, help, lun, management, window, command, button, initiator, portset, group, online, help
+summary: "You can use the LUNs window to create and manage LUNs and to display information about LUNs. You can also add, edit, or delete initiator groups and initiator IDs."
+---
+= LUNs window in System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the LUNs window in ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create and manage LUNs and to display information about LUNs. You can also add, edit, or delete initiator groups and initiator IDs.
+
+== LUN Management tab
+
+This tab enables you to create, clone, delete, move, or edit the settings of LUNs. You can also assign LUNs to a Storage Quality of Service (QoS) policy group.
+
+== Command buttons
+
+* *Create*
++
+Opens the Create LUN wizard, which enables you to create LUNs.
++
+In a cluster on an AFF platform that does not contain any existing LUNs, the Create FC SAN optimized LUNs dialog box is opened, which enables you to set up one or more FC SAN optimized LUNs.
+
+* *Clone*
++
+Opens the Clone LUN dialog box, which enables you to clone the selected LUNs.
+
+* *Edit*
++
+Opens the Edit LUN dialog box, which enables you to edit the settings of the selected LUN.
+
+* *Delete*
++
+Deletes the selected LUN.
+
+* *Status*
++
+Enables you to change the status of the selected LUN to either Online or Offline.
+
+* *Move*
++
+Opens the Move LUN dialog box, which enables you to move the selected LUN to a new volume or an existing volume or qtree within the same storage virtual machine (SVM).
+
+* *Storage QoS*
++
+Opens the Quality of Service details dialog box, which enables you to assign one or more LUNs to a new or existing policy group.
+
+* *Refresh*
++
+Updates the information in the window.
+
+== LUNs list
+
+* *Name*
++
+Displays the name of the LUN.
+
+* *SVM*
++
+Displays the name of the storage virtual machine (SVM) in which the LUN is created.
+
+* *Container Path*
++
+Displays the name of the file system (volume or qtree) that contains the LUN.
+
+* *Space Reservation*
++
+Specifies whether space reservation is enabled or disabled.
+
+* *Available Size*
++
+Displays the space available in the LUN.
+
+* *Total Size*
++
+Displays the total space in the LUN.
+
+* *%Used*
++
+Displays the total space (in percentage) that is used.
+
+* *Type*
++
+Specifies the LUN type.
+
+* *Status*
++
+Specifies the status of the LUN.
+
+* *Policy Group*
++
+Displays the name of the Storage QoS policy group to which the LUN is assigned. By default, this column is hidden.
+
+* *Application*
++
+Displays the name of the application that is assigned to the LUN.
+
+* *Description*
++
+Displays the description of the LUN.
+
+== Details area
+
+The area below the LUNs list displays details related to the selected LUN.
+
+* *Details tab*
++
+Displays details related to the LUN such as the LUN serial number, whether the LUN is a clone, LUN description, the policy group to which the LUN is assigned, minimum throughput of the policy group, maximum throughput of the policy group, details about the LUN move operation, and the application assigned to the LUN. You can also view details about the initiator groups and initiators that are associated with the selected LUN.
+
+* *Performance tab*
++
+Displays performance metrics graphs of the LUNs, including data rate, IOPS, and response time.
++
+Changing the client time zone or the cluster time zone impacts the performance metrics graphs. Refresh your browser to see the updated graphs.
+
+== Initiator Groups tab
+
+This tab enables you to create, delete, or edit the settings of initiator groups and initiator IDs.
+
+== Command buttons
+
+* *Create*
++
+Opens the Create Initiator Group dialog box, which enables you to create initiator groups to control host access to specific LUNs.
+
+* *Edit*
++
+Opens the Edit Initiator Group dialog box, which enables you to edit the settings of the selected initiator group.
+
+* *Delete*
++
+Deletes the selected initiator group.
+
+* *Refresh*
++
+Updates the information in the window.
+
+== Initiator Groups list
+
+* *Name*
++
+Displays the name of the initiator group.
+
+* *Type*
++
+Specifies the type of protocol supported by the initiator group. The supported protocols are iSCSI, FC/FCoE, or Mixed (iSCSI and FC/FCoE).
+
+* *Operating System*
++
+Specifies the operating system for the initiator group.
+
+* *Portset*
++
+Displays the portset that is associated with the initiator group.
+
+* *Initiator Count*
++
+Displays the number of initiators added to the initiator group.
+
+== Details area
+
+The area below the Initiator Groups list displays details about the initiators that are added to the selected initiator group and the LUNs that are mapped to the initiator group.
+
+== Portsets tab
+
+This tab enables you to create, delete, or edit the settings of portsets.
+
+== Command buttons
+
+* *Create*
++
+Opens the Create Portset dialog box, which enables you to create portsets to limit access to your LUNs.
+
+* *Edit*
++
+Opens the Edit Portset dialog box, which enables you to select the network interfaces that you want to associate with the portset.
+
+* *Delete*
++
+Deletes the selected portset.
+
+* *Refresh*
++
+Updates the information in the window.
+
+== Portsets list
+
+* *Portset Name*
++
+Displays the name of the portset.
+
+* *Type*
++
+Specifies the type of protocol supported by the portset. The supported protocols are iSCSI, FC/FCoE, or Mixed (iSCSI and FC/FCoE).
+
+* *Interface Count*
++
+Displays the number of network interfaces that are associated with the portset.
+
+* *Initiator Group Count*
++
+Displays the number of initiator groups that are associated with the portset.
+
+== Details area
+
+The area below the Portsets list displays details about the network interfaces and initiator groups associated with the selected portset.
+
+*Related information*
+
+xref:task_creating_luns.adoc[Creating LUNs]
+
+xref:task_deleting_luns.adoc[Deleting LUNs]
+
+xref:task_creating_initiator_groups.adoc[Creating initiator groups]
+
+xref:task_editing_luns.adoc[Editing LUNs]
+
+xref:task_editing_initiator_groups.adoc[Editing initiator groups]
+
+xref:task_editing_initiators.adoc[Editing initiators]
+
+xref:task_bringing_luns_online.adoc[Bringing LUNs online]
+
+xref:task_taking_luns_offline.adoc[Taking LUNs offline]
+
+xref:task_cloning_luns.adoc[Cloning LUNs]
+
+// 8 feb 2022, BURT 1456161

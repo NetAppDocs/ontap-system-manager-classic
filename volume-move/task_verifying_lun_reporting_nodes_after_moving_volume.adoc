@@ -1,0 +1,39 @@
+---
+permalink: volume-move/task_verifying_lun_reporting_nodes_after_moving_volume.html
+sidebar: sidebar
+keywords: volume, lun, destination, aggregate, high-availability, ha, pair, ontap, selective, reporting-nodes, list, path, verify, verify lun reporting nodes after moving a volume
+summary: "You can add LUN reporting nodes to help maintain optimized LUN paths."
+---
+= Verify LUN reporting nodes after moving a volume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can add LUN reporting nodes to help maintain optimized LUN paths.
+
+If the volume that you move contains LUNs, and the destination aggregate is on another high-availability (HA) pair, ONTAP automatically adds an HA pair to the Selective LUN Map reporting-nodes list
+
+.Before you begin
+
+Two LIFs must be configured: one LIF on the destination node and the other LIF on the HA partner of the destination node.
+
+.About this task
+
+This procedure is required only if you move a volume from one HA pair to a different HA pair. If you move a volume to a different node of the same HA pair--for example, if you have a two-node cluster or a MetroCluster configuration--you can skip this procedure.
+
+.Steps
+
+. Verify that the destination node and its partner node are in the reporting-nodes list of the volume. If the nodes are not in the reporting-nodes list, add the destination node and its partner node to the reporting-nodes list of the volume:
++
+`lun mapping add-reporting-nodes`
+. Rescan from the host to discover the newly added paths.
+. Add the new paths to your MPIO configuration.
+. Remove the previous LUN owner and its partner node from the reporting-nodes list:
++
+`lun mapping remove-reporting-nodes -remote-nodes -vserver vserver_name -path lun_path -igroup igroup_name`
+. Rescan the host to verify removal of old paths.
++
+See your host documentation for specific steps to rescan your hosts.
+
+// 2022-06-14, issue #63
+// BURT 1415751, 10 JAN 2022

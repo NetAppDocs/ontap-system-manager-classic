@@ -1,0 +1,39 @@
+---
+permalink: online-help-96-97/task_deleting_application.html
+sidebar: sidebar
+keywords: delete, application, provisioned
+summary: "You can delete a provisioned application when it is no longer required."
+---
+= Delete an application with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to delete a provisioned application when it is no longer required. 
+
+.About this task
+
+As the cluster administrator, after you provision an application, you can delete it when you no longer require it. The example procedure that follows describes how to delete a *NAS Container* application.
+
+.Steps
+
+. Click *Applications & Tiers* > *Applications*
+. Click the name of the NAS container application.
++
+[NOTE]
+====
+If someone adds new applications using the CLI or REST API while you are viewing the list of applications, then you will not be able to view those new applications when you scroll the list.
+====
++
+The *Overview* tab of the Application Details: nas window displays the application settings.
+
+. Click *Delete*.
++
+A dialog box displays a warning message that asks you if you are sure you want to delete this application.
+
+. Click *Delete*.
++
+[NOTE]
+====
+Any volume deleted using the Application delete operation is not placed in the recovery queue. The volume is deleted immediately.
+====

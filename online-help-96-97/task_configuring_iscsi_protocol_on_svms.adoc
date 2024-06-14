@@ -1,0 +1,110 @@
+---
+permalink: online-help-96-97/task_configuring_iscsi_protocol_on_svms.html
+sidebar: sidebar
+keywords: system, manager, iscsi, protocol, svm, online, help, lif, portset
+summary: 'You can configure the iSCSI protocol on a storage virtual machine \(SVM\) to provide block-level data access by using System Manager. You can create iSCSI LIFs and portsets and then add the LIFs to the portsets. LIFs are created on the most suitable adapters and are assigned to portsets to ensure data path redundancy.'
+---
+= Configure iSCSI protocol on SVMs with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to configure the iSCSI protocol on a storage virtual machine (SVM) to provide block-level data access. You can create iSCSI LIFs and portsets and then add the LIFs to the portsets. LIFs are created on the most suitable adapters and are assigned to portsets to ensure data path redundancy.
+
+.Before you begin
+
+* The iSCSI license must be enabled on the cluster.
++
+If the iSCSI protocol is not enabled on the SVM, you can use the Edit Storage Virtual Machine window to enable the protocol for the SVM.
+
+* All of the nodes in the cluster must be healthy.
+* Each node must have at least two data ports, and the port state must be `up`.
+
+.About this task
+
+* You can configure the iSCSI protocol while creating the SVM or you can do so at a later time.
+* SnapLock aggregates are not considered for automatically creating volumes.
+
+.Steps
+
+. If you have not configured the iSCSI protocol while creating the SVM, click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Protocols* pane, click *iSCSI*.
+. *Optional:* In the *Network Access* section, specify an alias for the iSCSI target.
++
+The maximum number of characters for an alias name is 128. If you do not specify a target alias, the SVM name is used as an alias.
+
+. Specify the number of iSCSI LIFs that can be assigned to a single node.
++
+The minimum number of LIFs per node is one. The maximum number is the minimum of all the ports in the `up` state across the nodes. If the maximum value is an odd number, the previous even number is considered as the maximum value. You can choose any even number in the minimum and maximum value range.
++
+A 4-node cluster has node1, node2, and node3 with six ports each in the `up` state, and node4 with seven ports in the `up` state. The effective maximum value for the cluster is 6.
++
+If the number of LIFs that you want to assign to the node is more than two, you must assign at least one portset to each LIF.
+
+. Specify the network details, including the subnet details, to create iSCSI LIFs:
++
+[options="header"]
+|===
+| If you want to...| Then...
+a|
+Specify the IP address by using a subnet
+a|
+
+ .. Select *Using a subnet*.
+ .. In the Add Details dialog box, select the subnet from which the IP address must be assigned.
++
+For intercluster LIFs, only the subnets that are associated with the selected IPspace are displayed.
+
+ .. If you want to assign a specific IP address to the interface, select *Use a specific IP address*, and then type the IP address.
++
+The IP address that you specify is added to the subnet if the IP address is not already present in the subnet range.
+
+ .. Click *OK*.
+
+a|
+Specify the IP address manually without using a subnet
+a|
+
+ .. Select *Without a subnet*.
+ .. In the Add Details dialog box, perform the following steps:
+  ... Specify the IP address and the network mask or prefix.
+  ... Optional: Specify the gateway.
+  ... If you do not want to use the default value for the Destination field, specify a new destination value.
++
+If you do not specify a destination value, the Destination field is populated with the default value based on the family of the IP address.
+
++
+If a route does not exist, a new route is automatically created based on the gateway and destination.
+ .. Click *OK*.
+
+|===
+
+. Select the broadcast domain.
+. Select the adapter type.
++
+If you have NIC cards configured in your cluster, you should select *NIC*.
++
+If you have CNS cards configured in your cluster, you should select *CNA*.
++
+If you have ifgrps configured in your cluster, you should select *Interface Group*.
++
+[NOTE]
+====
+The ifgrp port must be added in the broadcast domain.
+====
+
+. *Optional:* Provision a LUN for iSCSI storage when configuring the iSCSI protocol by specifying the LUN size, OS type for the LUN, and host initiator details.
+. If you want to verify or modify the configuration of the automatically generated iSCSI LIFs, select *Review or Modify LIFs configuration (Advanced Settings)*.
++
+You can modify only the LIF name and the home port. By default, the portsets are set to the minimum value. You must specify unique entries. If you specify duplicate LIF names, System Manager appends numeric values to the duplicate LIF name.
++
+Based on the selected portset, the LIFs are distributed across the portsets by using a round-robin method to ensure redundancy in case of node failure or port failure.
+
+. Click *Submit & Continue*.
+
+.Results
+
+The iSCSI LIFs and portsets are created with the specified configuration. The LIFs are distributed among the portsets based on the selected portset. The iSCSI service is started if all of the LIFs are successfully created.
+
+If LIF creation fails, you can create the LIFs by using the Network Interfaces window, attach the LIFs to the portsets by using the LUNs window, and then start the iSCSI service by using the iSCSI window.

@@ -1,0 +1,30 @@
+---
+permalink: online-help-96-97/task_viewing_list_saved_snapshot_copies.html
+sidebar: sidebar
+keywords: view, list, saved, snapshot, copy, system, manager, online, help
+summary: "You can use System Manager to view the list of all of the saved Snapshot copies for a selected volume from the Snapshot Copies tab in the lower pane of the Volumes window. You can use the list of saved Snapshot copies to rename, restore, or delete a Snapshot copy."
+---
+= View the list of saved Snapshot copies with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to view the list of all of the saved Snapshot copies for a selected volume from the Snapshot Copies tab in the lower pane of the Volumes window. You can use the list of saved Snapshot copies to rename, restore, or delete a Snapshot copy.
+
+.Before you begin
+
+The volume must be online.
+
+.About this task
+
+You can view Snapshot copies for only one volume at a time.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Click the plus sign (+) next to the volume for which you want to view saved Snapshot copies.
+. Click the *Show More Details* link to view more information about the volume.
+. Click the *Snapshot Copies* tab.
++
+The list of available Snapshot copies for the selected volume is displayed.

@@ -1,0 +1,96 @@
+---
+permalink: online-help-96-97/task_setting_up_saml_authentication.html
+sidebar: sidebar
+keywords: set, up, saml, authentication, security, assertion, markup, idp, online, help, system, manager,  language, secure, identity, provide,
+summary: "You can set up Security Assertion Markup Language (SAML) authentication so that remote users are authenticated through a secure identity provider (IdP) before they log in to System Manager."
+---
+= Set up SAML authentication with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to set up Security Assertion Markup Language (SAML) authentication. Remote users are authenticated through a secure identity provider (IdP) before they log in to System Manager.
+
+image::../media/mfa_workflow.gif[]
+
+== Enable SAML authentication
+
+You can use System Manager to configure Security Assertion Markup Language (SAML) authentication so that remote users can log in by using a secure identity provider (IdP).
+
+.Before you begin
+
+* The IdP that you plan to use for remote authentication must be configured.
++
+[NOTE]
+====
+See the documentation that is provided by the IdP that you have configured.
+====
+
+* You must have the URI of the IdP.
+
+.About this task
+
+The following IdPs have been validated with System Manager: 
+
+* Active Directory Federation Services
+* Cisco DUO (validated with the following ONTAP versions:)
+** 9.7P21 and later 9.7 releases 
+** 9.8P17 and later 9.8 releases
+** 9.9.1P13 and later 9.9 releases
+** 9.10.1P9 and later 9.10 releases
+** 9.11.1P4 and later 9.11 releases
+** 9.12.1 and later releases
+* Shibboleth
+
+[NOTE]
+====
+After SAML authentication is enabled, only remote users can access the System Manager GUI. Local users cannot access the System Manager GUI after SAML authentication is enabled.
+====
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Authentication*.
+. Select the *Enable SAML authentication* check box.
+. Configure System Manager to use SAML authentication:
+ .. Enter the URI of the IdP.
+ .. Enter the IP address of the host system.
+ .. *Optional:* If required, change the host system certificate.
+. Click *Retrieve Host Metadata* to retrieve the host URI and host metadata information.
+. Copy the host URI or host metadata details, access your IdP, and then specify the host URI or host metadata details and the trust rules in the IdP window.
++
+[NOTE]
+====
+See the documentation that is provided by the IdP that you have configured.
+====
+
+. Click *Save*.
++
+The IdP login window is displayed.
+
+. Log in to System Manager by using the IdP login window.
++
+After the IdP is configured, if the user tries to log in by using the fully qualified domain name (FQDN), IPv6, or a cluster management LIF, then the system automatically changes the IP address to the IP address of the host system that was specified during the IdP configuration.
+
+== Disable SAML authentication
+
+You can disable Security Assertion Markup Language (SAML) authentication if you want to disable remote access to System Manager, or to edit the SAML configuration.
+
+.About this task
+
+Disabling SAML authentication does not delete SAML configuration.
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Authentication*.
+. Clear the *Enable SAML authentication* check box.
+. Click *Save*.
++
+System Manager restarts.
+
+. Log in to System Manager by using the cluster credentials.
+
+*Related information*
+
+xref:task_accessing_cluster_by_using_system_manager_brower_based_gui.adoc[Accessing a cluster by using the ONTAP System Manager browser-based graphic interface]
+
+// 2021-12-07, Created by Aoife sm-classic rework

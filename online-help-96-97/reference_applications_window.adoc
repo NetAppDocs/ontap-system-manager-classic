@@ -1,0 +1,119 @@
+---
+permalink: online-help-96-97/reference_applications_window.html
+sidebar: sidebar
+keywords: applications, window, svm, online, help, storage, virtual, machine, online, help, action, icon, tab, column
+summary: "You can use System Manager to display a list of the applications in a storage virtual machine (SVM). The list includes detailed information about each application."
+---
+= Applications window in System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to display a list of the applications in a storage virtual machine (SVM). The list includes detailed information about each application.
+
+== Tabs
+
+Depending on the configuration of the cluster, System Manager displays information about applications using one of the following methods:
+
+* *No tabs*
++
+Detailed information about the application, including the name, the type, storage usage, performance, and related information.
+
+* *Two tabs*
++
+The display provides two tabs of information about the application.
+
+ ** *Enhanced*
++
+Detailed information about the application, including the name, the type, storage usage, performance, and related information.
+
+ ** *Basic*
++
+Basic information about the application.
+
+== List of applications
+
+Applications for the selected SVM are displayed on the *Enhanced* tab in a list in the following ways:
+
+* For System Manager 9.5 and earlier, up to a maximum of 32 applications are displayed in the list.
+* For System Manager 9.6, the first 25 applications are displayed in the list. As you scroll to the bottom of the list, another 25 applications are added to the list. When you continue to scroll, you can continue to add 25 applications at a time to expand the list up to a maximum of 1000 applications.
+
+== List columns
+
+The information about each application is listed on the *Enhanced* tab in the following columns.
+
+* *Expand/collapse arrow image:../media/arrow_expand_collapse_white_background.gif[]*
++
+Contains an arrow that you can click to expand the information to a show a detailed view or to collapse the information back to the summary view.
+
+* *Name*
++
+The name of the application.
+
+* *Type*
++
+The application type.
+
+* *Component*
++
+The component of the application.
+
+* *ONTAP Service Level*
++
+The level of ONTAP service for the application.
+
+* *Usage*
++
+A graphical bar that shows the percentage of usage.
+
+* *Used*
++
+The amount of storage space used by the application.
+
+* *Available*
++
+The amount of storage space still available for the application.
+
+* *Size*
++
+The size of the application.
+
+* *IOPs*
++
+The number of input and output operations per second (IOPs) for the application.
+
+* *Latency*
++
+The amount of latency for the application.
+
+== Entry fields
+
+The following fields can be used to modify the display of information:
+
+* *SVM*
++
+Enables you to display a drop-down list of SVMs from which you can select the SVM that contains the applications you want to display.
+
+* *Search field*
++
+Enables you to type all or part of an application name to initiate a search based on the criteria you type. Only the applications with names that match the criteria are then displayed in the list.
+
+* *Sort by field*
++
+Enables you to sort the list of applications based on name, size, or type.
+
+== Action icons
+
+The following icons on the *Enhanced* tab can be used to initiate actions:
+
+* *Add icon image:../media/add_plus_sign.gif[]*
++
+Enables you to add an application to the selected SVM.
+
+* *Filter icon image:../media/filter_icon_white_background.gif[]*
++
+Enables you to specify the type of application you want to display in your search results.
+
+* *Display icon image:../media/display_icon.gif[]*
++
+Enables you to switch between a list view and a card view of the application information.

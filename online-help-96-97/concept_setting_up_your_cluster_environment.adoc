@@ -1,0 +1,14 @@
+---
+permalink: online-help-96-97/concept_setting_up_your_cluster_environment.html
+sidebar: sidebar
+keywords: set, up, cluster, environment, system, manager, cli, command, line, interface, cluster, ip, address
+summary: "You can create a cluster by using System Manager or the command-line interface (CLI). To create a cluster by using System Manager, you must set up the node management IP address on any node in the cluster network. If you have created a cluster by using the CLI, you can configure the cluster by using System Manager."
+---
+= Setting up your cluster environment
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can create a cluster by using System Manager or the command-line interface (CLI). To create a cluster by using System Manager, you must set up the node management IP address on any node in the cluster network. If you have created a cluster by using the CLI, you can configure the cluster by using System Manager.
+
+image::../media/guided_cluster_setup.gif[]

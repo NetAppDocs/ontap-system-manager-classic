@@ -1,0 +1,26 @@
+---
+permalink: online-help-96-97/task_resetting_cifs_domain_controllers.html
+sidebar: sidebar
+keywords: reset, cifs, domain, controller, system, manager, online, help
+summary: "You can use System Manager to reset the CIFS connection to domain controllers for the specified domain. Failure to reset the domain controller information can cause a connection failure."
+---
+= Reset CIFS domain controllers with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to reset the CIFS connection to domain controllers for the specified domain. Failure to reset the domain controller information can cause a connection failure.
+
+.About this task
+
+You have to update the discovery information of the storage system's available domain controller after you add or delete a domain from the list of preferred domain controllers. You can update the storage system's available domain controller discovery information in ONTAP through the command-line interface (CLI).
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Domain* tab, click *Reset*.
+
+*Related information*
+
+xref:reference_cifs_window.adoc[CIFS window]

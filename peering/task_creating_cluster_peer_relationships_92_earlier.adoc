@@ -1,0 +1,71 @@
+---
+permalink: peering/task_creating_cluster_peer_relationships_92_earlier.html
+sidebar: sidebar
+keywords: create, cluster, peer, relationship, enter, predetermined, passphrase, ip, address, intercluster, lif, remote, successful, create a cluster peer relationship, ontap 9.2 or earlier
+summary: "You can create a cluster peer relationship between two clusters by entering a predetermined passphrase and the IP addresses of the intercluster LIFs of the remote cluster, and then verifying that the relationship was created successfully."
+---
+= Create a cluster peer relationship (ONTAP 9.2 or earlier)
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Using the ONTAP System Manager _classic_ interface with ONTAP 9.2 or an earlier ONTAP 9 release, you can create a cluster peer relationship between two clusters by entering a predetermined passphrase and the IP addresses of the intercluster LIFs of the remote cluster, and then verifying that the relationship was created successfully.
+
+.Before you begin
+
+* You must know the IP addresses of all of the intercluster LIFs of the clusters that you want to peer.
+* You must know the passphrase that you will use for each peer relationship.
+
+.About this task
+
+You must perform this procedure on each cluster.
+
+.Steps
+
+. From the source cluster, create a cluster peer relationship with the destination cluster.
+ .. Click the *Configurations* tab.
+ .. In the *Cluster Settings* pane, click *Cluster Peers*.
+ .. Click *Create*.
++
+The *Create Cluster Peer* dialog box is displayed.
+
+ .. [[step1d-passphrase-used]]In the *Details of the remote cluster to be peered* area, specify the passphrase that both peers will use to ensure an authenticated cluster peer relationship.
+ .. Enter the IP addresses of all of the intercluster LIFs of the destination cluster (one per node) separated by commas.
++
+image::../media/cluster_peer_create.gif[Create Cluster Peer dialog box]
+
+ .. Click *Create*.
++
+The authentication status is "`pending`" because only one cluster has been configured.
+. Switch to the destination cluster, and then create a cluster peer relationship with the source cluster:
+ .. Click the *Configurations* tab.
+ .. In the *Cluster Settings* pane, click *Cluster Peers*.
+ .. Click *Create*.
++
+The Create Cluster Peer dialog box is displayed.
+
+ .. In the *Details of the remote cluster to be peered* area, specify the same passphrase that you specified in <<step1d-passphrase-used,Step 1d>> and the IP addresses of the intercluster LIFs of the source cluster, and then click *Create*.
+
++
+image::../media/cluster_peer_create_2.gif[This image is explained by the surrounding text.]
+. From the *Cluster Peers* window of the destination cluster, confirm that the source cluster is "`available`" and that the authentication status is "`OK`".
++
+image::../media/cluster_peers_status.gif[This image is explained by the surrounding text.]
++
+You might have to click *Refresh* to view the updated information.
++
+The two clusters are in a peer relationship.
+
+. Switch to the source cluster, and confirm that the destination cluster is "`available`" and that the authentication status is "`OK`".
++
+You might have to click *Refresh* to view the updated information.
+
+== What to do next
+
+Create an SVM peer relationship between the source and destination SVMs while creating a data protection relationship between the source volume and the destination volume.
+
+link:../volume-backup-snapvault/index.html[Volume backup using SnapVault]
+
+link:../volume-disaster-recovery/index.html[Volume disaster recovery preparation]
+
+// BURT 1415746, 10 JAN 2022

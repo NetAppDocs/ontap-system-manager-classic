@@ -1,0 +1,12 @@
+---
+permalink: volume-disaster-recovery/task_reactivating_source_volume.html
+sidebar: sidebar
+keywords: source, volume, resynchronize, data, destination, volume, source, update, modification, resynchronization, operation, activate, reactivate the source volume
+summary: "When the source volume becomes available, you must resynchronize the data from the destination volume to the source volume, update any modifications after the resynchronization operation, and activate the source volume."
+---
+= Reactivate the source volume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When the source volume becomes available, you must resynchronize the data from the destination volume to the source volume, update any modifications after the resynchronization operation, and activate the source volume.

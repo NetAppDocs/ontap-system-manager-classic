@@ -1,0 +1,101 @@
+---
+permalink: online-help-96-97/reference_trace_file_access_window.html
+sidebar: sidebar
+keywords: system, manager, commnd, button, trace, file, access, window, online, help, cif, entry, list
+summary: "Beginning with System Manager 9.6, you can use the Trace File Access window to diagnose issues when you have problems accessing files and shares on an SVM using the CIFS or NFS protocol."
+---
+= Trace File Access window in System Manager 
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with ONTAP System Manager 9.6, you can use the Trace File Access window to diagnose issues when you have problems accessing files and shares on an SVM using the CIFS or NFS protocol.
+
+== Command buttons
+
+* *Continue*
++
+Starts the process of setting up and initiating a file access trace on the selected SVM.
+
+* *Protocols*
++
+Allows you to select the protocol that is used to access files and shares on the selected SVM, either CIFS or NFS.
+
+* *Advanced Options icon*
++
+Allows you to specify additional details to narrow the scope of the trace.
+
+* *Show in Trace Results*
++
+Allows you to specify in the Advanced Options dialog box whether you want the trace results to display only file access requests that were denied or to display all file access requests--those that were successful and those that were denied.
+
+* *Start Tracing*
++
+Allows you to start the trace. The results show access problems for file access requests submitted over the next 60 minutes.
+
+* *Stop Tracing*
++
+Allows you to stop the trace.
+
+* *View Permissions*
++
+Allows you to display permissions. When using the CIFS protocol, you can display effective file and share permissions. When using the NFS protocol, you can display effective file permissions.
+
+* *Copy to Clipboard*
++
+Allows you copy the results table to the clipboard.
+
+* *Export Trace Results*
++
+Allows you to export the trace results to a file in comma-separated-values (.csv) format.
+
+== Entry fields
+
+* *User Name*
++
+You enter the name of the user who received file access request errors that you want to trace.
+
+* *Search trace results*
++
+You enter specific information that you want to find in the search results, and then you click *Enter*.
+
+* *Client IP Address*
++
+In theAdvanced Options dialog box, you can specify the IP address of the client as an additional detail to narrow the scope of the trace.
+
+* *File*
++
+In theAdvanced Options dialog box, you can specify the file or file path that you want to access as an additional detail to narrow the scope of the trace.
+
+.Results list for CIFS protocol tracing
+
+When you specify the CIFS protocol, the results list displays the following data for your trace based on the parameters you specified. The data is displayed in reverse chronological order. If you stop tracing, the results remain in the list until you start another trace.
+
+* Share: The name of the share that the system attempted to access, whether successful or not.
+* Path: The file path of the file that the system attempted to access, whether successful or not.
+* Client IP Address: The IP address of the client from which access requests were initiated.
+* Reasons: The reasons the attempt to access the file or share was successful or not.
++
+[NOTE]
+====
+When the trace result shows a message saying that access is not granted for "Synchronize", "Read Control", "Read Attributes", "Execute", "Read EA", "Write", or "Read"', the message is indicating that the desired access has not been not granted for the set of permissions listed. In order to view the actual permissions status, you need to view the permissions using the provided link.
+====
+
+.Results list for NFS protocol tracing
+
+When you specify the NFS protocol, the results list displays the following data for your trace based on the parameters you specified. The data is displayed in reverse chronological order. If you stop tracing, the results remain in the list until you start another trace.
+
+* Path: The file path of the file that the system attempted to access, whether successful or not.
+* Client IP Address: The IP address of the client from which access requests were initiated.
+* Reasons: The reasons the attempt to access the file or share was successful or not.
++
+[NOTE]
+====
+When the trace result shows a message saying that access is not granted for "Synchronize", "Read Control", "Read Attributes", "Execute", "Read EA", "Write", or "Read"', the message is indicating that the desired access has not been not granted for the set of permissions listed. In order to view the actual permissions status, you need to view the permissions using the provided link.
+====
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/smb-admin/index.html[SMB/CIFS management]
+
+xref:../nas-multiprotocol-config/index.html[SMB/CIFS and NFS multiprotocol configuration]

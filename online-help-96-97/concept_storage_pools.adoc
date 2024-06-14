@@ -1,0 +1,251 @@
+---
+permalink: online-help-96-97/concept_storage_pools.html
+sidebar: sidebar
+keywords: system, manager, storage, pools, ssd, flash, pool, aggregates, online, help, create,
+summary: "You can use System Manager to create storage pools to enable SSDs to be shared by multiple Flash Pool aggregates."
+---
+= Manage storage pools with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create storage pools to enable SSDs to be shared by multiple Flash Pool aggregates.
+
+== Create a storage pool
+
+A storage pool is a collection of SSDs (cache disks). You can use System Manager to combine SSDs to create a storage pool, which enables you to share the SSDs and SSD spares between an HA pair for allocation to two or more Flash Pool aggregates at the same time.
+
+.Before you begin
+
+* Both nodes of the HA pair must be up and running in order to allocate SSDs and SSD spares through a storage pool.
+* Storage pools must have a minimum of 3 SSDs.
+* All SSDs in a storage pool must be owned by the same HA pair.
+
+.About this task
+
+System Manager enforces the hot spare rule for SSD RAID groups when you use SSDs for adding disks to a storage pool. For example, if there are 10 SSDs in the SSD RAID group and the option `raid.min_spare_count` is set to `1` at the node level, System Manager leaves 1 SSD as the hot spare and uses the other 9 SSDs for SSD-related operations.
+
+You cannot use partitioned SSDs when creating a storage pool by using System Manager.
+
+.Steps
+
+. Click *Storage* > *Aggregates & Disks* > *Storage Pools*.
+. In the *Storage Pools* window, click *Create*.
+. In the *Create Storage Pool* dialog box, specify the name for the storage pool, disk size, and the number of disks.
+. Click *Create*.
+
+== Add disks to a storage pool
+
+You can add SSDs to an existing storage pool and increase its cache size by using System Manager.
+
+.Before you begin
+
+Both nodes of the HA pair must be up and running in order to allocate SSDs and SSD spares through a storage pool.
+
+.About this task
+
+* The SSDs that you add to a storage pool are distributed proportionally among the aggregates using the storage pool cache and to the free space of the storage pool.
+* System Manager enforces the hot spare rule for SSD RAID groups when you use SSDs for adding disks to a storage pool.
++
+For example, if there are 10 SSDs in the SSD RAID group and the option `raid.min_spare_count` is set to `1` at the node level, System Manager leaves 1 SSD as the hot spare and uses the other 9 SSDs for SSD-related operations.
+
+* You cannot use partitioned SSDs when adding disks to a storage pool by using System Manager.
+
+.Steps
+
+. Click *Storage* > *Aggregates & Disks* > *Storage Pools*.
+. In the *Storage Pools* window, select the storage pool, and then click *Add Disks*.
+. In the *Add Disks* dialog box, specify the number of disks that you want to add.
+. Click *Next*.
+. In the *Summary* dialog box, review how the cache is distributed among various aggregates and the free space of the storage pool.
+. Click *Add*.
+
+== Delete storage pools
+
+You might want to delete a storage pool when the cache of the storage pool is not optimal or when it is no longer used by any aggregate or Flash Pool aggregate. You can delete a storage pool by using the Delete Storage Pool dialog box in System Manager.
+
+.Before you begin
+
+The storage pool must not be used by any aggregate.
+
+.Steps
+
+. Click *Storage* > *Aggregates & Disks* > *Storage Pools*.
+. In the *Storage Pools* window, select the storage pool that you want to delete, and then click *Delete*.
+. In the *Delete Storage Pool* dialog box, click *Delete*.
+
+== Use SSD storage pools
+
+To enable SSDs to be shared by multiple Flash Pool aggregates, you can add the SSDs to a _storage pool_. After you add an SSD to a storage pool, you can no longer manage the SSD as a stand-alone entity. You must use the storage pool to assign or allocate the storage that is provided by the SSD.
+
+You can create storage pools for a specific high-availability (HA) pair. Then, you can add allocation units from that storage pool to one or more Flash Pool aggregates that are owned by the same HA pair. Just as disks must be owned by the same node that owns an aggregate before the disks can be allocated to it, storage pools can provide storage only to the Flash Pool aggregates that are owned by one of the nodes that owns the storage pool.
+
+If you have to increase the amount of Flash Pool cache on your system, you can add more SSDs to a storage pool, up to the maximum RAID group size for the RAID type of the Flash Pool caches that are using the storage pool. When you add an SSD to an existing storage pool, you increase the size of the storage pool's allocation units, including any allocation units that are already allocated to a Flash Pool aggregate.
+
+You can use only one spare SSD for a storage pool, so that if an SSD in that storage pool becomes unavailable, ONTAP can use the spare SSD to reconstruct the partitions of the malfunctioning SSD. You do not have to reserve any allocation units as spare capacity; ONTAP can use only a full, unpartitioned SSD as a spare for the SSDs in a storage pool.
+
+After you add an SSD to a storage pool, you cannot remove the SSD, just as you cannot remove disks from an aggregate. If you want to use the SSDs in a storage pool as discrete drives again, you must destroy all of the Flash Pool aggregates to which the storage pool's allocation units have been allocated, and then destroy the storage pool.
+
+== Requirements and best practices for using SSD storage pools
+
+Some technologies cannot be combined with Flash Pool aggregates that use SSD storage pools.
+
+You cannot use the following technologies with Flash Pool aggregates that use SSD storage pools for their cache storage:
+
+* MetroCluster
+* SyncMirror functionality
++
+Mirrored aggregates can coexist with Flash Pool aggregates that use storage pools; however, Flash Pool aggregates cannot be mirrored.
+
+* Physical SSDs
++
+Flash Pool aggregates can use SSD storage pools or physical SSDs, but not both.
+
+SSD storage pools must conform to the following rules:
+
+* SSD storage pools can contain only SSDs; HDDs cannot be added to an SSD storage pool.
+* All of the SSDs in an SSD storage pool must be owned by the same high-availability (HA) pair.
+* You cannot use SSDs that have been partitioned for root-data partitioning in a storage pool.
+
+If you provide storage from a single storage pool to two caches with different RAID types, and you expand the size of the storage pool beyond the maximum RAID group size for RAID4, the extra partitions in the RAID4 allocation units go unused. Therefore, it is a best practice to keep your cache RAID types homogenous for a storage pool.
+
+You cannot change the RAID type of cache RAID groups that are allocated from a storage pool. You set the RAID type for the cache before adding the first allocation units, and you cannot change the RAID type later.
+
+When you create a storage pool or add SSDs to an existing storage pool, you must use the same size SSDs. If a failure occurs and no spare SSD of the correct size exists, ONTAP can use a larger SSD to replace the failed SSD. However, the larger SSD is right-sized to match the size of the other SSDs in the storage pool, resulting in lost SSD capacity.
+
+You can use only one spare SSD for a storage pool. If the storage pool provides allocation units to the Flash Pool aggregates that are owned by both nodes in the HA pair, then the spare SSD can be owned by either node. However, if the storage pool provides allocation units only to the Flash Pool aggregates that are owned by one of the nodes in the HA pair, then the SSD spare must be owned by that same node.
+
+== Considerations for when to use SSD storage pools
+
+SSD storage pools provide many benefits, but they also introduce some restrictions that you should be aware of when deciding whether to use SSD storage pools or dedicated SSDs.
+
+SSD storage pools make sense only when they are providing cache to two or more Flash Pool aggregates. SSD storage pools provide the following benefits:
+
+* Increased storage utilization for SSDs used in Flash Pool aggregates
++
+SSD storage pools reduce the overall percentage of SSDs needed for parity by enabling you to share parity SSDs between two or more Flash Pool aggregates.
+
+* Ability to share spares between HA partners
++
+Because the storage pool is effectively owned by the HA pair, one spare, owned by one of the HA partners, can function as a spare for the entire SSD storage pool if needed.
+
+* Better utilization of SSD performance
++
+The high performance provided by SSDs can support access by both controllers in an HA pair.
+
+These advantages must be weighed against the costs of using SSD storage pools, which include the following items:
+
+* Reduced fault isolation
++
+The loss of a single SSD affects all RAID groups that include one of its partitions. In this situation, every Flash Pool aggregate that has cache allocated from the SSD storage pool that contains the affected SSD has one or more RAID groups in reconstruction.
+
+* Reduced performance isolation
++
+If the Flash Pool cache is not properly sized, there can be contention for the cache between the Flash Pool aggregates that are sharing it. This risk can be mitigated with proper cache sizing and QoS controls.
+
+* Decreased management flexibility
++
+When you add storage to a storage pool, you increase the size of all Flash Pool caches that include one or more allocation units from that storage pool; you cannot determine how the extra capacity is distributed.
+
+== Considerations for adding SSDs to an existing storage pool versus creating a new one
+
+You can increase the size of your SSD cache in two ways--by adding SSDs to an existing SSD storage pool or by creating a new SSD storage pool. The best method for you depends on your configuration and plans for the storage.
+
+The choice between creating a new storage pool and adding storage capacity to an existing one is similar to deciding whether to create a new RAID group or add storage to an existing one:
+
+* If you are adding a large number of SSDs, creating a new storage pool provides more flexibility because you can allocate the new storage pool differently from the existing one.
+* If you are adding only a few SSDs, and increasing the RAID group size of your existing Flash Pool caches is not an issue, then adding SSDs to the existing storage pool keeps your spare and parity costs lower, and automatically allocates the new storage.
+
+If your storage pool is providing allocation units to Flash Pool aggregates whose caches have different RAID types, and you expand the size of the storage pool beyond the maximum RAID4 RAID group size, the newly added partitions in the RAID4 allocation units are unused.
+
+== Why you add disks to storage pools
+
+You can add SSDs to an existing storage pool and increase its cache size. When you add SSDs to a storage pool that has allocation units already allocated to Flash Pool aggregates, you increase the cache size of each of those aggregates and the total cache of the storage pool.
+
+If the allocation units of the storage pool are not yet allocated, adding SSDs to that storage pool does not affect the SSD cache size.
+
+When you add SSDs to an existing storage pool, the SSDs must be owned by one node or the other of the same HA pair that already owned the existing SSDs in the storage pool. You can add SSDs that are owned by either node of the HA pair.
+
+== How storage pool works
+
+A _storage pool_ is a collection of SSDs. You can combine SSDs to create a storage pool, which enables you to share the SSDs and SSD spares across multiple Flash Pool aggregates, at the same time.
+
+Storage pools consist of allocation units, which you can use to provide SSDs and SSD spares to aggregates or to increase the existing SSD size.
+
+After you add an SSD to a storage pool, you can no longer use the SSD as an individual disk. You must use the storage pool to assign or allocate the storage provided by the SSD.
+
+== Storage Pools window
+
+You can use the Storage Pools window to create, display, and manage a dedicated cache of SSDs, also known as _storage pools_. These storage pools can be associated with a non-root aggregate to provide SSD cache and with a Flash Pool aggregate to increase its size.
+
+This page is not available for a cluster containing nodes with All Flash Optimized personality.
+
+=== Command buttons
+
+* *Create*
++
+Opens the Create Storage Pool dialog box, which enables you to create a storage pool.
+
+* *Add Disks*
++
+Opens the Add Disks dialog box, which enables you to add cache disks to a storage pool.
+
+* *Delete*
++
+Deletes the selected storage pool.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Storage pools list
+
+* *Name*
++
+Displays the name of the storage pool.
+
+* *Total Cache*
++
+Displays the total cache size of the storage pool.
+
+* *Spare Cache*
++
+Displays the available spare cache size of the storage pool.
+
+* *Used Cache (%)*
++
+Displays the percentage of used cache size of the storage pool.
+
+* *Allocation Unit*
++
+Displays the minimum allocation unit of the total cache size that you can use to increase the size of your storage pool.
+
+* *Owner*
++
+Displays the name of the HA pair or the node with which the storage pool is associated.
+
+* *State*
++
+Displays the state of the storage pool, which can be Normal, Degraded, Creating, Deleting, Reassigning, or Growing.
+
+* *Is Healthy*
++
+Displays whether storage pool is healthy or not.
+
+=== Details tab
+
+Displays detailed information about the selected storage pool, such as the name, health, storage type, disk count, total cache, spare cache, used cache size (in percent), and allocation unit. The tab also displays the names of the aggregates that are provisioned by the storage pool.
+
+=== Disks tab
+
+Displays detailed information about the disks in the selected storage pool, such as the names, disk types, useable size, and total size.
+
+*Related information*
+
+xref:task_provisioning_storage_by_creating_flash_pool_aggregate_manually.adoc[Provisioning storage by creating a Flash Pool aggregate manually]
+
+xref:task_provisioning_cache_by_adding_disks.adoc[Provisioning cache by adding SSDs]
+
+https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html[Disk and aggregate management]
+
+// 2021-12-14, Created by Aoife, sm-classic rework

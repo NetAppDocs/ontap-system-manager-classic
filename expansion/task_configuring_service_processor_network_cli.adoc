@@ -1,0 +1,65 @@
+---
+permalink: expansion/task_configuring_service_processor_network_cli.html
+sidebar: sidebar
+keywords: expand, cluster, configure, service, processor, sp, network, node, manual, network, configuration, automatic, configure the service processor network
+summary: "After you expand a cluster, you must configure the Service Processor network on the new nodes."
+---
+= Configure the Service Processor network
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+After you expand a cluster, you must configure the Service Processor (SP) network on the new nodes. If the SP uses manual network configuration, you must configure the IP addresses for the SP on the new nodes. If the SP uses automatic network configuration, you must identify the IP addresses that were selected.
+
+.Steps
+
+. If the cluster SP uses manual network configuration, configure IP addresses on both nodes for the SP network by using the `system service-processor network modify` command.
++
+The following commands configure the SP network in cluster1-3 and cluster1-4 nodes:
++
+----
+cluster1::> system service-processor network modify -node cluster1-3 -address-family IPv4 -enable true -ip-address 192.168.123.98-netmask 255.255.255.0 -gateway 192.168.123.1
+cluster1::> system service-processor network modify -node cluster1-4 -address-family IPv4 -enable true -ip-address 192.168.123.99 -netmask 255.255.255.0 -gateway 192.168.123.1
+----
+
+. Verify that the SP network is configured correctly on both the new nodes by using the `system service-processor network show` command for each node.
++
+The status should be `succeeded`. Verification is required in all situations. Even if the SP network was automatically configured, you should verify that it was configured successfully, and you must determine which IP addresses were assigned.
++
+The following output indicates that both the cluster1-3 and the cluster1-4 nodes have successful SP network setup:
++
+----
+cluster1::> system service-processor network show -node cluster1-3
+                             Address
+Node          Status         Family    Link State  IP Address
+------------- -------------- --------- ----------- ------------------------
+cluster1-3    online         IPv4      up          192.168.123.98
+
+                                 DHCP: none
+                          MAC Address: 00:a0:98:43:a1:1e
+                      Network Gateway: 10.60.172.1
+             Network Mask (IPv4 only): 255.255.255.0
+            Prefix Length (IPv6 only): -
+                      IPv6 RA Enabled: -
+                          Subnet Name: -
+              SP Network Setup Status: succeeded
+                                     ...
+
+cluster1::> system service-processor network show -node cluster1-4
+                             Address
+Node          Status         Family    Link State  IP Address
+------------- -------------- --------- ----------- ------------------------
+cluster1-4    online         IPv4      up          192.168.123.99
+
+                                 DHCP: none
+                          MAC Address: 00:a0:98:43:a1:1e
+                      Network Gateway: 10.60.172.1
+             Network Mask (IPv4 only): 255.255.255.0
+            Prefix Length (IPv6 only): -
+                      IPv6 RA Enabled: -
+                          Subnet Name: -
+              SP Network Setup Status: succeeded
+                                     ...
+----
+
+. If your site typically has DNS entries for the SP network, verify that the DNS entries are created for the new nodes.

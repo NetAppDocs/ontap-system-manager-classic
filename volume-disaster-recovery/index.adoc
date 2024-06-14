@@ -1,0 +1,36 @@
+---
+permalink: volume-disaster-recovery/index.html
+sidebar: sidebar
+keywords: content, destination, activate, volume, disaster, reactivate, source, ontap, volume disaster recovery overview
+summary: "You can quickly activate a destination volume after a disaster and then reactivate the source volume in ONTAP using the ONTAP System Manager classic interface (ONTAP 9.7 and earlier)."
+---
+= Volume disaster recovery overview
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can quickly activate a destination volume after a disaster and then reactivate the source volume in ONTAP using the ONTAP System Manager classic interface (ONTAP 9.7 and earlier).
+
+Use this procedure if you want to perform volume-level disaster recovery in the following way:
+
+* You are working with clusters running ONTAP 9.
+* You are a cluster administrator.
+* You have configured the SnapMirror relationship following xref:../volume-disaster-prep/index.html[Volume disaster recovery preparation]
+* The cluster administrator of the source cluster has declared that the data in the source volume is unavailable due to events such as virus infection leading to data corruption or accidental deletion of data.
+* You want to use System Manager, not the ONTAP command-line interface or an automated scripting tool.
+* You want to use the System Manager classic interface for ONTAP 9.7 and earlier releases, not the ONTAP System Manager UI for ONTAP 9.7 and later.
+* You want to use best practices, not explore every available option.
+* You do not want to read a lot of conceptual background.
+
+== Other ways to do this in ONTAP
+
+[cols=2,options="header"]
+|===
+| To perform these tasks with... | See this content...
+| The redesigned System Manager (available with ONTAP 9.7 and later) | link:https://docs.netapp.com/us-en/ontap/task_dp_serve_data_from_destination.html[Serve data from a SnapMirror destination^]
+| The ONTAP command line interface | link:https://docs.netapp.com/us-en/ontap/data-protection/make-destination-volume-writeable-task.html[Activate the destination volume^]
+
+|===
+
+// 2022-1-24, BURT 1446392
+// 2022-1-27, update CLI link in table

@@ -1,0 +1,77 @@
+---
+permalink: online-help-96-97/concept_hardware_cache.html
+sidebar: sidebar
+keywords: hardware, cache, system, manager, manage, online, help, flash,
+summary: "You can use System Manager to manage Hardware Cache modules."
+---
+= Manage hardware cache with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to manage Hardware Cache modules.
+
+[NOTE]
+====
+Flash Cache is known as Hardware Cache in System Manager.
+====
+
+== Enable or disable Flash Cache modules
+
+You can enable or disable the external cache functionality for a storage system that has a Flash Cache module installed by using System Manager. You can enable Flash Cache modules based on the workload requirements of your storage system.
+
+.Steps
+
+. Click *Configuration* > *Hardware Cache*
+. If you want to modify a module or modules, move the slider button to enable or disable each module, as required.
+
+== How Flash Cache modules work
+
+Using Flash Cache modules improves the performance of a storage system. The impact of using Flash Cache modules is displayed on the Hardware Cache window.
+
+You can configure Flash Cache modules and disks based on the workload requirements of a storage system. By determining the read workload (number of read operations) served by Flash Cache modules and disks, you can analyze the performance of the storage system.
+
+Flash Cache modules do not contain any data during the storage system boot or when control is returned to the storage system after a takeover event. Therefore, disks serve all the data read requests of the storage system.
+
+The Flash Cache module is slowly populated with data when data read requests are served. Because the data read requests served by Flash Cache modules are faster than those served by the disks, the performance of the storage system improves.
+
+Data read requests served by the Flash Cache module replace the data read requests served by the disks, and therefore, the performance improvement in the storage system is directly related to the disk reads that are replaced. To understand the impact of Flash Cache modules on storage system performance, you must view the read workload graph in the Hardware Cache window when the Flash Cache module contains data.
+
+== Hardware Cache window
+
+You can use the Hardware Cache window to enable or disable Flash Cache modules for a storage system that has a Flash Cache module installed. You can also view the read-workload statistics.
+
+=== Module Information
+
+* *Storage system name*
++
+The name of the storage system that has a Flash Cache module installed displays under the graphic.
+
+* *Enable/Disable toggle button*
++
+Move the toggle button to enable or disable the module.
+
+* *Size*
++
+The size of the module in gigabytes. If there are multiple Flash Cache module cards, the total cache size from all of the cards is displayed.
++
+[NOTE]
+====
+The Flash Cache module size that is displayed differs from the actual size for the following reasons:
+    -   System Manager reports only the usable capacity that is provided by ONTAP.
+    -   A portion of the total capacity is reserved for storing metadata.
+====
+
+* *Model Names*
++
+The model names of the modules.
+
+* *System Read Latency*
++
+Displays the average read latency in milliseconds.
+
+=== Cache Read Workload
+
+Indicates storage system performance by displaying a graph specifying the rate of the read workload that is served by the disks and the Flash Cache module.
+
+//2021-12-15, Created by Aoife, sm-classic rework

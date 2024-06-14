@@ -1,0 +1,25 @@
+---
+permalink: online-help-96-97/task_editing_initiators.html
+sidebar: sidebar
+keywords: edit, initiator, online, help, group, dialog, system, manager
+summary: "You can use the Edit Initiator Group dialog box in System Manager to change the name of an existing initiator in an initiator group."
+---
+= Edit initiators with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the *Edit Initiator Group* dialog box in ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to change the name of an existing initiator in an initiator group.
+
+.Steps
+
+. Click *Storage* > *LUNs*.
+. In the *Initiator Groups* tab, select the initiator group to which the initiator belongs, and then click *Edit*.
+. In the *Edit Initiator Group* dialog box, click *Initiators*.
+. Select the initiator that you want to edit and click *Edit*.
+. Change the name and click *OK*.
+. Click *Save and Close*.
+
+*Related information*
+
+xref:reference_luns_window.adoc[LUNs window]

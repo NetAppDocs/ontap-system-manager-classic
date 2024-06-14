@@ -1,0 +1,32 @@
+---
+permalink: iscsi-config-windows/task_initializing_formatting_lun.html
+sidebar: sidebar
+keywords: lun, access, windows, host, partition, file, system, initialize, format, file, system, initialize and format the lun
+summary: "When a new LUN is first accessed by the Windows host, it has no partition or file system. You must initialize the LUN, and optionally format it with a file system."
+---
+= Initialize and format the LUN
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When a new LUN is first accessed by the Windows host, it has no partition or file system. You must initialize the LUN, and optionally format it with a file system.
+
+.Before you begin
+
+The LUN must have been discovered by the Windows host.
+
+.About this task
+
+LUNs appear in Windows Disk Management as disks.
+
+You can initialize the disk as a basic disk with a GPT or MBR partition table.
+
+You typically format the LUN with a file system such as NTFS, but some applications use raw disks instead.
+
+.Steps
+
+. Start Windows Disk Management.
+. Right-click the LUN, and then select the required disk or partition type.
+. Follow the instructions in the wizard.
++
+If you choose to format the LUN as NTFS, you must select the *Perform a quick format* check box.

@@ -1,0 +1,118 @@
+---
+permalink: online-help-96-97/concept_ethernet_ports.html
+sidebar: sidebar
+keywords: system, manager, manager, ethernet, port, create, online, help, create, interface, group, lacp, vlan, settings, duplex, mode, speed, mtu, size,  port, nodes, fcp,
+summary: "You can use System Manager to create and manage Ethernet ports."
+---
+= Manage ethernet ports with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (avaiable in ONTAP 9.7 and earlier) to create and manage Ethernet ports.
+
+== Create interface groups
+
+You can use System Manager to create an interface group--single-mode, static multimode, or dynamic multimode (LACP)--to present a single interface to clients by combining the capabilities of the aggregated network ports.
+
+.Before you begin
+
+Free ports must be available that do not belong to any broadcast domain or interface group, or that host a VLAN.
+
+.Steps
+
+. Click *Network* > *Ethernet Ports*.
+. Click *Create Interface Group*.
+. In the *Create Interface Group* dialog box, specify the following settings:
+ ** Name of the interface group
+ ** Node
+ ** Ports that you want to include in the interface group
+ ** Usage mode of the ports: single-mode, static multiple, or dynamic multimode (LACP)
+ ** Network load distribution: IP-based, MAC address-based, sequential, or port
+ ** Broadcast domain for the interface group, if required
+. Click *Create*.
+
+== Create VLAN interfaces
+
+You can create a VLAN to maintain separate broadcast domains within the same network domain by using System Manager.
+
+.Steps
+
+. Click *Network* > *Ethernet Ports*.
+. Click *Create VLAN*.
+. In the *Create VLAN* dialog box, select the node, the physical interface, and the broadcast domain (if required).
++
+The physical interface list includes only Ethernet ports and interface groups. The list does not display interfaces that are in another interface group or an existing VLAN.
+
+. Type a VLAN tag, and then click *Add*.
++
+You must add unique VLAN tags.
+
+. Click *Create*.
+
+== Edit Ethernet port settings
+
+You can edit Ethernet port settings such as the duplex mode and speed settings by using System Manager.
+
+.Steps
+
+. Click *Network* > *Ethernet Ports*.
+. Select the physical port, and then click *Edit*.
+. In the *Edit Ethernet Port* dialog box, modify the duplex mode and speed settings to either `manual` or `automatic`.
+. Click *Edit*.
+
+== Edit interface group settings
+
+You can use System Manager to add ports to an interface group, to remove ports from an interface group, and to modify the usage mode and load distribution pattern of the ports in an interface group.
+
+.About this task
+
+You cannot modify the MTU settings of an interface group that is assigned to a broadcast domain.
+
+.Steps
+
+. Click *Network* > *Ethernet Ports*.
+. Select an interface group, and then click *Edit*.
+. Modify the interface group settings as required, and then click *Save and Close*.
+
+== Modify the MTU size of a VLAN
+
+If you want to modify the MTU size of a VLAN interface that is not part of a broadcast domain, you can use System Manager to change the size.
+
+.About this task
+
+You must not modify the MTU size of the management port e0M.
+
+.Steps
+
+. Click *Network* > *Ethernet Ports*.
+. Select the VLAN that you want to modify, and then click *Edit*.
+. In the *Edit VLAN* dialog box, modify the MTU size as required, and then click *Save*.
+
+== Delete VLANs
+
+You can delete VLANs that are configured on network ports by using System Manager. You might have to delete a VLAN before removing a NIC from its slot. When you delete a VLAN, the VLAN is automatically removed from all of the failover rules and groups that use the VLAN.
+
+.Before you begin
+
+No LIFs must be associated with the VLAN.
+
+.Steps
+
+. Click *Network* > *Ethernet Ports*.
+. Select the VLAN that you want to delete, and then click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+
+== Ports and adapters
+
+Ports are grouped under nodes and the nodes are displayed based on the selected protocol category. For example, if the data is served using the FC protocol, then only the nodes with FCP adapters are displayed. The hosted interface count helps you in choosing a port which is less loaded.
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/networking/index.html[Network management]
+
+https://docs.netapp.com/us-en/ontap/concepts/index.html[ONTAP concepts]
+
+xref:reference_network_window.adoc[Network window]
+
+// 2021-12-10, Created by Aoife, sm-classic rework

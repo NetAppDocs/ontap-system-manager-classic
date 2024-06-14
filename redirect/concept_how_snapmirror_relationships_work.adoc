@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_how_snapmirror_relationships_work.html
+redirect: ontap/concept_dp_overview.html
+---

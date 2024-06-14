@@ -1,0 +1,34 @@
+---
+permalink: expansion/task_upgrading_or_downgrading_nodes.html
+sidebar: sidebar
+keywords: join, install, node, cluster, run, ontap, upgrade, downgrade
+summary: "Before joining the newly installed nodes to the cluster, you must ensure that they are running the same version of ONTAP that the cluster is running. If the nodes are running a different version, you must upgrade or downgrade the nodes to match the cluster."
+---
+= Upgrade or downgrade the nodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before joining the newly installed nodes to the cluster, you must ensure that they are running the same version of ONTAP that the cluster is running. If the nodes are running a different version, you must upgrade or downgrade the nodes to match the cluster.
+
+.Steps
+
+. Determine the version of ONTAP installed on the cluster: `cluster image show`
+. View the current version of ONTAP on the nodes:
+ .. On the first node, view the software version: `system node image show`
++
+----
+::*> system node image show
+                 Is      Is                                Install
+Node     Image   Default Current Version                   Date
+-------- ------- ------- ------- ------------------------- -------------------
+localhost
+         image1  false   false   9.3                    MM/DD/YYYY TIMESTAMP
+         image1  true    true    9.3                    MM/DD/YYYY TIMESTAMP
+2 entries were displayed.
+----
+
+ .. Repeat the previous step for the second node.
+. Compare the versions of ONTAP on the cluster and the nodes, and perform either of the following actions:
+ ** If the versions of ONTAP on the cluster and the nodes are the same, no upgrade or downgrade is needed.
+ ** If the versions of ONTAP on the cluster and the nodes are different, you can link:https://docs.netapp.com/us-en/ontap/upgrade/index.html[Upgrade ONTAP] on nodes with earlier versions or you can link:https://docs.netapp.com/us-en/ontap/revert/index.html[Revert ONTAP] for nodes with later versions.

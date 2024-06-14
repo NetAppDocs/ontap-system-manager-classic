@@ -1,0 +1,131 @@
+---
+permalink: online-help-96-97/concept_svm_user_accounts.html
+sidebar: sidebar
+keywords: system, manager, create, manage, online, help, storage, virtual, machine, svm, user, account, password, change, lock, unlock , command, button
+summary: "You can use System Manager to create and manage storage virtual machine (SVM) user accounts."
+---
+= Create and manage SVM user accounts with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create and manage storage virtual machine (SVM) user accounts.
+
+== Add SVM user accounts
+
+You can use System Manager to add a storage virtual machine (SVM) user account and to specify a user login method for accessing the storage system.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *SVM User Details* pane, click *Users*.
+. Click *Add*.
+. Specify a user name and password for connecting to the storage system, and confirm the password.
+. Add one or more user login methods, and then click *Add*.
++
+A login method for the new vsadmin account is automatically included that uses HTTP as the application and is authenticated with a certificate.
+
+== Change the password for SVM user accounts
+
+You can use System Manager to reset the password for a storage virtual machine (SVM) user account.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *SVM User Details* pane, click *Users*.
+. Select the user account for which you want to modify the password, and then click *Reset Password*.
+. In the *Reset Password* dialog box, type the new password, confirm the new password, and then click *Change*.
+
+== Edit SVM user accounts
+
+You can use System Manager to edit a storage virtual machine (SVM) user account by modifying the user login methods for accessing the storage system.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *SVM User Details* pane, click *Users*.
+. Select the user account that you want to edit, and then click *Edit*.
+. Modify one or more user login methods, and then click *Modify*.
+
+== Lock or unlock SVM user accounts
+
+You can use System Manager to lock or unlock storage virtual machine (SVM) user accounts.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *SVM User Details* pane, click *Users*.
+. In the *Users* window, select the user account for which you want to modify the account status, and then click either *Lock* or *Unlock*, as required.
+
+== Users window
+
+You can use the Users window to manage user accounts, to reset the password of a user, and to view information about all of the user accounts.
+
+=== Command buttons
+
+* *Add*
++
+Opens the Add User dialog box, which enables you to add user accounts.
+
+* *Edit*
++
+Opens the Modify User dialog box, which enables you to modify user login methods.
++
+[NOTE]
+====
+It is a best practice to use a single role for all of the access and authentication methods of a user account.
+====
+
+* *Delete*
++
+Enables you to delete a selected user account.
+
+* *Change Password*
++
+Opens the Change Password dialog box, which enables you to reset a selected user's password.
+
+* *Lock*
++
+Locks the user account.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Users list
+
+The area below the users list displays detailed information about the selected user.
+
+* *User*
++
+Displays the name of the user account.
+
+* *Account Locked*
++
+Displays whether the user account is locked.
+
+=== User Login Methods area
+
+* *Application*
++
+Displays the access method that a user can use to access the storage system. The supported access methods include the following:
+
+ ** System console (console)
+ ** HTTP(S) (http)
+ ** ONTAP API (ontapi)
+ ** Service Processor (service-processor)
+ ** SSH (ssh)
+
+* *Authentication*
++
+Displays the default supported authentication method, which is "`password`".
+
+* *Role*
++
+Displays the role of a selected user.
+
+// 2021-12-21, Created by Aoife, sm-classic rework

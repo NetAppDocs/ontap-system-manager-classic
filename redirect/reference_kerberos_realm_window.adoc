@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/reference_kerberos_realm_window.html
+redirect: ontap-sm-classic/online-help-96-97/concept_kerberos_realm_services.html
+---

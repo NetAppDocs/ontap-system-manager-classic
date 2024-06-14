@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_increasing_cache_for_flash_pool_aggregates_by_adding_ssds.html
+redirect: ontap-sm-classic/online-help-96-97/task_provisioning_cache_by_adding_disks.html
+---

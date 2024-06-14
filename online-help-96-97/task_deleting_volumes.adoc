@@ -1,0 +1,48 @@
+---
+permalink: online-help-96-97/task_deleting_volumes.html
+sidebar: sidebar
+keywords: online, help, delete, volumes, system, manager, flexvol, volume
+summary: "You can use System Manager to delete a FlexVol volume when you no longer require the data that a volume contains or if you have copied the data that a volume contains to another location. When you delete a volume, all the data in the volume is destroyed, and you cannot recover that data."
+---
+= Delete volumes with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to delete a FlexVol volume when you no longer require the data that a volume contains or if you have copied the data that a volume contains to another location. When you delete a volume, all the data in the volume is destroyed, and you cannot recover that data.
+
+.Before you begin
+
+The following conditions must exist before you delete a FlexVol volume:
+
+* The volume must be unmounted and must be in the offline state.
+* FlexClone volumes must be either split from the parent volume or destroyed if the FlexVol volume is cloned.
+* The SnapMirror relationships must be deleted if the volume is in one or more SnapMirror relationships.
+
+.About this task
+
+You should be aware of the following limitations when deleting a FlexVol volume:
+
+* You can delete a complete SnapLock Enterprise volume or a file in a SnapLock Enterprise volume; however, you cannot delete only the data within a file in a SnapLock Enterprise volume.
+* You cannot delete a SnapLock Compliance volume if data is committed to the volume.
+* If the FlexVol contains both qtrees and volumes, the qtrees appear as directories. You should be careful to not delete the qtrees accidentally when deleting volumes.
+* If you have associated FlexCache volumes with an origin volume, then you must delete the FlexCache volumes before you can delete the origin volume.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select the storage virtual machine (SVM) in which the volume that you want to delete resides.
+. Select the volumes that you want to delete.
++
+[NOTE]
+====
+Verify that you have selected the correct volumes that you want to delete. When you delete a volume, all the data in the volume is destroyed, and you cannot recover that data.
+====
+
+. Click *Delete*.
+
+. Select the confirmation check box, and then click *Delete*.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

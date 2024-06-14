@@ -1,0 +1,24 @@
+---
+permalink: volume-backup-snapvault/concept_snapvault_configuration_workflow.html
+sidebar: sidebar
+keywords: configuring, configure, snapvault, backup, relationship, verify, cluster, peer, relationship, snapvault, source, destination, volume, monitor, snapvault backup configuration workflow
+summary: "Configuring a SnapVault backup relationship includes verifying the cluster peer relationship, creating the SnapVault relationship between the source and the destination volumes, and monitoring the SnapVault relationship."
+---
+= SnapVault backup configuration workflow
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Configuring a SnapVault backup relationship includes verifying the cluster peer relationship, creating the SnapVault relationship between the source and the destination volumes, and monitoring the SnapVault relationship.
+
+image::../media/snapvault_workflow.gif[This illustration is a flowchart of the SnapVault backup configuration workflow workflow. The steps in the workflow match the topics.]
+
+Additional documentation is available to help you restore data from a destination volume to test the backed-up data or when the source volume is lost.
+
+
+* xref:../volume-restore-snapvault/index.html[Volume restore management using SnapVault]
++
+Describes how to quickly restore a volume from a SnapVault backup in ONTAP
+
+// 2022-6-30, feedback from Ed to move Additional info statement to this topic
+// BURT 1448684, 31 JAN 2022

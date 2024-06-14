@@ -1,0 +1,51 @@
+---
+permalink: iscsi-config-windows/task_installing_windows_unified_host_utilities.html
+sidebar: sidebar
+keywords: windows, unified, host, utilities, installation, program, registry, hba, paramater, netapp, ontapp, e-series, platform, install windows unified host utilities
+summary: "Windows Unified Host Utilities includes an installation program that sets the required Windows registry and HBA parameters so that the Windows host correctly handles the storage system behaviors for NetApp ONTAP and E-Series platforms."
+---
+= Install Windows Unified Host Utilities
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Windows Unified Host Utilities includes an installation program that sets the required Windows registry and HBA parameters so that the Windows host correctly handles the storage system behaviors for NetApp ONTAP and E-Series platforms.
+
+.Before you begin
+
+You must have completed the following tasks:
+
+* Check the supported configuration in the Interoperability Matrix
++
+https://mysupport.netapp.com/matrix[NetApp Interoperability Matrix Tool]
+
+* Identified any required Windows hotfixes from the Interoperability Matrix
++
+https://mysupport.netapp.com/matrix[NetApp Interoperability Matrix Tool]
+
+* Add the FCP license and start the target service
+* Verify your cabling
++
+See _SAN Configuration_ for your version of ONTAP or  _Hardware Cabling_ for your E-Series storage system on the NetApp Support Site for detailed cabling and configuration information.
+
+.About this task
+
+You must specify whether to include multipathing support when you install the Windows Unified Host Utilities software package. Choose MPIO if you have more than one path from the Windows host or virtual machine to the storage system. Choose no MPIO only if you are using a single path to the storage system.
+
+[NOTE]
+====
+The MPIO selection is not available for Windows XP and Windows Vista systems; multipath I/O is not supported on these guest operating systems.
+====
+
+For Hyper-V guests, raw (pass-through) disks do not appear in the guest OS if you choose multipathing support. You can either use raw disks, or you can use MPIO, but you cannot use both in the guest OS.
+
+See link:https://docs.netapp.com/us-en/ontap-sanhost/hu_wuhu_71.html[Windows Unified Host Installation] for detailed information.
+
+.Steps
+
+. Download the appropriate version of the Windows Unified Host Utilities from the NetApp Support Site.
++
+https://mysupport.netapp.com/site/global/dashboard[NetApp Support]
+
+. Run the executable file and follow the instructions on the screen.
+. Reboot the Windows host when prompted.

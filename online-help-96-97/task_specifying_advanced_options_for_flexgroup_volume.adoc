@@ -1,0 +1,36 @@
+---
+permalink: online-help-96-97/task_specifying_advanced_options_for_flexgroup_volume.html
+sidebar: sidebar
+keywords: flexclone, volume, specify, advanced, create, options, online, help
+summary: "When you create a FlexGroup volume, you can specify options you want to associate with the FlexGroup volume."
+---
+= Specify advanced options for a FlexGroup volume with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When you create a FlexGroup volume, you can use ONTAP System Manager classic (avaiable in ONTAP 9.7 and earlier) to specify options you want to associate with the FlexGroup volume.
+
+.Steps
+
+. *Optional:* In the *Create FlexGroup* window, click image:../media/advanced_options.gif[] to specify the advanced options.
++
+The Advanced Options window displays. It contains sections (the headings in the left column), in which you can specify various options.
+
+. In the *General Details* section, select the space reserve and security style, and then set the UNIX permission for the volume.
++
+You should note the following limitations:
+
+ ** The Space Reserve option is not available for FabricPool aggregates.
+ ** When thin provisioning is enabled, space is allocated to the volume from the aggregate only when data is written to the volume.
+ ** For All-Flash Optimized storage systems, thin provisioning is enabled by default, and for other storage systems, thick provisioning is enabled by default.
+
+. In the *Aggregates* section, you can enable the *Select Aggregates* button to override the best practices defaults and select your choices from a list of FabricPool aggregates.
+. In the *Optimize Space* section, you can enable deduplication on the volume.
++
+System Manager uses the default deduplication schedule. If the specified volume size exceeds the limit that is required for running deduplication, the volume is created and deduplication is not enabled.
++
+For systems with All Flash Optimized personality, inline compression and the `auto` deduplication schedule is enabled by default.
+
+. In the *QoS* (Quality of Service) section, specify the policy group to control the input/output (I/O) performance of the FlexGroup volume.
+. Click *Apply* to update the changes.

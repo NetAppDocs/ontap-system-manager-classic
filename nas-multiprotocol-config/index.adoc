@@ -1,0 +1,47 @@
+---
+permalink: nas-multiprotocol-config/index.html
+sidebar: sidebar
+keywords: smb, cifs, nfs, access, volume, exist, storage, virtual, machine, svm
+summary: "You can quickly set up both SMB/CIFS and NFS access to a new volume on either a new or existing storage virtual machine (SVM)."
+---
+= SMB and NFS multiprotocol configuration overview
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Using the ONTAP System Manager classic interface (ONTAP 9.7 and earlier), you can quickly set up both SMB and NFS access to a new volume on either a new or existing storage virtual machine (SVM).
+
+Use this procedure if you want to configure access to a volume in the following way:
+
+* NFS access will be through NFSv3, not NFSv4 or NFSv4.1.
+* You want to use best practices, not explore every available option.
+* Your data network uses the default IPspace, the default broadcast domain, and the default failover group.
++
+If your data network is flat, using these default objects ensures that LIFs will fail over correctly in the event of a link failure. If you are not using the default objects, you should refer to link:https://docs.netapp.com/us-en/ontap/networking/index.html[Network Management^] for information on how to configure LIF path failover.
+
+* LDAP, if used, is provided by Active Directory.
+
+If you want details about the range of ONTAP NFS and SMB protocol capabilities, see the following documentation:
+
+* https://docs.netapp.com/us-en/ontap/nfs-admin/index.html[NFS management^]
+* https://docs.netapp.com/us-en/ontap/smb-admin/index.html[SMB management^]
+
+== Other ways to do this in ONTAP
+
+|===
+
+h| To perform these tasks with... h| Refer to...
+
+| The redesigned System Manager (available with ONTAP 9.7 and later) | link:https://docs.netapp.com/us-en/ontap/task_nas_provision_nfs_and_smb.html[Provision NAS storage for both Windows and Linux using both NFS and SMB^]
+| The ONTAP command line interface | link:https://docs.netapp.com/us-en/ontap/smb-config/index.html[SMB configuration overview with the CLI^]
+
+link:https://docs.netapp.com/us-en/ontap/nfs-config/index.html[NFS configuration overview with the CLI^]
+
+link:https://docs.netapp.com/us-en/ontap/nfs-admin/security-styles-their-effects-concept.html[What the security styles and their effects are^]
+
+link:https://docs.netapp.com/us-en/ontap/nfs-admin/case-sensitivity-file-directory-multiprotocol-concept.html[Case-sensitivity of file and directory names in a multiprotocol environment^]
+
+|===
+
+// BURT 1414474, 10 JAN 2022
+// BURT 1448684, 31 JAN 2022

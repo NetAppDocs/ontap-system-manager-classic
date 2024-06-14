@@ -1,0 +1,172 @@
+---
+permalink: online-help-96-97/concept_efficiency_policies.html
+sidebar: sidebar
+keywords: efficiency, policy, system, manager, create, edit, delete, online, help, flexvol, window
+summary: "You can use System Manager to create, edit, and delete efficiency policies."
+---
+= Manage efficiency policies with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create, edit, and delete efficiency policies. 
+
+== Add efficiency policies
+
+You can use System Manager to add efficiency policies for running the deduplication operation on a volume on a specified schedule or when the change in volume data reaches a specified threshold value.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Policies* pane, click *Efficiency Policies*.
+. Click *Add*, and then specify the policy name.
+. Specify how the storage efficiency policy should be run:
+ ** Select *Schedule*, and specify the schedule name and the schedule details.
++
+You can specify the maximum run-time duration of the efficiency policy, if required.
+
+ ** Select *ChangeLog Threshold*, and specify the threshold value (in percent) for the change in volume data.
+. *Optional:* Select the *Set QoS policy to background* check box to reduce performance impact on client operations.
+. Click *Add*.
+
+== Edit efficiency policies
+
+You can use System Manager to modify the attributes of an efficiency policy such as the policy name, schedule name, and maximum runtime.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Policies* pane, click *Efficiency Policies*.
+. In the *Efficiency Policies* window, select the policy that you want to edit, and then click *Edit*.
+. In the *Edit Efficiency Policy* dialog box, make the required changes.
+. Click *Save*.
+
+== Delete efficiency policies
+
+You can use System Managerto delete an efficiency policy that is no longer required.
+
+.Before you begin
+
+The efficiency policy must be disabled.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Policies* pane, click *Efficiency Policies*.
+. Select the efficiency policy that you want to delete, and then click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+
+== Enable or disable efficiency policies
+
+You can use System Manager to enable or disable an efficiency policy.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Policies* pane, click *Efficiency Policies*.
+. Select one or more efficiency policies that you want to enable or disable.
+. Click *Status* > *Enable* or *Status* > *Disable*, as required.
+. If you are disabling an efficiency policy, select the confirmation check box, and then click *OK*.
+
+== What an efficiency policy is
+
+An efficiency policy is a job schedule for a deduplication operation on a FlexVol volume.
+
+You can run deduplication on a FlexVol volume either by scheduling the operations to start at a specific time or by specifying that the operations are triggered if a threshold percentage is exceeded. You can schedule a deduplication operation by creating job schedules that are enclosed within the efficiency policies. The volume efficiency policies support only job schedules that are of type cron. Alternately, you can specify a threshold percentage. When new data exceeds the specified percentage, the deduplication operation is started.
+
+== Understanding predefined efficiency policies
+
+You can configure a volume with efficiency policies to achieve additional space savings. You can configure a volume to run inline compression without a scheduled or manually started background efficiency operation configured on the volume.
+
+When you create an SVM, the following efficiency policies are created automatically and cannot be deleted:
+
+* Default
++
+You can configure a volume with the efficiency policy to run the scheduled deduplication operations on the volume.
+
+* Inline-only
++
+You can configure a volume with the inline-only efficiency policy and enable inline compression, to run inline compression on the volume without any scheduled or manually started background efficiency operations.
+
+For more information about the inline-only and default efficiency policies, see the man pages.
+
+== Efficiency Policies window
+
+You can use the Efficiency Policies window to create, display, and manage information about efficiency policies.
+
+=== Command buttons
+
+* *Add*
++
+Opens the Add Efficiency Policy dialog box, which enables you to run a deduplication operation on a volume for a specified duration (schedule-based) or when the change in volume data reaches a specified threshold value (threshold-based).
+
+* *Edit*
++
+Opens the Edit Efficiency Policy dialog box, which enables you to modify the schedule, threshold value, QoS type, and maximum run time for a deduplication operation.
+
+* *Delete*
++
+Opens the Delete Efficiency Policy dialog box, which enables you to delete the selected efficiency policy.
+
+* *Status*
++
+Open a drop-down menu, which provides options to enable or disable the selected efficiency policy.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Efficiency policies list 
+
+* *Auto*
++
+Specifies that deduplication is continuously performed in the background. This policy is set for all newly created volumes and for all upgraded volumes that have not been manually configured for background deduplication. If you change the policy to "`default`" or any other policy, the "`auto`" policy is disabled.
++
+If a volume moves from a non-AFF system to an AFF system, the "`auto`" policy is enabled on the destination node by default. If a volume moves from an AFF node to a non-AFF node, the "`auto`" policy on the destination node is replaced by the "`inline-only`" policy by default.
+
+* *Policy*
++
+Specifies the name of an efficiency policy.
+
+* *Status*
++
+Specifies the status of an efficiency policy. The status can be one of the following:
+
+ ** Enabled
++
+Specifies that the efficiency policy can be assigned to a deduplication operation.
+
+ ** Disabled
++
+Specifies that the efficiency policy is disabled. You can enable the policy by using the status drop-down menu and assign it later to a deduplication operation.
+
+* *Run By*
++
+Specifies whether the storage efficiency policy is run based on a schedule or based on a threshold value (change log threshold).
+
+* *QoS Policy*
++
+Specifies the QoS type for the storage efficiency policy. The QoS type can be one of the following:
+
+ ** Background
++
+Specifies that the QoS policy is running in the background, which reduces potential performance impact on the client operations.
+
+ ** Best-effort
++
+Specifies that the QoS policy is running on a best-effort basis, which enables you to maximize the utilization of system resources.
+
+* *Maximum Runtime*
++
+Specifies the maximum run-time duration of an efficiency policy. If this value is not specified, the efficiency policy is run till the operation is complete.
+
+=== Details area
+
+The area below the efficiency policy list displays additional information about the selected efficiency policy, including the schedule name and the schedule details for a schedule-based policy, and the threshold value for a threshold-based policy.
+
+// 2021 Dec 21, sm-classic rework
+// 2022 Dec 14, BURT 1421223

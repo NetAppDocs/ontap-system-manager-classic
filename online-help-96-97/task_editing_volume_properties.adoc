@@ -1,0 +1,99 @@
+---
+permalink: online-help-96-97/task_editing_volume_properties.html
+sidebar: sidebar
+keywords: edit, volume, properties, online, help, deduplication, system, manager
+summary: "You can modify volume properties such as the volume name, security style, fractional reserve, and space guarantee by using System Manager. You can modify storage efficiency settings (deduplication schedule, deduplication policy, and compression) and space reclamation settings."
+---
+= Edit volume properties with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to modify volume properties such as the volume name, security style, fractional reserve, and space guarantee. You can modify storage efficiency settings (deduplication schedule, deduplication policy, and compression) and space reclamation settings.
+
+.Before you begin
+
+For enabling volume encryption, you must have installed the volume encryption license by using System Manager, and you must have enabled "`key-manager setup`" by using the command-line interface (CLI). You must refresh your web browser after enabling "`key-manager setup`".
+
+.About this task
+
+* You can set the fractional reserve to either zero percent or 100 percent.
+* Data compression is not supported on 32-bit volumes.
+* For Data ONTAP 8.3.1 clusters, you can enable both inline compression and background compression for Cloud Volumes ONTAP for AWS (AWS).
++
+Compression is not supported for Data ONTAP Edge.
+
+* You cannot rename a SnapLock Compliance volume.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select the storage virtual machine (SVM) in which the volume that you want to edit resides.
+. Select the volume that you want to modify, and then click *Edit*.
++
+The Edit Volume dialog box is displayed.
+
+. In the *General* tab, modify the following properties as required:
+ ** Change the volume name
+ ** Enable volume encryption
++
+This option is available only if you have enabled the Volume Encryption license and if the corresponding platform supports encryption. You can perform key-manager set up from the CLI.
+
+ ** Change the security style of the volume
+ ** Enable or disable thin provisioning
+. Click the *Storage Efficiency* tab, and enable storage efficiency by configuring the following properties:
+ ** Deduplication
+ ** Data compression
+You cannot enable background compression for a volume that is contained by an aggregate with All Flash Optimized personality. You can enable only inline compression for these volumes.
+
++
+You can enable inline deduplication only on a volume that is contained by an aggregate with All Flash Optimized personality or on a volume in a Flash Pool aggregate.
+. For SnapLock volumes, click the *SnapLock* tab, and perform the following steps:
+ .. Specify the autocommit period.
++
+The autocommit period determines how long a file in the volume must remain unchanged before the file is committed to WORM state.
+
+ .. Specify the minimum retention period and maximum retention period.
++
+The values must be in the range of 1 day through 70 years or Infinite.
+
+ .. Select the default retention period.
++
+The default retention period must be within the specified minimum retention period and maximum retention period.
+. Click the *Advanced* tab, and enable the following properties:
+ ** If you want the volume to automatically grow when the used space in the volume is above the grow threshold, select *Grow*.
+ ** If you want the volume to grow or shrink in size in response to the amount of used space, select *Grow or Shrink*.
+
+ .. Specify the maximum size to which the volume can grow.
+
+ ** Enable automatic deletion of older Snapshot copies by choosing one of the following options:
+  *** Try
++
+Deletes the Snapshot copies that are not locked by any other subsystems.
+
+  *** Destroy
++
+Deletes the Snapshot copies that are locked by the data-backing functionality.
+
+  *** Disrupt
++
+Deletes the Snapshot copies that can disrupt the data transfer.
+ ** Select the caching policy that you want to assign to the volume.
++
+This option is available only for FlexVol volumes in a Flash Pool aggregate.
+
+ ** Select the retention priority for cached data in the volume.
++
+This option is available only for FlexVol volumes in a Flash Pool aggregate.
+
+ ** Specify the fractional reserve that you want to set for the volume.
+ ** Update the access time for reading the file.
++
+This option is disabled for SnapLock volumes.
+. Click *Save and Close*.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]
+
+xref:task_setting_up_cifs.adoc[Setting up CIFS]

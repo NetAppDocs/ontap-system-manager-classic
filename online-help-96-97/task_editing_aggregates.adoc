@@ -1,0 +1,48 @@
+---
+permalink: online-help-96-97/task_editing_aggregates.html
+sidebar: sidebar
+keywords: online, help, edit, aggregates, raid, type, group, size, online, help
+summary: "You can use System Manager to change the aggregate name, RAID type, and RAID group size of an existing aggregate when required."
+---
+= Edit aggregates with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to change the aggregate name, RAID type, and RAID group size of an existing aggregate when required.
+
+.Before you begin
+
+For modifying the RAID type of an aggregate from RAID4 to RAID-DP, the aggregate must contain enough compatible spare disks, excluding the hot spares.
+
+.About this task
+
+* You cannot change the RAID group of ONTAP systems that support array LUNs.
++
+RAID0 is the only available option.
+
+* You cannot change the RAID type of partitioned disks.
++
+RAID-DP is the only option that is available for partitioned disks.
+
+* You cannot rename a SnapLock Compliance aggregate.
+* If the aggregate consists of SSDs with storage pool, you can modify only the name of the aggregate.
+* If the triple parity disk size is 10 TB, and the other disks are smaller than 10 TB in size, then you can select RAID-DP or RAID-TEC as the RAID type.
+* If the triple parity disk size is 10 TB, and if even one of the other disks is larger than 10 TB in size, then RAID-TEC is the only available option for RAID type.
+
+.Steps
+
+. Choose one of the following methods:
+ ** Click *Applications & Tiers* > *Storage Tiers*.
+ ** Click *Storage* > *Aggregates & Disks* > *Aggregates*.
+. Select the aggregate that you want to edit, and then click *Edit*.
+. In the *Edit Aggregate* dialog box, modify the aggregate name, the RAID type, and the RAID group size, as required.
+. Click *Save*.
+
+*Related information*
+
+xref:reference_aggregates_window.adoc[Aggregates window]
+
+xref:concept_what_compatible_spare_disks_are.adoc[What compatible spare disks are]
+
+xref:reference_storage_tiers_window.adoc[Storage Tiers window]

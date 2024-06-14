@@ -1,0 +1,218 @@
+---
+permalink: online-help-96-97/concept_licenses.html
+sidebar: sidebar
+keywords: system, manager, view, manage, delete, software, licenses, cluster, node, types, entitlement, risk,
+summary: "You can use System Manager to view, manage, or delete any software licenses installed on a cluster or node."
+---
+= Manage licenses with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to view, manage, or delete any software licenses installed on a cluster or node.
+
+== Delete licenses
+
+You can use the Licenses window in System Manager to delete any software license that is installed on a cluster or a node.
+
+For information about managing licenses using ONTAP 9.8 and later, see the following information:
+
+* link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html[Manage licenses overview (cluster administrators only)^]
+* https://docs.netapp.com/us-en/ontap/task_admin_enable_new_features.html[Enable new features by adding license keys^]
+
+.Before you begin
+
+The software license that you want to delete must not be used by any service or feature.
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Licenses*.
+. In the *Licenses* window, perform the appropriate action:
++
+[options="header"]
+|===
+| If you want to...| Do this...
+a|
+Delete a specific license package on a node or a master license
+a|
+Click the *Details* tab.
+a|
+Delete a specific license package across all of the nodes in the cluster
+a|
+Click the *Packages* tab.
+|===
+
+. Select the software license package that you want to delete, and then click *Delete*.
++
+You can delete only one license package at a time.
+
+. Select the confirmation check box, and then click *Delete*.
+
+.Results
+
+The software license is deleted from your storage system. The deleted license is also removed from the list of licenses in the Licenses window.
+
+== License types and entitlement risk
+
+Understanding the various license types and the associated entitlement risk helps you manage the risk that is associated with the licenses in a cluster.
+
+=== License types
+
+A package can have one or more of the following types of licenses installed in the cluster:
+
+* Node-locked license or standard license
++
+A node-locked license is issued for a node with a specific system serial number (also known as a _controller serial number_). This license is valid only for the node that has the matching serial number.
++
+Installing a node-locked license entitles a node to the licensed functionality. For the cluster to use the licensed functionality, at least one node must be licensed for the functionality. It might be out of compliance to use the licensed functionality on a node that does not have an entitlement for the functionality.
++
+ONTAP 8.2 and later releases treat a license that was installed prior to Data ONTAP 8.2 as a standard license. Therefore, in ONTAP 8.2 and later releases, all of the nodes in the cluster automatically have the standard license for the package that the previously licensed functionality is part of.
+
+* Master or site license
++
+A master or site license is not tied to a specific system serial number. When you install a site license, all of the nodes in the cluster are entitled to the licensed functionality.
++
+If your cluster has a master license and you remove a node from the cluster, the node does not carry the site license with it, and the node is no longer entitled to the licensed functionality. If you add a node to a cluster that has a master license, the node is automatically entitled to the functionality that is granted by the site license.
+
+* Demo or temporary license
++
+A demo or temporary license expires after a certain period of time. This license enables you to try certain software functionality without purchasing an entitlement. A temporary license is a cluster-wide license, and is not tied to a specific serial number of a node.
++
+If your cluster has a temporary license for a package and you remove a node from the cluster, the node does not carry the evaluation license with it.
+
+* Capacity license (ONTAP Select and FabricPool only)
++
+An ONTAP Select instance is licensed according to the amount of data that the user wants to manage. For example, the user might buy a 10 TB capacity license to enable ONTAP Select to manage up to 10 TB of data. If more storage capacity is attached to the system than ONTAP Select is licensed to manage, ONTAP Select will not operate. By default, the maximum storage capacity that can be attached to an ONTAP Select instance is 2 TB until a capacity license (for example, a 5 TB capacity license, a 10 TB capacity license, and so on) is purchased and installed.
++
+Starting with ONTAP 9.2, FabricPool-enabled aggregates require a capacity license to be used with a third-party storage tier (for example, AWS). The FabricPool capacity license defines the amount of data that can be stored in the cloud tier storage.
+
+=== Entitlement risk
+
+An entitlement risk arises because of the non-uniform installation of a node-locked license. If the node-locked license is installed on all the nodes, there is no entitlement risk.
+
+The entitlement risk level can be high risk, medium risk, no risk, or unknown risk depending on certain conditions:
+
+* High risk
+ ** If there is usage on a particular node, but the node-locked license is not installed on that node
+ ** If the demo license that was installed on the cluster expires, and there is usage on any node
+
++
+[NOTE]
+====
+If a site license is installed on a cluster, the entitlement risk is never high.
+====
+* Medium risk
++
+If a site license is not installed, and the node-locked license is non-uniformly installed on the nodes in a cluster
+
+* No risk
++
+There is no entitlement risk if a node-locked license is installed on all of the nodes, or a site license is installed on the cluster, irrespective of usage.
+
+* Unknown
++
+The risk is unknown if the API is sometimes unable to retrieve the data related to entitlement risk that is associated with a cluster or the nodes in the cluster.
+
+== Licenses window
+
+Your storage system arrives from the factory with preinstalled software. If you want to add or remove a software license after you receive the storage system, you can use the Licenses window.
+
+[NOTE]
+====
+System Manager does not monitor evaluation licenses and does not provide any warning when an evaluation license is nearing expiry. An evaluation license is a temporary license that expires after a certain period of time.
+====
+
+
+=== Command buttons
+
+* *Add*
++
+Opens the Add License window, which enables you to add new software licenses.
+
+* *Delete*
++
+Deletes the software license that you select from the software license list.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Packages tab
+
+Displays information about the license packages that are installed on your storage system.
+
+* *Package*
++
+Displays the name of the license package.
+
+* *Entitlement Risk*
++
+Indicates the level of risk as a result of license entitlement issues for a cluster. The entitlement risk level can be high risk (image:../media/high_risk_entitlementrisk.gif[]), medium risk (image:../media/medium_risk_entitlementrisk.gif[]), no risk (image:../media/no_risk_entitlementrisk.gif[]), unknown (image:../media/unknown_risk_entitlementrisk.gif[]), or unlicensed (-).
+
+* *Description*
++
+Displays the level of risk as a result of license entitlement issues for a cluster.
+
+=== License Package details area
+
+The area below the license packages list displays additional information about the selected license package. This area includes information about the cluster or node on which the license is installed, the serial number of the license, usage in the previous week, whether the license is installed, the expiration date of the license, and whether the license is a legacy one.
+
+=== Details tab
+
+Displays additional information about the license packages that are installed on your storage system.
+
+* *Package*
++
+Displays the name of the license package.
+
+* *Cluster/Node*
++
+Displays the cluster or node on which the license package is installed.
+
+* *Serial Number*
++
+Displays the serial number of the license package that is installed on the cluster or node.
+
+* *Type*
++
+Displays the type of the license package, which can be the following:
+
+ ** Temporary: Specifies that the license is a temporary license, which is valid only during the demonstration period.
+ ** Master: Specifies that the license is a master license, which is installed on all the nodes in the cluster.
+ ** Node Locked: Specifies that the license is a node-locked license, which is installed on a single node in the cluster.
+ ** Capacity:
+  *** For ONTAP Select, specifies that the license is a capacity license, which defines the total amount of data capacity that the instance is licensed to manage.
+  *** For FabricPool, specifies that the license is a capacity license, which defines the amount of data that can be managed in the attached third-party storage (for example, AWS).
+
+* *State*
++
+Displays the state of the license package, which can be the following:
+
+ ** Evaluation: Specifies that the installed license is an evaluation license.
+ ** Installed: Specifies that the installed license is a valid purchased license.
+ ** WARNING: Specifies that the installed license is a valid purchased license and is approaching maximum capacity.
+ ** Enforcement: Specifies that the installed license is a valid purchased license and has exceeded the expiry date.
+ ** Waiting for License: Specifies that the license has not yet been installed.
+
+* *Legacy*
++
+Displays whether the license is a legacy license.
+
+* *Maximum Capacity*
+ ** For ONTAP Select, displays the maximum amount of storage that can be attached to the ONTAP Select instance.
+ ** For FabricPool, displays the maximum amount of third-party object store storage that can be used as cloud tier storage.
+* *Current Capacity*
+ ** For ONTAP Select, displays the total amount of storage that is currently attached to the ONTAP Select instance.
+ ** For FabricPool, displays the total amount of third-party object store storage that is currently used as cloud tier storage.
+* *Expiration Date*
++
+Displays the expiration date of the software license package.
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/system-admin/index.html[System administration]
+
+xref:task_creating_cluster.adoc[Creating a cluster]
+
+// 2022-7-18, add links to more recent ONTAP license topics 
+// 2021-12-08, Created by Aoife, sm-classic rework

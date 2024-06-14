@@ -1,0 +1,96 @@
+---
+permalink: online-help-96-97/concept_cluster_expansion.html
+sidebar: sidebar
+keywords: cluster, expanision, system, manager, storage, size, capabilities, add, node, configure, network, online, help
+summary: "You can use System Manager to increase the size and capabilities of your storage by adding compatible nodes to the cluster and configuring the node network details. You can also view the summary of the nodes."
+---
+= Cluster Expansion with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to increase the size and capabilities of your storage by adding compatible nodes to the cluster and configuring the node network details. You can also view the summary of the nodes.
+
+When you log in to System Manager, System Manager automatically detects compatible nodes that have been cabled but have not been added to the cluster and prompts you to add the nodes. You can add compatible nodes as and when System Manager detects the nodes or you can manually add the nodes at a later time.
+
+== Add nodes to a cluster
+
+You can use System Manager to increase the size and capabilities of your storage system by adding nodes to an existing cluster.
+
+.Before you begin
+
+* New compatible nodes must be cabled to the cluster.
++
+Only the ports that are in the default broadcast domain will be listed in the Network window.
+
+* All of the nodes in the cluster must be up and running.
+* All of the nodes must be of the same version.
+
+.Steps
+
+. Add the new compatible nodes to the cluster:
++
+[options="header"]
+|===
+| If you are...| Do this...
+a|
+Not logged in to System Manager
+a|
+
+ .. Log in to System Manager.
++
+[NOTE]
+====
+The new compatible nodes are automatically detected by System Manager at login. System Manager prompts you to add the new compatible nodes to the cluster.
+====
+
+ .. Click *Add Nodes to Cluster*.
+ .. Modify the name of the nodes.
+ .. Specify the node licenses.
+ .. Click *Submit and Proceed*.
+
+a|
+Logged in to System Manager
+a|
+
+ .. Click *Configuration* > *Cluster* > *Expansion*.
++
+System Manager searches for newly added nodes. If any warnings are displayed, you must fix them before proceeding. If new compatible nodes are discovered, proceed to the next step.
+
+ .. Modify the name of the nodes.
+ .. Specify the node licenses.
+ .. Click *Submit and Proceed*.
+
+|===
+
+== Configure the network details of the nodes
+
+You can use System Manager to configure the node management LIF and Service Processor settings for the newly added nodes.
+
+.Before you begin
+
+* Sufficient number of ports must be present in the default IPspace for LIF creation.
+* All the ports must be up and running.
+
+.Steps
+
+. Configure node management:
+ .. Enter the IP address in the *IP Address* field.
+ .. Select the port for node management in the *Port* field.
+ .. Enter the netmask and gateway details.
+. Configure Service Processor settings:
+ .. Select the *Override defaults* check box to override the default values.
+ .. Enter the IP address, netmask, and gateway details.
+. Click *Submit and Proceed* to complete the network configuration of the nodes.
+. Verify the details of the nodes in the *Summary* page.
+
+=== What to do next
+
+* If your cluster is protected, you should create the required number of intercluster LIFs in the newly added nodes to avoid partial peering and unhealthy protection.
+* If SAN data protocols are enabled in your cluster, you should create the required number of SAN Data LIFs for serving data.
+
+*Related information*
+
+xref:task_creating_network_interfaces.adoc[Creating network interfaces]
+
+// 2021-12-08, Created by Aoife, sm-classic rework

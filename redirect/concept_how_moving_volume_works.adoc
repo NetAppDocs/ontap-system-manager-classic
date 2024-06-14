@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_how_moving_volume_works.html
+redirect: ontap/volumes/move-volume-concept.html
+---

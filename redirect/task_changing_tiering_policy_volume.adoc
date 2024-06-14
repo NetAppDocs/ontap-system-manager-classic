@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_changing_tiering_policy_volume.html
+redirect: ontap-sm-classic/online-help-96-97/task_configuring_managing_cloud_tiers.html
+---

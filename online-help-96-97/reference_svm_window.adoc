@@ -1,0 +1,188 @@
+---
+permalink: online-help-96-97/reference_svm_window.html
+sidebar: sidebar
+keywords: storage, virtual, machine, window, svm, online, help, command, button, peer
+summary: "You can use the Storage Virtual Machines window to manage your storage virtual machines (SVMs) and display information about them."
+---
+= Storage Virtual Machines window in System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the Storage Virtual Machines window in ONTAP System Manger classic (available in ONTAP 9.7 and earlier) to manage your storage virtual machines (SVMs) and display information about them.
+
+You cannot manage (create, delete, start, or stop) anSVM configured for disaster recovery (DR) by using System Manager. Also, you cannot view the storage objects associated with the SVM configured for disaster recovery in the application interface.
+
+== Command buttons
+
+* *Create*
++
+Opens the Storage Virtual Machine (SVM) Setup wizard, which enables you to create a new SVM.
+
+* *Edit*
++
+Opens the Edit Storage Virtual Machine dialog box, which enables you to modify the properties, such as the name service switch, name mapping switch, and aggregate list, of a selected SVM.
+
+* *Delete*
++
+Deletes the selected SVMs.
+
+* *Start*
++
+Starts the selected SVM.
+
+* *Stop*
++
+Stops the selected SVM.
+
+* *SVM Settings*
++
+Manages the storage, policies, and configuration for the selected SVM.
+
+* *Protection Operations*
++
+Provides the following options:
+
+ ** *Initialize*
++
+Enables you to initialize the SVM relationship to perform a baseline transfer from the source SVM to the destination SVM.
+
+ ** *Update*
++
+Enables you to update data from the source SVM to the destination SVM.
+
+ ** *Activate Destination SVM*
++
+Enables you to activate the destination SVM.
+
+ ** *Resync from Source SVM*
++
+Enables you to initiate resynchronization of the broken relationship.
+
+ ** *Resync from Destination SVM (Reverse Resync)*
++
+Enables you to resynchronize the relationship from the destination SVM to the source SVM.
+
+ ** *Reactivate Source SVM*
++
+Enables you to reactivate the source SVM.
+
+* *Refresh*
++
+Updates the information in the window.
+
+* *Trace File Access*
++
+Enables you to trace the accessibility of a file or share on the selected SVM for a specified username.
+
+== SVM list
+
+The SVM list displays the name of each SVM and the allowed protocols on it.
+
+You can view only data SVMs by using System Manager.
+
+* *Name*
++
+Displays the name of the SVM.
+
+* *State*
++
+Displays the SVM state, such as Running, Starting, Stopped, or Stopping.
+
+* *Subtype*
++
+Displays the subtype of the SVM, which can be one of the following:
+
+ ** default
++
+Specifies that the SVM is a data-serving SVM.
+
+ ** dp-destination
++
+Specifies that the SVM is configured for disaster recovery.
+
+ ** sync-source
++
+Specifies that the SVM is in the primary site of a MetroCluster configuration.
+
+ ** sync-destination
++
+Specifies that the SVM is in the surviving site of a MetroCluster configuration.
+
+* *Allowed Protocols*
++
+Displays the allowed protocols, such as CIFS and NFS, on each SVM.
+
+* *IPspace*
++
+Displays the IPspace of the associated SVM.
+
+* *Volume Type*
++
+Displays the allowed volume type, such as FlexVol volume, on each SVM.
+
+* *Protected*
++
+Displays whether the SVM is protected or not.
+
+* *Configuration State*
++
+Displays whether the configuration state of the SVM is locked or unlocked.
+
+== Details area
+
+The area below the SVM list displays detailed information, such as the type of volumes allowed, language, and Snapshot policy, about the selected SVM.
+
+You can also configure the protocols that are allowed on this SVM. If you have not configured the protocols while creating the SVM, you can click the protocol link to configure the protocol.
+
+You cannot configure protocols for anSVM configured for disaster recovery by using System Manager.
+
+[NOTE]
+====
+If the FCP service is already started for the SVM, clicking the FC/FCoE link opens the Network Interfaces window.
+====
+
+The color indicates the status of the protocol configuration:
+
+[options="header"]
+|===
+| Status| Description
+a|
+Green
+a|
+LIFs exist and the protocol is configured. You can click the link to view the configuration details.
+
+[NOTE]
+====
+Configuration might be partially completed. However, service is running. You can create the LIFs and complete the configuration from the Network Interfaces window.
+====
+
+a|
+Yellow
+a|
+Indicates one of the following:
+
+* LIFs exist. Service is created but is not running.
+* LIFs exist. Service is not created.
+* Service is created. LIFs do not exist.
+
+a|
+Grey
+a|
+The protocol is not configured. You can click the protocol link to configure the protocol.
+a|
+Grey border
+a|
+The protocol license has expired or is missing. You can click the protocol link to add the licenses in the Licenses page.
+|===
+You can also add the management interface and view details such as the protection relationships, protection policy, NIS domain, and so on.
+
+The *Details* area also includes a link to view the Public SSL Certificate for an SVM. When you click this link, you can perform the following tasks:
+
+* View certificate details, the serial number, the start date, and the expiration date.
+* Copy the certificate to the clipboard.
+* Email the certificate details.
+
+== Peer Storage Virtual Machines area
+
+Displays a list of the SVMs that are peered with the selected SVM along with details of the applications that are using the peer relationship.

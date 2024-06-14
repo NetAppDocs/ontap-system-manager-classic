@@ -1,0 +1,12 @@
+---
+permalink: expansion/task_preparing_cluster_for_expansion.html
+sidebar: sidebar
+keywords: prepare, cluster, expansion, node-locked, license, verify, system, health, configuration, generate autosupport, message, prepare the cluster for expansion
+summary: "To prepare a cluster for expansion, you must add node-locked licenses, verify the system health, back up the cluster’s configuration, and generate an AutoSupport message."
+---
+= Prepare the cluster for expansion
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+To prepare a cluster for expansion, you must add node-locked licenses, verify the system health, back up the cluster's configuration, and generate an AutoSupport message.

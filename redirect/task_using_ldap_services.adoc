@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_using_ldap_services.html
+redirect: ontap-sm-classic/online-help-96-97/concept_ldap.html
+---

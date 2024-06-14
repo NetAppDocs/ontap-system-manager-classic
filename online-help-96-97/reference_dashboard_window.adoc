@@ -1,0 +1,89 @@
+---
+permalink: online-help-96-97/reference_dashboard_window.html
+sidebar: sidebar
+keywords: system, manager, dashboard, window, multiple, panel, online, help
+summary: "The Dashboard window contains multiple panels that provide cumulative at-a-glance information about your system and its performance."
+---
+= Dashboard window for System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Dashboard window in ONTAP System Manager classic (available in ONTAP 9.7 and earlier) contains multiple panels that provide cumulative at-a-glance information about your system and its performance.
+
+You can use the Dashboard window to view information about important alerts and notifications, the efficiency and capacity of aggregates and volumes, the nodes that are available in a cluster, the status of the nodes in a high-availability (HA) pair, the most active applications and objects, and the performance metrics of a cluster or a node.
+
+* *Alerts and Notifications*
++
+Displays all alerts in red, such as emergency EMS events, offline node details, broken disk details, license entitlements that are at high risk, and offline network port details. Displays all notifications in yellow, such as health monitor notifications that occurred in the past 24 hours at the cluster level, license entitlements that are at medium risk, unassigned disk details, the number of migrated LIFs, volume move operations that failed, and volume move operations that required administrative intervention in the past 24 hours.
++
+The Alerts and Notifications panel displays up to three alerts and notifications beyond which a View-All link is displayed. You can click the View-All link to view more information about the alerts and notifications.
++
+The refresh interval for the Alerts and Notifications panel is one minute.
+
+* *Cluster Overview*
++
+Displays the aggregates and volumes that are nearing capacity, the storage efficiency of a cluster or node, and the protection details of top volumes.
++
+The Capacity tab displays the top online aggregates that are nearing capacity, in descending order of used space.
++
+The Capacity tab provides a link to the number of volumes with the highest capacity utilized when you enter a valid value in the Volumes exceeding used capacity of field. It also displays the amount of inactive (cold) data available in the cluster.
++
+The Efficiency tab displays the storage efficiency savings for a cluster or node. You can view the total logical space used, total physical space used, and the overall savings. You can select a cluster or a specific node to view the storage efficiency savings. For System Manager 9.5, the space used for Snapshot copies is _not_ included in the values for total logical space used, total physical space used, and overall savings. However, Beginning with System Manager 9.6, the space used for Snapshot copies is included in the values for total logical space used, total physical space used, and overall savings.
++
+The refresh interval for the Cluster Overview panel is 15 minutes.
++
+The Protection tab displays information about cluster-wide volumes that do not have defined protection relationships. Only the FlexVol volumes and FlexGroup volumes that meet the following criteria are displayed:
+
+ ** The volumes are RW volumes and are online.
+ ** The aggregate containing the volumes is online.
+ ** The volumes have protection relationships and are not yet initialized.
+You can navigate to the Volumes window to view the volumes that do not have a defined protection relationship.
+
++
+The Protection tab also displays the top five SVMs that have the highest number of volumes that do not have defined protection relationships.
+
+* *Nodes*
++
+Displays a pictorial representation of the number and names of the nodes that are available in the cluster, and the status of the nodes that are in an HA pair. You should position the cursor over the pictorial representation of the nodes to view the status of the nodes in an HA pair.
++
+You can view more information about all of the nodes by using the Nodes link. You can also click the pictorial representation to view the model of the nodes and the number of aggregates, storage pools, shelves, and disks that are available in the nodes. You can manage the nodes by using the Manage Nodes link. You can manage the nodes in an HA pair by using the Manage HA link.
++
+The refresh interval for the Nodes panel is 15 minutes.
+
+* *Applications and Objects*
++
+You can use the Applications and Objects panel to display information about applications, clients, and files in a cluster.
++
+The Applications tab displays information about the top five applications of the cluster. You can view the top five applications based on either IOPS and latency (from low to high or from high to low) or capacity (from low to high or from high to low).
++
+You should click the specific bar chart to view more information about the application. The total space, used space, and available space are displayed for capacity, the IOPS details are displayed for IOPS, and the latency details are displayed for latency.
++
+You can click *View details* to open the Applications window of the specific application.
++
+The Objects tab displays information about the top five active clients and files in the cluster. You can view the top five active clients and files based on IOPS or throughput.
++
+[NOTE]
+====
+This information is displayed only for CIFS and NFS protocols.
+====
++
+The refresh interval for the Applications and Objects panel is one minute.
+
+* *Performance*
++
+Displays the average performance metrics, read performance metrics, and write performance metrics of the cluster based on latency, IOPS, and throughput. The average performance metrics is displayed by default. You can click Read or Write to view the read performance metrics or write performance metrics, respectively. You can view the performance metrics of the cluster or a node.
++
+If the information about cluster performance cannot be retrieved from ONTAP, you cannot view the respective graph. In such cases, System Manager displays the specific error message.
++
+The refresh interval for the charts in the Performance panel is 15 seconds.
+
+== Monitoring a cluster using the dashboard
+
+The dashboard in System Manager enables you to monitor the health and performance of a cluster. You can also identify hardware problems and storage configuration issues by using the dashboard.
+
+.Steps
+
+. Click the *Dashboard* tab to view the health and performance dashboard panels.
+
+// sm-classic rework, 07-04-2022

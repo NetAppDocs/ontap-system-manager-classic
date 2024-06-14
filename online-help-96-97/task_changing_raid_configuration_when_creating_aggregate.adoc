@@ -1,0 +1,32 @@
+---
+permalink: online-help-96-97/task_changing_raid_configuration_when_creating_aggregate.html
+sidebar: sidebar
+keywords: system, manager, raid, configuration, aggregate, online, help
+summary: "While creating an aggregate, you can modify the default values of the RAID type and RAID group size options of the aggregate by using System Manager."
+---
+= Change the RAID configuration when creating an aggregate with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+While creating an aggregate, you can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to modify the default values of the RAID type and RAID group size options of the aggregate.
+
+.About this task
+
+If the disk type of the aggregate disks is FSAS or MSATA, and the disk size is equal to or larger than 10 TB, then RAID-TEC is the only available RAID type.
+
+.Steps
+
+. Choose one of the following methods:
+ ** Click *Applications & Tiers* > *Storage Tiers*.
+ ** Click *Storage* > *Aggregates & Disks* > *Aggregates*.
+. In the *Storage Tiers* window, click *Add Aggregate*.
+. In the *Create Aggregate* dialog box, perform the following steps:
+ .. Click *Change*.
+ .. In the *Change RAID Configuration* dialog box, specify the RAID type and RAID group size.
++
+Shared disks support two RAID types: RAID DP and RAID-TEC.
++
+The recommended RAID group size is 12 disks through 20 disks for HDDs, and 20 disks through 28 disks for SSDs.
+
+ .. Click *Save*.

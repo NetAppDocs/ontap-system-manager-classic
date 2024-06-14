@@ -1,0 +1,5 @@
+---
+permalink: online-help-96-97/concept_name_mapping_conversion_rules.html
+redirect: ontap-sm-classic/online-help-96-97/concept_name_mapping.html
+---
+//2022-02-21, Created by Mairead sm-classic-rework

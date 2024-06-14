@@ -1,0 +1,30 @@
+---
+permalink: online-help-96-97/task_editing_protection_policies.html
+sidebar: sidebar
+keywords: edit, protection, policies, online, help, system, manager
+summary: "You can use System Manager to modify a protection policy and to apply the policy to a data protection relationship."
+---
+= Editing protection policies
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use System Manager to modify a protection policy and to apply the policy to a data protection relationship.
+
+.About this task
+
+The protection policies are not displayed at the cluster level.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the storage virtual machine (SVM), and then click *SVM Settings*.
+. In the *Policies* pane, click *Protection Policies*.
+. Select the protection policy that you want to edit, and then click *Edit*.
+. Modify the transfer priority, and then enable or disable network compression.
+. For an asynchronous mirror policy, back up all of the source Snapshot copies.
+. For a vault policy or mirror vault policy, modify the SnapMirror label and retention count.
++
+You cannot remove the sm_created label for a mirror vault policy.
+
+. Click *Save*.

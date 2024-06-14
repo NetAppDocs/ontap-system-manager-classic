@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_what_passphrases_are.html
+redirect: ontap-sm-classic/online-help-96-97/task_setting_up_peering.html
+---

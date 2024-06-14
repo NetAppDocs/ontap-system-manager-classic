@@ -1,0 +1,20 @@
+---
+permalink: online-help-96-97/concept_disks.html
+sidebar: sidebar
+keywords: system, manager, disk, manage, online, help
+summary: "You can use System Manager to manage disks."
+---
+= Manage disks with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to manage disks.
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html[Disk and aggregate management^]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-irrg/home.html[FlexArray virtualization installation requirements and reference^]
+
+https://docs.netapp.com/us-en/ontap/concepts/index.html[ONTAP concepts^]

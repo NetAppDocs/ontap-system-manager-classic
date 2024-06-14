@@ -1,0 +1,56 @@
+---
+permalink: online-help-96-97/task_performing_unplanned_switchover.html
+sidebar: sidebar
+keywords: perform, unplanned, switchover, system, manager, metrocluster, site, online, help
+summary: "Beginning with System Manager 9.6, you can initiate an unplanned switchover of a MetroCluster site. This operation is useful after an outage event or disaster event."
+---
+= Performing a unplanned switchover
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with System Manager 9.6, you can initiate an unplanned switchover of a MetroCluster site. This operation is useful after an outage event or disaster event.
+
+.Before you begin
+
+Your MetroCluster is running in normal operating condition; however, the nodes in the local cluster (Site A) are up, but the nodes in the remote cluster (Site B) are down.
+
+.Steps
+
+. Verify that Site B is actually down.
++
+A connection error might make Site B appear to be down.
++
+[NOTE]
+====
+Starting the switchover process with Site B up could cause disastrous results.
+====
+
+. In System Manager, log on to the local MetroCluster site (Site A) using the cluster administrator credentials.
+. Click *Configuration* > *MetroCluster*
++
+TheMetroCluster Switchover/Switchback Operations window displays.
+
+. Click *Next*.
++
+The MetroCluster Switchover/Switchback Operations window displays the status of the operations, and System Manager verifies whether a negotiated switchover is feasible.
+
+. When the validation process is complete, click *Switchover Site B to Site A* to initiate the switchover process.
++
+A warning message displays, warning you that the switchover operation switches control from Site B to Site A. The status of Site B should be "`UNREACHABLE`", and all Site B nodes are shown in red text.
++
+[NOTE]
+====
+As noted in Step <<STEP_EBC0FFC2349B415AB24156AAAD3F0386,1>>, Site B must actually be down and not just unconnected. Also, you should be aware that the switchover operation might cause data loss.
+====
+
+. If you want to proceed, ensure the check box is checked, and then click *Yes*.
++
+The switchover process begins. The states of Site A and Site B are displayed above the graphic representations of their configurations. If the switchover operation fails, an error message displays. Click *Close*. Correct any errors and start again at Steplink:task_performing_negotiated_planned_switchover.md#STEP_2BC62367710D4E23B278E2B70B80EB27[1]
+
+. Perform all required maintenance activities for Site B.
+. Ensure Site B is up.
++
+The healing process begins. When System Manager shows the healing is completed, Site B is operational and the systems prepare for the switchback process. The *Switchback from Site A to Site B* button appears at the bottom of the window.
+
+. Proceed to xref:task_performing_switchback.adoc[Performing a switchback] to initiate the switchback operation.

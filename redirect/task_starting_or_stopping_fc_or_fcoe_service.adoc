@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_starting_or_stopping_fc_or_fcoe_service.html
+redirect: ontap-sm-classic/online-help-96-97/concept_fc_fcoe_protocol.html
+---

@@ -1,0 +1,175 @@
+---
+permalink: online-help-96-97/concept_system_alerts.html
+sidebar: sidebar
+keywords: system, manager, monitor, cluster, health, alerts, delete,
+summary: "You can use System Manager to monitor different parts of a cluster."
+---
+= Manage system alerts with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to monitor different parts of a cluster.
+
+== Acknowledge system health alerts
+
+You can use System Manager to acknowledge and respond to system health alerts for subsystems. You can use the information displayed to take the recommended action and correct the problem reported by the alert.
+
+.Steps
+
+. Click *Events & Jobs* > *System Alerts*.
+. In the *System Alerts* window, click the arrow icon next to the name of subsystem.
+. Select the alert that you want to acknowledge, and then click *Acknowledge*.
+. Type your name, and then click *Acknowledge*.
+
+== Suppress system health alerts
+
+You can use System Manager to suppress system health alerts that do not require any intervention from you.
+
+.Steps
+
+. Click *Events & Jobs* > *System Alerts*.
+. In the *System Alerts* window, click the arrow icon next to the name of subsystem.
+. Select the alert that you want to suppress, and then click *Suppress*.
+. Type your name, and then click *Suppress*.
+
+== Delete system health alerts
+
+You can use System Manager to delete system health alerts to which you have already responded.
+
+.Steps
+
+. Click *Events & Jobs* > *System Alerts*.
+. In the *System Alerts* window, click the arrow icon next to the name of subsystem.
+. Select the alert that you want to delete, and then click *Delete*.
+. Click *OK*.
+
+== Available cluster health monitors
+
+There are several health monitors that monitor different parts of a cluster. Health monitors help you to recover from errors within ONTAP systems by detecting events, sending alerts to you, and deleting events as they clear.
+
+[cols="1a,1a,1a" options="header"]
+|===
+| Health monitor name (identifier)| Subsystem name (identifier)| Purpose
+a|
+Cluster switch(cluster-switch)
+
+a|
+Switch (Switch-Health)
+a|
+Monitors cluster network switches and management network switches for temperature, utilization, interface configuration, redundancy (cluster network switches only), and fan and power supply operation. The cluster switch health monitor communicates with switches through SNMP. SNMPv2c is the default setting.
+[NOTE]
+====
+Beginning with ONTAP 9.2, this monitor can detect and report when a cluster switch has rebooted since the last polling period.
+====
+
+a|
+MetroCluster Fabric
+a|
+Switch
+a|
+Monitors the MetroCluster configuration back-end fabric topology and detects misconfigurations such as incorrect cabling and zoning, and ISL failures.
+a|
+MetroCluster Health
+a|
+Interconnect, RAID, and storage
+a|
+Monitors FC-VI adapters, FC initiator adapters, left-behind aggregates and disks, and inter-cluster ports
+.2+|
+Node connectivity(node-connect)
+a|
+CIFS nondisruptive operations (CIFS-NDO)
+a|
+Monitors SMB connections for nondisruptive operations to Hyper-V applications.
+a|
+Storage (SAS-connect)
+a|
+Monitors shelves, disks, and adapters at the node level for appropriate paths and connections.
+a|
+System
+a|
+not applicable
+a|
+Aggregates information from other health monitors.
+a|
+System connectivity (system-connect)
+
+a|
+Storage (SAS-connect)
+a|
+Monitors shelves at the cluster level for appropriate paths to two HA clustered nodes.
+|===
+
+== Ways to respond to system health alerts
+
+When a system health alert occurs, you can acknowledge it, learn more about it, repair the underlying condition, and prevent it from occurring again.
+
+When a health monitor raises an alert, you can respond in any of the following ways:
+
+* Get information about the alert, which includes the affected resource, alert severity, probable cause, possible effect, and corrective actions.
+* Get detailed information about the alert, such as the time when the alert was raised and whether anyone else has acknowledged the alert already.
+* Get health-related information about the state of the affected resource or subsystem, such as a specific shelf or disk.
+* Acknowledge the alert to indicate that someone is working on the problem, and identify yourself as the "`Acknowledger.`"
+* Resolve the problem by taking the corrective actions provided in the alert, such as fixing cabling to resolve a connectivity problem.
+* Delete the alert, if the system did not automatically clear it.
+* Suppress an alert to prevent it from affecting the health status of a subsystem.
++
+Suppressing is useful when you understand a problem. After you suppress an alert, it can still occur, but the subsystem health displays as "`ok-with-suppressed.`" when the suppressed alert occurs.
+
+== System Alerts window
+
+You can use the System Alerts window to learn more about system health alerts. You can also acknowledge, delete, and suppress alerts from the window.
+
+=== Command buttons
+
+* *Acknowledge*
++
+Enables you to acknowledge the selected alert to indicate that the problem is being addressed and identifies the person who clicks the button as the "`Acknowledger.`"
+
+* *Suppress*
++
+Enables you to suppress the selected alert to prevent the system from notifying you about the same alert again and identifies you as the "`Suppressor.`"
+
+* *Delete*
++
+Deletes the selected alert.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Alerts list
+
+* *SubSystem (No. of Alerts)*
++
+Displays the name of the subsystem, such as the SAS connection, switch health, CIFS NDO, or MetroCluster, for which the alert is generated.
+
+* *Alert ID*
++
+Displays the alert ID.
+
+* *Node*
++
+Displays the name of the node for which the alert is generated.
+
+* *Severity*
++
+Displays the severity of the alert as Unknown, Other, Information, Degraded, Minor, Major, Critical, or Fatal.
+
+* *Resource*
++
+Displays the resource that generated the alert, such as a specific shelf or disk.
+
+* *Time*
++
+Displays the time when the alert was generated.
+
+=== Details area
+
+The details area displays detailed information about the alert, such as the time when the alert was generated and whether the alert has been acknowledged. The area also includes information about the probable cause and possible effect of the condition generated by the alert, and the recommended actions to correct the problem reported by the alert.
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/system-admin/index.html[System administration]
+
+// 2021-12-15, Created by Aoife, sm-classic rework

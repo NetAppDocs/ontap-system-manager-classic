@@ -1,0 +1,40 @@
+---
+permalink: expansion/task_configuring_autosupport_on_new_nodes_using_cli.html
+sidebar: sidebar
+keywords: add, node, cluster, configure, autosupport, node, configuring, configure autosupport on the new nodes
+summary: "After you add nodes to a cluster, you must configure AutoSupport on the nodes."
+---
+= Configure AutoSupport on the new nodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+After you add nodes to a cluster, you must configure AutoSupport on the nodes.
+
+.Before you begin
+
+AutoSupport must be set up on the cluster's existing nodes.
+
+.About this task
+
+You must perform this procedure on both the nodes.
+
+.Steps
+
+. View the AutoSupport configuration using the `system node autosupport show` command with the `-node` parameter set to one of the nodes in the original cluster.
++
+----
+cluster1::> system node autosupport show -node cluster1-1
+                            Node: cluster1-1
+                           State: enable
+                 SMTP Mail Hosts: smtp.example.com
+																																...
+----
+
+. On one of the newly added nodes, configure AutoSupport in the same way that it is configured on the existing nodes by using the `system node autosupport modify` command.
++
+----
+cluster1::> system node autosupport modify -node cluster1-3 -state enable -mail-hosts smtp.example.com -from alerts@node3.example.com -to support@example.com -support enable -transport https -noteto pda@example.com -retry-interval 23m
+----
+
+. Repeat the previous step for the other newly added node.

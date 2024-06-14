@@ -1,0 +1,52 @@
+---
+permalink: online-help-96-97/task_adding_preferred_domain_controllers.html
+sidebar: sidebar
+keywords: system, manager, add, preferred, domain, controller, online, help, dns, edit, modify, delete
+summary: "System Manager automatically discovers domain controllers through DNS. Optionally, you can add one or more domain controllers to the list of preferred domain controllers for a specific domain."
+---
+= Manage preferred domain controllers with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to manage preferred domain controllers.
+
+== Add preferred domain controllers
+
+System Manager automatically discovers domain controllers through DNS. Optionally, you can add one or more domain controllers to the list of preferred domain controllers for a specific domain.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Domain* tab, click *Add* in the *Preferred Domain Controllers* area.
+. Enter the fully qualified domain name (FQDN) and the IP addresses of the domain controllers that you want to add.
++
+You can add multiple domain controllers by entering the IP addresses of the domain controllers, separated by commas.
+
+. Click *Save*.
+. Verify that the domain controller that you added is displayed in the list of preferred domain controllers.
+
+== Edit preferred domain controllers
+
+You can use System Manager to modify the IP address of the preferred domain controllers that are configured for a specific domain.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Preferred Domain Controllers* area of the *Domain* tab, double-click the domain controller that you want to edit.
+. Modify the IP addresses of the domain controller, and then click *Save*.
+
+== Delete preferred domain controllers
+
+You can use System Manager to delete a preferred domain controller to which the storage virtual machine (SVM) computer account is associated. You can do this when you no longer want to use a particular domain controller.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Domain* tab, select the domain that you want to delete from the *Preferred Domain Controllers* area, and then click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+
+// 2021-12-20, Created by Aoife, sm-classic rework

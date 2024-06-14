@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_data_compression_deduplication.html
+redirect: ontap/volumes/deduplication-data-compression-efficiency-concept.html
+---

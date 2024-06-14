@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_suppressing_system_health_alerts.html
+redirect: ontap-sm-classic/online-help-96-97/concept_system_alerts.html
+---

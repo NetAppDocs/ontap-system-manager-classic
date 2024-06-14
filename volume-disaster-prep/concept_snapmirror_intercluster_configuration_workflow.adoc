@@ -1,0 +1,23 @@
+---
+permalink: volume-disaster-prep/concept_snapmirror_intercluster_configuration_workflow.html
+sidebar: sidebar
+keywords: preparing, prepare, volume, disaster, recovery, verify, cluster, peer, relationship, snapmirror, residing, reside, peer, destination, periodical, volume disaster recovery preparation workflow
+summary: "Preparing volumes for disaster recovery involves verifying the cluster peer relationship, creating the SnapMirror relationship between volumes residing on peered clusters, setting up the destination SVM for data access, and monitoring the SnapMirror relationship periodically."
+---
+= Volume disaster recovery preparation workflow
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Preparing volumes for disaster recovery involves verifying the cluster peer relationship, creating the SnapMirror relationship between volumes residing on peered clusters, setting up the destination SVM for data access, and monitoring the SnapMirror relationship periodically.
+
+image::../media/snapmirror_intercluster_cfg_workflow.gif[This illustration is a flowchart of the volume disaster recovery preparation workflow. The steps in the workflow match the topics.]
+
+Additional documentation is available to help you activate the destination volume to test the disaster recovery setup or when a disaster occurs. You can also learn more about how to reactivate the source volume after the disaster.
+
+xref:../volume-disaster-recovery/index.html[Volume disaster recovery]
++
+Describes how to quickly activate a destination volume after a disaster and then reactivate the source volume in ONTAP.
+
+// 2022-6-30, Feedback from Ed to move Additional info statement to this topic
+// BURT 1448684, 31 JAN 2022

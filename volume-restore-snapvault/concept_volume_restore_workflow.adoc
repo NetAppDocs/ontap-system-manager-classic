@@ -1,0 +1,27 @@
+---
+permalink: volume-restore-snapvault/concept_volume_restore_workflow.html
+sidebar: sidebar
+keywords: source, volume, data, corrupt, restore, snapvault, backup, destination, restoring, exist, operation, volume restore workflow
+summary: "When your source volume is unavailable or data is corrupted, you can perform a restore from a SnapVault backup. Restoring a volume from a SnapVault backup involves selecting the SnapVault destination volume, restoring either to a new volume or existing volume, and verifying the restore operation."
+---
+= Volume restore workflow
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When your source volume is unavailable or data is corrupted, you can perform a restore from a SnapVault backup. Restoring a volume from a SnapVault backup involves selecting the SnapVault destination volume, restoring either to a new volume or existing volume, and verifying the restore operation.
+
+image::../media/volume_restore_workflow.gif[This illustration is a flowchart of the SnapVault volume restore workflow. The steps in the workflow match the topics.">]
+
+Additional information is available to help you to manage the SnapVault backup relationships and to use other methods of data protection to protect the availability of your data resources.
+
+* xref:../volume-disaster-prep/index.html[Volume disaster recovery preparation]
++
+Describes how to quickly configure a destination volume on a different ONTAP cluster in preparation for disaster recovery.
+
+* xref:../volume-disaster-recovery/index.html[Volume disaster recovery]
++
+Describes how to quickly activate a destination volume from a different ONTAP cluster after a disaster, as well as how to restore the SnapMirror relationship to its original state by reactivating the source volume after its recovery.
+
+// 2022-6-30, feedback from Ed to move Additional info statement to this topic 
+// BURT 1448684, 31 JAN 2022

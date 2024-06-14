@@ -1,0 +1,105 @@
+---
+permalink: online-help-96-97/concept_how_ontap_reports_drive_types.html
+sidebar: sidebar
+keywords: ontap, report, disk, type, industry, standards, sas, fc, storage, array, online, help
+summary: "ONTAP associates a type with every disk. ONTAP reports some disk types differently than the industry standards; you should understand how ONTAP disk types map to industry standards to avoid confusion."
+---
+= How ONTAP reports disk types in System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+ONTAP System Manager classic (available in ONTAP 9.7 and earlier) associates a type with every disk. ONTAP reports some disk types differently than the industry standards; you should understand how ONTAP disk types map to industry standards to avoid confusion.
+
+When ONTAP documentation refers to a disk type, it is the type used by ONTAP unless otherwise specified. _RAID disk types_ denote the role that a specific disk plays for RAID. RAID disk types are not related to ONTAP disk types.
+
+For a specific configuration, the disk types that are supported depend on the storage system model, the shelf type, and the I/O modules that are installed in the system.
+
+The following tables show how ONTAP disk types map to industry standard disk types for the SAS and FC storage connection types, and for storage arrays.
+
+== SAS-connected storage
+
+[options="header"]
+|===
+| ONTAP disk type| Disk class| Industry standard disk type| Description
+a|
+BSAS
+a|
+Capacity
+a|
+SATA
+a|
+Bridged SAS-SATA disks with added hardware to enable them to be plugged into a SAS-connected storage shelf
+a|
+FSAS
+a|
+Capacity
+a|
+NL-SAS
+a|
+Near Line SAS
+a|
+MSATA
+a|
+Capacity
+a|
+SATA
+a|
+SATA disk in multi-disk carrier storage shelf
+a|
+SAS
+a|
+Performance
+a|
+SAS
+a|
+Serial-Attached SCSI
+a|
+SSD
+a|
+Ultra-performance
+a|
+SSD
+a|
+Solid-state drives
+|===
+
+== FC-connected storage
+
+[options="header"]
+|===
+| ONTAP disk type| Disk class| Industry standard disk type
+a|
+ATA
+a|
+Capacity
+a|
+SATA
+a|
+FCAL
+a|
+Performance
+a|
+FC
+|===
+
+== Storage arrays
+
+[options="header"]
+|===
+| ONTAP disk type| Disk class| Industry standard disk type| Description
+a|
+LUN
+a|
+N/A
+a|
+LUN
+a|
+Logical storage device that is backed by storage arrays and used by ONTAP as a disk These LUNs are referred to as _array LUNs_ to distinguish them from the LUNs that ONTAP serves to clients.
+
+|===
+*Related information*
+
+https://hwu.netapp.com[NetApp Hardware Universe^]
+
+http://www.netapp.com/us/media/tr-3437.pdf[NetApp Technical Report 3437: Storage Subsystem Resiliency^]

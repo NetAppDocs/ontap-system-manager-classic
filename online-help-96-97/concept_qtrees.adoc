@@ -1,0 +1,198 @@
+---
+permalink: online-help-96-97/concept_qtrees.html
+sidebar: sidebar
+keywords: system, manager, create, edit, delete, qtree, partition, data, policies, svm
+summary: "You can use System Manager create, edit, and delete Qtrees."
+---
+= Manage Qtrees with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create, edit, and delete Qtrees.
+
+== Create qtrees
+
+Qtrees enable you to manage and partition your data within a volume. You can use the Create Qtree dialog box in System Manager to add a new qtree to a volume on your storage system.
+
+.Steps
+
+. Click *Storage* > *Qtrees*.
+. From the drop-down menu in the *SVM* field, select the storage virtual machine (SVM) on which you want to create a qtree.
+. Click *Create*.
+. In the *Details* tab of the *Create Qtree* dialog box, type a name for the qtree.
+. Select the volume to which you want to add the qtree.
++
+The Volume browse list includes only the volumes that are online.
+
+. If you want to disable opportunistic locks (oplocks) for the qtree, clear the *Enable Oplocks for files and directories in this Qtree* check box.
++
+By default, oplocks are enabled for each qtree.
+
+. If you want to change the default inherited security style, select a new security style.
++
+The default security style of the qtree is the security style of the volume that contains the qtree.
+
+. If you want to change the default inherited export policy, either select an existing export policy or create an export policy.
++
+The default export policy of the qtree is the export policy that is assigned to the volume that contains the qtree.
+
+. If you want to restrict the disk space usage, click the *Quotas* tab.
+ .. If you want to apply quotas on the qtree, click *Qtree quota*, and then specify the disk space limit.
+ .. If you want to apply quotas for all the users on the qtree, click *User quota*, and then specify the disk space limit.
+. Click *Create*.
+. Verify that the qtree that you created is included in the list of qtrees in the *Qtrees* window.
+
+== Delete qtrees
+
+You can delete a qtree and reclaim the disk space that the qtree uses within a volume by using System Manager. When you delete a qtree, all of the quotas that are applicable to that qtree are no longer applied by ONTAP.
+
+.Before you begin
+
+* The qtree status must be normal.
+* The qtree must not contain any LUN.
+
+.Steps
+
+. Click *Storage* > *Qtrees*.
+. In the *Qtrees* window, select one or more qtrees that you want to delete, and then click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+. Verify that the qtree that you deleted is no longer included in the list of qtrees in the *Qtrees* window.
+
+== Edit qtrees
+
+You can use System Manager to modify the properties of a qtree such as the security style, enable or disable opportunistic locks (oplocks), and assign a new or existing export policy.
+
+.Steps
+
+. Click *Storage* > *Qtrees*.
+. Select the qtree that you want to edit, and then click *Edit*.
+. In the *Edit Qtree* dialog box, edit the following properties as required:
+ ** Oplocks
+ ** Security style
+ ** Export policy
+. Click *Save*.
+. Verify the changes that you made to the selected qtree in the *Qtrees* window.
+
+== Assign export policies to qtrees
+
+Instead of exporting an entire volume, you can export a specific qtree on a volume to make it directly accessible to clients. You can use System Manager to export a qtree by assigning an export policy to the qtree. You can assign an export policy to one or more qtrees from the Qtrees window.
+
+.Steps
+
+. Click *Storage* > *Qtrees*.
+. From the drop-down menu in the SVM field, select the storage virtual machine (SVM) on which the qtrees that you want to export reside.
+. Select one or more qtrees for which you want to assign an export policy, and then click *Change Export Policy*.
+. In the *Export Policy* dialog box, either create an export policy or select an existing export policy.
++
+link:task_creating_export_policy.md#[Creating an export policy]
+
+. Click *Save*.
+. Verify that the export policy and its related export rules that you assigned to the qtrees are displayed in the *Details* tab of the appropriate qtrees.
+
+== View qtree information
+
+You can use the Qtrees window in System Manager to view the volume that contains the qtree, the name, security style, and status of the qtree, and the oplocks status.
+
+.Steps
+
+. Click *Storage* > *Qtrees*.
+. From the drop-down menu in the *SVM* field, select the storage virtual machine (SVM) on which the qtree about which you want to view information resides.
+. Select the qtree from the displayed list of qtrees.
+. Review the qtree details in the *Qtrees* window.
+
+== Qtree options
+
+A qtree is a logically defined file system that can exist as a special subdirectory of the root directory within a FlexVol volume. Qtrees are used to manage and partition data within the volume.
+
+If you create qtrees on a FlexVol that contains volumes, the qtrees appear as directories. Therefore, you need to be careful to not delete the qtrees accidentally when deleting volumes.
+
+You can specify the following options when creating a qtree:
+
+* Name of the qtree
+* Volume in which you want the qtree to reside
+* Oplocks
++
+By default, oplocks are enabled for the qtree. If you disable oplocks for the entire storage system, oplocks are not set even if you enable oplocks for each qtree.
+
+* Security style
++
+The security style can be UNIX, NTFS, or Mixed (UNIX and NTFS). By default, the security style of the qtree is the same as that of the selected volume.
+
+* Export policy
++
+You can create a new export policy or select an existing policy. By default, the export policy of the qtree is same as that of the selected volume.
+
+* Space usage limits for qtree and user quotas
+
+== Qtrees window
+
+You can use the Qtrees window to create, display, and manage information about qtrees.
+
+=== Command buttons
+
+* *Create*
++
+Opens the Create Qtree dialog box, which enables you to create a new qtree.
+
+* *Edit*
++
+Opens the Edit Qtree dialog box, which enables you to change the security style and to enable or disable oplocks (opportunistic locks) on a qtree.
+
+* *Change Export Policy*
++
+Opens the Export Policy dialog box, which enables you to assign one or more qtrees to new or existing export policies.
+
+* *Delete*
++
+Deletes the selected qtree.
++
+This button is disabled unless the status of the selected qtree is normal.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Qtree list
+
+The qtree list displays the volume in which the qtree resides and the qtree name.
+
+* *Name*
++
+Displays the name of the qtree.
+
+* *Volume*
++
+Displays the name of the volume in which the qtree resides.
+
+* *Security Style*
++
+Specifies the security style of the qtree.
+
+* *Status*
++
+Specifies the current status of the qtree.
+
+* *Oplocks*
++
+Specifies whether the oplocks setting is enabled or disabled for the qtree.
+
+* *Export Policy*
++
+Displays the name of the export policy to which the qtree is assigned.
+
+=== Details area
+
+* *Details tab*
++
+Displays detailed information about the selected qtree, such as the mount path of the volume containing the qtree, details about the export policy, and the export policy rules.
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/concepts/index.html[ONTAP concepts^]
+
+https://docs.netapp.com/us-en/ontap/volumes/index.html[Logical storage management^]
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/index.html[NFS management^]
+
+https://docs.netapp.com/us-en/ontap/smb-admin/index.html[SMB/CIFS management^]

@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_managing_data_protection.html
+redirect: ontap/concept_dp_overview.html
+---

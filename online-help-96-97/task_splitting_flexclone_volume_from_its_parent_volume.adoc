@@ -1,0 +1,36 @@
+---
+permalink: online-help-96-97/task_splitting_flexclone_volume_from_its_parent_volume.html
+sidebar: sidebar
+keywords: split, flexclone, volume, parent, online, help, disk, space
+summary: "You can use System Manager classic (available in ONTAP 9.7 and earlier) to split a FlexClone volume from its parent volume. After the split, the FlexClone volume becomes a normal FlexVol volume. It continues using the disk space of its parent volume and storage efficiency is preserved."
+---
+= Split a FlexClone volume from its parent volume with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use System Manager classic (available in ONTAP 9.7 and earlier) to split a FlexClone volume from its parent volume. After the split, the FlexClone volume becomes a normal FlexVol volume. It continues using the disk space of its parent volume and storage efficiency is preserved.
+
+.Before you begin
+
+The FlexClone volume must be online.
+
+.About this task
+
+For systems that are _not_ AFF systems, the clone-splitting operation deletes all of the existing Snapshot copies of the clone. The Snapshot copies that are required for SnapMirror updates are also deleted. Therefore, any subsequent SnapMirror updates might fail.
+
+You can pause the clone-splitting operation if you have to perform any other operation on the volume. You can resume the clone-splitting process after the other operation is complete.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Select the FlexClone volume that you want to split from its parent volume.
+. Click *More Actions* > *Clone* > *Split*.
+. Confirm the FlexClone volume details for the clone-splitting operation, and then click *Start Split* in the confirmation dialog box.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]
+
+// 2022-5-31, issue #59

@@ -1,0 +1,136 @@
+---
+permalink: online-help-96-97/concept_snmp.html
+sidebar: sidebar
+keywords: system, manager, configure, snmp, svm, cluster, online, help, test, trap, host, configuration, window, command, protocol,
+summary: "You can use System Manager to configure SNMP to monitor SVMs in your cluster."
+---
+= Configure SNMP with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to configure SNMP to monitor SVMs in your cluster.
+
+== Enable or disable SNMP
+
+You can enable or disable SNMP on your clusters by using System Manager. SNMP enables you to monitor the storage virtual machines (SVMs) in a cluster to avoid issues before they can occur and to prevent issues from occurring.
+
+.Steps
+
+. Click *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[]*.
+. In the *Setup* pane, click *SNMP*.
+. In the *SNMP* window, click either *Enable* or *Disable*.
+
+== Edit SNMP information
+
+You can use the Edit SNMP Settings dialog box in System Manager to update information about the storage system location and contact personnel, and to specify the SNMP communities of your system.
+
+.About this task
+
+System Manager uses the SNMP protocols SNMPv1 and SNMPv2c and an SNMP community to discover storage systems.
+
+.Steps
+
+. Click *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[]*.
+. In the *Setup* pane, click *SNMP*.
+. Click *Edit*.
+. In the *General* tab, specify the contact personnel information and location information for the storage system, and the SNMP communities.
++
+The community name can be of 32 characters and must not contain the following special characters: , / : " ' |.
+
+. In the **SNMPv3**tab, do the following:
+ .. Click *Add* to add an SNMPv3 user.
+ .. Specify the username and modify the engine ID, if required.
+ .. Select the *Authentication Protocol* and enter your credentials.
+ .. Select the *Privacy Protocol* and enter your credentials.
+ .. Click *OK* to save the changes.
+. Click *OK*.
+. Verify the changes that you made to the SNMP settings in the *SNMP* window.
+
+== Enable or disable SNMP traps
+
+SNMP traps enable you to monitor the health and state of the various components of your storage system. You can use the Edit SNMP Settings dialog box in System Manager to enable or disable SNMP traps on your storage system.
+
+.About this task
+
+Although SNMP is enabled by default, SNMP traps are disabled by default.
+
+.Steps
+
+. Click *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[]*.
+. In the *Setup* pane, click *SNMP*.
+. In the *SNMP* window, click *Edit*.
+. In the *Edit SNMP Settings* dialog box, select the *Trap hosts* tab, and then select or clear the *Enable traps* check box to enable or disable SNMP traps, respectively.
+. If you enable SNMP traps, add the host name or IP address of the hosts to which the traps are sent.
+. Click *OK*.
+
+== Test the trap host configuration
+
+You can use System Manager to test whether you have configured the trap host settings correctly.
+
+.Steps
+
+. Click *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[]*.
+. In the *Setup* pane, click *SNMP*.
+. In the *SNMP* window, click *Test Trap Host*.
+. Click *OK*.
+
+== SNMP window
+
+The SNMP window enables you to view the current SNMP settings for your system. You can also change your system's SNMP settings, enable SNMP protocols, and add trap hosts.
+
+=== Command buttons
+
+* *Enable/Disable*
++
+Enables or disables SNMP.
+
+* *Edit*
++
+Opens the Edit SNMP Settings dialog box, which enables you to specify the SNMP communities for your storage system and enable or disable traps.
+
+* *Test Trap Host*
++
+Sends a test trap to all the configured hosts to check whether the test trap reaches all the hosts and whether the configurations for SNMP are set correctly.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Details
+
+The details area displays the following information about the SNMP server and host traps for your storage system:
+
+* *SNMP*
++
+Displays whether SNMP is enabled or not.
+
+* *Traps*
++
+Displays if SNMP traps are enabled or not.
+
+* *Location*
++
+Displays the address of the SNMP server.
+
+* *Contact*
++
+Displays the contact details for the SNMP server.
+
+* *Trap host IP Address*
++
+Displays the IP addresses of the trap host.
+
+* *Community Names*
++
+Displays the community name of the SNMP server.
+
+* *Security Names*
++
+Displays the security style for the SNMP server.
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/networking/index.html[Network management]
+
+// 2021-12-08, Created by Aoife, sm-classic-rework
