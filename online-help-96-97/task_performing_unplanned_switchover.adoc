@@ -17,7 +17,7 @@ Your MetroCluster is running in normal operating condition; however, the nodes i
 
 .Steps
 
-. Verify that Site B is actually down.
+. [[step1]]Verify that Site B is actually down.
 +
 A connection error might make Site B appear to be down.
 +
@@ -41,12 +41,12 @@ A warning message displays, warning you that the switchover operation switches c
 +
 [NOTE]
 ====
-As noted in Step <<STEP_EBC0FFC2349B415AB24156AAAD3F0386,1>>, Site B must actually be down and not just unconnected. Also, you should be aware that the switchover operation might cause data loss.
+As noted in Step link:#step1[1], Site B must actually be down and not just unconnected. Also, you should be aware that the switchover operation might cause data loss.
 ====
 
 . If you want to proceed, ensure the check box is checked, and then click *Yes*.
 +
-The switchover process begins. The states of Site A and Site B are displayed above the graphic representations of their configurations. If the switchover operation fails, an error message displays. Click *Close*. Correct any errors and start again at Steplink:task_performing_negotiated_planned_switchover.md#STEP_2BC62367710D4E23B278E2B70B80EB27[1]
+The switchover process begins. The states of Site A and Site B are displayed above the graphic representations of their configurations. If the switchover operation fails, an error message displays. Click *Close*. Correct any errors and start again at Step link:task_performing_negotiated_planned_switchover.html#step1[1]
 
 . Perform all required maintenance activities for Site B.
 . Ensure Site B is up.

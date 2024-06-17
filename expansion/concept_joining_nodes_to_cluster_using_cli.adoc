@@ -18,7 +18,7 @@ When the newly installed controller modules are ready, you can add each one to t
 
 .Steps
 
-. Start the Cluster Setup wizard by using the `cluster setup` command at the CLI prompt.
+. [[step1]]Start the Cluster Setup wizard by using the `cluster setup` command at the CLI prompt.
 +
 ----
 ::> cluster setup
@@ -81,7 +81,7 @@ Cluster setup is now complete.
 +
 The node is automatically renamed to match the name of the cluster.
 
-. On the cluster, verify that the node is part of the cluster by using the `cluster show` command.
+. [[step5]]On the cluster, verify that the node is part of the cluster by using the `cluster show` command.
 +
 ----
 cluster1::> cluster show
@@ -93,7 +93,7 @@ cluster1-3            true    true
 3 entries were displayed.
 ----
 
-. Repeat steps <<STEP_3D8223C5AC7145EE8C9A9397270D0610,#STEP_3D8223C5AC7145EE8C9A9397270D0610>> through <<STEP_F6678CB6B1A94AF08F86F83BA8BA8E35,#STEP_F6678CB6B1A94AF08F86F83BA8BA8E35>> for the second newly installed controller module.
+. Repeat link:#step1[step 1] through link:#step5[step 5] for the second newly installed controller module.
 +
 The Cluster Setup wizard differs on the second node in the following ways:
 

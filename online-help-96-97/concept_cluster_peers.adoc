@@ -43,7 +43,7 @@ You can modify the passphrase that is provided during cluster peer creation.
 
 .Steps
 
-. Click *Configuration* > *Cluster Peers*.
+. [[step1]]Click *Configuration* > *Cluster Peers*.
 . Select the peered cluster, and click *Edit*
 +
 The drop-down menu displays.
@@ -52,7 +52,7 @@ The drop-down menu displays.
 +
 The Edit Local Cluster Passphrase dialog window displays.
 
-. In the *Enter Passphrase* field, enter a new passphrase, and then click *Apply*.
+. [[step4]]In the *Enter Passphrase* field, enter a new passphrase, and then click *Apply*.
 +
 [NOTE]
 ====
@@ -61,7 +61,7 @@ The minimum required length of the passphrase is eight characters.
 +
 The passphrase is modified immediately. However, there might be a delay before the correct authentication status is displayed.
 
-. Log in to the remote cluster, and perform Steps <<STEP_52691237935644E3A8710F51CC2E3F81,1>> through <<STEP_1ABAF15926174E709CA59192E200ABE3,4>> to modify the passphrase in the remote cluster.
+. Log in to the remote cluster, and perform Steps link:#step1[1] through link:#step4[4] to modify the passphrase in the remote cluster.
 +
 The authentication status for the local cluster is displayed as `ok_and_offer` until you modify the passphrase in the remote cluster.
 
@@ -123,10 +123,10 @@ If the passphrase used on the local site does not match the passphrase used on t
 +
 Select one of the following:
 
- ** *Generate a passphrase*: Proceed to Step <<STEP_1ABAF15926174E709CA59192E200ABE3,#STEP_1ABAF15926174E709CA59192E200ABE3>>.
- ** *Already have a passphrase*: Proceed to Step <<STEP_2EFD822431974811AD2260C3F31DC977,#STEP_2EFD822431974811AD2260C3F31DC977>>.
+ ** *Generate a passphrase*: Proceed to link:#step6[step 6].
+ ** *Already have a passphrase*: Proceed to link:#step9[step 9].
 
-. If you chose *Generate a passphrase*, complete the necessary fields:
+. [[step6]]If you chose *Generate a passphrase*, complete the necessary fields:
  ** *IPspace*: Select the IPspace from the drop-down menu.
  ** *Passphrase Validity*: Select from the drop-down menu the duration for which you want the passphrase to be valid.
  ** *SVM Permissions*: Select one of the following:
@@ -139,7 +139,7 @@ The passphrase is generated for the relationship and displayed. You can either c
 +
 The authentication status for the local cluster is displayed as `ok_and_offer` for the selected passphrase validity period until you provide the passphrase at the remote cluster.
 
-. If you already generated a new passphrase in the remote cluster, then perform the following substeps:
+. [[step9]]If you already generated a new passphrase in the remote cluster, then perform the following substeps:
  .. Click *Already have a passphrase*.
  .. Enter in the *Passphrase* field the same passphrase that was generated in the remote cluster.
  .. Click *Apply*.
@@ -150,10 +150,10 @@ You can use System Manager to delete a cluster peer relationship if the relation
 
 .Steps
 
-. Click *Configuration* > *Cluster Peers*.
+. [[step1]]Click *Configuration* > *Cluster Peers*.
 . Select the cluster peer for which you want to delete the relationship, and then click *Delete*.
-. Select the confirmation check box, and then click *Delete*.
-. Log in to the remote cluster, and perform Steps <<STEP_313E6AFE5C2B4D8C9E9723FAF1F8534A,1>> through <<STEP_24E41EC7F4E746D09897FC2DCBEC0E18,3>> to delete the peer relationship between the local cluster and the remote cluster.
+. [[step3]]Select the confirmation check box, and then click *Delete*.
+. Log in to the remote cluster, and perform Steps link:#step1[1] through link:#step3[3] to delete the peer relationship between the local cluster and the remote cluster.
 +
 The status of the peer relationship is displayed as "`unhealthy`" until the relationship is deleted from both the local cluster and the remote cluster.
 
