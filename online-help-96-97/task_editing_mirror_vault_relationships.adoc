@@ -319,4 +319,4 @@ The mirror and vault relationship must be in a Snapmirrored state.
 
 .Results
 
-If there is no transfer in progress, the transfer status is displayed as Quiesced. If a transfer is in progress, the transfer is not affected, and the transfer status is displayed as Quiescing until the transfer is complete.
+If there is no transfer in progress, the transfer status is displayed as `Quiesced`. If a transfer is in progress, the transfer is not affected, and the transfer status is displayed as `Quiescing` until the transfer is complete.
