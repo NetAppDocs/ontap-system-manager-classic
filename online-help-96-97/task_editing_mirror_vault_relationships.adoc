@@ -14,10 +14,6 @@ You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to
 
 == Edit relationships
 
-:icons: font
-:imagesdir: ../media/
-
-[.lead]
 You can use System Manager to edit a mirror and vault relationship by modifying the selected policy or schedule. However, you cannot edit the parameters of an existing policy or schedule.
 
 .Before you begin
@@ -94,10 +90,7 @@ Select *None*.
 . Click *OK*.
 
 == Update relationships manually
-:icons: font
-:imagesdir: ../media/
 
-[.lead]
 You can use System Manager to manually initiate an unscheduled incremental update. You might require a manual update to prevent data loss due to an upcoming power outage, scheduled maintenance, or data migration.
 
 .Before you begin
@@ -116,10 +109,7 @@ The mirror and vault relationship must be initialized and in a Snapmirrored stat
 . Verify the transfer status in the *Details* tab.
 
 == Initialize relationships
-:icons: font
-:imagesdir: ../media/
 
-[.lead]
 You can use System Manager to initialize a mirror and vault relationship if you have not already initialized the relationship while creating it. When you initialize a relationship, a complete baseline transfer of data is performed from the source volume to the destination.
 
 .Before you begin
@@ -141,10 +131,6 @@ This Snapshot copy is used as a baseline for subsequent incremental Snapshot cop
 
 == Create a relationship from a destination SVM
 
-:icons: font
-:imagesdir: ../media/
-
-[.lead]
 You can use System Manager to create a mirror and vault relationship from the destination storage virtual machine (SVM). Creating this relationship enables you to better protect your data by periodically transferring data from the source volume to the destination volume. It also enables you to retain data for long periods by creating backups of the source volume.
 
 .Before you begin
@@ -201,10 +187,7 @@ You can select the policy that has the maximum number of matching labels with th
 . Click *Create*.
 
 == Resynchronize relationships
-:icons: font
-:imagesdir: ../media/
 
-[.lead]
 You can use System Manager to reestablish a mirror and vault relationship that was broken earlier. You can perform a resynchronization operation to recover from a disaster that disabled the source volume.
 
 .Before you begin
@@ -231,10 +214,7 @@ The resynchronization operation can cause loss of newer data written to the dest
 . Select the confirmation check box, and then click *Resync*.
 
 == Reverse resynchronize relationships
-:icons: font
-:imagesdir: ../media/
 
-[.lead]
 You can use System Manager to reestablish a mirror and vault relationship that was previously broken. In a reverse resynchronization operation, the functions of the source and destination volumes are reversed. You can use the destination volume to serve data while you repair or replace the source, update the source, and reestablish the original configuration of the systems.
 
 .Before you begin
@@ -259,10 +239,7 @@ The reverse resynchronization operation can cause data loss on the source volume
 . Select the confirmation check box, and then click *Reverse Resync*.
 
 == Break relationships
-:icons: font
-:imagesdir: ../media/
 
-[.lead]
 You can use System Manager to break a mirror and vault relationship if a source volume becomes unavailable and you want client applications to access the data from the destination volume. You can use the destination volume to serve data while you repair or replace the source volume, update the source volume, and reestablish the original configuration of the systems.
 
 .Before you begin
@@ -285,10 +262,7 @@ You can break mirror relationships between ONTAP systems and SolidFire storage s
 The mirror and vault relationship is broken. The destination volume type changes from data protection (DP) read-only to read/write. The system stores the base Snapshot copy for the mirror and vault relationship for later use.
 
 == Resume relationships
-:icons: font
-:imagesdir: ../media/
 
-[.lead]
 If you have a quiesced mirror and vault relationship, you can use System Manager to resume the relationship. When you resume the relationship, normal data transfer to the destination volume is resumed and all the protection activities are restarted.
 
 .About this task
@@ -307,10 +281,7 @@ Normal data transfers are resumed. If there is a scheduled transfer for the rela
 
 == Delete relationships
 
-:icons: font
-:imagesdir: ../media/
 
-[.lead]
 You can use System Manager to end a mirror and vault relationship between a source and destination volume, and release the Snapshot copies from the source volume.
 
 .About this task
@@ -333,10 +304,7 @@ If the relationship is not released, then you must use the CLI to run the releas
 The relationship is deleted and the base Snapshot copies on the source volume are permanently deleted.
 
 == Quiesce relationships
-:icons: font
-:imagesdir: ../media/
 
-[.lead]
 You can use System Manager to quiesce a destination volume to stabilize the destination before creating a Snapshot copy. The quiesce operation enables active data transfers to finish and disables future transfers for the mirror and vault relationship.
 
 .Before you begin
