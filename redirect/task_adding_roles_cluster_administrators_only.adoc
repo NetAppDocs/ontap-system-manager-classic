@@ -1,4 +1,4 @@
 ---
 permalink: online-help-96-97/task_adding_roles_cluster_administrators_only.html
-redirect: ontap-sm-classic/online-help-96-97/concept_roles.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_roles.html
 ---

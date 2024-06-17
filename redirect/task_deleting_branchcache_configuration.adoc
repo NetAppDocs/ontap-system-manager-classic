@@ -1,4 +1,4 @@
 ---
 permalink: online-help-96-97/task_deleting_branchcache_configuration.html
-redirect: ontap-sm-classic/online-help-96-97/task_setting_up_branchcache.html
+redirect: ontap-system-manager-classic/online-help-96-97/task_setting_up_branchcache.html
 ---

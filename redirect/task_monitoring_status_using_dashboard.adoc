@@ -1,4 +1,4 @@
 ---
 permalink: online-help-96-97/task_monitoring_status_using_dashboard.html
-redirect: ontap-sm-classic/online-help-96-97/reference_dashboard_window.html
+redirect: ontap-system-manager-classic/online-help-96-97/reference_dashboard_window.html
 ---

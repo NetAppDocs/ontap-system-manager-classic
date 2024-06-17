@@ -1,4 +1,4 @@
 ---
 permalink: online-help-96-97/task_locking_or_unlocking_svm_user_accounts.html
-redirect: ontap-sm-classic/online-help-96-97/concept_svm_user_accounts.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_svm_user_accounts.html
 ---

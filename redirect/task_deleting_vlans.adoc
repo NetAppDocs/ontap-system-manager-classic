@@ -1,4 +1,4 @@
 ---
 permalink: online-help-96-97/task_deleting_vlans.html
-redirect: ontap-sm-classic/online-help-96-97/concept_ethernet_ports.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_ethernet_ports.html
 ---

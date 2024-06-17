@@ -1,4 +1,4 @@
 ---
 permalink: online-help-96-97/task_assigning_group_memberships_to_user_account.html
-redirect: ontap-sm-classic/online-help-96-97/task_editing_local_windows_group_properties.html
+redirect: ontap-system-manager-classic/online-help-96-97/task_editing_local_windows_group_properties.html
 ---

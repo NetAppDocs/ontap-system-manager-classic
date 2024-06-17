@@ -1,4 +1,4 @@
 ---
 permalink: online-help-96-97/reference_network_window.html
-redirect: ontap-sm-classic/online-help-96-97/concept_managing_network.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_managing_network.html
 ---

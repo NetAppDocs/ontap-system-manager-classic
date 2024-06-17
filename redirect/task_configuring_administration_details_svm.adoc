@@ -1,4 +1,4 @@
 ---
 permalink: online-help-96-97/task_configuring_administration_details_svm.html
-redirect: ontap-sm-classic/online-help-96-97/concept_configuration_update.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_configuration_update.html
 ---

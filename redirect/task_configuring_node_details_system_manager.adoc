@@ -1,4 +1,4 @@
 ---
 permalink: online-help-96-97/task_configuring_node_details_system_manager.html
-redirect: ontap-sm-classic/online-help-96-97/concept_cluster_expansion.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_cluster_expansion.html
 ---
