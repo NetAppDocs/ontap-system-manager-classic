@@ -41,7 +41,7 @@ The source volume
 a|
 
  .. Select *Source volume*.
- .. <<STEP_3D59B4A5225847F1B3EF9F3D38C78DFA,Go to step 6>>.
+ .. <<step6,Go to step 6>>.
 
 a|
 Any other volume
@@ -69,6 +69,6 @@ Only those volumes with the same language attribute as the source volume are lis
 |===
 
 . Select either the latest Snapshot copy or the specific Snapshot copy that you want to restore.
-. Select the confirmation check box to restore the volume from the Snapshot copy.
+. [#step6]Select the confirmation check box to restore the volume from the Snapshot copy.
 . *Optional:* Select the *Enable Network Compression* check box to compress the data that is being transferred during the restore operation.
 . Click *Restore*.
