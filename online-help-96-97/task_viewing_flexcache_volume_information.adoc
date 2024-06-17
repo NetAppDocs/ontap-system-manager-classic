@@ -48,11 +48,11 @@ The average performance metrics, read performance metrics, and write performance
 a|
 Change status
 a|
-Enables you to change the status of the FlexCache volume. Refer to link:task_changing_status_flexcache_volume.md#GUID-5B6C5DE2-5BBD-4741-9FF1-D1CB9BAB6E7E[Changing the status of a FlexCache volume].
+Enables you to change the status of the FlexCache volume. Refer to link:task_changing_status_flexcache_volume.html[Changing the status of a FlexCache volume].
 a|
 Resize
 a|
-Enables you to resize the FlexCache volume. Refer to link:task_resizing_flexcache_volumes.md#GUID-47682411-342D-48BD-8BC0-4D6E61D2F203[Resizing FlexCache volumes].
+Enables you to resize the FlexCache volume. Refer to link:task_resizing_flexcache_volumes.html[Resizing FlexCache volumes].
 a|
 Storage Efficiency
 a|

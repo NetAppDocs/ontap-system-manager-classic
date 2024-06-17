@@ -89,8 +89,8 @@ The NVMe subsystem is deleted from the cluster, and the NVMe Subsystems window i
 
 The NVMe Subsystems window displays by default an inventory list of NVMe subsystems in a cluster. You can filter the list to display only subsystems that are specific to an SVM. The window also enables you to create, edit, or delete NVMe subsystems. You can access this window by selecting *Storage* > *NVMe* > *Subsystems*.
 
-* <<GUID-1E417C67-1F31-4FA5-AAA7-2D5BB298C6AB,NVMe Subsystems table>>
-* <<SECTION_819274C0AB2341B0915167A78A41F1D8,Toolbar>>
+* <<NVMe Subsystems table>>
+* <<Toolbar>>
 
 === NVMe Subsystems table
 

@@ -85,7 +85,7 @@ Instead of exporting an entire volume, you can export a specific qtree on a volu
 . Select one or more qtrees for which you want to assign an export policy, and then click *Change Export Policy*.
 . In the *Export Policy* dialog box, either create an export policy or select an existing export policy.
 +
-link:task_creating_export_policy.md#[Creating an export policy]
+link:task_creating_export_policy.html[Creating an export policy]
 
 . Click *Save*.
 . Verify that the export policy and its related export rules that you assigned to the qtrees are displayed in the *Details* tab of the appropriate qtrees.

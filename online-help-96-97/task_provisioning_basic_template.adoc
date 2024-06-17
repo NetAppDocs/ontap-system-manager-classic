@@ -34,4 +34,4 @@ The SAP HANA Server application is provisioned.
 
 *Related information*
 
-link:reference_application_provisioning_settings.md#GUID-00EAA47A-D310-4ED6-8D1B-7AE16AB3E6A5[Refer to Application Provisioning Settings for field descriptions]
+link:reference_application_provisioning_settings.html[Refer to Application Provisioning Settings for field descriptions]

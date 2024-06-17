@@ -16,7 +16,7 @@ You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to
 * The clusters must be running ONTAP 9.4 or later.
 * You must have copied the software image from the NetApp Support Site to an HTTP server on your network, to an FTP server on your network, or to your local system so that the nodes can access the image.
 +
-link:task_obtaining_ontap_software_images.md#[Obtaining ONTAP software images]
+link:task_obtaining_ontap_software_images.html[Obtaining ONTAP software images]
 
 .About this task
 
