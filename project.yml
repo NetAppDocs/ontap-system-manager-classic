@@ -1,5 +1,6 @@
 settings:
   name: System Manager Classic
+  noindex: true
   internal:
     pdf_enabled: false
   prod:
