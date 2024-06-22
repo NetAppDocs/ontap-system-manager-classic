@@ -1,0 +1,33 @@
+---
+permalink: online-help-96-97/task_cloning_nvme_namespace.html
+sidebar: sidebar
+keywords: system, manager, clone, nvme, namespace, nqn, online, help
+summary: "You can use System Manager to quickly create another namespace of the same configuration by choosing to clone a namespace. You can map the newly cloned namespace to another host NQN."
+---
+= Clone an NVMe namespace with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to quickly create another namespace of the same configuration by choosing to clone a namespace. You can map the newly cloned namespace to another host NQN.
+
+.Before you begin
+
+You must have a FlexClone license to clone a namespace.
+
+.About this task
+
+You can clone a namespace with the selected host mapping and associate it with another subsystem.
+
+.Steps
+
+. Click *NVMe* > *NVMe namespaces*.
+. In the *NVMe namespaces window*, select the namespace you want to clone.
+. You can rename the cloned namespace if you need a specific name but it is not required.
++
+The dialog provides a default name of the namespace to-be-cloned.
+
+. Modify the subsystem mapping for the cloned namespace.
+. Click *OK*.
++
+The online, mapped namespace is cloned inside the same SVM with a different name. Host mapping will not be cloned.

@@ -1,0 +1,23 @@
+---
+permalink: online-help-96-97/task_deleting_protection_policies.html
+sidebar: sidebar
+keywords: delete, protection, policies, online, help, system, manager
+summary: "You can use System Manager to delete a protection policy if you no longer want to use the policy."
+---
+= Deleting protection policies
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use System Manager to delete a protection policy if you no longer want to use the policy.
+
+.About this task
+
+The cluster-level mirror policies or vault policies are not displayed.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the storage virtual machine (SVM), and then click *SVM Settings*.
+. In the *Protection Policies* window, select the policy that you want to delete, and then click *Delete*.
+. In the *Delete Policy* dialog box, click *Delete*.

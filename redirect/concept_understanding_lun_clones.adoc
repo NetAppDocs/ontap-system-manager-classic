@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_understanding_lun_clones.html
+redirect: ontap/task_admin_clone_data.html
+---

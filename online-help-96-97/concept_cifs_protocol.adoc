@@ -1,0 +1,80 @@
+---
+permalink: online-help-96-97/concept_cifs_protocol.html
+sidebar: sidebar
+keywords: cif, protocol, system, manager, enable, configure, server, client, file, cluster, online, help, set up, general, properties, edit
+summary: "You can use System Manager to enable and configure CIFS servers to allow CIFS clients to access files on the cluster."
+---
+= Configure the CIFS protocol with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to enable and configure CIFS servers to allow CIFS clients to access files on the cluster.
+
+== Set up CIFS
+
+You can use System Manager to enable and configure CIFS servers to allow CIFS clients to access the files on the cluster.
+
+.Before you begin
+
+* The CIFS license must be installed on your storage system.
+* While configuring CIFS in the Active Directory domain, the following requirements must be met:
+ ** DNS must be enabled and configured correctly.
+ ** The storage system must be able to communicate with the domain controller by using the fully qualified domain name (FQDN).
+ ** The time difference (clock skew) between the cluster and the domain controller must not be more than five minutes.
+* If CIFS is the only protocol that is configured on the storage virtual machine (SVM), the following requirements must be met:
+ ** The root volume security style must be NTFS.
++
+By default, System Manager sets the security style as UNIX.
+
+ ** Superuser access must be set to `Any` for the CIFS protocol.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Configuration* tab, click *Set up*.
+. In the *General* tab of the *CIFS Server Setup* dialog box, specify the NetBIOS name and the Active Directory domain details.
+. Click the *Options* tab, and then perform the following actions:
+ ** In the SMB settings area, select or clear the SMB signing check box and the SMB encryption check box, as required.
+ ** Specify the default UNIX user.
+ ** In the WINS Servers area, add the required IP address.
+. Click *Set up*.
+
+== Edit the general properties for CIFS
+
+You can modify the general properties for CIFS such as the default UNIX user and default Windows user by using System Manager. You can also enable or disable SMB signing for the CIFS server.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Configuration* tab, click *Options*.
+. In the *CIFS Options* dialog box, modify the following CIFS server properties, as required:
+** UNIX user
+** Windows user
+** IP address
+** Enable or disable SMB signing
++
+Enabling SMB signing prevents the data from being compromised. However, you might encounter performance degradation in the form of increased CPU usage on both the clients and the server, although the network traffic remains the same. You can disable SMB signing on any of your Windows clients that do not require protection against replay attacks.
++
+For information about disabling SMB signing on Windows clients, see the Microsoft Windows documentation.
+
+** Enable or disable SMB 3.0 encryption
++
+You should enable SMB Multichannel to establish multiple channels between an SMB 3.0 session and transport connections.
+. Click either *Save* or *Save and Close*.
+
+*Related information*
+
+xref:task_creating_cifs_share.adoc[Creating a CIFS share]
+
+xref:reference_cifs_window.adoc[CIFS window]
+
+xref:task_editing_volume_properties.adoc[Editing volume properties]
+
+xref:task_modifying_export_policy_rules.adoc[Modifying export policy rules]
+
+https://docs.netapp.com/us-en/ontap/smb-admin/index.html[SMB/CIFS management]
+
+// 2021-12-20, Created by Aoife, sm-classic-rework

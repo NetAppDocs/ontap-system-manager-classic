@@ -1,0 +1,77 @@
+---
+permalink: online-help-96-97/concept_ldap_configuration_services.html
+sidebar: sidebar
+keywords: ldap, configuration, service, system, manager, online, help, storage, virtual, machine, ldap, client, window
+summary: "You can use System Manager to manage LDAP configurations."
+---
+= Manage LDAP configurations with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to manage LDAP configurations.
+
+== Edit active LDAP clients
+
+You can use System Manager to associate an active LDAP client with a storage virtual machine (SVM), which enables you to use LDAP as a name service or for name mapping.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Services* pane, click *LDAP Configuration*.
+. In the *LDAP Configuration* window, click *Edit*.
+. In the *Active LDAP Client* dialog box, select the LDAP client that you want to edit, and perform the following actions:
+ ** Modify the Active Directory domain servers.
+ ** Modify the preferred Active Directory servers.
+. Click *OK*.
+. Verify that the changes that you made are updated in the *LDAP Configuration* window.
+
+== Delete active LDAP clients
+
+You can use System Manager to delete an active LDAP client when you do not want a storage virtual machine (SVM) to be associated with it.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. Click the *SVM Settings* tab.
+. In the *Services* pane, click *LDAP Configuration*.
+. Click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+
+== LDAP Configuration window
+
+You can use the LDAP Configuration window to edit or delete active LDAP clients at the storage virtual machine (SVM) level.
+
+=== Command buttons
+
+* *Edit*
++
+Opens the Active LDAP Client dialog box, which enables you to edit the properties of the active LDAP client, such as Active Directory domain servers and preferred Active Directory servers.
+
+* *Delete*
++
+Opens the Delete Active LDAP Client dialog box, which enables you to delete the active LDAP client.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== LDAP Configuration area
+
+Displays the details about the active LDAP client.
+
+* *LDAP client name*
++
+Displays the name of the active LDAP client.
+
+* *Active Directory Domain Servers*
++
+Displays the Active Directory domain for the active LDAP client.
+
+* *Preferred Active Directory Servers*
++
+Displays the preferred Active Directory server for the active LDAP client.
+
+// 2021-12-21, Created by Aoife, sm-classic rework

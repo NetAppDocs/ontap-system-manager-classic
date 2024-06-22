@@ -1,0 +1,183 @@
+---
+permalink: online-help-96-97/task_creating_flexvol_volumes.html
+sidebar: sidebar
+keywords: flexvol, create, volume, online, help
+summary: "You can create a FlexVol volume for your data by using the Create Volume dialog box in System Manager. You must always create a separate volume for your data rather than storing data in the root volume."
+---
+= Create FlexVol volumes with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can create a FlexVol volume for your data by using the Create Volume dialog box in ONTAP System Manager classic (available in ONTAP 9.7 and earlier). You must always create a separate volume for your data rather than storing data in the root volume.
+
+.Before you begin
+
+* The cluster must contain a non-root aggregate and a storage virtual machine (SVM).
+* If you want to create read/write volumes, you must have configured the protocols for the SVM, and you must have installed either the SnapMirror license or the SnapVault license.
++
+If you have not configured the protocols but have installed any one of these licenses, you can create only data protection (DP) volumes.
+
+* For creating an encrypted volume, you must have installed the volume encryption license by using System Manager, and you must have enabled "`key-manager setup`" by using the command-line interface (CLI).
++
+You must refresh your web browser after enabling "`key-manager setup`".
+
+.About this task
+
+* You can enable storage Quality of Service (QoS) only for a read/write (rw) volume.
+* When you create a DP volume on the sync-source SVM in a MetroCluster configuration, the volume is not replicated on the sync-destination SVM.
+* When you create a DP volume in a MetroCluster configuration, the source volume is not replicated (mirrored or vaulted) in the destination SVM.
+* In a MetroCluster configuration, System Manager displays only the following aggregates for creating volumes:
+ ** In normal mode, when you create volumes on sync-source SVMs or data-serving SVMs in the primary site, only those aggregates that belong to the cluster in the primary site are displayed.
+ ** In switched-over mode, when you create volumes on sync-destination SVMs or data-serving SVMs in the surviving site, only switched-over aggregates are displayed.
+* You cannot encrypt a volume in Cloud Volumes ONTAP.
+* If encryption is enabled on the source volume and if the destination cluster is running a version of ONTAP software earlier than ONTAP 9.3, then encryption is disabled on the destination volume by default.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. Click *Create* > *Create FlexVol*.
+. Browse and select the SVM in which you want to create the volume.
++
+The Create Volume dialog box is displayed. The dialogue box includes the following tabs:
+
+ ** General
+ ** Storage Efficiency
+ ** SnapLock
+ ** Quality of Service
+ ** Protection
+
+. On the *General* tab, perform the following steps:
+ .. Specify a name for the FlexVol volume.
+ .. Click the *FabricPool* button to specify that the volume is a FabricPool volume.
+ .. Click *Choose* to select an aggregate.
++
+You can select only FabricPool-enabled aggregates if the volume is a FabricPool FlexVol volume, and you can select only non-FabricPool-enabled aggregates if the volume is a non-FabricPool FlexVol volume. If you choose an encrypted aggregate (NAE), the volume you are creating will inherit the encryption of the aggregate.
+
+ .. Select a storage type.
+ .. Specify the volume size and measurement units.
+ .. Indicate how much space should be reserved for Snapshot copies.
+ .. Select a space reserve option from the *Space Reserve* drop-down menu.
+ .. Select the *Volume Encryption* checkbox to enable encryption for the volume. This option is available only if you have enabled the Volume Encryption license and if the corresponding platform is capable of supporting encryption.
+. On the *Storage Efficiency* tab, perform the following steps:
+ .. Select the type of storage for which you are creating this volume.
++
+You must select *Data Protection* if you are creating a SnapMirror destination volume. You are provided read-only access to this volume.
+
+ .. Specify the tiering policy for the volume.
+ .. Specify the size of the volume and the percentage of the total volume size that you want to reserve for Snapshot copies.
++
+The default space reserved for Snapshot copies is zero percent for SAN volumes and VMware volumes. For NAS volumes, the default is 5 percent.
+
+ .. Select *Default*, *Thin provisioned*, or *Thick provisioned* for the volume.
++
+When thin provisioning is enabled, space is allocated to the volume from the aggregate only when data is written to the volume.
++
+[NOTE]
+====
+    -   For AFF storage systems, the value of thin provisioning is “Default”, and for other storage systems, the value of thick provisioning is “Default”.
+    -   For FabricPool-enabled aggregates, the value of thin provisioning is “Default”.
+====
+
+ .. Specify whether you want to enable deduplication on the volume.
++
+System Manager uses the default deduplication schedule. If the specified volume size exceeds the limit that is required for running deduplication, the volume is created and deduplication is not enabled.
++
+For systems with All Flash Optimized personality, inline compression and the `auto` deduplication schedule are enabled by default.
+. On the *Quality of Service* tab, perform the following steps:
+ .. Select the *Manage Storage Quality of Service* checkbox if you want to enable storage QoS for the FlexVol volume to manage workload performance.
+ .. Create a new storage QoS policy group or select an existing policy group to control the input/output (I/O) performance of the FlexVol volume:
++
+[options="header"]
+|===
+| If you want to...| Do this...
+a|
+Create a new policy group
+a|
+ .. Select *New Policy Group*.
+ .. Specify the policy group name.
+ .. Specify the minimum throughput limit.
+  *** In System Manager 9.5, you can set the minimum throughput limit only on a performance-based All Flash Optimized personality. In System Manager 9.6, you can set the minimum throughput limit for the policy group.
+  *** You cannot set the minimum throughput limit for volumes on a FabricPool-enabled aggregate.
+  *** If you do not specify the minimum throughput value or if the minimum throughput value is set to 0, the system automatically displays "`None`" as the value.
++
+This value is case-sensitive.
+ .. Specify the maximum throughput limit to ensure that the workload of the objects in the policy group does not exceed the specified throughput limit.
+  *** The minimum throughput limit and the maximum throughput limit must be of the same unit type.
+  *** If you do not specify the minimum throughput limit, then you can set the maximum throughput limit in IOPS, B/s, KB/s, MB/s, and so on.
+  *** If you do not specify the maximum throughput value, the system automatically displays "`Unlimited`" as the value.
++
+This value is case-sensitive. The unit that you specify does not affect the maximum throughput.
+
+a|
+Select an existing policy group
+a|
+ .. Select *Existing Policy Group*, and then click *Choose* to select an existing policy group from the Select Policy Group dialog box.
+ .. Specify the minimum throughput limit.
+  *** In System Manager 9.5, you can set the minimum throughput limit only on a performance-based All Flash Optimized personality. In System Manager 9.6, you can set the minimum throughput limit for the policy group.
+  *** You cannot set the minimum throughput limit for volumes on a FabricPool-enabled aggregate.
+  *** If you do not specify the minimum throughput value or if the minimum throughput value is set to 0, the system automatically displays "`None`" as the value.
++
+This value is case-sensitive.
+ .. Specify the maximum throughput limit to ensure that the workload of the objects in the policy group does not exceed the specified throughput limit.
+  *** The minimum throughput limit and the maximum throughput limit must be of the same unit type.
+  *** If you do not specify the minimum throughput limit, then you can set the maximum throughput limit in IOPS, B/s, KB/s, MB/s, and so on.
+  *** If you do not specify the maximum throughput value, the system automatically displays "`Unlimited`" as the value.
++
+This value is case-sensitive. The unit that you specify does not affect the maximum throughput.
+
++
+If the policy group is assigned to more than one object, the maximum throughput that you specify is shared among the objects.
+
+
+|===
+. On the *Protection* tab, perform the following steps:
+ .. Specify whether you want to enable *Volume Protection*.
++
+A non-FabricPool FlexGroup volume can be protected with a FabricPool FlexGroup volume.
++
+A FabricPool FlexGroup volume can be protected with a non-FabricPool FlexGroup volume.
+
+ .. Select the *Replication* type:
+
++
+[options="header"]
+|===
+| If you selected the replication type as...| Do this...
+a|
+Asynchronous
+a|
+ .. *Optional:* If you do not know the replication type and relationship type, click *Help me Choose*, specify the values, and then click *Apply*.
+ .. Select the relationship type.
++
+The relationship type can be mirror, vault, or mirror and vault.
+
+ .. Select a cluster and an SVM for the destination volume.
++
+If the selected cluster is running a version of ONTAP software earlier than ONTAP 9.3, then only peered SVMs are listed. If the selected cluster is running ONTAP 9.3 or later, peered SVMs and permitted SVMs are listed.
+
+ .. Modify the volume name suffix, if required.
+
+a|
+Synchronous
+a|
+ .. *Optional:* If you do not know the replication type and relationship type, click *Help me Choose*, specify the values, and then click *Apply*.
+ .. Select the synchronization policy.
++
+The synchronization policy can be StrictSync or Sync.
+
+ .. Select a cluster and an SVM for the destination volume.
++
+If the selected cluster is running a version of ONTAP software earlier than ONTAP 9.3, then only peered SVMs are listed. If the selected cluster is running ONTAP 9.3 or later, peered SVMs and permitted SVMs are listed.
+
+ .. Modify the volume name suffix, if required.
+
+|===
+. Click *Create*.
+. Verify that the volume that you created is included in the list of volumes in the *Volume* window.
++
+The volume is created with UNIX-style security and UNIX 700 "`read write execute`" permissions for the owner.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

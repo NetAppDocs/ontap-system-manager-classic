@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/reference_windows_layout.html
+redirect: ontap-system-manager-classic/online-help-96-97/index.html
+---

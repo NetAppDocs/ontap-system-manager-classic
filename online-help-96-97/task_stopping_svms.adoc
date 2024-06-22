@@ -1,0 +1,35 @@
+---
+permalink: online-help-96-97/task_stopping_svms.html
+sidebar: sidebar
+keywords: stop, svm, online, help, system, manager, storage, virtual, machine
+summary: "You can use System Manager to stop a storage virtual machine (SVM) if you want to troubleshoot any issue with the SVM, delete the SVM, or stop data access from the SVM."
+---
+= Stop SVMs with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to stop a storage virtual machine (SVM) if you want to troubleshoot any issue with the SVM, delete the SVM, or stop data access from the SVM.
+
+.Before you begin
+
+All the clients connected to the SVM must be disconnected.
+
+[NOTE]
+====
+If any clients are connected to the SVM when you stop it, data loss might occur.
+====
+
+.About this task
+
+* You cannot stop SVMs during storage failover (SFO).
+* When you stop the SVM, an SVM administrator cannot log in to the SVM.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM that you want to stop, and then click *Stop*.
+
+.Results
+
+The SVM stops serving data to clients.

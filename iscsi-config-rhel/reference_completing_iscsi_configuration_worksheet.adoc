@@ -1,0 +1,198 @@
+---
+permalink: iscsi-config-rhel/reference_completing_iscsi_configuration_worksheet.html
+sidebar: sidebar
+keywords: iscsi, identifier, network, address, storage, configuration, information, configuration, task, complete, complete the iscsi configuration worksheet
+summary: "You require iSCSI identifiers, network addresses, and storage configuration information to perform iSCSI configuration tasks."
+---
+= Complete the iSCSI configuration worksheet
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You require iSCSI identifiers, network addresses, and storage configuration information to perform iSCSI configuration tasks.
+
+== iSCSI identifiers
+
+[options="header"]
+|===
+a|
+Initiator (host) iSCSI node name (IQN)
+a|
+Target alias (optional)
+|===
+
+== Target network addresses
+
+The storage virtual machine (SVM) is the iSCSI target.
+
+You require a subnet with two IP addresses for iSCSI data LIFs for each node in the cluster. There should be two separate networks for high availability. The specific IP addresses are assigned by ONTAP when you create the LIFs as part of creating the SVM.
+
+If possible, separate iSCSI traffic on separate physical networks or on VLANs.
+
+image::../media/network_fc_or_iscsi_express_iscsi_rhel.gif[The figure shows four nodes, two switches, and a host. Each node has two LIFs, one connected to each switch. The host also connects to both switches.]
+
+Subnet for LIFs:
+
+[options="header"]
+|===
+| Node or LIF with port to switch| IP address| Network mask| Gateway| VLAN ID| Home port
+a|
+Node 1 / LIF to switch 1
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+Node 2 / LIF to switch 1
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+Node 3 / LIF to switch 1
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+Node 4 / LIF to switch 1
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+Node 1 / LIF to switch 2
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+Node 2 / LIF to switch 2
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+Node 3 / LIF to switch 2
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+Node 4 / LIF to switch 2
+a|
+
+a|
+
+a|
+
+a|
+
+a|
+
+|===
+
+== Storage configuration
+
+If the aggregate and SVM are already created, record their names here; otherwise, you can create them as required:
+
+[options="header"]
+|===
+a|
+Node to own LUN
+a|
+Aggregate name
+a|
+SVM name
+|===
+
+== LUN information
+
+[options="header"]
+|===
+a|
+LUN size
+a|
+LUN name (optional)
+a|
+LUN description (optional)
+|===
+
+== SVM information
+
+If you are not using an existing SVM, you require the following information to create a new one:
+
+[cols="1a,1a",options="header"]
+|===
+2+a|
+SVM name
+2+a|
+SVM IPspace
+2+a|
+Aggregate for SVM root volume
+2+a|
+SVM user name (optional)
+2+a|
+SVM password (optional)
+2+a|
+SVM management LIF (optional)
+a|
+| Subnet:
+a|
+a|
+IP address:
+a|
+a|
+Network mask:
+a|
+a|
+Gateway:
+a|
+a|
+Home node:
+a|
+a|
+Home port:
+|===

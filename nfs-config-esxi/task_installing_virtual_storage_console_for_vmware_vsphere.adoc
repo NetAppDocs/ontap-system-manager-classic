@@ -1,0 +1,28 @@
+---
+permalink: nfs-config-esxi/task_installing_virtual_storage_console_for_vmware_vsphere.html
+sidebar: sidebar
+keywords: configuration, provision, task, storage, esxi, host, plug-in, vcenter, server, install
+summary: "for automates many of the configuration and provisioning tasks required to use storage with an ESXi host. is a plug-in to vCenter Server."
+---
+= Install
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Virtual Storage Console for automates many of the configuration and provisioning tasks required to use storage with an ESXi host. is a plug-in to vCenter Server.
+
+.Before you begin
+
+You must have administrator credentials on the vCenter Server used to manage the ESXi host.
+
+.About this task
+
+* Virtual Storage Console is installed as a virtual appliance that includes Virtual Storage Console, vStorage APIs for Storage Awareness (VASA) Provider, and Storage Replication Adapter (SRA) for VMware vSphere capabilities.
+
+.Steps
+
+. Download the version of that is supported for your configuration, as shown in the Interoperability Matrix tool.
++
+https://mysupport.netapp.com/site/global/dashboard[NetApp Support]
+
+. Deploy the virtual appliance and configure it following the steps in _Deployment and Setup Guide_.

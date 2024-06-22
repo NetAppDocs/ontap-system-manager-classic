@@ -1,0 +1,59 @@
+---
+permalink: online-help-96-97/task_editing_application.html
+sidebar: sidebar
+keywords: edit, application, online, help, provisioned, snapshot, copy
+summary: "You can edit a provisioned application to increase to storage size or to manage the Snapshot copies of the application."
+---
+= Edit an application with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to edit a provisioned application to increase to storage size or to manage the Snapshot copies of the application.
+
+.About this task
+
+As the cluster administrator, after you provision an application, you can edit it to modify the storage size. You can also create, restore, or delete Snapshot copies of the application. The example procedure that follows describes how to edit a *NAS Container* application.
+
+.Steps
+
+. Click *Applications & Tiers* > *Applications*
+. Click on the name of the NAS container application.
++
+[NOTE]
+====
+If someone adds new applications using the CLI or REST API while you are viewing the list of applications, then you will not be able to view those new applications when you scroll the list.
+====
++
+The *Overview* tab of the Application Details: nas window displays the application settings.
+
+. Click *Edit*.
++
+The Edit NAS Container: nas displays the current storage size setting and the *NFS Access - Grant Access to Host* address.
+
+. Modify the *Storage Total Size* value.
+. In the size units field, select from the drop-down menu to specify the correct size units (Bytes, MB, GB, or TB).
+. In the *ONTAP Service Level* field, select from the drop-down menu to specify the value.
+. Click *Save*.
+. Navigate back to the *Application Details: nas* window, and select the **Snapshot Copies**tab.
++
+A list of Snapshot copies for this provisioned application is displayed. You can use the *Search* field to search for Snapshot copies by name.
+
+. Manage the Snapshot copies by performing the following tasks as necessary:
++
+[options="header"]
+|===
+| Task| Actions
+a|
+Create
+a|
+Click *Create* to create a new Snapshot copy.
+a|
+Restore
+a|
+Click the check boxes next to the Snapshot copies you want to restore, and then click *Restore*.
+a|
+Delete
+a|
+Click the check boxes next to the Snapshot copies you want to delete, and then click *Delete*.
+|===

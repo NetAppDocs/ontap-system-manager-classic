@@ -1,0 +1,29 @@
+section: peering
+title: Cluster and SVM peering configuration
+entries:
+    - title: Overview
+      url: "/peering/index.html"
+    - title: Prerequisites for cluster peering
+      url: "/peering/reference_prerequisites_for_cluster_peering.html"
+    - title: Cluster and SVM peering workflow
+      url: "/peering/concept_cluster_peering_workflow.html"
+      entries:
+      - title: Prepare for cluster peering
+        url: "/peering/task_preparing_for_cluster_peering.html"
+      - title: Configure peer relationships (Beginning with ONTAP 9.3)
+        url: "/peering/concept_creating_peer_relationships_93_later.html"
+        entries:
+        - title: Create intercluster LIFs(Beginning with ONTAP 9.3)
+          url: "/peering/task_creating_intercluster_lifs.html"
+        - title: Create a cluster peer relationship (Beginning with ONTAP 9.3)
+          url: "/peering/task_creating_cluster_peer_relationship_starting_with_ontap_9_3.html"
+        - title: Create SVM peer relationship
+          url: "/peering/task_creating_svm_peers.html"
+      - title: Configure peer relationships (ONTAP 9.2 and earlier)
+        url: "/peering/concept_creating_peer_relationship_between_clusters_92_earlier.html"
+        entries:
+        - title: Create intercluster interfaces on all nodes (ONTAP 9.2 or earlier)
+          url: "/peering/task_creating_intercluster_interfaces_on_all_nodes.html"
+        - title: Create a cluster peer relationship (ONTAP 9.2 or earlier)
+          url: "/peering/task_creating_cluster_peer_relationships_92_earlier.html"
+    

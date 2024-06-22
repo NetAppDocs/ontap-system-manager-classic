@@ -1,0 +1,167 @@
+---
+permalink: online-help-96-97/task_creating_snaplock_volumes.html
+sidebar: sidebar
+keywords: create, snaplock, volume, online, help, system, manager
+summary: "You can use System Manager to create a SnapLock Compliance volume or a SnapLock Enterprise volume. When you create a volume, you can also set retention times, and choose whether to automate setting the WORM state on data in the volume."
+---
+= Create SnapLock volumes with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create a SnapLock Compliance volume or a SnapLock Enterprise volume. When you create a volume, you can also set retention times, and choose whether to automate setting the WORM state on data in the volume.
+
+.Before you begin
+
+* The SnapLock license must have been installed.
+* The SnapLock aggregate must be online.
+* For creating an encrypted volume, you must have installed the volume encryption license by using System Manager, and you must have enabled "`key-manager setup`" by using the command-line interface (CLI).
++
+You must refresh your web browser after enabling "`key-manager setup`".
+
+.About this task
+
+* You can delete a complete SnapLock Enterprise volume or a file in a SnapLock Enterprise volume; however, you cannot delete only the data within a file in a SnapLock Enterprise volume.
+* You cannot delete a SnapLock Compliance volume if data is committed to the volume.
+* You cannot encrypt a volume in Cloud Volumes ONTAP.
+* If encryption is enabled on the source volume and if the destination cluster is running a version of ONTAP software earlier than ONTAP 9.3, then encryption is disabled on the destination volume by default.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. Click *Create* > *Create FlexVol*.
+. Browse and select the storage virtual machine (SVM) in which you want to create the volume.
+. In the *Create Volume* dialog box, specify a new name if you want to change the default name of the volume.
++
+You cannot change the name of a SnapLock Compliance volume after you create the volume.
+
+. Select the container aggregate for the volume.
++
+You must select a SnapLock Compliance aggregate or SnapLock Enterprise aggregate to create a SnapLock volume. The volume inherits the SnapLock type from the aggregate, and the SnapLock type cannot be changed after the volume is created; therefore, you must select the correct aggregate.
+
+. Select the *Volume Encryption* checkbox to enable encryption for the volume.
++
+This option is available only if you have enabled the Volume Encryption license and if the corresponding platform is capable of supporting encryption.
+
+. Select the type of storage for which you are creating this volume.
++
+If you are creating a SnapMirror destination volume, you must select *Data Protection*. You are provided read-only access to this volume.
+
+. Specify the size of the volume and the percentage of the total volume size that you want to reserve for Snapshot copies.
++
+The default space that is reserved for Snapshot copies is zero percent for SAN volumes and VMware volumes. For NAS volumes, the default is 5 percent.
+
+. *Optional:* Select *Thin Provisioned* to enable thin provisioning for the volume.
++
+When thin provisioning is enabled, space is allocated to the volume from the aggregate only when data is written to the volume.
+
+. *Optional:* Make the required changes in the *Storage Efficiency* tab to enable deduplication on the volume.
++
+System Manager uses the default deduplication schedule. If the specified volume size exceeds the limit that is required for running deduplication, the volume is created, and deduplication is not enabled.
+
+. Select the *SnapLock* tab, and then perform the following steps:
+ .. *Optional:* Specify the autocommit period.
++
+The file in the volume remains unchanged for the period that you specify before the file is committed to the WORM state. To set files to the WORM state manually, you must select *Not specified* as the autocommit setting.
++
+The values must be in the range of 5 minutes to 10 years.
+
+ .. Specify the minimum retention period and maximum retention period.
++
+The values must be in the range of 1 day through 70 years or Infinite.
+
+ .. Select the default retention period.
++
+The default retention period must be within the specified minimum retention period and maximum retention period.
+. *Optional:* Select the *Manage Storage Quality of Service* checkbox in the *Quality of Service* tab to enable storage QoS for the FlexVol volume in order to manage workload performance.
+. Create a storage QoS policy group or select an existing policy group to control the input/output (I/O) performance of the FlexVol volume.
++
+[options="header"]
+|===
+| If you want to...| Do this...
+a|
+Create a storage QoS policy group
+a|
+
+ .. Select *New Policy Group*.
+ .. Specify the policy group name.
+ .. Specify the minimum throughput limit.
+  *** In System Manager 9.5, you can set the minimum throughput limit only on a performance-based All Flash Optimized personality. In System Manager 9.6, you can also set the minimum throughput limit for ONTAP Select Premium systems.
+  *** You cannot set the minimum throughput limit for volumes on a FabricPool-enabled aggregate.
+  *** If you do not specify the minimum throughput value or if the minimum throughput value is set to 0, the system automatically displays "`None`" as the value.
++
+This value is case-sensitive.
+ .. Specify the maximum throughput limit to ensure that the workload of the objects in the policy group does not exceed the specified throughput limit.
+  *** The minimum throughput limit and the maximum throughput limit must be of the same unit type.
+  *** If you do not specify the minimum throughput limit, then you can set the maximum throughput limit in IOPS, B/s, KB/s, MB/s, and so on.
+  *** If you do not specify the maximum throughput value, the system automatically displays "`Unlimited`" as the value.
++
+This value is case-sensitive. The unit that you specify does not affect the maximum throughput.
+
+a|
+Select an existing policy group
+a|
+
+ .. Select *Existing Policy Group*, and then click *Choose* to select an existing policy group from the Select Policy Group dialog box.
+ .. Specify the minimum throughput limit.
+  *** In System Manager 9.5, you can set the minimum throughput limit only on a performance-based All Flash Optimized personality. In System Manager 9.6, you can also set the minimum throughput limit for ONTAP Select Premium systems.
+  *** You cannot set the minimum throughput limit for volumes on a FabricPool-enabled aggregate.
+  *** If you do not specify the minimum throughput value or if the minimum throughput value is set to 0, the system automatically displays "`None`" as the value.
++
+This value is case-sensitive.
+ .. Specify the maximum throughput limit to ensure that the workload of the objects in the policy group does not exceed the specified throughput limit.
+  *** The minimum throughput limit and the maximum throughput limit must be of the same unit type.
+  *** If you do not specify the minimum throughput limit, then you can set the maximum throughput limit in IOPS, B/s, KB/s, MB/s, and so on.
+  *** If you do not specify the maximum throughput value, the system automatically displays "`Unlimited`" as the value.
++
+This value is case-sensitive. The unit that you specify does not affect the maximum throughput.
+
++
+If the policy group is assigned to more than one object, the maximum throughput that you specify is shared among the objects.
+
+|===
+
+. Enable *Volume Protection* in the *Protection* tab to protect the volume:
+. In the *Protection* tab, select the *Replication* type:
++
+[options="header"]
+|===
+| If you selected the replication type as...| Do this...
+a|
+Asynchronous
+a|
+
+ .. *Optional:* If you do not know the replication type and relationship type, click *Help me Choose*, specify the values, and then click *Apply*.
+ .. Select the relationship type.
++
+The relationship type can be mirror, vault, or mirror and vault.
+
+ .. Select a cluster and an SVM for the destination volume.
++
+If the selected cluster is running a version of ONTAP software earlier than ONTAP 9.3, then only peered SVMs are listed. If the selected cluster is running ONTAP 9.3 or later, peered SVMs and permitted SVMs are listed.
+
+ .. Modify the volume name suffix, if required.
+
+a|
+Synchronous
+a|
+
+ .. *Optional:* If you do not know the replication type and relationship type, click *Help me Choose*, specify the values, and then click *Apply*.
+ .. Select the synchronization policy.
++
+The synchronization policy can be StrictSync or Sync.
+
+ .. Select a cluster and an SVM for the destination volume.
++
+If the selected cluster is running a version of ONTAP software earlier than ONTAP 9.3, then only peered SVMs are listed. If the selected cluster is running ONTAP 9.3 or later, peered SVMs and permitted SVMs are listed.
+
+ .. Modify the volume name suffix, if required.
+
+|===
+
+. Click *Create*.
+. Verify that the volume that you created is included in the list of volumes in the *Volume* window.
+
+.Results
+
+The volume is created with UNIX-style security and UNIX 700 "`read write execute`" permissions for the owner.

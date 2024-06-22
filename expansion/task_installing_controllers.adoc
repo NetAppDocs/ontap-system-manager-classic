@@ -1,0 +1,41 @@
+---
+permalink: expansion/task_installing_controllers.html
+sidebar: sidebar
+keywords: install, controller, exist, cluster, installation, setup, instruction, install the controllers
+summary: "When you install controllers that will be added to an existing cluster, you must follow the first three steps of the appropriate Installation and Setup Instructions."
+---
+= Install the controllers
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When you install controllers that will be added to an existing cluster, you must follow the first three steps of the appropriate _Installation and Setup Instructions_.
+
+.About this task
+
+[NOTE]
+====
+As of ONTAP 9.0, HA mode is enabled by default on new hardware.
+====
+
+.Steps
+
+. Obtain the _Installation and Setup Instructions_ for the FAS model number of the controller module that you plan to add to the cluster.
+ ** For a new controller module, the document is available in the box.
+ ** For a repurposed controller module, you can download the document.
+https://mysupport.netapp.com/site/docs-and-kb[NetApp Documentation]
+. Follow the _Prepare for installation_ section with the following exceptions:
+ ** You can skip any instructions about downloading software or a worksheet.
+ ** You must provide a serial console connection even if it is not mentioned in the _Installation and Setup Instructions_.
++
+You require a serial console because you must use the nodeshell CLI to configure node-management LIFs.
++
+If the ONTAP section does not mention the serial console, you can see the 7-mode section.
+. Follow the _Install hardware_ section.
+. Follow the _Cable storage_ section.
+. Skip most of the _Complete System Setup_ section with the following exceptions:
+ ** If instructed to, you must power on all disk shelves and check IDs.
+ ** You must cable the serial console so that you can access the node.
++
+If the ONTAP section does not mention the serial console, you can see the 7-mode section.
+. Skip the _Complete configuration_ section.

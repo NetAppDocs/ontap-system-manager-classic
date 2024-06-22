@@ -1,0 +1,84 @@
+---
+permalink: online-help-96-97/concept_protection_policies.html
+sidebar: sidebar
+keywords: online, help, protection, policy, system, manager, create, edit, delete
+summary: "You can use System Manager to create, edit, and delete protection policies."
+---
+= Manage protection policies with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create, edit, and delete protection policies.
+
+== Create protection policies
+
+You can use System Manager to create cluster-level asynchronous mirror policies, vault policies, or mirror and vault policies, and to apply these policies to a cluster-level data protection relationship.
+
+.Steps
+
+. Click *Protection* > *Protection Policies*.
+. Click *Create*.
+. In the *Create Policy* dialog box, select the type of policy that you want to create.
+. Specify the policy name and transfer priority.
++
+Low indicates that the transfer has the lowest priority. Low priority transfers are usually scheduled after normal priority transfers. By default, the transfer priority is set to Normal.
+
+. *Optional:* Select the *Enable Network Compression* check box to compress the data that is being transferred during a data transfer.
+. *Optional:* For an asynchronous mirror policy, select the *Transfer All Source Snapshot Copies* check box to include the "`all_source_snapshots`" rule to the mirror policy, which backs up all of the Snapshot copies from the source volume.
+. *Optional:* Click *Add Comments* to add additional comments for the policy.
+. For a vault policy or mirror vault policy, specify a SnapMirror label and a destination retention count.
+. Click *Create*.
+
+== Protection Policies window
+
+You can use the Protection Policies window to create, manage, and display information about mirror, vault, and mirror vault policies.
+
+=== Command buttons
+
+* *Create*
++
+Opens the Create Policy dialog box, which enables you to create a mirror, vault, or mirror vault policy.
+
+* *Edit*
++
+Opens the Edit Policy dialog box, which enables you to edit a policy.
+
+* *Delete*
++
+Opens the Delete Policy dialog box, which enables you to delete a policy.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Protection policies list
+
+* *Name*
++
+Displays the name of the protection policy.
+
+* *Type*
++
+Displays the policy type, which can be Vault, Mirror Vault, or Asynchronous Mirror.
+
+* *Comment*
++
+Displays the description specified for the policy.
+
+* *Transfer Priority*
++
+Displays the data transfer priority, such as Normal or Low.
+
+=== Details area
+
+* *Policy Details tab*
++
+Displays details of the protection policy, such as the user who created the policy, number of rules, retention count, and status of network compression.
+
+* *Policy Rules tab*
++
+Displays details of the rules that are applied to the policy. The Policy Rules tab is displayed only if the selected policy contains rules.
+
+//2021-12-07, created by mairead sm-classic-rework
+//2021-12-22, edited by Aoife, sm-classic rework

@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_nvme_protocol.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_setting_up_nvme.html
+---

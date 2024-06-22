@@ -1,0 +1,30 @@
+---
+permalink: online-help-96-97/concept_fc_fcoe_nvme_adapters.html
+sidebar: sidebar
+keywords: system, manager, manage, fc, fcoe, nvme, adapter, online, help, edit, adapter, speed, settings
+summary: 'You can use System Manager to manage FC/FCoE and NVMe adapters.'
+---
+= Manage FC/FCoE and NVMe adapters with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to manage FC/FCoE and NVMe adapters.
+
+== Edit the FC/FCoE and NVMe adapter speed settings
+
+You can modify the FC/FCoE and NVMe adapter speed settings by using the Edit FC/FCoE and NVMe Adapter Settings dialog box in System Manager.
+
+.Steps
+
+. Click *Network* > *FC/FCoE and NVMe Adapters*.
+. Select the adapter that you want to edit, and then click *Edit*.
+. In the *Edit FC/FCoE and NVMe adapter settings* dialog box, set the adapter speed to *Manual* or *Automatic*, and then click *Save*.
+
+*Related information*
+
+xref:reference_network_window.adoc[Network window]
+
+https://docs.netapp.com/us-en/ontap/networking/index.html[Network management]
+
+// 2021-12-10, Created by Aoife, sm-classic rework

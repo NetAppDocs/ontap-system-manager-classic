@@ -1,0 +1,35 @@
+---
+permalink: peering/task_creating_intercluster_lifs.html
+sidebar: sidebar
+keywords: creating, create, intercluster, logical, interface, lif, enable, network, communicate, ipspace, peer, relationship, create intercluster lif, Beginning with ontap 9.3
+summary: "Beginning with ONTAP 9.3, until ONTAP 9.7, you can use the ONTAP System Manager 'classic' interface to create intercluster logical interfaces (LIFs), which enable the cluster network to communicate with a node. You must create an intercluster LIF within each IPspace that will be used for peering, on each node in each cluster for which you want to create a peer relationship."
+---
+= Create intercluster LIFs (Beginning with ONTAP 9.3)
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with ONTAP 9.3, until ONTAP 9.7, you can use the ONTAP System Manager _classic_ interface to create intercluster logical interfaces (LIFs), which enable the cluster network to communicate with a node. You must create an intercluster LIF within each IPspace that will be used for peering, on each node in each cluster for which you want to create a peer relationship.
+
+.About this task
+
+For example, if you have a four-node cluster that you want to peer with cluster X over IPspace A, and peer with cluster Y over IPspace Y, then you need a total of eight intercluster LIFs; Four on IPspace A (one per node), and four on IPspace Y (one per node).
+
+You must perform this procedure on both clusters for which you want to create a peer relationship.
+
+.Steps
+
+. Click *Configuration* > *Advanced Cluster Setup*.
+. In the *Setup Advanced Cluster Features* window, click *Proceed* next to the *Cluster Peering* option.
+. Select an IPspace from the *IPspace* list.
+. Enter the IP address, port, network mask, and gateway details of each node.
++
+image::../media/intercluster_lif_creation_93.gif[This image is explained by the surrounding text.]
+
+. Click *Submit and Continue*.
+
+== What to do next
+
+You should enter the cluster details in the Cluster Peering window to continue with cluster peering.
+
+// BURT 1415746, 10 JAN 2022

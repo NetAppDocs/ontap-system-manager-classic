@@ -1,14 +1,68 @@
 indexpage:
-  title: # Unquoted string 
-  lead: # Quoted string
-  summary: # Quoted string 
-  keywords: # Unquoted comma-delimited list of keywords 
-  tiles: 
-    # Tile definition 
-    - title: # Quoted or unquoted string
-      links: 
-        # Link definition
-        - title: # Quoted or unquoted string
-          url: # Path to target
-        # Next link on this tile (title/url pair)
-    # Next tile on this page (title/links)
+  title: ONTAP System Manager Classic documentation
+  lead: The System Manager Classic interface is available in ONTAP 9.7 and earlier ONTAP 9 releases. Documentation is available on this site for configuration workflows using System Manager Classic, as well as System Manager Classic online help for ONTAP 9.6 and 9.7.
+  summary: ONTAP System Manager is a simple and versatile product that enables you to easily configure and manage ONTAP clusters. System Manager simplifies common storage tasks such as creating volumes, LUNs, qtrees, shares, and exports, which saves time and helps prevent errors.
+  keywords: ontap, netapp, documentation, system, manager
+  tiles:
+    - title: Get started
+      links:
+        - title: Understanding System Manager Classic
+          url: "/online-help-96-97/index.html"
+        - title: Manage ONTAP with System Manager next generation for ONTAP 9.7 and later
+          url: "https://docs.netapp.com/us-en/ontap/concept_administration_overview.html"
+        - title: Manage ONTAP with the CLI
+          url: "https://docs.netapp.com/us-en/ontap/system-admin/index.html"
+    - title: Provision NAS storage
+      links:
+        - title: NFS configuration
+          url: "/nfs-config/index.html"
+        - title: NFS configuration for ESXi using VSC
+          url:  "/nfs-config-esxi/index.html"
+        - title: SMB and NFS mulitprotocol configuration
+          url: "/nas-multiprotocol-config/index.html"
+        - title: SMB configuration
+          url: "/smb-config/index.html"
+    - title: Provision SAN storage
+      links:
+        - title: FC configruation for ESXi using VSC
+          url: "/fc-config-esxi/index.html"
+        - title: FC configuration for Red Hat Enterprise Linux
+          url: "/fc-config-rhel/index.html"
+        - title: FC configuration for Windows
+          url: "/fc-config-windows/index.html"
+        - title: iSCSI configuration for ESXi using VSC
+          url: "/iscsi-config-esxi/index.html"
+        - title: iSCSI configuration for Red Hat Enterprise Linux
+          url: "/iscsi-config-rhel/index.html"
+        - title: iSCSi configuration for Windows
+          url: "/iscsi-config-windows/index.html"
+    - title: Data protection and disaster recovery
+      links:
+        - title: Cluster and SVM peering configuration
+          url: "/peering/index.html"
+        - title: Volume disaster recovery
+          url: "/volume-disaster-recovery/index.html"
+        - title: Volume disaster recovery preparation
+          url: "/volume-disaster-prep/index.html"
+        - title: Volume backup SnapVault
+          url: "/volume-backup-snapvault/index.html"
+        - title: Volume restore management using SnapVault
+          url: "/volume-restore-snapvault/index.html"
+    - title: Cluster administration
+      links:
+        - title: Cluster expansion configuration
+          url: "/expansion/index.html"
+        - title: Volume move management
+          url: "/volume-move/index.html"
+        - title: SNMP configuration
+          url: "/snmp-config/index.html"
+        - title: Cluster management using System Manger 9.6 and 9.7
+          url: "/online-help-96-97/index.html"
+    - title: More resources
+      links:
+        - title: ONTAP 9 documentation
+          url:  "https://docs.netapp.com/us-en/ontap/"
+        - title: Automation and REST API docs
+          url:  "https://docs.netapp.com/us-en/ontap-automation/index.html"
+
+

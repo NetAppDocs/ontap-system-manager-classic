@@ -1,0 +1,37 @@
+---
+permalink: online-help-96-97/task_restoring_volume_from_snapshot_copy.html
+sidebar: sidebar
+keywords: restore, volume, snapshot, copy, system, manager, online, help
+summary: "You can use System Manager to restore a volume to a state that is recorded in a previously created Snapshot copy to retrieve lost information. When you restore a volume from a Snapshot copy, the restore operation overwrites the existing volume configuration. Any changes that were made to the data in the volume after the Snapshot copy was created are lost."
+---
+= Restore a volume from a Snapshot copy with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to restore a volume to a state that is recorded in a previously created Snapshot copy to retrieve lost information. When you restore a volume from a Snapshot copy, the restore operation overwrites the existing volume configuration. Any changes that were made to the data in the volume after the Snapshot copy was created are lost.
+
+.Before you begin
+
+* The SnapRestore license must be installed on your system.
+* If the FlexVol volume that you want to restore contains a LUN, the LUN must be unmounted or unmapped.
+* There must be enough space available for the restored volume.
+* Users accessing the volume must be notified that you are going to revert a volume, and that the data from the selected Snapshot copy replaces the current data in the volume.
+
+.About this task
+
+* If the volume that you restore contains junction points to other volumes, the volumes that are mounted on these junction points will not be restored.
+* You cannot restore Snapshot copies for SnapLock Compliance volumes.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Select the volume that you want to restore from a Snapshot copy.
+. Click *More Actions* > *Manage Snapshots* > *Restore*.
+. Select the appropriate Snapshot copy, and then click *Restore*.
+. Select the confirmation check box, and then click *Restore*.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

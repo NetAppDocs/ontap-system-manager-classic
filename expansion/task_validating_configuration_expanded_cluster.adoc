@@ -1,0 +1,65 @@
+---
+permalink: expansion/task_validating_configuration_expanded_cluster.html
+sidebar: sidebar
+keywords: expand, cluster, validate, configuration, config, advisor, command, health, replication, ring, validate the configuration of the expanded cluster
+summary: "After you expand the cluster, you must validate the configuration by running Config Advisor and using some commands that verify cluster health and cluster replication rings."
+---
+= Validate the configuration of the expanded cluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+After you expand the cluster, you must validate the configuration by running Config Advisor and using some commands that verify cluster health and cluster replication rings.
+
+.Steps
+
+. Check the health of the configuration by running Config Advisor:
+ .. Start Config Advisor, and then click *Collect Data*.
++
+Config Advisor displays any problems found.
+
+ .. If problems are found, correct them and run the tool again.
+. Ensure that all nodes in the cluster are in a healthy state by using the `cluster show` command.
++
+----
+cluster-1::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+cluster1-1            true    true
+cluster1-2            true    true
+cluster1-3            true    true
+cluster1-4            true    true
+4 entries were displayed.
+----
+
+. Ensure that the cluster replication rings have the same epoch, database epoch, and database transaction numbers on all nodes in the cluster:
++
+The easiest way to compare transaction numbers is to view them for one unit name at a time.
+
+ .. Set the privilege level to advanced by using the `set -privilege advanced` command.
+ .. View cluster ring information about the first unit name by using the `cluster ring show` command with the `-unitname mgmt` parameter, and verify that all nodes have the same number in the Epoch, DB Epoch, and DB Trnxs columns.
++
+----
+cluster-1::*> cluster ring show -unitname mgmt
+Node      UnitName Epoch    DB Epoch DB Trnxs Master    Online
+--------- -------- -------- -------- -------- --------- ---------
+cluster1-1
+          mgmt     2        2        959      cluster1-1
+                                                        master
+cluster1-2
+          mgmt     2        2        959      cluster1-2
+                                                        secondary
+cluster1-3
+          mgmt     2        2        959      cluster1-3
+                                                        master
+cluster1-4
+          mgmt     2        2        959      cluster1-3
+                                                        secondary
+4 entries were displayed.
+----
+
+ .. Repeat the command with the `-unitname vldb` parameter.
+ .. Repeat the command with the `-unitname vifmgr` parameter.
+ .. Repeat the command with the `-unitname bcomd` parameter.
+ .. Repeat the command with the `-unitname crs` parameter.
+ .. Return the privilege level to admin by using the `set -privilege admin` command.

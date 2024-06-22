@@ -1,0 +1,103 @@
+---
+permalink: online-help-96-97/task_updating_cluster_nondisruptively.html
+sidebar: sidebar
+keywords: nondisruptive, upgrades, NDU, cluster, system, manager, online, help
+summary: 'You can use System Manager to update a cluster or individual nodes in high-availability \(HA\) pairs that are running ONTAP 8.3.1 or later to a specific version of ONTAP software without disrupting access to client data.'
+---
+= Update a cluster nondisruptively with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to update a cluster or individual nodes in high-availability (HA) pairs that are running ONTAP 8.3.1 or later to a specific version of ONTAP software without disrupting access to client data.
+
+.Before you begin
+
+* All of the nodes must be in HA pairs.
+* All of the nodes must be healthy.
+* You must have copied the software image from the NetApp Support Site to an HTTP server or FTP server on your network so that the nodes can access the image.
++
+link:task_obtaining_ontap_software_images.html[Obtaining ONTAP software images]
+
+.About this task
+
+* If you try to perform other tasks from System Manager while updating the node that hosts the cluster management LIF, an error message might be displayed.
++
+You must wait for the update to finish before performing any operations.
+
+* A rolling update is performed for clusters with fewer than eight nodes, and a batch update is performed for clusters with more than eight nodes.
++
+In a rolling update, the nodes in the cluster are updated one at a time. In a batch update, multiple nodes are updated in parallel.
+
+* You can nondisruptively update ONTAP software from one long-term service (LTS) release to the next LTS release (LTS+1).
++
+For example, if ONTAP 9.1 and ONTAP 9.3 are LTS releases, you can nondisruptively update your cluster from ONTAP 9.1 to ONTAP 9.3.
+
+* Beginning with System Manager 9.6, if the NVMe protocol is configured in System Manager 9.5 and you perform an upgrade from System Manager 9.5 to System Manager 9.6, you no longer have a grace period of 90 days to have the NVMe protocol available without a license. If the grace period is in effect when you upgrade from ONTAP 9.5 to 9.6, the grace period must be replaced with a valid NVMeoF license so you can continue to use the NVMe features.
++
+This feature is not available in MetroCluster configurations.
+
+* If the NVMe protocol is not configured in System Manager 9.5 and you perform an update from System Manager 9.5 to System Manager 9.6, then the grace period is not provided, and you must install the NVMe license to use the NVMe protocol.
++
+This feature is not available in MetroCluster configurations.
+
+* Beginning with ONTAP 9.5, at least one NVMe LIF must be configured for each node in an HA pair using the NVMe protocol. You can also create a maximum of two NVMe LIFs per node. When you upgrade to ONTAP 9.5, you must ensure that a minimum of one NVMe LIF is defined for each node in an HA pair using the NVMe protocol.
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Update*.
+. In the *Update* tab, add a new image or select an available image.
++
+[options="header"]
+|===
+| If you want to...| Then...
+a|
+Add a new software image from the local client
+a|
+
+ .. Click *Add from Local Client*.
+ .. Search for the software image, and then click *Open*.
+
+a|
+Add a new software image from the NetApp Support Site
+a|
+
+ .. Click *Add from Server*.
+ .. In the Add a New Software Image dialog box, enter the URL of the HTTP server or FTP server on which you have saved the image that was downloaded from the NetApp Support Site.
++
+For anonymous FTP, you must specify the URL in the `+ftp://anonymous@ftpserver+` format.
+
+ .. Click *Add*.
+
+a|
+Select an available image
+a|
+Choose one of the listed images.
+|===
+
+. Click *Validate* to run the pre-update validation checks to verify whether the cluster is ready for an update.
++
+The validation operation checks the cluster components to validate that the update can be completed nondisruptively, and then displays any errors or warnings. It also displays any required remedial action that you must perform before updating the software.
++
+[NOTE]
+====
+You must perform all of the required remedial actions for the errors before proceeding with the update. Although you can ignore the remedial actions for the warnings, the best practice is to perform all of the remedial actions before proceeding with the update.
+====
+
+. Click *Next*.
+. Click *Update*.
++
+Validation is performed again.
+
+ ** When the validation is complete, a table displays any errors and warnings, along with any required remedial actions to be taken before proceeding.
+ ** If the validation is completed with warnings, you can choose to select the *Continue update with warnings* checkbox, and then click *Continue*.
+When the validation is complete and the update is in progress, the update might be paused because of errors. You can click the error message to view the details, and then perform the remedial actions before resuming the update.
+
++
+After the update is completed successfully, the node reboots, and you are redirected to the System Manager login page. If the node takes a long time to reboot, you must refresh your browser.
+
+. Log in to System Manager and verify that the cluster is successfully updated to the selected version by clicking *Configuration* > *Cluster* > *Update* > *Update History*, and then viewing the details.
+
+*Related information*
+
+xref:concept_how_you_update_cluster_nondisruptively.adoc[How to update a cluster nondisruptively]

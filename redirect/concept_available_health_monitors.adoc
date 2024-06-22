@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_available_health_monitors.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_system_alerts.html
+---

@@ -1,0 +1,657 @@
+---
+permalink: online-help-96-97/reference_application_specific_lun_settings.html
+sidebar: sidebar
+keywords: system, manager, oracle, sql, lun, application, specific, online, help
+summary: "System Manager supports Oracle, SQL, and other application types while creating FC SAN optimized LUNs on an AFF cluster. LUN settings such as the LUN size are determined by rules specific to the application type. For SQL and Oracle, LUN settings are automatically created."
+---
+= Application-specific LUN settings with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+ONTAP System Manager classic (available in ONTAP 9.7 and earlier) supports Oracle, SQL, and other application types while creating FC SAN optimized LUNs on an AFF cluster. LUN settings such as the LUN size are determined by rules specific to the application type. For SQL and Oracle, LUN settings are automatically created.
+
+If your cluster contains two or more nodes, System Manager uses only the first two nodes selected by the API to create LUNs. Data aggregates are already created in each of the two nodes. The size of each volume created is equal to the available capacity of the aggregate. The volumes are thin-provisioned and space reservation is disabled on the LUNs.
+
+Storage efficiency policy is enabled by default with the schedule set to "`daily`" and quality of service (QoS) set to "`best_effort`". By default, access time (atime) update is enabled on the cluster. However, access time updates are disabled by System Manager while creating volumes and therefore every time a file is read or written, the access time field in the directory is not updated.
+
+[NOTE]
+====
+Enabling the access time update causes performance degradation to the data-serving capability of the cluster.
+====
+
+== LUN settings for SQL
+
+By default, LUNs and volumes are provisioned for a single instance of the SQL server with 2 databases of 1 TB each and 24 physical cores. Space is provisioned for LUNs and volumes according to specific rules for the SQL server. Load balancing is performed for LUNs across the HA pair. You can modify the number of databases. For each database, eight data LUNs and one log LUN is created. One temporary LUN is created for each SQL instance.
+
+The following table provides information about how space is provisioned for the default values of SQL:
+
+[options="header"]
+|===
+| Node| Aggregate| LUN type| Volume name| LUN name| Formula for LUN size| LUN size (GB)
+a|
+node1
+a|
+node1_aggr1
+a|
+data
+a|
+db01_data01
+a|
+db01_data01
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db01_data02
+a|
+db01_data02
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db01_data03
+a|
+db01_data03
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db01_data04
+a|
+db01_data04
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db02_data01
+a|
+db02_data01
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db02_data02
+a|
+db02_data02
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db02_data03
+a|
+db02_data03
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db02_data04
+a|
+db02_data04
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+log
+a|
+db01_log
+a|
+db01_log
+a|
+Database size ÷ 20
+a|
+50
+a|
+
+a|
+
+a|
+temp
+a|
+sql_temp
+a|
+sql_temp
+a|
+Database size ÷ 3
+a|
+330
+a|
+node2
+a|
+node2_aggr1
+a|
+data
+a|
+db01_data05
+a|
+db01_data05
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db01_data06
+a|
+db01_data06
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db01_data07
+a|
+db01_data07
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db01_data08
+a|
+db01_data08
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db02_data05
+a|
+db02_data05
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db02_data06
+a|
+db02_data06
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db02_data07
+a|
+db02_data07
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+data
+a|
+db02_data08
+a|
+db02_data08
+a|
+Database size ÷ 8
+a|
+125
+a|
+
+a|
+
+a|
+log
+a|
+db02_log
+a|
+db02_log
+a|
+Database size ÷ 20
+a|
+50
+|===
+
+== LUN settings for Oracle
+
+By default, LUNs and volumes are provisioned for one database of 2 TB. Space is provisioned for LUNs and volumes according to specific rules for Oracle. By default, Oracle Real Application Clusters (RAC) is not selected.
+
+The following table provides information about how space is provisioned for the default values of Oracle:
+
+[options="header"]
+|===
+| Node| Aggregate| LUN type| Volume name| LUN name| Formula for LUN size| LUN size (GB)
+a|
+node1
+a|
+node1_aggr1
+a|
+data
+a|
+ora_vol01
+a|
+ora_lundata01
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+data
+a|
+ora_vol02
+a|
+ora_lundata02
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+data
+a|
+ora_vol03
+a|
+ora_lundata03
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+data
+a|
+ora_vol04
+a|
+ora_lundata04
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+log
+a|
+ora_vol05
+a|
+ora_lunlog1
+a|
+Database size ÷ 40
+a|
+50
+a|
+
+a|
+
+a|
+binaries
+a|
+ora_vol06
+a|
+ora_orabin1
+a|
+Database size ÷ 40
+a|
+50
+a|
+node2
+a|
+node2_aggr1
+a|
+data
+a|
+ora_vol07
+a|
+ora_lundata05
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+data
+a|
+ora_vol08
+a|
+ora_lundata06
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+data
+a|
+ora_vol09
+a|
+ora_lundata07
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+data
+a|
+ora_vol10
+a|
+ora_lundata08
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+log
+a|
+ora_vol11
+a|
+ora_lunlog2
+a|
+Database size ÷ 40
+a|
+50
+|===
+For Oracle RAC, LUNs are provisioned for grid files. Only two RAC nodes are supported for Oracle RAC.
+
+The following table provides information about how space is provisioned for the default values of Oracle RAC:
+
+[options="header"]
+|===
+| Node| Aggregate| LUN type| Volume name| LUN name| Formula for LUN size| LUN size (GB)
+a|
+node1
+a|
+node1_aggr1
+a|
+data
+a|
+ora_vol01
+a|
+ora_lundata01
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+data
+a|
+ora_vol02
+a|
+ora_lundata02
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+data
+a|
+ora_vol03
+a|
+ora_lundata03
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+data
+a|
+ora_vol04
+a|
+ora_lundata04
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+log
+a|
+ora_vol05
+a|
+ora_lunlog1
+a|
+Database size ÷ 40
+a|
+50
+a|
+
+a|
+
+a|
+binaries
+a|
+ora_vol06
+a|
+ora_orabin1
+a|
+Database size ÷ 40
+a|
+50
+a|
+
+a|
+
+a|
+grid
+a|
+ora_vol07
+a|
+ora_lungrid1
+a|
+10 GB
+a|
+10
+a|
+node2
+a|
+node2_aggr1
+a|
+data
+a|
+ora_vol08
+a|
+ora_lundata05
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+data
+a|
+ora_vol09
+a|
+ora_lundata06
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+data
+a|
+ora_vol10
+a|
+ora_lundata07
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+data
+a|
+ora_vol11
+a|
+ora_lundata08
+a|
+Database size ÷ 8
+a|
+250
+a|
+
+a|
+
+a|
+log
+a|
+ora_vol12
+a|
+ora_lunlog2
+a|
+Database size ÷ 40
+a|
+50
+a|
+
+a|
+
+a|
+binaries
+a|
+ora_vol13
+a|
+ora_orabin2
+a|
+Database size ÷ 40
+a|
+50
+|===
+
+== LUN settings for other application type
+
+Each LUN is provisioned in a volume. The space is provisioned in the LUNs based on the specified size. Load balancing is performed across the nodes for all the LUNs.

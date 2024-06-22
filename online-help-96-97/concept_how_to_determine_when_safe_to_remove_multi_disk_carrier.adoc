@@ -1,0 +1,29 @@
+---
+permalink: online-help-96-97/concept_how_to_determine_when_safe_to_remove_multi_disk_carrier.html
+sidebar: sidebar
+keywords: remove, multidisk, carrier, system, manager, storage, disruption, raid
+summary: "Removing a multi-disk carrier before it is safe to do so can result in one or more RAID groups becoming degraded, or possibly even a storage disruption. System Manager enables you to determine when it is safe to remove a multi-disk carrier."
+---
+= Determine when it is safe to remove a multi-disk carrier with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Removing a multi-disk carrier before it is safe to do so can result in one or more RAID groups becoming degraded, or possibly even a storage disruption. ONTAP System Manager classic (available in ONTAP 9.7 and earlier) enables you to determine when it is safe to remove a multi-disk carrier.
+
+When a multi-disk carrier has to be replaced, the following events must have occurred before you can remove the carrier safely:
+
+* An AutoSupport message must have been logged indicating that the carrier is ready to be removed.
+* An EMS message must have been logged indicating that the carrier is ready to be removed.
+* The state of both disks in the carrier must be displayed as `broken` in the Disks window.
++
+You must remove the disks only after the carrier mate of a failed disk is evacuated. You can click Details to view the disk evacuation status in the Properties tab of the Disks window.
+
+* The fault LED (amber) on the carrier must be lit continuously indicating that it is ready for removal.
+* The activity LED (green) must be turned off indicating there is no disk activity.
+* The shelf digital display only shows the shelf ID number.
+
+[NOTE]
+====
+You cannot reuse the carrier mate of a failed disk. When you remove a multi-disk carrier that contains a failed disk, you must replace it with a new carrier.
+====

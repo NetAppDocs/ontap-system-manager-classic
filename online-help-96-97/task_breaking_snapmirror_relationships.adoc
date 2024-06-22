@@ -1,0 +1,38 @@
+---
+permalink: online-help-96-97/task_breaking_snapmirror_relationships.html
+sidebar: sidebar
+keywords: snapmirror, break, relationship, dp, rw, online, help
+summary: "You must break a SnapMirror relationship if a SnapMirror source becomes unavailable and you want client applications to be able to access the data from the mirror destination."
+---
+= Break SnapMirror relationships with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to break a SnapMirror relationship. You must break a SnapMirror relationship if a SnapMirror source becomes unavailable and you want client applications to be able to access the data from the mirror destination. After the SnapMirror relationship is broken, the destination volume type changes from "data protection" (DP) to "read/write" (RW).
+
+.Before you begin
+
+* The SnapMirror destination must be in the quiesced state or idle state.
+* The destination volume must be mounted on the destination storage virtual machine (SVM) namespace.
+
+.About this task
+
+* You can use the destination volume to serve data while you repair or replace the source, update the source, and reestablish the original configuration of the systems.
+* You can break SnapMirror relationships between ONTAP systems and SolidFire storage systems.
+* If you are breaking a FlexGroup volume relationship, you must refresh the page to view the updated status of the relationship.
+
+.Steps
+
+. Click *Protection* > *Volume Relationships*.
+. Select the mirror relationship that you want to break.
+. Click *Operations* > *Break*.
+. Select the confirmation check box, and then click *Break*.
+
+.Results
+
+The data protection SnapMirror relationship is broken. The destination volume type changes from data protection (DP), read-only, to read/write (RW). The system stores the base Snapshot copy for the data protection mirror relationship for later use.
+
+*Related information*
+
+xref:reference_protection_window.adoc[Protection window]

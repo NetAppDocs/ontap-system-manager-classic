@@ -1,0 +1,141 @@
+---
+permalink: online-help-96-97/concept_schedules.html
+sidebar: sidebar
+keywords: online, help, system, manager, manage, schedule, storage
+summary: "You can use System Manager to create and manage schedules in your storage system."
+---
+= Manage schedules with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create and manage schedules in your storage system.
+
+== Create schedules
+
+You can create schedules to run a job at a specific time or at regular periods by using System Manager.
+
+.About this task
+
+When you create a schedule in a MetroCluster configuration, it is a best practice to create an equivalent schedule on the cluster in the surviving site as well.
+
+.Steps
+
+. Click *Protection* > *Schedules*.
+. Click *Create*.
+. In the *Create Schedule* dialog box, specify the schedule name.
+. Create a schedule based on your requirements:
++
+[options="header"]
+|===
+| If you want to create...| Do this...
+a|
+A daily or a specific schedule on certain days
+a|
+Select *Basic*, and specify the schedule and recurrence details (in hours and minutes).
+a|
+A schedule that runs at a specific interval
+a|
+Select *Interval*, and specify the schedule and recurrence details (in days, hours, and minutes).
+a|
+A schedule that runs at a specific period
+a|
+Select *Advanced*, and specify the schedule and recurrence details (in months, days, weekdays, hours, and minutes).
+|===
+
+. Click *Create*.
+
+== Edit schedules
+
+You can make changes to a previously created cron schedule or an interval schedule if it does not meet your requirements by using System Manager. You can modify schedule details such as recurring days and hours, interval options, and advanced cron options.
+
+.About this task
+
+When you edit a schedule in a MetroCluster configuration, it is a best practice to edit the equivalent schedule on the surviving site cluster as well.
+
+.Steps
+
+. Click *Protection* > *Schedules*.
+. Select the schedule that you want to modify and click *Edit*.
+. In the *Edit Schedule* dialog box, modify the schedule by performing the appropriate action:
++
+[options="header"]
+|===
+| If you select the schedule option as...| Do this..
+a|
+Basic
+a|
+Specify the recurring days and recurring schedule details.
+a|
+Interval
+a|
+Specify the interval options in days, hours, and minutes.
+a|
+Advanced
+a|
+Specify the advanced cron options in months, days, week days (if applicable), hours, and minutes.
+|===
+
+. Click *OK*.
+
+== Delete schedules
+
+[.lead]
+You can use System Manager to delete the schedules that run specific storage management tasks.
+
+.Steps
+
+. Click *Protection* > *Schedules*.
+. Select the schedule that you want to delete and click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+
+== Manage schedules
+
+You can configure many tasks (for instance, volume Snapshot copies and mirror replications) to run on specified schedules. Schedules that are run at specified schedules are known as _cron_ schedules because of their similarity to UNIX `cron` schedules. Schedules that are run at intervals are known as _interval_ schedules.
+
+You can manage schedules in the following ways:
+
+* Creating a cron schedule or an interval schedule
+* Displaying information about all the schedules
+* Modifying a cron schedule or an interval schedule
+* Deleting a cron schedule or an interval schedule
++
+You cannot delete a schedule that is currently in use by a running job.
+
+The cluster administrator can perform all the schedule management tasks.
+
+== Schedules window
+You can use the Schedules window to manage scheduled tasks, such as creating, displaying information about, modifying, and deleting schedules.
+
+=== Command buttons
+
+* *Create*
++
+Opens the Create Schedule dialog box, which enables you to create time-based and interval schedules.
+
+* *Edit*
++
+Opens the Edit Schedule dialog box, which enables you to edit the selected schedules.
+
+* *Delete*
++
+Opens the Delete Schedule dialog box, which enables you to delete the selected schedules.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Schedules list
+
+* *Name*
++
+Specifies the name of the schedule.
+
+* *Type*
++
+Specifies the type of the schedule--time-based or interval-based.
+
+=== Details area
+
+The details area displays information about when a selected schedule is run.
+//2021-12-16, created by Mairead sm-classic-rework

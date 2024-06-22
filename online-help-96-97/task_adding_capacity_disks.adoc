@@ -1,0 +1,74 @@
+---
+permalink: online-help-96-97/task_adding_capacity_disks.html
+sidebar: sidebar
+keywords: add, capacity, disk, online, help, aggregate
+summary: "You can increase the size of an existing non-root aggregate or a root aggregate containing disks by adding capacity disks. You can use System Manager to add HDDs or SSDs of the selected ONTAP disk type and to modify the RAID group options."
+---
+= Add capacity disks with System Manager - ONTAP 9.7 and earlier
+:experimental:
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can increase the size of an existing non-root aggregate or a root aggregate containing disks by adding capacity disks. You can use System Manager classic (available in ONTAP 9.7 and earlier) to add HDDs or SSDs of the selected ONTAP disk type and to modify the RAID group options.
+
+.Before you begin
+
+* The aggregate must be online.
+* There must be sufficient compatible spare disks.
+
+.About this task
+
+* It is a best practice to add disks that are of the same size as the other disks in the aggregate.
++
+If you add disks that are smaller in size than the other disks in the aggregate, the aggregate becomes suboptimal in configuration, which in turn might cause performance issues.
++
+If you add disks that are larger in size than the disks that are available in a pre-existing RAID group within the aggregate, then the disks are downsized, and their space is reduced to that of the other disks in that RAID group. If a new RAID group is created in the aggregate and similar sized disks remain in the new RAID group, the disks are not downsized.
++
+If you add disks that are not of the same size as the other disks in the aggregate, the selected disks might not be added; instead, other disks with a usable size between 90 percent and 105 percent of the specified size are automatically added. For example, for a 744 GB disk, all of the disks in the range of 669 GB through 781 GB are eligible for selection. For all of the spare disks in this range, ONTAP first selects only partitioned disks, then selects only unpartitioned disks, and finally selects both partitioned disks and unpartitioned disks.
+
+* You cannot use System Manager to add HDDs to the following configurations:
+ ** Aggregates containing only SSDs
+ ** Root aggregates containing partitioned disks
+You must use the command-line interface to add HDDs to these configurations.
+* Shared disks support two RAID types: RAID DP and RAID-TEC.
+* You cannot use SSDs with storage pool.
+* If the RAID group type is RAID DP, and if you are adding FSAS or MSATA type of disks that are equal to or larger than 10 TB in size, then you can add them only to `Specific RAID group`, and not to `New RAID group` or `All RAID groups`.
++
+The disks are added after downsizing the disk size to the size of the disks in the pre-existing RAID group of the existing aggregate.
+
+* If the RAID group type is RAID-TEC, and if you are adding FSAS or MSATA type of disks that are equal to or larger than 10 TB in size, then you can add them to `All RAID groups`, `New RAID group`, and `Specific RAID group`.
++
+The disks are added after downsizing the disk size to the size of the disks in the pre-existing RAID group of the existing aggregate.
+
+.Steps
+
+. Choose one of the following methods:
+ ** Click *Applications & Tiers* > *Storage Tiers*.
+ ** Click *Storage* > *Aggregates & Disks* > *Aggregates*.
+. In the *Storage Tiers* window, select the aggregate to which you want to add capacity disks, and then click menu:More Actions[Add Capacity].
+. Specify the following information in the *Add Capacity* dialog box:
+ .. Specify the disk type for the capacity disks by using the *Disk Type to Add* option.
+ .. Specify the number of capacity disks by using the *Number of Disks or Partitions* option.
+. Specify the RAID group to which the capacity disks are to be added by using the *Add Disks To* option.
++
+By default, System Manager adds the capacity disks to `All RAID groups`.
+
+ .. Click *Change*.
+ .. In the *RAID Group Selection* dialog box, specify the RAID group as `New RAID group` or `Specific RAID group` by using the *Add Disks To* option.
++
+Shared disks can be added only to the `New RAID group` option.
+
+. Click *Add*.
++
+For mirrored aggregates, an *Add Capacity* dialog box is displayed with the information that twice the number of selected disks will be added.
+
+. In the *Add Capacity* dialog box, click *Yes* to add the capacity disks.
+
+.Results
+
+The capacity disks are added to the selected aggregate, and the aggregate size is increased.
+
+*Related information*
+
+xref:concept_what_compatible_spare_disks_are.adoc[What compatible spare disks are]

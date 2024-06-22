@@ -1,0 +1,63 @@
+---
+permalink: online-help-96-97/concept_nfs_protocol.html
+sidebar: sidebar
+keywords: nfs, protocol, system, manager, authenticate, client, asses, data, svm, online, help
+summary: "You can use System Manager to authenticate NFS clients to access data on the SVM."
+---
+= Configure the NFS protocol with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to authenticate NFS clients to access data on the SVM.
+
+== Edit NFS settings
+
+You can use System Manager to edit the NFS settings such as enabling or disabling NFSv3, NFSv4, and NFSv4.1, enabling or disabling read and write delegations for NFSv4 clients, and enabling NFSv4 ACLs. You can also edit the default Windows user.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Protocols* pane, click *NFS*.
+. In the *NFS* window, click *Edit*.
+. In the *Edit NFS Settings* dialog box, make the required changes.
+. Click *Save and Close*.
+
+== NFS window
+
+You can use the NFS window to display and configure your NFS settings.
+
+* *Server Status*
++
+Displays the status of the NFS service. The service is enabled if the NFS protocol is configured on the storage virtual machine (SVM).
++
+[NOTE]
+====
+If you have upgraded to ONTAP 8.3 or later from an NFS-enabled storage system running Data ONTAP 8.1.x, the NFS service is enabled in ONTAP 8.3 or later. However, you must enable support for NFSv3 or NFSv4 because NFSv2 is no longer supported.
+====
+
+=== Command buttons
+
+* *Enable*
++
+Enables the NFS service.
+
+* *Disable*
++
+Disables the NFS service.
+
+* *Edit*
++
+Opens the Edit NFS Settings dialog box, which enables you to edit NFS settings.
+
+* *Refresh*
++
+Updates the information in the window.
+
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/index.html[NFS management^]
+
+// 2021-12-20, Created by Aoife, sm-classic rework

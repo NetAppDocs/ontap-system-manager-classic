@@ -1,0 +1,39 @@
+---
+permalink: online-help-96-97/task_configuring_nvme_protocol_on_svms.html
+sidebar: sidebar
+keywords: configure, nvme, protocol, svm, system, manager, namespaces, online, help
+summary: "You can configure the NVMe protocol on a storage virtual machine (SVM) using System Manager. You can then create namespaces and assign them to an NVMe subsystem and host."
+---
+= Configure NVMe protocol on SVMs with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to configure the NVMe protocol on a storage virtual machine (SVM). You can then create namespaces and assign them to an NVMe subsystem and host.
+
+.About this task
+
+The SVM with NVMe should not have any other protocol. If you select NVMe, then the rest of the protocols will be disabled. You can also configure NVMe while creating the SVM.
+
+.Steps
+
+. If you did not configure the NVMe protocol when creating the SVM, click *Storage* > *SVMs*
+. Select the SVM, and then click *SVM settings*.
+. In the *Protocols* pane, click *NVMe*.
+. Click the link to configure the protocol, as required.
++
+[NOTE]
+====
+If there are any other protocols enabled, you must deselect these to make NVMe available to select. NVMe cannot be combined with any other protocol.
+====
+
+. In the *Edit Storage Virtual Machine* pane, click on *Resource Allocation*.
+. In the *Resource Allocation* tab, you can choose not to delegate volume creation or you can select an aggregate to provision the volumes automatically.
+. Click on the *Services* tab to configure the Name Service Switch details.
+. Click *Save and Close*
++
+The NVMe protocol is configured on the SVM. After the protocol has been configured, you can start or stop the service using *SVM Settings*
+
+*Related information*
+
+xref:concept_setting_up_nvme.adoc[Setting up NVMe]

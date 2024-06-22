@@ -1,0 +1,38 @@
+---
+permalink: nfs-config-esxi/task_verifying_configuration_is_supported.html
+sidebar: sidebar
+keywords: reliable, operation, verify, configuration, support, nfs, verify that the configuration is supported
+summary: "For reliable operation, you must verify that the entire configuration is supported. The lists the supported configurations for NFS and for Virtual Storage Console."
+---
+= Verify that the configuration is supported
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+For reliable operation, you must verify that the entire configuration is supported. The lists the supported configurations for NFS and for Virtual Storage Console.
+
+.Steps
+
+. Go to the to verify that you have a supported combination of the following components:
++
+https://mysupport.netapp.com/matrix[NetApp Interoperability Matrix Tool]
+
+ ** ONTAP software
+ ** NFS storage protocol
+ ** ESXi operating system version
+ ** Guest operating system type and version
+ ** for (VSC) software
+ ** NFS Plug-In for VAAI
+
+. Click the configuration name for the selected configuration.
++
+Details for that configuration are displayed in the Configuration Details window.
+
+. Review the information in the following tabs:
+ ** Notes
++
+Lists important alerts and information that are specific to your configuration.
+
+ ** Policies and Guidelines
++
+Provides general guidelines for all NAS configurations.

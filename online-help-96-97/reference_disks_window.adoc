@@ -1,0 +1,150 @@
+---
+permalink: online-help-96-97/reference_disks_window.html
+sidebar: sidebar
+keywords: command, button, disk, window, inventory, detail, online, help
+summary: "You can use the Disks window to view all the disks in your storage system."
+---
+= Disks window in System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the Disks window in ONTAP System Manager classic (avaiable in ONTAP 9.7 and earlier) to view all the disks in your storage system.
+
+== Command buttons
+
+* *Assign*
++
+Assigns or reassigns the ownership of the disks to a node.
++
+This button is enabled only if the container type of the selected disks is unassigned, spare, or shared.
+
+* *Zero Spares*
++
+Erases all the data, and formats the spare disks and array LUNs.
+
+* *Refresh*
++
+Updates the information in the window.
+
+== Tabs
+
+== Summary
+
+Displays detailed information about the disks in the cluster, including the size of the spare disks and assigned disks. The tab also graphically displays information about spare disks, aggregates, and root aggregates for HDDs and information about spare disks, disks in a storage pool, aggregates, Flash Pool aggregates, and root aggregates for cache disks (SSDs).
+
+The HDD panel is not displayed for systems with All Flash Optimized personality.
+
+The details panel provides additional information about partitioned and unpartitioned spare disks (disk type, node, disk size, RPM, checksum, number of available disks, and spare capacity), in tabular format.
+
+== Inventory
+
+* *Name*
++
+Displays the name of the disk.
+
+* *Container Type*
++
+Displays the purpose for which the disk is used. The possible values are Aggregate, Broken, Foreign, Label Maintenance, Maintenance, Shared, Spare, Unassigned, Volume, Unknown, and Unsupported.
+
+* *Partition Type*
++
+Displays the partition type of the disk.
+
+* *Node Name*
++
+Displays the name of the node that contains the aggregate.
++
+This field is available only at the cluster level.
+
+* *Home owner*
++
+Displays the name of the home node to which this disk is assigned.
+
+* *Current owner*
++
+Displays the name of the node that currently owns this disk.
+
+* *Root owner*
++
+Displays the name of the node that currently owns the root partition of this disk.
+
+* *Data Owner*
++
+Displays the name of the node that currently owns the data partition of this disk.
+
+* *Data1 Owner*
++
+Displays the name of the node that currently owns the data1 partition of the disk.
+
+* *Data2 Owner*
++
+Displays the name of the node that currently owns the data2 partition of the disk.
+
+* *Storage Pool*
++
+Displays the name of the storage pool with which the disk is associated.
+
+* *Type*
++
+Displays the type of the disk.
+
+* *Firmware Version*
++
+Displays the firmware version of the disk.
+
+* *Model*
++
+Displays the model of the disk.
+
+* *RPM*
++
+Displays the effective speed of the disk drive when the option `raid.mix.hdd.rpm.capacity` is enabled, and displays the actual speed of the disk drive when the option `raid.mix.hdd.rpm.capacity` is disabled.
++
+This field is not applicable to SSDs.
+
+* *Effective Size*
++
+Displays the usable space available on the disk.
+
+* *Physical Space*
++
+Displays the total physical space of the disk.
+
+* *Shelf*
++
+Displays the shelf on which the physical disks are located.
++
+This field is hidden by default.
+
+* *Bay*
++
+Displays the bay within the shelf for the physical disk.
++
+This field is hidden by default.
+
+* *Pool*
++
+Displays the name of the pool to which the selected disk is assigned.
++
+This field is hidden by default.
+
+* *Checksum*
++
+Displays the type of the checksum.
++
+This field is hidden by default.
+
+* *Carrier ID*
++
+Specifies information about disks that are located within the specified multi-disk carrier. The ID is a 64-bit value.
++
+This field is hidden by default.
+
+== Inventory details area
+
+The area below the inventory tab displays detailed information about the selected disk, including information about the aggregate or volume (if applicable), vendor ID, zeroing state (in percent), serial number of the disk, and error details in case of a broken disk. For shared disks, the Inventory details area displays the names of all the aggregates, including the root and the non-root aggregates.
+
+*Related information*
+
+xref:task_viewing_disk_information.adoc[Viewing disk information]

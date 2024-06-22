@@ -1,0 +1,158 @@
+---
+permalink: online-help-96-97/concept_array_luns.html
+sidebar: sidebar
+keywords: system, manager, array, lun, aggregate, assign, online, help, classic
+summary: "You can use System Manager to assign array LUNs to an existing aggregate and manage array LUNs."
+---
+= Manage array LUNs with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to assign array LUNs to an existing aggregate and manage array LUNs.
+
+== Assign array LUNs
+
+You can use System Manager to assign unassigned array LUNs to an existing aggregate to increase the size of the aggregate.
+
+.About this task
+
+* You can assign array LUNs if the following conditions are true:
+ ** The container type of the selected array LUNs must be "`unassigned`".
+ ** The disks must be connected to nodes in an HA pair.
+ ** The disks must be visible to the node.
+* For MetroCluster configurations, you cannot use System Manager to assign array LUNs as spares.
++
+You must use the command-line interface instead.
+
+.Steps
+
+. Click *Storage* > *Aggregates & Disks* > *Array LUNs*.
+. Select the array LUNs, and then click *Assign*.
+. In the *Assign Array LUNs* dialog box, select the node to which you want to assign the array LUNs.
+. Click *Assign*.
+
+== Reassign spare array LUNs to nodes
+
+You can use System Manager to reassign the ownership of spare array LUNs from one node to another to increase the capacity of an aggregate.
+
+.About this task
+
+* You can reassign array LUNs if the following conditions are true:
+ ** The container type of the selected array LUNs must be "`spare`".
+ ** The disks must be connected to nodes in an HA pair.
+ ** The disks must be visible to the node.
+* For MetroCluster configurations, you cannot use System Manager to reassign array LUNs as spares.
++
+You must use the command-line interface instead.
+
+.Steps
+
+. Click *Storage* > *Aggregates & Disks* > *Array LUNs*.
+. Select the spare array LUNs that you want to reassign, and then click *Assign*.
+. In the *Warning* dialog box, click *Continue*.
+. In the *Assign Array LUNs* dialog box, select the node to which you want to reassign the spare array LUNs.
+. Click *Assign*.
+
+== Zeroing spare array LUNs
+
+You can use System Manager to erase all the data and to format the spare array LUNs by writing zeros to the array LUNs. These array LUNs can then be used in new aggregates.
+
+.About this task
+
+When you zero the spare array LUNs, all the spares in the cluster, including disks, are zeroed. You can zero the spare array LUNs for a specific node or for the entire cluster.
+
+.Steps
+
+. Click *Storage* > *Aggregates & Disks* > *Array LUNs*.
+. Click *Zero Spares*.
+. In the *Zero Spares* dialog box, select a node or "`All nodes`" from which you want to zero the array LUNs.
+. Select the *Zero all non-zeroed spares* check box to confirm the zeroing operation.
+. Click *Zero Spares*.
+
+== About disks and array LUNs
+
+A disk is the basic unit of storage for storage systems that use ONTAP software to access native disk shelves. An array LUN is the basic unit of storage that third-party storage arrays provide to storage systems that run ONTAP software.
+
+ONTAP software enables you to assign ownership to your disks and array LUNs, and to add them to an aggregate. ONTAP software also provides a number of ways to manage your disks, including removing them, replacing them, and sanitizing them. Because array LUNs are provided by the third-party storage array, you use the third-party storage array for all other management tasks for array LUNs.
+
+You can create an aggregate using either disks or array LUNs. After you have created the aggregate, you manage it using ONTAP software in exactly the same way, whether it was created from disks or array LUNs.
+
+== Array LUNs window
+
+The Array LUNs window enables you to assign ownership to your array LUNs and to add them to an aggregate.
+
+The Array LUNs link in the left navigation pane is displayed only if there are any spare array LUNs, or if the V_StorageAttach license is installed.
+
+=== Command buttons
+
+* *Assign*
++
+Enables you to assign or reassign the ownership of array LUNs to a node.
+
+* *Zero Spares*
++
+Erases all the data, and formats the spare array LUNs and disks.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Array LUN list
+
+Displays information such as the name, state, and vendor for each array LUN.
+
+* *Name*
++
+Specifies the name of the array LUN.
+
+* *State*
++
+Specifies the state of the array LUN.
+
+* *Vendor*
++
+Specifies the name of the vendor.
+
+* *Used Space*
++
+Specifies the space used by the array LUN.
+
+* *Total Size*
++
+Specifies the size of the array LUN.
+
+* *Container*
++
+Specifies the aggregate to which the array LUN belongs.
+
+* *Node name*
++
+Specifies the name of the node to which the array LUN belongs.
+
+* *Home owner*
++
+Displays the name of the home node to which the array LUN is assigned.
+
+* *Current owner*
++
+Displays the name of the node that currently owns the array LUN.
+
+* *Array name*
++
+Specifies the name of the array.
+
+* *Pool*
++
+Displays the name of the pool to which the selected array LUN is assigned.
+
+=== Details area
+
+The area below the Array LUNs list displays detailed information about the selected array LUN.
+
+
+*Related information*
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-irrg/home.html[FlexArray virtualization installation requirements and reference]
+
+// 2021-12-14, Created by Aoife, sm-classic rework

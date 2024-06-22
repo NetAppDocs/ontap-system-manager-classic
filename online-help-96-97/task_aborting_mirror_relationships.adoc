@@ -1,0 +1,26 @@
+---
+permalink: online-help-96-97/task_aborting_mirror_relationships.html
+sidebar: sidebar
+keywords: abort, mirror, transfer, online, help, volume, replication
+summary: "You can abort a volume replication operation before the data transfer is complete. You can abort a scheduled update, a manual update, or an initial data transfer."
+---
+= Abort a mirror transfer with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to abort a volume replication operation before the data transfer is complete. You can abort a scheduled update, a manual update, or an initial data transfer.
+
+.Steps
+
+. Click *Protection* > *Volume Relationships*.
+. Select the relationship for which you want to stop the data transfer, and click *Operations* > *Abort*.
+. Click the *Yes, I want to abort the transfer* check box to confirm the operation.
+. Click the *Keep any partially transferred data* check box to retain the data that is already transferred to the destination volume.
+. Click *Abort*.
++
+The transfer status is displayed as "`Aborting`" until the operation is complete and displayed as "`Idle`" after the operation is complete.
+
+*Related information*
+
+xref:reference_protection_window.adoc[Protection window]

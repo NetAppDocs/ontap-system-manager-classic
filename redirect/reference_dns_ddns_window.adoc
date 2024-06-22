@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/reference_dns_ddns_window.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_dns_ddns_services.html
+---

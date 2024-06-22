@@ -1,0 +1,51 @@
+---
+permalink: online-help-96-97/reference_effective_data_ontap_disk_types.html
+sidebar: sidebar
+keywords: ontap, disk, type, online, help
+summary: "Beginning with Data ONTAP 8.1, certain ONTAP disk types are considered equivalent for the purposes of creating and adding to aggregates, and managing spares. ONTAP assigns an effective disk type for each disk type. You can mix HDDs that have the same effective disk type."
+---
+= Use effective ONTAP disk type for mixing HDDs with System Manger - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with Data ONTAP 8.1, certain ONTAP disk types are considered equivalent for the purposes of creating and adding to aggregates, and managing spares. ONTAP assigns an effective disk type for each disk type. You can use ONTAP System Manager classic (available in 9.7 and earlier) to mix HDDs that have the same effective disk type.
+
+When the `raid.disktype.enable` option is set to `off`, you can mix certain types of HDDs within the same aggregate. When the `raid.disktype.enable` option is set to `on`, the effective disk type is the same as the ONTAP disk type. Aggregates can be created using only one disk type. The default value for the `raid.disktype.enable` option is `off`.
+
+Beginning with Data ONTAP 8.2, the option `raid.mix.hdd.disktype.capacity` must be set to `on` to mix disks of type BSAS, FSAS, and ATA. The option `raid.mix.hdd.disktype.performance` must be set to `on` to mix disks of type FCAL and SAS.
+
+The following table shows how the disk types map to the effective disk type:
+
+[options="header"]
+|===
+| ONTAP disk type| Effective disk type
+a|
+FCAL
+a|
+SAS
+a|
+SAS
+a|
+SAS
+a|
+ATA
+a|
+FSAS
+a|
+BSAS
+a|
+FSAS
+a|
+FCAL and SAS
+a|
+SAS
+a|
+MSATA
+a|
+MSATA
+a|
+FSAS
+a|
+FSAS
+|===

@@ -1,0 +1,16 @@
+---
+permalink: iscsi-config-windows/concept_iscsi_configuration_workflow.html
+sidebar: sidebar
+keywords: storage, available, host, iscsi, provision, volume, lun, storage, virtual, machine, svm, connect, iscsi configuration and provisioning workflow
+summary: "When you make storage available to a host using iSCSI, you provision a volume and LUN on the storage virtual machine, and then connect to the LUN from the host."
+---
+= iSCSI configuration and provisioning workflow
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When you make storage available to a host using iSCSI, you provision a volume and LUN on the storage virtual machine (SVM), and then connect to the LUN from the host.
+
+image::../media/iscsi_windows_workflow.png[This illustration is a flowchart of the iSCSI workflow. The steps in the workflow match the topics.]
+
+// BURT 1448684, 31 JAN 2022

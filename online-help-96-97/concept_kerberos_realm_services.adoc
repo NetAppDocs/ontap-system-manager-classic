@@ -1,0 +1,145 @@
+---
+permalink: online-help-96-97/concept_kerberos_realm_services.html
+sidebar: sidebar
+keywords: online, help, kerberos, realm, service, system, manager, svm, edit, security, strong, nfs, authentication, microsoft, ntlm, ntlm v2, client
+summary: "You can use System Manager to create and manage Kerberos realm services."
+---
+= Manage Kerberos realm services with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create and manage Kerberos realm services.
+
+== Create a Kerberos realm configuration
+
+If you want to use Kerberos authentication for client access, you must configure the storage virtual machine (SVM) to use an existing Kerberos realm. You can use System Manager to create a Kerberos realm configuration, which enables SVMs to use Kerberos security services for NFS.
+
+.Before you begin
+
+* The CIFS license must be installed if CIFS shares are used, and the NFS license must be installed if an LDAP server is used.
+* Active Directory (Windows 2003 or Windows 2008) with DES MD5 encryption capability must be available.
+* You must have set the time zone and synchronized the time across the cluster by configuring NTP.
++
+This prevents authentication errors, and ensures that the timestamps in log files are consistent across the cluster.
+
+.About this task
+
+While creating a Kerberos realm, you must set the following attributes in the Create Kerberos Realm wizard:
+
+* Kerberos realm
+* KDC IP address and port number
++
+The default port number is 88.
+
+* Kerberos Key Distribution Center (KDC) vendor
+* Administrative server IP address if the KDC vendor is not Microsoft
+* Password server IP address
+* Active Directory server name and IP address if the KDC vendor is Microsoft
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Services* pane, click *Kerberos Realm*.
+. In the *Kerberos Realm* window, click *Create*.
+. Type or select information as prompted by the wizard.
+. Confirm the details, and then click *Finish* to complete the wizard.
+
+== Edit a Kerberos realm configuration
+
+You can use System Manager to edit a Kerberos realm configuration at the storage virtual machine (SVM) level.
+
+.About this task
+
+You can modify the following attributes by using the Kerberos Realm Edit wizard:
+
+* The KDC IP address and port number
+* The IP address of the administrative server if the KDC vendor is not Microsoft
+* The IP address of the password server
+* The Active Directory server name and IP address if the KDC vendor is Microsoft
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Services* pane, click *Kerberos Realm*.
+. In the *Kerberos Realm* window, select the Kerberos realm configuration that you want to modify, and then click *Edit*.
+. Type or select information as prompted by the wizard.
+. Confirm the details, and then click *Finish* to complete the wizard.
+
+== Delete Kerberos realm configurations
+
+You can use System Manager to delete a Kerberos realm configuration.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Services* pane, click *Kerberos Realm*.
+. In the *Kerberos Realm* window, select one or more Kerberos realm configurations that you want to delete, and then click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+
+== Use Kerberos with NFS for strong security
+
+You can use Kerberos to provide strong authentication between SVMs and NFS clients to provide secure NFS communication. Configuring NFS with Kerberos increases the integrity and security of NFS client communications with the storage system.
+
+== Kerberos authentication for CIFS
+
+With Kerberos authentication, upon connection to your CIFS server, the client negotiates the highest possible security level. However, if the client cannot use Kerberos authentication, Microsoft NTLM or NTLM V2 is used to authenticate with the CIFS server.
+
+== Kerberos Realm window
+
+You can use the Kerberos Realm window to provide authentication between storage virtual machines (SVMs) and NFS clients to ensure secure NFS communication.
+
+=== Command buttons
+
+* *Create*
++
+Opens the Kerberos Realm Create wizard, which enables you to configure a Kerberos realm to retrieve user information.
+
+* *Edit*
++
+Opens the Kerberos Realm Edit wizard, which enables you to edit a Kerberos realm configuration based on the requirement for SVM authentication and authorization.
+
+* *Delete*
++
+Opens the Delete Kerberos Realm(s) dialog box, which enables you to delete Kerberos realm configuration.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Kerberos Realm list
+
+Provides details about the Kerberos realms, in tabular format.
+
+* *Realm*
++
+Specifies the name of the Kerberos realm.
+
+* *KDC Vendor*
++
+Specifies the name of the Kerberos Distribution Center (KDC) vendor.
+
+* *KDC IP Address*
++
+Specifies the KDC IP address used by the configuration.
+
+=== Details area
+
+The details area displays information such as the KDC IP address and port number, KDC vendor, administrative server IP address and port number, Active Directory server and server IP address of the selected Kerberos realm configuration.
+
+*Related information*
+
+xref:task_setting_time_zone_for_cluster.adoc[Setting the time zone for a cluster]
+
+link:https://www.netapp.com/pdf.html?item=/media/10720-tr-4067.pdf[NetApp Technical Report 4067: NFS in NetApp ONTAP^]
+
+link:https://www.netapp.com/pdf.html?item=/media/19384-tr-4616.pdf[NetApp Technical Report 4616: NFS Kerberos in ONTAP with Microsoft Active Directory^]
+
+link:https://www.netapp.com/pdf.html?item=/media/19423-tr-4835.pdf[NetApp Technical Report 4835: How to Configure LDAP in ONTAP^]
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/index.html[NFS management^]
+
+// 2021-12-21, Created by Aoife, sm-classic rework

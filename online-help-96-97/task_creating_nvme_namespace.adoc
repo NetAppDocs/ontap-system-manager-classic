@@ -1,0 +1,47 @@
+---
+permalink: online-help-96-97/task_creating_nvme_namespace.html
+sidebar: sidebar
+keywords: system, manager, create, nvme, namespace, svm, logical, blocks, online, help
+summary: "You can use System Manager to create one or more NVMe namespaces and connect each to a host or set of hosts in a storage virtual machine (SVM). The NVMe namespace is a quantity of memory that can be formatted into logical blocks. Each namespace can be mapped to an NVMe subsystem."
+---
+= Create an NVMe namespace with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create one or more NVMe namespaces and connect each to a host or set of hosts in a storage virtual machine (SVM). The NVMe namespace is a quantity of memory that can be formatted into logical blocks. Each namespace can be mapped to an NVMe subsystem.
+
+.Before you begin
+
+The SVM must already be configured with the NVMe protocol. To map a namespace, at least one LIF with the data protocol NVMe must exist in the node that owns the namespace.
+
+.Steps
+
+. Click *Storage* > *NVMe* > *NVMe namespaces*.
+. Select the SVM that will contain the namespace.
+. Ensure that at least one NVMe LIF is configured for each node of the HA pair. You can create a maximum of two NVMe LIFs per node.
+. Configure the size of the namespace (between 1MB and 16TB).
+. Enter the block size.
++
+For System Manager 9.5, the block size defaults to 4 KB, and this field is not shown.
++
+For System Manager 9.6, you can specify a block size of 4 KB or 512 Bytes.
+
+. Select the existing volume or create a new volume by choosing the aggregate.
++
+Click on the + symbol to set up additional namespaces (max 250) within the SVM.
+
+. Select the NVMe subsystem that will be associated with this namespace.
++
+You can choose from the following options:
+
+ ** None: No subsystems are mapped.
+ ** Use an existing subsystem: The subsystems listed are based on the selected SVM.
+ ** Create a new subsystem: You can choose to create a new subsystem and map to all the new namespaces.
+
+. Select the host operating system.
+. Click *Submit*.
+
+*Related information*
+
+xref:reference_nvme_namespaces_window.adoc[NVMe namespaces window]

@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_assigning_ip_addresses_to_service_processors.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_service_processors.html
+---

@@ -1,0 +1,150 @@
+---
+permalink: online-help-96-97/concept_what_nvme_subsystem_is.html
+sidebar: sidebar
+keywords: nvme, subsystem, fc, rdma, transport, port, vserver, online, help, controller, cluster, table, settings, manage
+summary: "An NVMe subsystem includes one or more controllers, one or more namespaces, one or more non-volatile memory (NVM) subsystem ports (FC-NVMe or RDMA transport ports), an NVM storage medium, and an interface between the controllers and the NVM storage medium. For controller mapping and management, an NVM subsystem maps to a vserver in ONTAP."
+---
+= Manage NVMe subsystems with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create and manage an NVMe subsystem. You can associate the NVMe subsystem with different hosts and namespaces within the vserver. Also, each vserver can support more than one NVMe subsystem. However, you cannot configure a NVMe subsystem to be used on multiple vservers.
+
+== Create NVMe subsystems
+
+You can use System Manager to create an NVMe subsystem.
+
+.Steps
+
+. Click *Create* in the *NVMe Subsystems* window.
+. Provide entries in the *NVMe Subsystems: Create* window for the following fields:
+ ** *SVM*
++
+From the drop-down menu, select the SVM on which you want to create the subsystem.
+
+ ** *Name*
++
+Enter a name for the subsystem. The subsystem name cannot already exist in the SVM. The name is case-sensitive and is limited to 96 characters. Special characters are allowed.
+
+ ** *Host OS*
++
+From the drop-down menu, select the type of Host OS of the subsystem.
+
+ ** *Host NQN*
++
+Enter the Host NQN attached to the controller. You can enter more than one Host NQN by separating them with commas.
+. Click *Save*.
++
+The NVMe subsystem is created, and the NVMe Subsystemswindow is displayed.
+
+== Edit NVMe subsystems details
+
+You can use System Manager to edit the details of an NVMe subsystem.
+
+.Steps
+
+. Find the NVMe subsystem you want to edit in the *NVMe Subsystem* window.
+. Check the box to the left of the name of the subsystem you want to edit.
+. Click *Edit*.
++
+The current details of the NVMe subsystem are displayed in the NVMe Subsystems: Editwindow.
+
+. You can modify only the information in the *Host NQN* field.
+ ** *Host NQN*
++
+Modify the Host NQN attached to the controller. You can enter more than one Host NQN by separating them with commas.
+
++
+The *Associated NVMe Namespaces* table displays below the Host NQN field. For each namespace, that table lists the namespace path and namespace ID.
+. Click *Save*.
++
+The NVMe subsystem details are updated, and the NVMe Subsystems window is displayed.
+
+== Delete an NVMe subsystem
+
+You can use System Manager to delete an NVMe subsystem from a cluster.
+
+.About this task
+
+The following actions occur when you delete an NVMe subsystem:
+
+* If the NVMe subsystem has configured hosts, then mapped hosts will be removed.
+* If the NVMe subsystem has mapped namespaces, then they will be unmapped.
+
+.Steps
+
+. Find the NVMe subsystem you want to delete on the *NVMe Subsystem* window.
+. Check the box to the left of the name of the subsystem you want to delete.
+. Click *Delete*.
++
+A Warning message is displayed.
+
+. Click the *Delete the NVMe Subsystem* check box to confirm the deletion, then click *Yes*.
++
+The NVMe subsystem is deleted from the cluster, and the NVMe Subsystems window is displayed.
+
+== NVMe Subsystems window
+
+The NVMe Subsystems window displays by default an inventory list of NVMe subsystems in a cluster. You can filter the list to display only subsystems that are specific to an SVM. The window also enables you to create, edit, or delete NVMe subsystems. You can access this window by selecting *Storage* > *NVMe* > *Subsystems*.
+
+* <<NVMe Subsystems table>>
+* <<Toolbar>>
+
+=== NVMe Subsystems table
+
+The NVMe Subsystems table lists the inventory of NVMe subsystems in a cluster. You can refine the list by using the drop-down menu in the *SVM* field to select an SVM to display only the NVMe subsystems associated with that SVM. The *Search* field and *Filtering* drop-down menu enable you to further customize the list.
+
+The NVMe Subsystems table contains the following columns:
+
+* *(check box)*
++
+Enables you to specify on which subsystems you want to perform actions.
++
+Click the check box to select the subsystem, then click the action in the toolbar that you want to perform.
+
+* *Name*
++
+Displays the name of the subsystem.
++
+You can search for a subsystem by entering its name in the *Search* field.
+
+* *Host OS*
++
+Displays the name of the host OS associated with the subsystem.
+
+* *Host NQN*
++
+Displays the NVMe Qualified Name (NQN) attached to the controller. If multiple NQNs are displayed, they are separated by commas.
+
+* *Associated NVMe Namespaces*
++
+Displays the number of the NVM namespaces associated with the subsystem. You can hover over the number to display the associated namespaces paths. Click on a path to display the Namespace Details window.
+
+=== Toolbar
+
+The toolbar is located above the column header. You can use the fields and buttons in the toolbar to perform various actions.
+
+* *Search*
++
+Enables you to search on values that might be found in the *Name* column.
+
+* *Filtering*
++
+Allows you to select from a drop-down menu that lists various methods of filtering the list.
+
+* *Create*
++
+Opens the Create NVMe Subsystem dialog box, which enables you to create an NVMe subsystem.
+
+* *Edit*
++
+Opens the Edit NVMe Subsystem dialog box, which enables you to edit an existing NVMe subsystem.
+
+* *Delete*
++
+Opens the Delete NVMe Subsystem confirmation dialog box, which enables you to delete an existing NVMe subsystem.
+
+// 2021-12-20, Created by Aoife, sm-classic rework
+// 2022-03-24, sm-classic rework

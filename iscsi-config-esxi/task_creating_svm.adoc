@@ -1,0 +1,64 @@
+---
+permalink: iscsi-config-esxi/task_creating_svm.html
+sidebar: sidebar
+keywords: storage, virtual, machine, svm, iscsi, target, host, access, lun, logical, interface, lif, administration, function, cluster, create, create a new svm
+summary: "The storage virtual machine (SVM) provides the iSCSI target through which a host accesses LUNs. When you create the SVM, you also create logical interfaces (LIFs) that provide paths to the LUN. You can create an SVM to separate the data and administration functions of a user from those of the other users in a cluster."
+---
+= Create a new SVM
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The storage virtual machine (SVM) provides the iSCSI target through which a host accesses LUNs. When you create the SVM, you also create logical interfaces (LIFs) that provide paths to the LUN. You can create an SVM to separate the data and administration functions of a user from those of the other users in a cluster.
+
+.Before you begin
+
+* You must have enough network addresses available to create two LIFs for each node.
+
+.Steps
+
+. Navigate to the *SVMs* window.
+. Click *Create*.
+. In the *Storage Virtual Machine (SVM) Setup* window, create the SVM:
+ .. Specify a unique name for the SVM.
++
+The name must either be a fully qualified domain name (FQDN) or follow another convention that ensures unique names across a cluster.
+
+ .. Select the IPspace that the SVM will belong to.
++
+If the cluster does not use multiple IPspaces, the "`Default`" IPspace is used.
+
+ .. Keep the default volume type selection.
++
+Only FlexVol volumes are supported with SAN protocols.
+
+ .. Select all of the protocols that you have licenses for and that you might use on the SVM, even if you do not want to configure all of the protocols immediately.
++
+Selecting both NFS and CIFS when you create the SVM enables these two protocols to share the same LIFs. Adding these protocols later does not allow them to share LIFs.
++
+If CIFS is one of the protocols you selected, then the security style is set to NTFS. Otherwise, the security style is set to UNIX.
+
+ .. Keep the default language setting C.UTF-8.
+ .. Select the desired root aggregate to contain the SVM root volume.
++
+The aggregate for the data volume is selected separately in a later step.
+
+ .. Click *Submit & Continue*.
+
++
+The SVM is created, but protocols are not yet configured.
+. If the *Configure CIFS/NFS protocol* page appears because you enabled CIFS or NFS, click *Skip* and then configure CIFS or NFS later.
+. Configure the iSCSI service and create LIFs from the *Configure iSCSI protocol* page:
+ .. Enter a target alias name.
+ .. Assign IP address for the LIFs either by using a subnet or without a subnet.
+ .. Enter `2` in the *LIFs per node* field.
++
+Two LIFs are required for each node to ensure availability and data mobility.
+
+ .. Skip the optional *Provision a LUN for iSCSI storage* area because the LUN is provisioned by Virtual Storage Console for VMware vSphere in a later step.
+ .. Click *Submit & Continue*.
+. If the *Configure FC/FCoE protocol* page appears because you enabled FC, click *Skip* and then configure FC later.
+. When the *SVM Administration* appears, configure or defer configuring a separate administrator for this SVM:
+ ** Click *Skip* and configure an administrator later if desired.
+ ** Enter the requested information, and then click *Submit & Continue*.
+. Review the *Summary* page, record the LIF information, and then click *OK*.

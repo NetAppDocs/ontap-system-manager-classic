@@ -1,0 +1,42 @@
+---
+permalink: fc-config-rhel/task_configuring_iscsi_fc_creating_lun_on_existing_svm.html
+sidebar: sidebar
+keywords: configure, fc, exist, storage, virtual, machine, svm, lun, contain, volume, wizard, procotol, enable, configure fc on an existing svm
+summary: "You can configure FC on an existing storage virtual machine (SVM) and create a LUN and its containing volume with a single wizard. The FC protocol must already be enabled but not configured on the SVM. This information is intended for SVMs for which you are configuring multiple protocols, but have not yet configured FC."
+---
+= Configure FC on an existing SVM
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can configure FC on an existing storage virtual machine (SVM)and create a LUN and its containing volume with a single wizard. The FC protocol must already be enabled but not configured on the SVM. This information is intended for SVMs for which you are configuring multiple protocols, but have not yet configured FC.
+
+.Before you begin
+
+Your FC fabric must be configured and the desired physical ports must be connected to the fabric.
+
+.Steps
+
+. Navigate to the *SVMs* window.
+. Select the SVM that you want to configure.
+. In the SVM**Details** pane, verify that *FC/FCoE* is displayed with a gray background, which indicates that the protocol is enabled but not fully configured.
++
+If *FC/FCoE* is displayed with a green background, the SVM is already configured.
++
+image::../media/existing_svm_protocols_fc_rhel.gif[Image shows the details page with all four protocols having gray backgrounds.]
+
+. Select the *FC/FCoE* protocol link with the gray background.
++
+The Configure FC/FCoE Protocol window is displayed.
+
+. Configure the FC service and LIFs from the *Configure FC/FCoE protocol* page:
+ .. Select the *Configure Data LIFs for FC* check box.
+ .. Enter `2` in the *LIFs per node* field.
++
+Two LIFs are required for each node, to ensure availability and data mobility.
+
+ .. Select *Submit & Close*.
+
++
+image::../media/svm_wizard_fc_details_linux.gif[Illustration shows step 4 of the SVM setup wizard: filling in the FC details.]
+. Review the *Summary* page, record the LIF information, and then select *OK*.

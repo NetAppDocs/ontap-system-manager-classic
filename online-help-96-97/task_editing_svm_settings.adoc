@@ -1,0 +1,76 @@
+---
+permalink: online-help-96-97/task_editing_svm_settings.html
+sidebar: sidebar
+keywords: online, help, system, manager, edit, svm, settings
+summary: "You can use System Manager to edit the properties of storage virtual machines (SVMs), such as the name service switch, name mapping switch, and aggregate list."
+---
+= Edit SVM settings with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to edit the properties of storage virtual machines (SVMs), such as the name service switch, name mapping switch, and aggregate list.
+
+.About this task
+
+* You can edit the values of the following SVM properties:
+ ** Name service switch
+ ** Protocols that are enabled to serve data
++
+[NOTE]
+====
+The CIFS protocol that is configured on the SVM continues to serve data even when you disable the protocol on that SVM.
+====
+
+ ** The list of aggregates that are available to create volumes
++
+[NOTE]
+====
+For FlexVol volumes, you can assign aggregates only if you have delegated administration to an SVM administrator.
+====
+* System Manager does not display the values of the name service switch and the name mapping switch for an SVM that is created through the command-line interface or for the SVM services that are not configured and are not set to the default values by ONTAP.
++
+You can use the command-line interface to view the services because the Services tab is disabled.
++
+System Manager displays the name service switch and the name mapping switch of an SVM only when it is created by using System Manager or when the services of the SVM are set to the default values by ONTAP.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *Edit*. 
+. In the *Details* tab, modify the required data protocols.
+. In the *Resource Allocation* tab, choose one of the following methods to delegate volume creation:
++
+[options="header"]
+|===
+| If you want to provision volume creation...| Then...
+a|
+For all aggregates
+a|
+Select the *Do not delegate volume creation* option.
+a|
+For specific aggregates
+a|
+
+ .. Select the *Delegate volume creation* option.
+ .. Select the required aggregates for delegating volume creation.
+
+|===
+
+. In the *Service* tab, specify the name service switch sources for the required database types and the order in which they should be consulted to retrieve name service information.
++
+The default values for each of the database types are as follows:
+
+ ** hosts: files, dns
+ ** namemap: files
+ ** group: files
+ ** netgroup: files
+ ** passwd: files
+
+. Click *Save and Close*.
+
+*Related information*
+
+xref:concept_how_data_ontap_name_service_switch_configuration_works.adoc[How ONTAP name service switch configuration works]
+
+// 2023-Mar-22, issue# 73 

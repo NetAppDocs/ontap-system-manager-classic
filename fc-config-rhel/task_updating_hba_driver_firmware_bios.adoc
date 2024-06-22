@@ -1,0 +1,29 @@
+---
+permalink: fc-config-rhel/task_updating_hba_driver_firmware_bios.html
+sidebar: sidebar
+keywords: fc, host, bus, adapter, hba, linux, run, support, driver, firmware, bios, version, update, update the hba driver firmware and bios
+summary: "If the FC host bus adapters (HBAs) in the Linux host are not running supported driver, firmware, and BIOS versions, you must update them."
+---
+= Update the HBA driver, firmware, and BIOS
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+If the FC host bus adapters (HBAs) in the Linux host are not running supported driver, firmware, and BIOS versions, you must update them.
+
+.Before you begin
+
+You must have identified the supported driver, firmware, and BIOS versions for your configuration from the Interoperability Matrix tool.
+
+https://mysupport.netapp.com/matrix[NetApp Interoperability Matrix Tool]
+
+.About this task
+
+Drivers, firmware, BIOS, and HBA utilities are provided by the HBA vendors.
+
+.Steps
+
+. List the installed HBA driver, firmware, and BIOS versions by using the HBA utility from your HBA vendor.
+. Download and install the new driver, firmware, and BIOS as needed from the HBA vendor's support site.
++
+Installation instructions and any required installation utilities are available with the download.

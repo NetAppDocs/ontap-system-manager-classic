@@ -1,0 +1,92 @@
+---
+permalink: online-help-96-97/concept_jobs.html
+sidebar: sidebar
+keywords: jobs, system, manager, job, task, display, information, progress, asynchronous, volume, operation, copy, move, mirror, data, queue, cluster, administrator, online, help
+summary: "You can use System Manager to manage job tasks such as displaying job information and monitoring the progress of a job."
+---
+= Manage jobs with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to manage job tasks such as displaying job information and monitoring the progress of a job.
+
+== Jobs
+
+_Jobs_ are asynchronous task and typically long-running volume operations, such as copying, moving, or mirroring data. Jobs are placed in a job queue and are run when resources are available. The cluster administrator can perform all the tasks related to job management.
+
+A job can be one of the following categories:
+
+* A _server-affiliated_ job is placed in queue by the management framework to be run in a specific node.
+* A _cluster-affiliated_ job is placed in queue by the management framework to be run in any node in the cluster.
+* A _private_ job is specific to a node and does not use the replicated database (RDB) or any other cluster mechanism.
++
+You require the advanced privilege level or higher to run the commands to manage private jobs.
+
+You can manage jobs in the following ways:
+
+* Displaying job information, including the following:
+ ** Jobs on a per-node basis
+ ** Cluster-affiliated jobs
+ ** Completed jobs
+ ** Job history
+* Monitoring a job's progress
+* Displaying information about the initialization state for job managers.
+
+You can determine the outcome of a completed job by checking the event log.
+
+== Job window
+
+You can use the Job window to manage job tasks such as displaying job information and monitoring the progress of a job.
+
+=== Command button
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Tabs
+
+* *Current Jobs*
++
+This tab displays information about the job tasks that are in progress.
+
+* *Job History*
++
+This tab displays information about all the jobs.
+
+=== Job list
+
+* *Job ID*
++
+Displays the ID of the job.
+
+* *Start Time*
++
+Displays the start time of the job.
+
+* *Job Name*
++
+Displays the name of the job.
+
+* *Node*
++
+Displays the name of the node.
+
+* *State*
++
+Displays the state of the job.
+
+* *Job Description*
++
+Displays the description of the job.
+
+* *Progress*
++
+Displays the state of the job.
+
+* *Schedule Name*
++
+Displays the name of the schedule.
+
+// 2021-12-15, Created by Aoife, sm-classic rework

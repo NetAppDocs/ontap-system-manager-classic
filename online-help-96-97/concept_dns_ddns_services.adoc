@@ -1,0 +1,76 @@
+---
+permalink: online-help-96-97/concept_dns_ddns_services.html
+sidebar: sidebar
+keywords: dns, ddns, service, system, manager, manage, online, help, edit, settings, command, button
+summary: "You can use System Manager to manage DNS/DDNS services."
+---
+= Manage DNS/DDNS services with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to manage DNS/DDNS services.
+
+== Enable or disable DDNS
+
+You can use System Manager to enable or disable DDNS on a storage system.
+
+.About this task
+
+* DNS is enabled by default.
+* DDNS is disabled by default.
+* System Manager does not perform any validation checks for the DNS and DDNS settings.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Services* pane, click *DNS/DDNS*.
+. In the *DNS/DDNS Services* window, click *Edit*.
+. In the *Edit DNS/DDNS Settings* dialog box, enable DDNS by selecting the *DDNS service* check box.
++
+You can disable DDNS by clearing the *DDNS service* check box.
+
+. Click *OK*.
+
+== Edit DNS and DDNS settings
+
+You can maintain host information centrally by using DNS. You can use System Manager to add or modify the DNS domain name of your storage system. You can also enable DDNS on your storage system to update the name server automatically in the DNS server.
+
+.Before you begin
+
+You must have set up a CIFS server or an Active Directory account for the storage virtual machine (SVM) for secure DDNS to work.
+
+.About this task
+
+System Manager does not perform any validation checks for the DNS and DDNS settings.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Services* pane, click *DNS/DDNS*.
+. Click *Edit*.
+. In the *DNS Domains and Name Servers* area, add or modify the DNS domain names and the IP addresses.
+. Select the *DDNS service* check box to enable DDNS.
+ .. Select the *Enable Secure DDNS* check box to enable secure DDNS.
+ .. Specify the fully qualified domain name (FQDN) and the time to live value for the DDNS service.
++
+By default, time to live is set to 24 hours and FQDN is set to `SVM name. domain name`.
+. Click *OK* to save the changes that you made.
+
+== DNS/DDNS Services window
+
+The DNS/DDNS Services window enables you to view and edit the current DNS and DDNS settings for your system.
+
+=== Command buttons
+
+* *Edit*
++
+Opens the Edit DNS/DDNS Settings dialog box, which you can use to add or modify DNS or DDNS details. You can also enable or disable DDNS.
+
+* *Refresh*
++
+Updates the information in the window.
+
+// 2021-12-21, Created by Aoife, sm-classic rework

@@ -1,0 +1,12 @@
+---
+permalink: expansion/task_installing_new_nodes.html
+sidebar: sidebar
+keywords: cluster, install, controller, configure, node-management, run, ontap, repurpose, hardware-level, ha, address, maintenance, mode, join, install the new node
+summary: "After the cluster is prepared, you must install the controllers and configure the node-management LIFs."
+---
+= Install the new nodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+After the cluster is prepared, you must install the controllers and configure the node-management LIFs. If the controllers are not running the same ONTAP version as the existing cluster, or are repurposed and lack hardware-level HA, you must address those issues in Maintenance mode. Finally, you can join the nodes to the cluster.

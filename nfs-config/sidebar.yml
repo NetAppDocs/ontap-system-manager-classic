@@ -1,0 +1,49 @@
+section: nfs-config
+title: NFS configuration
+entries:
+    - title: Overview
+      url: "/nfs-config/index.html"
+    - title: NFS configuration workflow
+      url: "/nfs-config/concept_cifs_nfs_configuration_workflow.html"
+      entries:
+      - title: Create an aggregate
+        url: "/nfs-config/task_creating_aggregate.html"
+      - title: Decide where to provision the new volume
+        url: "/nfs-config/task_deciding_where_to_provision_new_volume.html"
+    - title: Create a new NFS-enabled SVM
+      url: "/nfs-config/task_creating_protocol_enabled_svm.html"
+      entries:
+      - title: Create a new SVM with an NFS volume and export
+        url: "/nfs-config/task_creating_new_svm.html"
+      - title: Open the export policy of the SVM root volume (Create a new NFS-enabled SVM)
+        url: "/nfs-config/task_opening_export_policy_svm_root_volume.html"
+      - title: Configure LDAP (Create a new NFS-enabled SVM)
+        url: "/nfs-config/task_configuring_ldap_new_svm.html"
+      - title: Verify NFS access from a UNIX administration host
+        url: "/nfs-config/task_verifying_nfs_access_from_unix_administration_host.html"
+      - title: Configure and verifying NFS client access (Create a new NFS-enabled SVM)
+        url: "/nfs-config/task_configuring_verifying_client_access_new_svm.html"
+    - title: Configure NFS access to an existing SVM
+      url: "/nfs-config/task_configuring_access_to_existing_svm.html"
+      entries:
+      - title: Add NFS access to an existing SVM
+        url: "/nfs-config/concept_adding_nas_access_to_existing_svm.html"
+      - title: Open the export policy of the SVM root volume(Configure NFS access to an existing SVM)
+        url: "/nfs-config/task_opening_export_policy_svm_root_volume_existing_svm.html"
+      - title: Configure LDAP (Configure NFS access to an existing SVM )
+        url: "/nfs-config/task_configuring_ldap_existing_svm.html"
+      - title: Verify NFS access from a UNIX administration host
+        url: "/nfs-config/task_verifying_nfs_access_from_unix_administration_host.html"
+      - title: Configure and verify NFS client access (Configure NFS access to an existing SVM)
+        url: "/nfs-config/task_configuring_verifying_client_access_add_nfs_existing_svm.html"
+    - title: Add an NFS volume to an NFS-enabled SVM
+      url: "/nfs-config/concept_adding_protocol_volume_to_protocol_enabled_svm.html"
+      entries:
+      - title: Create and configure a volume
+        url: "/nfs-config/task_creating_configuring_volume.html"
+      - title: Create an export policy for the volume
+        url: "/nfs-config/task_creating_export_policy_for_volume.html"
+      - title: Verify NFS access from a UNIX administration host
+        url: "/nfs-config/task_verifying_nfs_access_from_unix_administration_host.html"
+      - title: Configure and verify NFS client access (Adding an NFS volume to an NFS-enabled SVM)
+        url: "/nfs-config/task_configuring_verifying_client_access_add_vol_existing_nfs_svm.html"

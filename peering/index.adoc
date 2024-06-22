@@ -1,0 +1,43 @@
+---
+permalink: peering/index.html
+sidebar: sidebar
+keywords: cluster, administrator, create, authenticated, peer, relationship, svm, enable, communicate, replicate, data
+summary: "Cluster administrators can create authenticated peer relationships between clusters and SVMs to enable the clusters to communicate with each other so that data is replicated between volumes in different clusters."
+---
+= Cluster and SVM peering overview
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Cluster administrators can create authenticated peer relationships between clusters and SVMs to enable the clusters to communicate with each other so that data is replicated between volumes in different clusters.  You can perform the procedures using the ONTAP System Manager _classic_ interface, which is available with ONTAP 9.7 and earlier ONTAP 9 releases.
+
+Use the ONTAP System Manager _classic_ interface to create cluster peer relationships and SVM peer relationships if the following apply:
+
+* You are working with clusters running ONTAP 9.7 or earlier ONTAP 9 releases.
+* You want cluster peering relationships that are authenticated.
+* You want to use best practices, not explore every available option.
+* You want to use System Manager, not the ONTAP command-line interface (CLI) or an automated scripting tool.
+
+== Other ways to do this in ONTAP
+
+ONTAP System Manager in ONTAP 9.3 simplifies the way that you configure peer relationships between clusters and between SVMs. The cluster peering procedure and SVM peering procedure can be used for all ONTAP 9 versions. You should use the appropriate procedure for your version of ONTAP.
+
+|===
+
+h| To perform these tasks with... h| Refer to...
+
+a| The redesigned System Manager (available with ONTAP 9.7 and later)
+a|
+* https://docs.netapp.com/us-en/ontap/concept_administration_overview.html[Cluster management with System Manager^]
+
+a| The ONTAP command-line interface (CLI)
+a|
+* https://docs.netapp.com/us-en/ontap/peering/index.html[Cluster and SVM peering overview with the CLI^]
++
+Use the command-line interface to set up cluster peering relationships and SVM peering relationships.
+* https://docs.netapp.com/us-en/ontap/networking/index.html[Network management^]
++
+Use the command-line interface to configure subnets, intercluster LIFs, routes, firewall policies, and other networking components
+|===
+
+// BURT 1415746, 10 JAN 2022

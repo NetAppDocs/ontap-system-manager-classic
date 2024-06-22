@@ -1,0 +1,235 @@
+---
+permalink: online-help-96-97/concept_export_policies.html
+sidebar: sidebar
+keywords: system, manager, create, edit, manage, export, policy, online, help, volume, rules, svm, qtree, rename
+summary: "You can use System Manager to create, edit, and manage export policies."
+---
+= Manage export policies with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create, edit, and manage export policies.
+
+== Create an export policy
+
+You can use System Manager to create an export policy so that clients can access specific volumes.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Policies* pane, click *Export Policies*.
+. Click *Create*.
+. In the *Create Export Policy* dialog box, specify a name for the export policy.
+. If you want to create an export policy by copying the rules from an existing export policy, select the *Copy Rules from* check box, and then select the storage virtual machine (SVM) and the export policy.
++
+You should not select the destination SVM for disaster recovery from the drop-down menu to create an export policy.
+
+. In the **Export Rules**area, click *Add* to add rules to the export policy.
+. Click *Create*.
+. Verify that the export policy that you created is displayed in the *Export Policies* window.
+
+== Rename export policies
+
+You can use System Managerto rename an existing export policy.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Policies* pane, click *Export Policies*.
+. Select the export policy that you want to rename, and then click *Rename Policy*.
+. In the *Rename Policy* dialog box, specify a new policy name, and then click *Modify*.
+. Verify the changes that you made in the *Export Policies* window.
+
+== Delete export policies
+
+You can use System Manager to delete export policies that are no longer required.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Policies* pane, click *Export Policies*.
+. Select the export policy that you want to delete, and then click *Delete Policy*.
+. Select the confirmation check box, and then click *Delete*.
+
+== Add rules to an export policy
+
+You can use System Manager to add rules to an export policy, which enables you to define client access to data.
+
+.Before you begin
+
+You must have created the export policy to which you want to add the export rules.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Policies* pane, click *Export Policies*.
+. Select the export policy to which you want to add rules, and from the *Export Rules* tab, click *Add*.
+. In the *Create Export Rule* dialog box, perform the following steps:
+ .. Specify the client that requires access to the data.
++
+You can specify multiple clients as comma-separated values.
++
+You can specify the client in any of the following formats:
+
+  *** As a host name; for instance, host1
+  *** As an IPv4 address; for instance, 10.1.12.24
+  *** As an IPv4 address with a network mask; for instance, 10.1.16.0/255.255.255.0
+  *** As an IPv6 address; for instance, FE80::0202:B3FF:FE1E:8329
+  *** As an IPv6 address with a network mask; for instance, 2001:db8::/32
+  *** As a netgroup, with the netgroup name preceded by an at symbol (@); for instance, @netgroup
+  *** As a domain name preceded by a period (.); for instance, .example.com
+
++
+[NOTE]
+====
+You must not enter an IP address range, such as 10.1.12.10 through 10.1.12.70. Entries in this format are interpreted as a text string and are treated as a host name.
+====
+You can enter the IPv4 address `0.0.0.0/0` to provide access to all of the hosts.
+
++
+ .. If you want to modify the rule index number, select the appropriate rule index number.
+ .. Select one or more access protocols.
++
+If you do not select any access protocol, the default value "`Any`" is assigned to the export rule.
+
+ .. Select one or more security types and access rules.
+. Click *OK*.
+. Verify that the export rule that you added is displayed in the *Export Rules* tab for the selected export policy.
+
+== Modify export policy rules
+
+You can use System Manager to modify the specified client, access protocols, and access permissions of an export policy rule.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Policies* pane, click *Export Policies*.
+. In the *Export Policies* window, select the export policy for which you want to edit the export rule, and in the *Export Rules* tab, select the rule that you want to edit, and then click *Edit*.
+. Modify the following parameters as required:
+ ** Client specification
+ ** Access protocols
+ ** Access details
+. Click *OK*.
+. Verify that the updated changes for the export rule are displayed in the *Export Rules* tab.
+
+== Delete export policy rules
+
+You can use System Manager to delete export policy rules that are no longer required.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Policies* pane, click *Export Policies*.
+. Select the export policy for which you want to delete the export rule.
+. In the *Export Rules* tab, select the export rule that you want to delete, and then click *Delete*.
+. In the confirmation box, click *Delete*.
+
+== How export policies control client access to volumes or qtrees
+
+Export policies contain one or more _export rules_ that process each client access request. The result of the process determines whether the client is denied or granted access and what level of access. An export policy with export rules must exist on the storage virtual machine (SVM) for clients to access data.
+
+You associate exactly one export policy with each volume or qtree to configure client access to the volume or qtree. The SVM can contain multiple export policies. This enables you to do the following for SVMs with multiple volumes or qtrees:
+
+* Assign different export policies to each volume or qtree of the SVM for individual client access control to each volume or qtree in the SVM.
+* Assign the same export policy to multiple volumes or qtrees of the SVM for identical client access control without having to create a new export policy for each volume or qtree.
+
+If a client makes an access request that is not permitted by the applicable export policy, the request fails with a permission-denied message. If a client does not match any rule in the export policy, then access is denied. If an export policy is empty, then all accesses are implicitly denied.
+
+You can modify an export policy dynamically on a system running ONTAP.
+
+== Export Policies window
+
+You can use the Export Policies window to create, view, and manage information about export policies and its related export rules.
+
+=== Export Policies
+
+The Export Policies window enables you to view and manage the export policies created for the storage virtual machine (SVM).
+
+* *Command buttons*
+ ** Create
++
+Opens the Create Export Policy dialog box, which enables you to create an export policy and add export rules. You can also copy export rules from an existing SVM.
+
+ ** Rename
++
+Opens the Rename Policy dialog box, which enables you to rename the selected export policy.
+
+ ** Delete
++
+Opens the Delete Export Policy dialog box, which enables you to delete the selected export policy.
+
+ ** Refresh
++
+Updates the information in the window.
+
+=== Export Rules tab
+
+The Export Rules tab enables you to view information about the export rules created for a particular export policy. You can also add, edit, and delete rules.
+
+* *Command buttons*
+ ** Add
++
+Opens the Create Export Rule dialog box, which enables you to add an export rule to the selected export policy.
+
+ ** Edit
++
+Opens the Modify Export Rule dialog box, which enables you to modify the attributes of the selected export rule.
+
+ ** Delete
++
+Opens the Delete Export Rule dialog box, which enables you to delete the selected export rule.
+
+ ** Move Up
++
+Moves up the rule index of the selected export rule.
+
+ ** Move Down
++
+Moves down the rule index of the selected export rule.
+
+ ** Refresh
++
+Updates the information in the window.
+* *Export rules list*
+ ** Rule Index
++
+Specifies the priority based on which the export rules are processed. You can use the Move Up and Move Down buttons to choose the priority.
+
+ ** Client
++
+Specifies the client to which the rule applies.
+
+ ** Access Protocols
++
+Displays the access protocol that is specified for the export rule.
++
+If you have not specified any access protocol, the default value "`Any`" is considered.
+
+ ** Read-Only Rule
++
+Specifies one or more security types for read-only access.
+
+ ** Read/Write Rule
++
+Specifies one or more security types for read/write access.
+
+ ** Superuser Access
++
+Specifies the security type or types for superuser access.
+
+=== Assigned Objects tab
+
+The Assigned Objects tab enables you to view the volumes and qtrees that are assigned to the selected export policy. You can also view whether the volume is encrypted or not.
+
+*Related information*
+
+xref:task_setting_up_cifs.adoc[Setting up CIFS]
+
+// 2021-12-20, Created by Aoife, sm-classic rework

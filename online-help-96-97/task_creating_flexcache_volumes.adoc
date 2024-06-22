@@ -1,0 +1,44 @@
+---
+permalink: online-help-96-97/task_creating_flexcache_volumes.html
+sidebar: sidebar
+keywords: online, help, create, flexcache, volume, system, manager
+summary: "Beginning with System Manager 9.6, you can create a FlexCache volume."
+---
+= Create FlexCache volumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with System Manager 9.6, you can create a FlexCache volume.
+
+.About this task
+
+You must have a FlexCache capacity license before you can create a FlexCache volume.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. In the *Volumes* window, click *Create* > *FlexCache*.
++
+The Create FlexCache volume window displays.
+
+. *Optional:* The following fields in the *Origin Volume* area display values for the origin volume for which you want to create a FlexCache volume. You can modify them.
+ ** *Cluster*: Use the drop-down menu to select the cluster associated with the origin volume.
+ ** *SVM*: Use the drop-down menu to select the SVM that contains the origin volume.
++
+If you choose an SVM that is not peered, but is permitted to peer, System Manager allows you to peer it explicitly.
+
+ ** *Volume*: Use the drop-down menu to select the volume name, or enter the name into the field.
+. The following fields in the *FlexCache Volume* area display default values for the FlexCache volume you are creating. You can modify them.
+ ** *SVM*: Use the drop-down menu to select the SVM in which you want to create the FlexCache volume. If the FlexCache license capacity is full or almost full, you can select *Manage FlexCache license* to modify your license.
+ ** *New Volume Name*: Enter a name for the FlexCache volume.
+ ** *Size*: Specify the size for the FlexCache volume, including the measurement units.
++
+The size field is initially set by default. The size you specify cannot exceed the licensed capacity size.
+. Click *Save* to create the FlexCache volume.
++
+You can return to the *Volumes* window to view the FlexCache volume in the list of volumes.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

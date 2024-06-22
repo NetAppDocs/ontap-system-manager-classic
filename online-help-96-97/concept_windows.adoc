@@ -1,0 +1,16 @@
+---
+permalink: online-help-96-97/concept_windows.html
+sidebar: sidebar
+keywords: system, manager, windows, create, manager, user, account, online, help
+summary: "You can use System Manager to create and manage Windows groups and user accounts."
+---
+= Windows
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use System Manager to create and manage Windows groups and user accounts.
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/smb-admin/index.html[SMB/CIFS management]

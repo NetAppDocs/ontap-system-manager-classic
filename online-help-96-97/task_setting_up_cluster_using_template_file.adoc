@@ -1,0 +1,89 @@
+---
+permalink: online-help-96-97/task_setting_up_cluster_using_template_file.html
+sidebar: sidebar
+keywords: set, up, cluster, template, file, system, manager, online, help, autosupport
+summary: "You can use the template file that is provided in System Manager to set up a cluster by creating a cluster, setting up the node management and cluster management networks, and then setting up event notifications. (Beginning with ONTAP System Manager 9.6, AutoSupport is not supported.) You can download the template file in .xlsx format or .csv format."
+---
+= Set up a cluster by using the template file in System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the template file that is provided in ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to set up a cluster by creating a cluster, setting up the node management and cluster management networks, and then setting up event notifications. (Beginning with ONTAP System Manager 9.6, AutoSupport is not supported.) You can download the template file in `.xlsx` format or `.csv` format.
+
+.About this task
+
+* If the cluster supports ONTAP 9.1 or later, you can add only storage systems that are running ONTAP 9.1 or later.
+* All fields are not automatically populated when you upload the file.
++
+You must manually enter the value of some fields such as password and cluster management port.
+
+.Steps
+
+. Open the web browser, and then enter the node management IP address that you have configured: `+https://node-management-IP+`
+ ** If you have set up the credentials for the cluster, the Login page is displayed.
++
+You must enter the credentials to log in.
+
+ ** If you have not set up the credentials for the cluster, the Guided Setup window is displayed.
+. Download the `.xlsx` template file or the `.csv` template file.
+. Provide all the required values in the template file, and save the file.
++
+[NOTE]
+====
+-   Do not edit any other column in the template other than Value.
+-   Do not change the version of the template file.
+====
+
+. Click *Browse*, and select the updated template file.
+ ** You can upload the template file only in the `.csv` format. If you have downloaded the template file in `.xlsx` format, you must save the file as a `.csv` file, and then upload the file.
+ ** You must ensure that the encoding used for this file is `UTF8`. If not, the values will not be read.
+. Click *Upload*.
++
+The details that you have provided in the template file are used to complete the cluster setup process.
+
+. Click the *Guided Setup* icon to view the details for the cluster.
+. Verify the details in the *Cluster* window, and then click *Submit and Continue*.
++
+You can edit the cluster details, if required.
++
+If you log in to the Cluster window for the second time, the *Feature Licenses* field is enabled by default. You can add new feature license keys or retain the pre-populated license keys.
+
+. Verify the details in the *Network* window, and then click *Submit and Continue*.
++
+You can edit the network details, if required.
+
+. Verify the details in the *Support* window, and then click *Submit and Continue*.
++
+You can edit the support details, if required.
+
+. Verify the details in the *Storage* window, and then create aggregates or exit the cluster setup:
++
+[options="header"]
+|===
+| If you want to...| Then...
+a|
+Exit cluster setup without provisioning storage and creating an SVM
+a|
+Click *Skip this step*.
+a|
+Provision storage using aggregates and create an SVM
+a|
+Click *Submit and Continue*.
+|===
+You can edit the support details, if required.
+
+. Verify the details in the *Create Storage Virtual Machine (SVM)* window, and then click *Submit and Continue*.
++
+You can edit the SVM name, select a different data protocol, and modify the Network Interface and Adapter Details, if required.
+
+. If you have clicked *Skip this step* on the *Storage* window, view the details on the *Summary* window, and then click *Manage your Cluster* to launch System Manager.
+. If you have clicked *Submit and Continue* on the *Storage* window, verify the details in the SVM window, and then click *Submit and Continue*.
++
+You can edit the SVM details, if required.
+
+. Verify all the details in the *Summary* window, and then click *Provision an Application* to provision storage for applications, or click *Manage your Cluster* to complete the cluster setup process and launch System Manager, or click *Export Configuration* to download the configuration file.
+
+*Related information*
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/System_Manager_Cluster_Guided_Setup_Templates[System Manager Cluster Guided Setup Templates]

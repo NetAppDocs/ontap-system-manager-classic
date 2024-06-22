@@ -1,0 +1,67 @@
+---
+permalink: online-help-96-97/concept_setting_up_network.html
+sidebar: sidebar
+keywords: online, help, set, up, network, ipspace, broadcast, domain, subnet, system, manager, cluster, range
+summary: "Setting up the network consists of creating IPspaces, a broadcast domain, and subnets."
+---
+= Set up the network with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to set up the network. Setting up the network consists of creating IPspaces, a broadcast domain, and subnets.
+
+== Create IPspaces
+
+You can create an IPspace by using System Manager to configure a single ONTAP cluster for client access from more than one administratively separate network domain, even when the clients use the same IP address subnet range. This enables you to separate client traffic for privacy and security.
+
+.About this task
+
+All of the IPspace names must be unique within a cluster and must not consist of names that are reserved by the system, such as "`local`" or "`localhost.`"
+
+.Steps
+
+. Click the *Network* tab.
+. In the *IPspaces* tab, click *Create*.
+. In the *Create IPspaces* dialog box, specify a name for the IPspace that you want to create.
+. Click *Create*.
+
+== Create broadcast domains
+
+You can create a broadcast domain by using System Manager to provide a logical division of a computer network. In a broadcast domain, all associated nodes can be reached through broadcast at the datalink layer
+
+.Steps
+
+. Click the *Network* tab.
+. In the *Broadcast Domains* tab, click *Create*.
+. In the *Create Broadcast Domain* dialog box, specify the name, MTU size, IPspace, and ports for the broadcast domain that you want to create.
+. Click *Create*.
+
+
+== Create subnets
+
+You can create a subnet by using System Manager to provide a logical subdivision of an IP network to pre-allocate the IP addresses. A subnet enables you to create interfaces more easily by specifying a subnet instead of an IP address and network mask values for each new interface.
+
+.Before you begin
+
+You must have created the broadcast domain on which the subnet is used.
+
+.About this task
+
+If you specify a gateway when creating a subnet, a default route to the gateway is added automatically to the SVM when a LIF is created using that subnet.
+
+.Steps
+
+. Click the *Network* tab.
+. In the *Subnets* tab, click *Create*.
+. In the *Create Subnet* dialog box, specify subnet details, such as the name, subnet IP address or subnet mask, range of IP addresses, gateway address, and broadcast domain.
++
+You can specify the IP addresses as a range, as comma-separated multiple addresses, or as a mix of both.
+
+. Click *Create*.
+
+*Related information*
+
+xref:reference_network_window.adoc[Network window]
+
+// 2021-12-07, Created by Aoife sm-classic clean-up

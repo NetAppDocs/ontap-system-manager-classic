@@ -1,0 +1,53 @@
+---
+permalink: online-help-96-97/task_creating_portsets.html
+sidebar: sidebar
+keywords: system, manager, port, set, create, online, help, lun, delete, edit, manage
+summary: "You can use ONTAP System Manager classic to create, delete and edit portsets."
+---
+= Manage portsets with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create, delete and edit portsets.
+
+== Create portsets
+
+You can use ONTAP System Manager classic to create portsets to limit access to your LUNs.
+
+.Steps
+
+. Click *Storage* > *LUNs*.
+. In the *Portsets* tab, click *Create*.
+. In the *Create Portset* dialog box, select the type of protocol.
+. Choose the network interface that you want to associate with the portset.
+. Click *Create*.
+
+== Delete portsets
+
+You can use System Manager to delete a portset when it is no longer required.
+
+.Steps
+
+. Click *Storage* > *LUNs*.
+. In the *Portsets* tab, select one or more portsets and click *Delete*.
+. Confirm the deletion by clicking *Delete*.
+
+== Edit portsets
+
+You can use the Portsets tab in System Manager to edit settings related to portsets.
+
+.Steps
+
+. Click *Storage* > *LUNs*.
+. In the *Portsets* tab, select the portset you want to edit and click *Edit*.
+. In the *Edit Portset* dialog box, make the necessary changes.
+. Click *Save and Close*.
+
+*Related information*
+
+xref:task_configuring_iscsi_protocol_on_svms.adoc[Configuring iSCSI protocol on SVMs]
+
+// 8 feb 2022, BURT 1456161
+// 8 feb 2022, BURT 1456161
+// sm-classic rework, 2022-04-13

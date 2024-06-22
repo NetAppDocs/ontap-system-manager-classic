@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_how_system_logging_works.html
+redirect: ontap-system-manager-classic/online-help-96-97/task_viewing_system_manager_log_files.html
+---

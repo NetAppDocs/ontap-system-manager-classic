@@ -1,0 +1,68 @@
+---
+permalink: online-help-96-97/task_enabling_storage_efficiency_on_volume.html
+sidebar: sidebar
+keywords: system, manager, enable, storage, efficiency, volume, deduplication, online, help
+summary: "You can use System Manager to enable storage efficiency and to configure both deduplication and data compression or only deduplication on a volume to save storage space. If you have not enabled storage efficiency when you created the volume, you can do so later by editing the volume."
+---
+= Enable storage efficiency on a volume with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to enable storage efficiency and to configure both deduplication and data compression or only deduplication on a volume to save storage space. If you have not enabled storage efficiency when you created the volume, you can do so later by editing the volume.
+
+.Before you begin
+
+* The volume must be online.
+* If you want to use a policy-based deduplication schedule, you must have created an efficiency policy.
+
+.About this task
+
+* You can enable background compression only if you have enabled background deduplication.
+* You can enable inline compression and inline deduplication with or without enabling background compression and background deduplication, respectively.
+* You can enable inline deduplication only on volumes that are contained by an aggregate with All Flash Optimized personality and on volumes that are contained by a Flash Pool aggregate.
+* Beginning with System Manager 9.6, editing storage efficiency is supported for FlexGroup DP volumes.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Select the volume for which you want to enable storage efficiency, and then click *Edit*.
+. In the *Edit Volume* dialog box, click *Storage Efficiency*.
+. Select the *Background Deduplication* check box.
+. Select one of the following methods to run deduplication:
++
+[options="header"]
+|===
+| If you want to run deduplication...| Then...
+a|
+Based on a storage efficiency policy
+a|
+
+ .. Ensure that the *Policy based* option is selected.
+ .. Click *Choose*, and then select a storage efficiency policy.
+ .. Click *OK*.
+
+a|
+When required
+a|
+Select the *On-demand* option.
+|===
+
+. Select the *Background Compression* check box to enable background compression.
++
+You cannot enable background compression for a volume that is contained by an aggregate with All Flash Optimized personality.
+
+. Select the *Inline Compression* check box to compress data while it is being written to the volume.
++
+By default, inline compression is enabled on volumes that are contained by an aggregate with All Flash Optimized personality.
+
+. Select the *Inline Deduplication* check box to run deduplication before data is written to the disk.
++
+By default, inline deduplication is enabled on volumes that are contained by an aggregate with All Flash Optimized personality.
+
+. Click *Save and Close*.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

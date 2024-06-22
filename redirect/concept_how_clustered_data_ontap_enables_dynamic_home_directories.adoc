@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_how_clustered_data_ontap_enables_dynamic_home_directories.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_shares.html
+---

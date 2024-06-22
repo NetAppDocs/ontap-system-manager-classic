@@ -1,0 +1,41 @@
+---
+permalink: online-help-96-97/concept_applications.html
+sidebar: sidebar
+keywords: application, predefined, template, system, manager, configuration, provision
+summary: "You can use predefined application templates in System Manager to create new configurations that are based on existing application templates. You can then provision instances of the application in ONTAP."
+---
+= Configure applications with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use predefined application templates in ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create new configurations that are based on existing application templates. You can then provision instances of the application in ONTAP.
+
+You configure applications by clicking *Applications &Tiers* > *Applications*.
+
+[NOTE]
+====
+If someone adds new applications using the CLI or REST API while you are viewing the list of applications, then you will not be able to view those new applications when you scroll the list.
+====
+
+The following applications can be configured in System Manager:
+
+*General Applications*
+
+* NAS Container (volume is exported to NFS or CIFS clients)
+* General SAN Application (set of LUNs exported to the application server)
+
+*Databases*
+
+* MongoDB (over SAN)
+* Oracle (over NFS or SAN)
+* Oracle (Real Application Cluster over NFS or SAN)
+* Microsoft SQL Server (over SAN or SMB )
+
+*Virtual Infrastructure*
+
+* Virtual Servers (with VMware, Hyper-V, or XEN)
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/concepts/index.html[ONTAP concepts]

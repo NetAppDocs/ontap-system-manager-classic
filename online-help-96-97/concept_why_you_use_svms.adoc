@@ -1,0 +1,38 @@
+---
+permalink: online-help-96-97/concept_why_you_use_svms.html
+sidebar: sidebar
+keywords: svm, data, access, nondisruptive, operation, scalability, security, online, help
+summary: "SVMs provide data access to clients regardless of the physical storage or controller, similar to any storage system. SVMs provide benefits such as nondisruptive operations, scalability, security, and unified storage."
+---
+= About SVMs with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use SVMS with ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to  provide data access to clients regardless of the physical storage or controller, similar to any storage system. SVMs provide benefits such as nondisruptive operations, scalability, security, and unified storage.
+
+SVMs provide the following benefits:
+
+* Multi-tenancy
++
+SVM is the fundamental unit of secure multi-tenancy, which enables partitioning of the storage infrastructure so that it appears as multiple independent storage systems. These partitions isolate the data and management.
+
+* Nondisruptive operations
++
+SVMs can operate continuously and nondisruptively for as long as they are needed. SVMs help clusters to operate continuously during software and hardware upgrades, addition and removal of nodes, and all administrative operations.
+
+* Scalability
++
+SVMs meet on-demand data throughput and the other storage requirements.
+
+* Security
++
+Each SVM appears as a single independent server, which enables multiple SVMs to coexist in a cluster while ensuring no data flows among them.
+
+* Unified storage
++
+SVMs can serve data concurrently through multiple data access protocols. SVMs provide file-level data access through NAS protocols, such as CIFS and NFS, and block-level data access through SAN protocols, such as iSCSI, FC/FCoE, and NVMe. SVMs can serve data to SAN and NAS clients independently at the same time.
+
+* Delegation of management
++
+SVM administrators have privileges assigned by the cluster administrator.

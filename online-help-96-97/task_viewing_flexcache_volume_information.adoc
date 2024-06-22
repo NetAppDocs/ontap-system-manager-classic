@@ -1,0 +1,68 @@
+---
+permalink: online-help-96-97/task_viewing_flexcache_volume_information.html
+sidebar: sidebar
+keywords: system, manager, flexcache, volume, information, online, help
+summary: "Beginning with System Manager 9.6, you can view information about a FlexCache volume. You can view a graphical representation of the space allocated and the performance of a FlexCache volume."
+---
+= Viewing FlexCache volume information
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with System Manager 9.6, you can view information about a FlexCache volume. You can view a graphical representation of the space allocated and the performance of a FlexCache volume.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. From the displayed list of volumes, select the FlexCache volume about which you want to view information.
++
+The *Style* column displays "FlexCache" for a FlexCache volume.
++
+When you make a selection, the Volume window for the selected FlexCache volume displays.
+
+. Initially, the *Volume* window displays the *Overview* tab. Click the tabs to view additional details about the FlexCache volume:
++
+[options="header"]
+|===
+| Click this tab...| To view these details...
+a|
+*Overview*
+a|
+General information about the FlexCache volume, the space allocated to the FlexCache volume, and performance information about the FlexCache volume.
+a|
+*Storage Efficiency*
+a|
+The storage efficiency settings of the FlexCache volume.
+a|
+*Performance*
+a|
+The average performance metrics, read performance metrics, and write performance metrics of the FlexCache volume based on latency, IOPS, and throughput. Also, the percentage of cache hits or cache misses is displayed.
+|===
+
+. *Optional:* Click *More actions* to view additional information and take actions from the selections in the drop-down menu:
++
+[options="header"]
+|===
+| Action| Description
+a|
+Change status
+a|
+Enables you to change the status of the FlexCache volume. Refer to link:task_changing_status_flexcache_volume.html[Changing the status of a FlexCache volume].
+a|
+Resize
+a|
+Enables you to resize the FlexCache volume. Refer to link:task_resizing_flexcache_volumes.html[Resizing FlexCache volumes].
+a|
+Storage Efficiency
+a|
+Enables you to adjust parameters to improve the storage efficiency of the FlexCache volume.
+a|
+Storage QoS
+a|
+Enables you to adjust the minimum and maximum storage limits for the FlexCache volume.
+a|
+Encryption rekey
+a|
+Enables you to reset the encryption key (only if you have enabled encryption on the peer cluster that includes the FlexCache volume)
+|===

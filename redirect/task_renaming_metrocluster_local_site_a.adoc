@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_renaming_metrocluster_local_site_a.html
+redirect: ontap-system-manager-classic/online-help-96-97/task_preparing_for_switchover_switchback_operations.html
+---

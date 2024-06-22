@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_what_inactive_cold_data_is.html
+redirect: ontap-system-manager-classic/online-help-96-97/task_configuring_managing_cloud_tiers.html
+---

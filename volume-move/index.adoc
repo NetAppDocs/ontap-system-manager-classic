@@ -1,0 +1,63 @@
+---
+permalink: volume-move/index.html
+sidebar: sidebar
+keywords: nondisruptive, data, volume, node, storage, virtual, machine, svm, ontap, cluster, volume move overview, move, overview
+summary: "Using ONTAP System Manager classic interface with ONTAP 9.7 or earlier, you can nondisruptively move a data volume from one node to another node within the same storage virtual machine (SVM) in an ONTAP 9 cluster."
+---
+= Volume move overview
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Using ONTAP System Manager classic interface with ONTAP 9.7 or earlier, you can nondisruptively move a data volume from one node to another node within the same storage virtual machine (SVM) in an ONTAP 9 cluster.
+
+== Requirements for using these procedures
+
+Before you use perform these procedures, ensure that the following conditions are met:
+
+* The cluster is running ONTAP 9.
+* You have cluster administrator privileges.
+* You want to use best practices, not explore every available option.
+* You want to use the _Classic_ System Manager UI for ONTAP 9.7 and earlier releases, not the ONTAP System Manager UI for ONTAP 9.7 and later.
++
+For some tasks, you must use the ONTAP command-line interface (CLI).
+* You know which volume you want to move.
++
+For help in deciding which volumes to move, you can use Active IQ Unified Manager (formerly OnCommand Unified Manager).
+
+* The volume that will be moved is a data volume.
+* Any new or repurposed hardware is fully installed and already has aggregates.
+* If the cluster has LUNs, all nodes have two paths per LUN.
+* Flow control is not enabled on cluster network ports.
+* For volumes containing namespaces, the cluster is running ONTAP 9.6 or later.
++
+Volume move is not supported for NVMe configurations running ONTAP 9.5.
+
+== Other ways to do this in ONTAP
+
+|===
+
+h| To complete this task using... h| Refer to...
+
+a| The redesigned System Manager (available with ONTAP 9.7 and later)
+a| https://docs.netapp.com/us-en/ontap/volumes/manage-volumes-task.html[Manage volumes^]
+
+a| The ONTAP command-line interface
+a| https://docs.netapp.com/us-en/ontap/volumes/index.html[Logical storage management^]
+
+|===
+
+== Alternatives to volume move
+
+Before moving volumes, you should evaluate whether the following approaches are better suited to your situation:
+
+* If you want to nondisruptively upgrade a controller in place, you can consider using aggregate relocation (ARL), which does not require physical data movement.
++
+https://docs.netapp.com/us-en/ontap/high-availability/index.html[High Availability^]
+
+* If you want to move only a LUN without its containing volume, you can use the LUN move process.
++
+https://docs.netapp.com/us-en/ontap/san-admin/index.html[SAN administration^]
+
+// BURT 1415751, 10 JAN 2022
+// BURT 1418684, 31 JAN 2022

@@ -1,0 +1,31 @@
+---
+permalink: online-help-96-97/task_deleting_aggregates.html
+sidebar: sidebar
+keywords: delete, aggregates, system, manager, online, help, root
+summary: "You can use System Manager to delete aggregates when you no longer require the data in the aggregates. However, you cannot delete the root aggregate because it contains the root volume, which contains the system configuration information."
+---
+= Delete aggregates with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (avaiable in ONTAP 9.7 and earlier) to delete aggregates when you no longer require the data in the aggregates. However, you cannot delete the root aggregate because it contains the root volume, which contains the system configuration information.
+
+.Before you begin
+
+* All the FlexVol volumes and the associated storage virtual machines (SVMs) contained by the aggregate must be deleted.
+* The aggregate must be offline.
+
+.Steps
+
+. Choose one of the following methods:
+ ** Click *Applications & Tiers* > *Storage Tiers*.
+ ** Click *Storage* > *Aggregates & Disks* > *Aggregates*.
+. Select one or more aggregates that you want to delete, and then click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+
+*Related information*
+
+xref:reference_aggregates_window.adoc[Aggregates window]
+
+xref:reference_storage_tiers_window.adoc[Storage Tiers window]

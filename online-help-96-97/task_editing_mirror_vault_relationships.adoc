@@ -1,0 +1,322 @@
+---
+permalink: online-help-96-97/task_editing_mirror_vault_relationships.html
+sidebar: sidebar
+keywords: edit, mirror, vault, relationship, system, manager, online, help
+summary: "You can use System Manager to edit a mirror and vault relationship by modifying the selected policy or schedule. However, you cannot edit the parameters of an existing policy or schedule."
+---
+= Manage mirror and vault relationships with System Manager - ONTAP 9.7 and earlier
+
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to manage mirror and vault relationships. You can edit, delete, initialize, update, quiesce, resume and break mirror and vault relationships. You can also perform resynchronization or reverse resynchronization operations in addition to creating  mirror and vault relationships from a destination SVM.
+
+== Edit relationships
+
+You can use System Manager to edit a mirror and vault relationship by modifying the selected policy or schedule. However, you cannot edit the parameters of an existing policy or schedule.
+
+.Before you begin
+
+The source and destination clusters must be in a healthy peer relationship.
+
+.About this task
+
+You can modify the relationship type of a version-flexible mirror relationship, vault relationship, or mirror and vault relationship by modifying the policy type.
+
+.Steps
+
+. Click *Protection* > *Volume Relationships*.
+. Select the mirror and vault relationship that you want to modify, and then click *Edit*.
+. In the *Edit Relationship* dialog box, select the appropriate action:
++
+[options="header"]
+|===
+| If you want to...| Do the following...
+a|
+Select an existing policy
+a|
+Click *Browse*, and then select an existing policy.    You can select a policy that has the maximum number of matching labels with the Snapshot policy that is attached to the source volume.
+a|
+Create a new policy
+a|
+
+ .. Click *Create Policy*.
+ .. Specify a name for the policy.
+ .. Set the priority for scheduled transfers.
++
+Low indicates that the transfer has the least priority and is usually scheduled after normal priority transfers. By default, the priority is set to Normal.
+
+ .. Select the *Enable Network Compression* check box to compress the data that is being transferred.
+ .. Specify a SnapMirror label and destination retention count for the vault policy.
++
+You must ensure that a Snapshot copy with the same label is created on the source volume for the new SnapMirror label to be effective.
+
+ .. Click *Create*.
+
+|===
+
+. Specify a schedule for the relationship:
++
+[options="header"]
+|===
+| If...| Do the following...
+a|
+You want to assign an existing schedule
+a|
+Click *Browse*, and then select an existing schedule.
+a|
+You want to create a new schedule
+a|
+
+ .. Click *Create Schedule*.
+ .. Specify a name for the schedule.
+ .. Select one of the following options:
+  *** *Basic*
++
+You can select this option to specify only the day of the week, time, and the transfer interval.
+
+  *** *Advanced*
++
+You can select this option to specify a cron style schedule.
+ .. Click *Create*.
+
+a|
+You do not want to assign a schedule
+a|
+Select *None*.
+|===
+
+. Click *OK*.
+
+== Update relationships manually
+
+You can use System Manager to manually initiate an unscheduled incremental update. You might require a manual update to prevent data loss due to an upcoming power outage, scheduled maintenance, or data migration.
+
+.Before you begin
+
+The mirror and vault relationship must be initialized and in a Snapmirrored state.
+
+.Steps
+
+. Click *Protection* > *Volume Relationships*.
+. Select the mirror relationship for which you want to update the data, and then click *Operations* > *Update*.
+. Choose one of the following options:
+ ** Select *As Per Policy* to perform an incremental transfer from the recent common Snapshot copy between the source and destination volumes.
+ ** Select *Select Snapshot copy* and specify the Snapshot copy that you want to transfer.
+. Select *Limit transfer bandwidth to* to limit the network bandwidth that is used for transfers, and then specify the maximum transfer speed.
+. Click *Update*.
+. Verify the transfer status in the *Details* tab.
+
+== Initialize relationships
+
+You can use System Manager to initialize a mirror and vault relationship if you have not already initialized the relationship while creating it. When you initialize a relationship, a complete baseline transfer of data is performed from the source volume to the destination.
+
+.Before you begin
+
+The source and destination clusters must be in a healthy peer relationship.
+
+.Steps
+
+. Click *Protection* > *Volume Relationships*.
+. Select the mirror and vault relationship that you want to initialize, and then click *Operations* > *Initialize*.
+. Select the confirmation check box, and then click *Initialize*.
+. Verify the status of the relationship in the *Protection* window.
+
+.Results
+
+A Snapshot copy is created and transferred to the destination.
+
+This Snapshot copy is used as a baseline for subsequent incremental Snapshot copies.
+
+== Create a relationship from a destination SVM
+
+You can use System Manager to create a mirror and vault relationship from the destination storage virtual machine (SVM). Creating this relationship enables you to better protect your data by periodically transferring data from the source volume to the destination volume. It also enables you to retain data for long periods by creating backups of the source volume.
+
+.Before you begin
+
+* The destination cluster must be running ONTAP 8.3.2 or later.
+* SnapMirror license must be enabled on the source cluster and destination cluster.
++
+[NOTE]
+====
+For some platforms, it is not mandatory for the source cluster to have the SnapMirror license enabled if the destination cluster has the SnapMirror license and Data Protection Optimization (DPO) license enabled.
+====
+
+* The source cluster and destination cluster must be in a healthy peer relationship.
+* The destination SVM must have space available.
+* The source aggregate and destination aggregate must be 64-bit aggregates.
+* A source volume of type read/write (rw) must already exist.
+* The SnapLock aggregate type must be the same.
+* If you are connecting from a cluster running ONTAP 9.2 or earlier to a remote cluster on which SAML authentication is enabled, password-based authentication must be enabled on the remote cluster.
+
+.About this task
+
+* System Manager does not support a cascade relationship.
++
+For example, a destination volume in a relationship cannot be the source volume in another relationship.
+
+* You cannot create a mirror and vault relationship between a sync-source SVM and a sync-destination SVM in a MetroCluster configuration.
+* You can create a mirror and vault relationship between sync-source SVMs in a MetroCluster configuration.
+* You can create a mirror and vault relationship from a volume on a sync-source SVM to a volume of a data-serving SVM.
+* You can create a mirror and vault relationship from a volume on a data-serving SVM to a DP volume on a sync-source SVM.
+* A maximum of 25 volumes can be protected in one selection.
+
+.Steps
+
+. Click *Protection* > *Volume Relationships*.
+. In the *Relationships* window, click *Create*.
+. In the *Browse SVM* dialog box, select an SVM for the destination volume.
+. In the *Create Protection Relationship* dialog box, select *Mirror and Vault* from the *Relationship Type* drop-down list.
+. Specify the cluster, the SVM, and the source volume.
++
+If the specified cluster is running a version of ONTAP software earlier than ONTAP 9.3, then only peered SVMs are listed. If the specified cluster is running ONTAP 9.3 or later, peered SVMs and permitted SVMs are listed.
+
+. Enter a volume name suffix.
++
+The volume name suffix is appended to the source volume names to generate the destination volume names.
+
+. *Optional:* Click *Browse*, and then change the mirror and vault policy.
++
+You can select the policy that has the maximum number of matching labels with the Snapshot policy that is attached to the source volume.
+
+. Select a schedule for the relationship from the list of existing schedules.
+. *Optional:* Select *Initialize Relationship* to initialize the relationship.
+. Enable FabricPool-enabled aggregates, and then select an appropriate tiering policy.
+. Click *Validate* to verify whether the selected volumes have matching labels.
+. Click *Create*.
+
+== Resynchronize relationships
+
+You can use System Manager to reestablish a mirror and vault relationship that was broken earlier. You can perform a resynchronization operation to recover from a disaster that disabled the source volume.
+
+.Before you begin
+
+The source and destination clusters and the source and destination storage virtual machines (SVMs) must be in peer relationships.
+
+.About this task
+
+You should be aware of the following before performing a resynchronization operation:
+
+* When you perform a resynchronization operation, the contents on the destination volume are overwritten by the contents on the source.
++
+[NOTE]
+====
+The resynchronization operation can cause loss of newer data written to the destination volume after the base Snapshot copy was created.
+====
+
+* If the Last Transfer Error field in the Protection window recommends a resynchronization operation, you must first break the relationship and then perform the resynchronization operation.
+
+.Steps
+
+. Click *Protection* > *Volume Relationships*.
+. Select the mirror and vault relationship that you want to resynchronize, and then click *Operations* > *Resync*.
+. Select the confirmation check box, and then click *Resync*.
+
+== Reverse resynchronize relationships
+
+You can use System Manager to reestablish a mirror and vault relationship that was previously broken. In a reverse resynchronization operation, the functions of the source and destination volumes are reversed. You can use the destination volume to serve data while you repair or replace the source, update the source, and reestablish the original configuration of the systems.
+
+.Before you begin
+
+The source volume must be online.
+
+.About this task
+
+* When you perform reverse resynchronization, the contents on the source volume are overwritten by the contents on the destination volume.
++
+[NOTE]
+====
+The reverse resynchronization operation can cause data loss on the source volume.
+====
+
+* When you perform reverse resynchronization, the policy of the relationship is set to MirrorAndVault and the schedule is set to None.
+
+.Steps
+
+. Click *Protection* > *Volume Relationships*.
+. Select the mirror and vault relationship that you want to reverse, and then click *Operations* > *Reverse Resync*.
+. Select the confirmation check box, and then click *Reverse Resync*.
+
+== Break relationships
+
+You can use System Manager to break a mirror and vault relationship if a source volume becomes unavailable and you want client applications to access the data from the destination volume. You can use the destination volume to serve data while you repair or replace the source volume, update the source volume, and reestablish the original configuration of the systems.
+
+.Before you begin
+
+* The mirror and vault relationship must be in the quiesced state or idle state.
+* The destination volume must be mounted on the destination storage virtual machine (SVM) namespace.
+
+.About this task
+
+You can break mirror relationships between ONTAP systems and SolidFire storage systems.
+
+.Steps
+
+. Click *Protection* > *Volume Relationships*.
+. Select the mirror and vault relationship that you want to break, and then click *Operations* > *Break*.
+. Select the confirmation check box, and then click *Break*.
+
+.Results
+
+The mirror and vault relationship is broken. The destination volume type changes from data protection (DP) read-only to read/write. The system stores the base Snapshot copy for the mirror and vault relationship for later use.
+
+== Resume relationships
+
+If you have a quiesced mirror and vault relationship, you can use System Manager to resume the relationship. When you resume the relationship, normal data transfer to the destination volume is resumed and all the protection activities are restarted.
+
+.About this task
+
+If you have quiesced a broken mirror and vault relationship from the command-line interface (CLI), you cannot resume the relationship from System Manager. You must use the CLI to resume the relationship.
+
+.Steps
+
+. Click *Protection* > *Volume Relationships*.
+. Select the mirror and vault relationship that you want to resume, and then click *Operations* > *Resume*.
+. Select the confirmation check box, and then click *Resume*.
+
+.Results
+
+Normal data transfers are resumed. If there is a scheduled transfer for the relationship, the transfer is started from the next schedule.
+
+== Delete relationships
+
+
+You can use System Manager to end a mirror and vault relationship between a source and destination volume, and release the Snapshot copies from the source volume.
+
+.About this task
+
+* It is a best practice to break the mirror and vault relationship before deleting the relationship.
+* To re-create the relationship, you must run the resynchronization operation from the source volume by using the command-line interface (CLI).
+
+.Steps
+
+. Click *Protection* > *Volume Relationships*.
+. Select the mirror and vault relationship that you want to delete and click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
++
+You can also select the release base Snapshot copies check box to delete the base Snapshot copies used by the mirror and vault relationship on the source volume.
++
+If the relationship is not released, then you must use the CLI to run the release operation on the source cluster to delete the base Snapshot copies that were created for the mirror and vault relationship from the source volume.
+
+.Results
+
+The relationship is deleted and the base Snapshot copies on the source volume are permanently deleted.
+
+== Quiesce relationships
+
+You can use System Manager to quiesce a destination volume to stabilize the destination before creating a Snapshot copy. The quiesce operation enables active data transfers to finish and disables future transfers for the mirror and vault relationship.
+
+.Before you begin
+
+The mirror and vault relationship must be in a Snapmirrored state.
+
+.Steps
+
+. Click *Protection* > *Volume Relationships*.
+. Select the mirror and vault relationship that you want to quiesce, and then click *Operations* > *Quiesce*.
+. Select the confirmation check box, and then click *Quiesce*.
+
+.Results
+
+If there is no transfer in progress, the transfer status is displayed as `Quiesced`. If a transfer is in progress, the transfer is not affected, and the transfer status is displayed as `Quiescing` until the transfer is complete.

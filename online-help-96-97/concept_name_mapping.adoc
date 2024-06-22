@@ -1,0 +1,110 @@
+---
+permalink: online-help-96-97/concept_name_mapping.html
+sidebar: sidebar
+keywords: name, mapping, system, manager, specify, user, platform, online, help, command, button, rules
+summary: "You can use System Manager to specify name mapping entries to map users from different platforms."
+---
+= Name mapping with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to specify name mapping entries to map users from different platforms.
+
+== Name mapping conversion rules
+
+An ONTAP system keeps a set of conversion rules for each SVM. Each rule consists of two pieces: a _pattern_ and a _replacement_. Conversions start at the beginning of the appropriate list and perform a substitution based on the first matching rule. The pattern is a UNIX-style regular expression. The replacement is a string containing escape sequences representing subexpressions from the pattern, as in the UNIX `sed` program.
+
+== Name Mapping window
+
+You can use the Name Mapping window to specify the name mapping entries to map users from different platforms.
+
+=== Name Mappings
+
+You can create and use name mappings to map your UNIX users to Windows users, Windows users to UNIX users, or Kerberos users to UNIX users.
+
+=== Command buttons
+
+* *Add*
++
+Opens the Add Name Mapping Entry dialog box, which enables you to create a name mapping on storage virtual machines (SVMs).
+
+* *Edit*
++
+Opens the Edit Name Mapping Entry dialog box, which enables you to edit a name mapping on SVMs.
+
+* *Delete*
++
+Opens the Delete Name Mapping Entries dialog box, which enables you to delete a name mapping entry.
+
+* *Swap*
++
+Opens the Swap Name Mapping Entries dialog box, which enables you to interchange positions of the two selected name mapping entries.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Name mappings list
+
+* *Position*
++
+Specifies the name mapping's position in the priority list. Name mappings are applied in the order in which they occur in the priority list.
+
+* *Pattern*
++
+Specifies the user name pattern that must be matched.
+
+* *Replacement*
++
+Specifies the replacement pattern for the user name.
+
+* *Direction*
++
+Specifies the direction of the name mapping. Possible values are krb_unix for a Kerberos-to-UNIX name mapping, win_unix for a Windows-to-UNIX name mapping, and unix_win for a UNIX-to-Windows name mapping.
+
+=== Command buttons
+
+* *Add*
++
+Opens the Add Group Mapping Entry dialog box, which enables you to create a group mapping on SVMs.
+
+* *Edit*
++
+Opens the Edit Group Mapping Entry dialog box, which enables you to edit the group mapping on SVMs.
+
+* *Delete*
++
+Opens the Delete Group Mapping Entries dialog box, which enables you to delete a group mapping entry.
+
+* *Swap*
++
+Opens the Swap Group Mapping Entries dialog box, which enables you to interchange positions of the two selected group mapping entries.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Group mappings list
+
+* *Position*
++
+Specifies the group mapping's position in the priority list. Group mappings are applied in the order in which they occur in the priority list.
+
+* *Pattern*
++
+Specifies the user name pattern that must be matched.
+
+* *Replacement*
++
+Specifies the replacement pattern for the user names.
+
+* *Direction*
++
+Specifies the direction of the group mapping. Possible values are `krb_unix` for a Kerberos-to-UNIX group mapping, `win_unix` for a Windows-to-UNIX group mapping, and `unix_win` for a UNIX-to-Windows group mapping.
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/smb-admin/index.html[SMB/CIFS management]
+
+// 2021-12-21, Created by Aoife, sm-classic rework.

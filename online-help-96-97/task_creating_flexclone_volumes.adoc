@@ -1,0 +1,39 @@
+---
+permalink: online-help-96-97/task_creating_flexclone_volumes.html
+sidebar: sidebar
+keywords: create, flexclone, volume, system, manager, online, help
+summary: "You can use System Manager to create a FlexClone volume when you require a writable, point-in-time copy of an existing FlexVol volume. You might want to create a copy of a volume for testing or to provide access to the volume for additional users without giving them access to the production data."
+---
+= Create FlexClone volumes with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create a FlexClone volume when you require a writable, point-in-time copy of an existing FlexVol volume. You might want to create a copy of a volume for testing or to provide access to the volume for additional users without giving them access to the production data.
+
+.Before you begin
+
+* The FlexClone license must be installed on the storage system.
+* The volume that you want to clone must be online and must be a non-root volume.
+
+.About this task
+
+The base Snapshot copy that is used to create a FlexClone volume of a SnapMirror destination is marked as busy and cannot be deleted. If a FlexClone volume is created from a Snapshot copy that is not the most recent Snapshot copy, and that Snapshot copy no longer exists on the source volume, all SnapMirror updates to the destination volume fail.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Select the FlexVol volume that you want to clone from the list of volumes.
+. Click *More Actions* > *Clone* > *Create* > *Volume*.
+. Type the name of the FlexClone volume that you want to create.
+. *Optional:* If you want to enable thin provisioning for the new FlexClone volume, select *Thin Provisioning*.
++
+By default, this setting is the same as that of the parent volume.
+
+. Create a Snapshot copy or select an existing Snapshot copy that you want to use as the base Snapshot copy for creating the FlexClone volume.
+. Click *Clone*.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

@@ -1,0 +1,84 @@
+---
+permalink: online-help-96-97/task_assigning_volumes_to_storage_qos.html
+sidebar: sidebar
+keywords: assign, volumes, storage, qos, online, help, flexgroup, online, help, quality, serice
+summary: "You can limit the throughput of FlexVol volumes and FlexGroup volumes by assigning them to storage Quality of Service (QoS) policy groups. You can assign storage QoS for new volumes, or you can modify the storage QoS details of the volumes that are already assigned to a policy group by using System Manager."
+---
+= Assign volumes to Storage QoS with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier ) to limit the throughput of FlexVol volumes and FlexGroup volumes by assigning them to storage Quality of Service (QoS) policy groups. You can assign storage QoS for new volumes, or you can modify the storage QoS details of the volumes that are already assigned to a policy group by using System Manager.
+
+.About this task
+
+* You can assign storage QoS only to read/write (rw) volumes that are online.
+* You cannot assign storage QoS to a volume if the following storage objects are assigned to a policy group:
+ ** Parent storage virtual machine (SVM) of the volume
+ ** Child LUNs of the volume
+ ** Child files of the volume
+* You can assign storage QoS or modify the QoS details for a maximum of 10 volumes simultaneously.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Select one or more volumes for which you want to assign storage QoS.
+. Click *More Actions* > *Storage QoS*.
+. In the *Quality of Service Details* dialog box, select the *Manage Storage Quality of Service* check box if you want to manage the workload performance of the FlexVol volume.
++
+If some of the volumes that you selected are already assigned to a policy group, the changes that you make might affect the performance of these volumes.
+
+. Create a new storage QoS policy group or select an existing policy group to control the input/output (I/O) performance of the FlexVol volume:
++
+[options="header"]
+|===
+| If you want to...| Do this...
+a|
+Create a new policy group
+a|
+
+ .. Select *New Policy Group*.
+ .. Specify the policy group name.
+ .. Specify the minimum throughput limit.
+  *** In System Manager 9.5, you can set the minimum throughput limit only on a performance-based All Flash Optimized personality. In System Manager 9.6, you can also set the minimum throughput limit for ONTAP Select Premium systems.
+  *** You cannot set the minimum throughput limit for volumes on a FabricPool-enabled aggregate.
+  *** If you do not specify the minimum throughput value or if the minimum throughput value is set to 0, the system automatically displays "`None`" as the value.
++
+This value is case-sensitive.
+ .. Specify the maximum throughput limit to prevent the workload of the objects in the policy group from exceeding the specified throughput limit.
+  *** The minimum throughput limit and the maximum throughput limit must be of the same unit type.
+  *** If you do not specify the minimum throughput limit, then you can set the maximum throughput limit in IOPS, B/s, KB/s, MB/s, and so on.
+  *** If you do not specify the maximum throughput value, the system automatically displays "`Unlimited`" as the value.
++
+This value is case-sensitive. The unit that you specify does not affect the maximum throughput.
+
+a|
+Select an existing policy group
+a|
+
+ .. Select *Existing Policy Group*, and then click *Choose* to select an existing policy group from the Select Policy Group dialog box.
+ .. Specify the minimum throughput limit.
+  *** In System Manager 9.5, you can set the minimum throughput limit only on a performance-based All Flash Optimized personality. In System Manager 9.6, you can also set the minimum throughput limit for ONTAP Select Premium systems.
+  *** You cannot set the minimum throughput limit for volumes on a FabricPool-enabled aggregate.
+  *** If you do not specify the minimum throughput value or if the minimum throughput value is set to 0, the system automatically displays "`None`" as the value.
++
+This value is case-sensitive.
+ .. Specify the maximum throughput limit to prevent the workload of the objects in the policy group from exceeding the specified throughput limit.
+  *** The minimum throughput limit and the maximum throughput limit must be of the same unit type.
+  *** If you do not specify the minimum throughput limit, then you can set the maximum throughput limit in IOPS, B/s, KB/s, MB/s, and so on.
+  *** If you do not specify the maximum throughput value, the system automatically displays "`Unlimited`" as the value.
+  +
+This value is case-sensitive. The unit that you specify does not affect the maximum throughput.
+
++
+If the policy group is assigned to more than one object, the maximum throughput that you specify is shared among the objects.
+
+|===
+
+. *Optional:* Click the link that specifies the number of volumes if you want to review the list of selected volumes, and then click *Discard* if you want to remove any volumes from the list.
++
+The link is displayed only when multiple volumes are selected.
+
+. Click *OK*.

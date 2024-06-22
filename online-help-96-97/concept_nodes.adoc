@@ -1,0 +1,88 @@
+---
+permalink: online-help-96-97/concept_nodes.html
+sidebar: sidebar
+keywords: node, system, manager, view, detail, cluster, online, help
+summary: "You can use System Manager to view the details of the nodes in the cluster."
+---
+= Manage nodes with System Manager - ONTAP 9.7 and earlier
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to view the details of the nodes in the cluster.
+
+== Initialize the ComplianceClock time
+
+You can use System Manager to initialize the ComplianceClock time to the current cluster time. You must initialize the ComplianceClock time in order to create SnapLock aggregates.
+
+.Before you begin
+
+The SnapLock license must be installed.
+
+.About this task
+
+You cannot modify or stop the ComplianceClock time after it is initialized.
+
+.Steps
+
+. Click *Storage* > *Nodes*.
+. Select the node, and then click *Initialize ComplianceClock*.
+. In the *Initialize ComplianceClock* dialog box, click *Yes* to initialize the ComplianceClock time to the current cluster time.
+
+== Nodes window
+
+You can use the Nodes window to view the details of the nodes in a cluster.
+
+=== Command buttons
+
+* *Initialize ComplianceClock*
++
+Initializes the ComplianceClock of the selected node to the current value of the system clock.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Nodes list
+
+* *Name*
++
+Displays the name of the node.
+
+* *State*
++
+Displays the state of the node (whether the node is up or down).
+
+* *Up Time*
++
+Displays the duration for which the node is up.
+
+* *ONTAP Version*
++
+Displays the ONTAP version that is installed on the node.
+
+* *Model*
++
+Displays the platform model number of the node.
+
+* *System ID*
++
+Displays the ID of the node.
+
+* *Serial No*
++
+Displays the serial number of the node.
+
+=== Details area
+
+Displays detailed information about the selected node.
+
+* *Details tab*
++
+Displays information related to the selected node such as the name of the node, the state of the node, and the duration for which the node is up.
+
+* *Performance tab*
++
+Displays the throughput, IOPS, and latency of the selected node.
++
+Changing the client time zone or the cluster time zone impacts the performance metrics graphs. You should refresh your browser to view the updated graphs.
+
+// 2021-12-15, Created by Aoife, sm-classic rework

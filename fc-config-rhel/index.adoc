@@ -1,0 +1,42 @@
+---
+permalink: fc-config-rhel/index.html
+sidebar: sidebar
+keywords: fc, service, storage, virtual, machine, svm, provision, lun, fc, host, bus, adapter, hba, linux, server, configuration, red hat enterprise linux
+summary: "You can quickly set up the FC service on a storage virtual machine, provision a LUN, and make the LUN available using an FC host bus adapter on a Red Hat Enterprise Linux server."
+---
+= FC configuration for Red Hat Enterprise Linux overview
+:icons: font
+:imagesdir: ../media/
+:hardbreaks-option:
+
+[.lead]
+You can quickly set up the FC service on a storage virtual machine (SVM), provision a LUN, and make the LUN available using an FC host bus adapter (HBA) on a Red Hat Enterprise Linux server using the ONTAP System Manager classic interface (ONTAP 9.7 and earlier).
+
+Use this procedure to set up FC service on an SVM if:
+
+* The host is running a supported version of Red Hat Enterprise Linux 6.4 or later.
+* You are using traditional FC HBAs and switches.
+[NOTE]
+Fibre Channel over Ethernet (FCoE) is not covered in this procedure.
+* You have at least two FC target ports available on each node in the cluster.
+Onboard FC and UTA2 (also called "`CNA`") ports, as well as some adapters, are configurable. Configuring those ports is done in the ONTAP command-line interface (CLI) and is not covered in this procedure.
+* You are not configuring FC SAN boot.
+
+If these assumptions are not correct for your situation, you should see the following resources:
+
+* https://docs.netapp.com/us-en/ontap/san-admin/index.html[SAN administration^]
+* https://docs.netapp.com/us-en/ontap/san-config/index.html[SAN configuration^]
+* https://docs.netapp.com/us-en/ontap-sanhost/hu_luhu_71.html[Linux Unified Host Utilities 7.1 Installation^]
+
+== Other ways to do this in ONTAP
+
+|===
+
+h| To perform these tasks with... h| Refer to...
+
+| The redesigned System Manager (available with ONTAP 9.7 and later) | link:https://docs.netapp.com/us-en/ontap/task_san_provision_linux.html[Provision SAN storage for Linux servers^]
+| The ONTAP command line interface (CLI) | link:https://docs.netapp.com/us-en/ontap/san-admin/lun-setup-workflow-concept.html[LUN setup workflow with the CLI^]
+|===
+
+//  BURT 1416961, 17 DEC 2021
+//  BURT 1448684, 31 JAN 2022

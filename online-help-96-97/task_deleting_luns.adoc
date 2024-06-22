@@ -1,0 +1,27 @@
+---
+permalink: online-help-96-97/task_deleting_luns.html
+sidebar: sidebar
+keywords: delete, lun, system, manager, online, help, aggregate
+summary: "You can use System Manager to delete LUNs and return the space used by the LUNs to their containing aggregates or volumes."
+---
+= Delete LUNs with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to delete LUNs and return the space used by the LUNs to their containing aggregates or volumes.
+
+.Before you begin
+
+* The LUN must be offline.
+* The LUN must be unmapped from all initiator hosts.
+
+.Steps
+
+. Click *Storage* > *LUNs*.
+. In the *LUN Management* tab, select one or more LUNs that you want to delete, and then click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+
+*Related information*
+
+xref:reference_luns_window.adoc[LUNs window]

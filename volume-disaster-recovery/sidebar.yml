@@ -1,0 +1,29 @@
+section: volume-disaster-recovery
+title: Volume disaster recovery
+entries:
+    - title: Overview
+      url: "/volume-disaster-recovery/index.html"
+    - title: Volume disaster recovery workflow
+      url: "/volume-disaster-recovery/concept_volume_disaster_recovery_workflow.html"
+      entries:
+      - title: Activate the destination volume
+        url: "/volume-disaster-recovery/task_activating_destination_volume.html"
+        entries:
+        - title: Verify the status of the source volume
+          url: "/volume-disaster-recovery/task_verifying_source_volume_status.html"
+        - title: Break the SnapMirror relationship
+          url: "/volume-disaster-recovery/task_breaking_snapmirror_relationship.html"
+        - title: Verify the destination volume status
+          url: "/volume-disaster-recovery/task_verifying_destination_volume_status.html"
+      - title: Configure the destination volume for data access
+        url: "/volume-disaster-recovery/task_configuring_destination_volume_for_data_access.html"
+      - title: Reactivate the source volume
+        url: "/volume-disaster-recovery/task_reactivating_source_volume.html"
+        entries:
+        - title: Resynchronize the source volume
+          url: "/volume-disaster-recovery/task_resynchronizing_source_volume.html"
+        - title: Update the source volume
+          url: "/volume-disaster-recovery/task_updating_source_volume.html"
+        - title: Reactivate the source volume
+          url: "/volume-disaster-recovery/task_returning_recovered_volume_to_source_role.html"
+    

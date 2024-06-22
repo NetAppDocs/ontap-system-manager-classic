@@ -1,0 +1,39 @@
+---
+permalink: expansion/task_ensuring_hardware_level_ha_is_enabled.html
+sidebar: sidebar
+keywords: install, controller, module, reuse, maintenance, mode, ha, state, hardware-level, enable, ensure hardware-level ha is enabled
+summary: "If the newly installed controller modules are reused—not new—you must enter Maintenance mode and ensure that their HA state is set to HA."
+---
+= Ensure hardware-level HA is enabled
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+If the newly installed controller modules are reused--not new--you must enter Maintenance mode and ensure that their HA state is set to HA.
+
+.About this task
+
+If you are using new controller modules, you can skip this procedure because HA is enabled by default. Otherwise, you must perform this procedure on both the nodes.
+
+.Steps
+
+. On the first node, enter Maintenance mode:
+ .. Exit the nodeshell by entering `halt`.
++
+The LOADER prompt is displayed.
+
+ .. Enter Maintenance mode by entering `boot_ontap maint`.
++
+After some information is displayed, the Maintenance mode prompt is displayed.
+. In Maintenance mode, ensure that the controller module and chassis are in HA state:
+ .. Display the HA state of the controller module and chassis by entering `ha-config show`.
+ .. If the displayed state of the controller is not `HA`, enter `ha-config modify controller ha`.
+ .. If the displayed state of the chassis is not `HA`, enter `ha-config modify chassis ha`.
+ .. Verify that HA is enabled on both the controller module and chassis by entering `ha-config show`.
+. Return to ONTAP:
+ .. Enter `halt` to exit Maintenance mode.
+ .. Boot ONTAP by entering `boot_ontap`
+ .. Wait while the node boots and the Cluster Setup wizard automatically starts on the console.
+ .. Press Enter four times to accept the existing settings for the node-management LIF.
+ .. Log in to the node as the `admin` user, which does not require a password.
+. Repeat this procedure on the other node that you are adding to the cluster.

@@ -1,0 +1,85 @@
+---
+permalink: online-help-96-97/task_setting_up_branchcache.html
+sidebar: sidebar
+keywords: cifs, svm, system, manager, online, help, branchcache, set, up, modify, settings, delete
+summary: "You can use System Manager to configure BranchCache on a CIFS-enabled storage virtual machine (SVM) to enable the caching of content on computers that are local to the requesting clients."
+---
+= Configure BranchCache with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to configure BranchCache on a CIFS-enabled storage virtual machine (SVM) to enable the caching of content on computers that are local to the requesting clients.
+
+.Before you begin
+
+* CIFS must be licensed, and a CIFS server must be configured.
+* For BranchCache version 1, SMB 2.1 or later must be enabled.
+* For BranchCache version 2, SMB 3.0 must be enabled, and the remote Windows clients must support BranchCache 2.
+
+.About this task
+
+* You can configure BranchCache on SVMs.
+* You can create an all-shares BranchCache configuration if you want to offer caching services for all of the content that is contained within all of the SMB shares on the CIFS server.
+* You can create a per-share BranchCache configuration if you want to offer caching services for the content that is contained within selected SMB shares on the CIFS server.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *BranchCache* tab, click *Set Up*.
+. In the *BranchCache Setup* dialog box, enter the following information:
+ .. Specify the path to the hash store.
++
+The path can be to an existing directory where you want the hash data to be stored. The destination path must be read-writable. Read-only paths such as Snapshot directories are not allowed.
+
+ .. Specify the maximum size (in KB, MB, GB, TB, or PB) for a hash data store.
++
+If the hash data exceeds this value, older hashes are deleted to provide space for newer hashes. The default size for a hash store is 1 GB.
+
+ .. Specify the operating mode for the BranchCache configuration.
++
+The default operating mode is set to all shares.
+
+ .. Specify a server key to prevent clients from impersonating the BranchCache server.
++
+You can set the server key to a specific value so that if multiple servers are providing BranchCache data for the same files, clients can use hashes from any server using that same server key. If the server key contains any spaces, you must enclose the server key in quotation marks.
+
+ .. Select the required BranchCache version.
++
+By default, all of the versions that are supported by the client are selected.
+. Click *Set Up*.
+
+== Modify the BranchCache settings
+
+You can use the CIFS window in System Manager to modify the BranchCache settings that are configured for a CIFS-enabled storage virtual machine (SVM). You can change the hash store path, the hash store size, the operating mode, and the BranchCache versions that are supported.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *BranchCache* tab, click *Edit*.
+. In the *Modify BranchCache Settings* dialog box, modify the required information:
+ ** Hash store path
++
+If you modify the hash store path, you are provided with an option to retain the cached hash data from the previous hash store.
+
+ ** Hash store size
+ ** Operating mode
+ ** BranchCache version
+. Click *Modify*.
+
+== Delete the BranchCache configuration
+
+You can use System Manager to delete the BranchCache configuration if you no longer want to offer caching services on the storage virtual machine (SVM) that is configured for BranchCache.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *BranchCache* tab, click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
++
+You can also remove existing hashes from the hash store.
+
+// 2021-12-20, Created by Aoife, sm-classic rework

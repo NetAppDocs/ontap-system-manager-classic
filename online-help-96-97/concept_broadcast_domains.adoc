@@ -1,0 +1,59 @@
+---
+permalink: online-help-96-97/concept_broadcast_domains.html
+sidebar: sidebar
+keywords: system, manager, create, manage, broadcast, domain, online, help, edit, settings, port, delete
+summary: "You can use System Manager to create and manage broadcast domains."
+---
+= Manage broadcast domains with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create and manage broadcast domains.
+
+== Edit broadcast domain settings
+
+You can use System Manager to modify the attributes of a broadcast domain such as the name, the MTU size, and the ports that are associated with the broadcast domain.
+
+.About this task
+
+* You must not modify the MTU size of the broadcast domain to which the management port e0M is assigned.
+* You cannot use System Manager to edit broadcast domains in the cluster IPspace.
++
+You must use the command-line interface (CLI) instead.
+
+.Steps
+
+. Click *Network* > *Broadcast Domains*.
+. Select the broadcast domain that you want to modify, and then click *Edit*.
+. In the *Edit Broadcast Domain* dialog box, modify the broadcast domain attributes as required.
+. Click *Save and Close*.
+
+== Delete broadcast domains
+
+You can delete a broadcast domain by using System Manager when you no longer require the broadcast domain.
+
+.Before you begin
+
+No subnets must be associated with the broadcast domain that you want to delete.
+
+.About this task
+
+* When you delete a broadcast domain, the ports that are associated with the broadcast domain are assigned to the default IPspace, and the MTU settings of the ports are not changed.
+* You cannot use System Manager to delete broadcast domains that are in the cluster IPspace.
++
+You must use the command-line interface (CLI) instead.
+
+.Steps
+
+. Click *Network* > *Broadcast Domains*.
+. Select the broadcast domain that you want to delete, and then click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+
+*Related information*
+
+xref:reference_network_window.adoc[Network window]
+
+https://docs.netapp.com/us-en/ontap/networking/index.html[Network management]
+
+// 2021-12-10, Created by Aoife, sm-classic rework

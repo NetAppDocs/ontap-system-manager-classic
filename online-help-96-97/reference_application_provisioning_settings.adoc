@@ -1,0 +1,352 @@
+---
+permalink: online-help-96-97/reference_application_provisioning_settings.html
+sidebar: sidebar
+keywords: application, provisioning, setting, microsoft, sql, database, applications, san, mongodb, oracle, host, access, initiator, sap, hana, smb
+summary: "When setting up a basic or enhanced template for a database, server, or virtual desktop, you must provide details to System Manager. After an application is provisioned, you can edit the details and specify a resizing (increased size only). This section describes the fields in each template. Only the fields that are required for provisioning or editing the settings of the specific application are displayed."
+---
+= Application provisioning settings in System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You must provide details when setting up a basic or enhanced template for a database, server, or virtual desktop in ONTAP System Manager classic (available in ONTAP 9.7 and earlier). After an application is provisioned, you can edit the details and specify a resizing (increased size only). This section describes the fields in each template. Only the fields that are required for provisioning or editing the settings of the specific application are displayed.
+
+== Details for Microsoft SQL Database Applications over SAN
+
+You enter the following information to provision Microsoft SQL Database applications over SAN or edit the settings:
+
+* *Database Name*
++
+Mandatory: The name of the database you are configuring; this string is used as a prefix when provisioning storage for each database.
+
+* *Database Size*
++
+Mandatory: The size of the database, in units of MB, GB, TB, or PB.
+
+* *ONTAP Service Level for Database*
++
+Mandatory: The service level for the database.
+
+* *Log Size*
++
+Mandatory: The size of the database log in units of MB, GB, TB, or PB.
+
+* *ONTAP Service Level for Log*
++
+Mandatory: The service level for the log.
+
+* *Tempdb*
++
+Mandatory: The size of the tempdb database in units of MB, GB, TB, or PB.
+
+* *Export Protocol*
++
+Mandatory: The export protocol is SAN
+
+* *Number of Server Cores (on the SQL server)*
++
+Indicates the number of CPU cores on the databases server in increments of 2.
+
+* *Span HA Controller Nodes*
++
+Specifies if storage objects should be created across a high-availability pair of nodes.
+
+== Details for provisioning a SAP HANA database
+
+* *Active SAP HANA Nodes*
++
+The number of active SAP HANA nodes. The maximum number of nodes is 16.
+
+* *Memory Size per HANA Node*
++
+The memory size of a single SAP HANA node.
+
+* *Data Disk Size per HANA Node*
++
+The data disk size for each node.
++
+[NOTE]
+====
+If set to 0, the memory size field above is used to calculate the size of the data area.
+====
+
+== Details for Microsoft SQL Database Applications over SMB
+
+You enter the following information to provision Microsoft SQL Database applications over SMB or edit the settings:
+
+* *Database Name*
++
+Mandatory: The name of the database you are configuring; this string is used as a prefix when provisioning storage for each database.
+
+* *Database Size*
++
+Mandatory: The size of the database, in units of MB, GB, TB, or PB.
+
+* *Database Service Level*
++
+Mandatory: The service level for the database.
+
+* *Number of Server Cores (on the SQL server)*
++
+Indicates the number of CPU cores on the databases server in increments of 2.
+
+* *Log Size*
++
+Mandatory: The size of the database log in units of MB, GB, TB, or PB.
+
+* *Log Service Level*
++
+Mandatory: The service level for the log.
+
+* *Provision for Tempdb*
++
+Mandatory: Indicates whether tempdb is provisioned.
+
+* *Export Protocol*
++
+Mandatory: The export protocol is SMB or SAN.
++
+SMB can be chosen only when the cluster is licensed for CIFS, which has been configured for the SVM.
+
+* *Grant Access to User*
++
+Mandatory: The access level for the application.
+
+* *Permission*
++
+Mandatory: The permission level for the application.
+
+== Details for a SQL Server Account
+
+You enter the following information to provide full control access to the SQL server accounts:
+
+[NOTE]
+====
+The installation account is granted `SeSecurityPrivilege`.
+====
+
+* *SQL Server Service Account*
++
+Mandatory: This is an existing domain account; specify as `domain\user`.
+
+* *SQL Server Agent Service Account*
++
+Optional: This is this domain account if SQL server agent service is configured, specify in the format domain\user.
+
+== Details for Oracle Database Applications
+
+You enter the following information to provision Oracle database applications or edit the settings:
+
+* *Database Name*
++
+Mandatory: The name of the database you are configuring; this string is used as a prefix when provisioning storage for each database.
+
+* *Datafile Size*
++
+Mandatory: The size of the datafile, in units of MB, GB, TB, or PB.
+
+* *ONTAP Service Level for Datafile*
++
+Mandatory: The service level for the datafile.
+
+* *Redo Log Group Size*
++
+Mandatory: The size of the redo log group, in units of MB, GB, TB, or PB.
+
+* *ONTAP Service Level for Redo Log Group*
++
+Mandatory: The service level for the redo log group.
+
+* *Archive Log Size*
++
+Mandatory: The size of the archive log, in units of MB, GB, TB, or PB.
+
+* *ONTAP Service Level for the Archive Log*
++
+Mandatory: The service level for the archive group.
+
+* *Export Protocol*
++
+The export protocol: SAN or NFS
+
+* *Initiators*
++
+A comma-separated list of the initiators (WWPN or IQN) in the initiator group.
+
+* *Grant Access to Host*
++
+The host name to give the application access to.
+
+== Details for MongoDB Applications
+
+You enter the following information to provision MongoDB applications or edit the settings:
+
+* *Database Name*
++
+Mandatory: The name of the database you are configuring; this string is used as a prefix when provisioning storage for each database.
+
+* *Data Set Size*
++
+Mandatory: The size of the datafile, in units of MB, GB, TB, or PB.
+
+* *ONTAP Service Level for Data Set*
++
+Mandatory: The service level for the datafile.
+
+* *Replication Factor*
++
+Mandatory: The number of replications.
+
+* *Mapping for Primary Host*
++
+Mandatory: The name of primary host.
+
+* *Mapping for Replica Host 1*
++
+Mandatory: The name of first host replica.
+
+* *Mapping for Replica Host 2*
++
+Mandatory: Name of second host replica.
+
+== Details for Virtual Desktop Applications
+
+You enter the following information to provision virtual desktop infrastructures (VDI) or edit the settings:
+
+* *Average Desktop Size (used for the SAN Virtual Desktop)*
++
+This is used to determine the thin-provisioned size of each volume in units of MB, GB, TB, or PB.
+
+* *Desktop Size*
++
+This is used to determine the size of the volumes which should be provisioned in units of MB, GB, TB, or PB.
+
+* *ONTAP Service Level for Desktops*
++
+Mandatory: The service level for the datafile.
+
+* *Number of Desktops*
++
+This number is used to determine the number of volumes created.
++
+[NOTE]
+====
+This is not used to provision the virtual machines.
+====
+
+* *Select Hypervisor*
++
+The hypervisor used for these volumes; the hypervisor determines the correct datastore protocol. The options are VMware, Hyper-V, or XenServer/KVM.
+
+* *Desktop Persistence*
++
+Determines if the desktop is persistent or nonpersistent. Selecting the desktop persistence sets the default values for the volume such as Snapshot schedules and post-process deduplication policies. Inline efficiencies are enabled by default for all volumes.
++
+[NOTE]
+====
+These policies can be modified manually after provisioning.
+====
+
+* *Datastore Prefix*
++
+The value entered is used to generate the names of the datastores and, if applicable, the export policy name or share name.
+
+* *Export Protocol*
++
+The export protocol: SAN or NFS
+
+* *Initiators*
++
+A comma-separated list of the initiators (WWPN or IQN) in the initiator group.
+
+* *Grant Access to Host*
++
+The host name to give the application access to.
+
+== Initiator Details
+
+You enter the following information to set up the initiator:
+
+* *Initiator Group*
++
+You can select an existing group or create a new group.
+
+* *Initiator Group Name*
++
+The name of the new initiator group.
+
+* *Initiators*
++
+A comma-separated list of the initiators (WWPN or IQN) in the initiator group.
+
+The following fields apply only to _SAP HANA_ provisioning:
+
+* *Initiator OS Type*
++
+The operating system type of the new initiator group.
+
+* *FCP Portset*
++
+The FCP portset that the initiator group is bound to.
+
+== Host Access Configuration
+
+You enter the following information to configure the host access to the volumes:
+
+* *Volume Export Configuration*
++
+Select the export policy to apply to the volumes during creation. The options are:
+
+ ** Allow All
++
+This option implies that an export rule is created which permits read-write access to any clients.
+
+ ** Create Custom Policy
++
+This option allows you to specify a list of host IP addresses to receive read-write access.
+
++
+[NOTE]
+====
+You can modify the volume export policy later using System Manager workflows.
+====
+
+* *Host IP Addresses*
++
+This is a comma-separated list of IP addresses.
++
+[NOTE]
+====
+For NFS-based systems, a new export policy is created using the datastore prefix and a rule is created in it to give access to the list of IP.
+====
+
+== Application Details
+
+When the application is added, you can view the configuration settings in the *Overview* tab of the Application Details window. Other details such as NFS or CIFS Access and Permissions are displayed depending on the type of application that was set up.
+
+* *Type*
++
+This is the type of general application, database, or virtual infrastructure that was created.
+
+* *SVM*
++
+The name of the server virtual machine that the application was created on.
+
+* *Size*
++
+The total size of the volume.
+
+* *Available*
++
+The amount of space currently available in the volume.
+
+* *Protection*
++
+The type of data protection configured.
+
+You can expand the *Components* and *Volumes* panes for performance details about space used, IOPs, and latency.
+
+[NOTE]
+====
+The used size displayed in the Components pane is different than the used size displayed in the CLI.
+====

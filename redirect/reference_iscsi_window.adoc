@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/reference_iscsi_window.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_iscsi_protocol.html
+---

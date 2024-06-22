@@ -1,0 +1,42 @@
+---
+permalink: fc-config-rhel/task_zoning_fc_switches_by_host_lif_wwpns.html
+sidebar: sidebar
+keywords: zoning, fc, switch, enable, host, connect, storage, limit, number, path, zone, management, interface, zone the fc switches by the host and lif wwpns
+summary: "Zoning the FC switches enables the hosts to connect to the storage and limits the number of paths. You zone the switches using the management interface of the switches."
+---
+= Zone the FC switches by the host and LIF WWPNs
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Zoning the FC switches enables the hosts to connect to the storage and limits the number of paths. You zone the switches using the management interface of the switches.
+
+.Before you begin
+
+* You must have administrator credentials for the switches.
+* You must know the WWPN of each host initiator port and of each FC LIF for the storage virtual machine (SVM) in which you created the LUN.
+
+.About this task
+
+For details about zoning your switches, see the switch vendor's documentation.
+
+You must zone by WWPN, not by physical port. Each initiator port must be in a separate zone with all of its corresponding target ports.
+
+LUNs are mapped to a subset of the initiators in the igroup to limit the number of paths from the host to the LUN.
+
+* By default, ONTAP uses Selective LUN Map to make the LUN accessible only through paths on the node owning the LUN and its HA partner.
+* You still must zone all of the FC LIFs on every node for LUN mobility in case the LUN is moved to another node in the cluster.
+* When moving a volume or a LUN, you must modify the Selective LUN Map reporting-nodes list before moving.
+
+The following illustration shows a host connected to a four-node cluster. There are two zones, one zone indicated by the solid lines and one zone indicated by the dashed lines. Each zone contains one initiator from the host and a LIF from each storage node.
+
+image::../media/scm_en_drw_dual_fabric_zoning_fc_rhel.gif[The image shows a host, two FC switches, and four storage nodes. Lines represent the two zones.]
+
+You must use the WWPNs of the target LIFs, not the WWPNs of the physical FC ports on the storage nodes. The LIF WWPNs are all in the range `2x:xx:00:a0:98:xx:xx:xx`, where `x` is any hexadecimal digit. The physical port WWPNs are all in the range `50:0a:09:8x:xx:xx:xx:xx`.
+
+.Steps
+
+. Log in to the FC switch administration program, and then select the zoning configuration option.
+. Create a new zone that includes the first initiator and all of the FC LIFs that connect to the same FC switch as the initiator.
+. Create additional zones for each FC initiator in the host.
+. Save the zones, and then activate the new zoning configuration.

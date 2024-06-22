@@ -1,0 +1,19 @@
+---
+permalink: online-help-96-97/task_viewing_initiator_groups.html
+sidebar: sidebar
+keywords: view, initiator, group, lun, system, manager, online, help
+summary: "You can use the Initiator Groups tab in System Manager to view all the initiator groups and the initiators mapped to these initiator groups, and the LUNs and LUN ID mapped to the initiator groups."
+---
+= View initiator groups with System Manager  - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the *Initiator Groups* tab in ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to view all the initiator groups and the initiators mapped to these initiator groups, and the LUNs and LUN ID mapped to the initiator groups.
+
+.Steps
+
+. Click *Storage* > *LUNs*.
+. Click *Initiator Groups* and review the initiator groups that are listed in the upper pane.
+. Select an initiator group to view the initiators that belong to it, which are listed in the *Initiators* tab in the lower pane.
+. Select an initiator group to view the LUNs mapped to it, which are listed in the *Mapped LUNs* in the lower pane.

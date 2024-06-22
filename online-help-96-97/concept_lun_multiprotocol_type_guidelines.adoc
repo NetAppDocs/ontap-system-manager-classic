@@ -1,0 +1,107 @@
+---
+permalink: online-help-96-97/concept_lun_multiprotocol_type_guidelines.html
+sidebar: sidebar
+keywords: guidelines, lun, multiprotocol, type, operating, system, host, layout, data, minimum, maximum, size, online, help
+summary: "The LUN multiprotocol type, or operating system type, specifies the operating system of the host accessing the LUN. It also determines the layout of data on the LUN, and the minimum and maximum size of the LUN."
+---
+= Guidelines for using LUN multiprotocol type in System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+In ONTAP System Manager classic (available in ONTAP 9.7 and earlier), the LUN multiprotocol type, or operating system type, specifies the operating system of the host accessing the LUN. It also determines the layout of data on the LUN, and the minimum and maximum size of the LUN.
+
+[NOTE]
+====
+Not all ONTAP versions support all LUN multiprotocol types. For the latest information, see the Interoperability Matrix Tool.
+====
+
+The following table describes the LUN multiprotocol type values and the guidelines for using each type:
+
+[options="header"]
+|===
+| LUN multiprotocol type| When to use
+a|
+AIX
+a|
+If your host operating system is AIX.
+a|
+HP-UX
+a|
+If your host operating system is HP-UX.
+a|
+Hyper-V
+a|
+If you are using Windows Server 2008 or Windows Server 2012 Hyper-V and your LUNs contain virtual hard disks (VHDs). If you are using hyper_v for your LUN type, you should also use hyper_v for your igroup OS type.
+[NOTE]
+====
+For raw LUNs, you can use the type of child operating system that the LUN multiprotocol type uses.
+====
+
+a|
+Linux
+a|
+If your host operating system is Linux.
+a|
+NetWare
+a|
+If your host operating system is NetWare.
+a|
+OpenVMS
+a|
+If your host operating system is OpenVMS.
+a|
+Solaris
+a|
+If your host operating system is Solaris and you are not using Solaris EFI labels.
+a|
+Solaris EFI
+a|
+If you are using Solaris EFI labels.
+[NOTE]
+====
+Using any other LUN multiprotocol type with Solaris EFI labels might result in LUN misalignment problems.
+====
+
+a|
+VMware
+a|
+If you are using an ESX Server and your LUNs will be configured with VMFS.
+[NOTE]
+====
+If you configure the LUNs with RDM, you can use the guest operating system as the LUN multiprotocol type.
+====
+
+a|
+Windows 2003 MBR
+a|
+If your host operating system is Windows Server 2003 using the MBR partitioning method.
+a|
+Windows 2003 GPT
+a|
+If you want to use the GPT partitioning method and your host is capable of using it. Windows Server 2003, Service Pack 1 and later are capable of using the GPT partitioning method, and all 64-bit versions of Windows support it.
+a|
+Windows 2008 or later
+a|
+If your host operating system is Windows Server 2008 or later; both MBR and GPT partitioning methods are supported.
+a|
+Xen
+a|
+If you are using Xen and your LUNs will be configured with Linux LVM with Dom0.
+[NOTE]
+====
+For raw LUNs, you can use the type of guest operating system that the LUN multiprotocol type uses.
+====
+
+|===
+*Related information*
+
+xref:task_creating_luns.adoc[Creating LUNs]
+
+https://mysupport.netapp.com/NOW/products/interoperability[NetApp Interoperability]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1148981[Solaris Host Utilities 6.1 Installation and Setup Guide]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1148983[Solaris Host Utilities 6.1 Quick Command Reference]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1148982[Solaris Host Utilities 6.1 Release Notes]

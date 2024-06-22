@@ -1,0 +1,38 @@
+---
+permalink: online-help-96-97/task_setting_up_support_page.html
+sidebar: sidebar
+keywords: set, up, support, page, cluster, setup, online, help
+summary: "Setting up the support page completes the cluster setup, and involves setting up event notifications, and for single-node clusters, configuring system backup."
+---
+= Set up a support page with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to set up a support page. Setting up the support page completes the cluster setup, and involves setting up event notifications, and for single-node clusters, configuring system backup.
+
+.Before you begin
+
+You must have set up the cluster and network.
+
+.Steps
+
+. Set up the event notifications by using the mailhost, or SNMP trap host, or Syslog server.
++
+[NOTE]
+====
+You must set up at least one event notification system.
+====
+
+. If you have a single-node cluster, configure a system backup on an FTP server or on an HTTP server.
++
+[NOTE]
+====
+System backup is applicable only for single-node clusters.
+====
+
+. Click *Submit and continue*.
+
+== What to do next
+
+View the storage recommendations and create SVMs to continue with the cluster setup.

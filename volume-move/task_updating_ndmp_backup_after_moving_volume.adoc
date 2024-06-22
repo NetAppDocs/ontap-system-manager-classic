@@ -1,0 +1,25 @@
+---
+permalink: volume-move/task_updating_ndmp_backup_after_moving_volume.html
+sidebar: sidebar
+keywords: volume, move, tape, ndmp, configuration, moving, baseline, migrate, backup, lif, contain, update ndmp backup after moving a volume
+summary: "If the volume that you moved was previously backed up to tape using NDMP in a specific configuration, after moving the volume, you can perform one of the following actions to ensure the volume continues to be backed up successfully: create a baseline or migrate the backup LIF to the node containing the moved volume."
+---
+= Update NDMP backup after moving a volume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+If the volume that you moved was previously backed up to tape using NDMP in a specific configuration, after moving the volume, you can perform one of the following actions to ensure the volume continues to be backed up successfully: create a baseline or migrate the backup LIF to the node containing the moved volume.
+
+.About this task
+
+* This procedure is necessary only if the backup application does not support the cluster-aware backup (CAB) extension and the backup process uses node-scoped NDMP.
++
+If the backup application supports CAB and it is configured to use the SVM-scoped NDMP mode, you can skip this procedure.
+
+* You must perform only one of these actions, not both.
+
+== Procedure
+
+* From the backup application, create a new baseline.
+* Identify the LIF that is configured for the backup process, and then migrate the LIF to the node where the volume now resides.

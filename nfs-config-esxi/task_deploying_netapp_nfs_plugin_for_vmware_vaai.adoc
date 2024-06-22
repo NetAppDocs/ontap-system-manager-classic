@@ -1,0 +1,42 @@
+---
+permalink: nfs-config-esxi/task_deploying_netapp_nfs_plugin_for_vmware_vaai.html
+sidebar: sidebar
+keywords: plug-in, software, library, integrate, vmware, virtual, disk, libraries, install, esxi, host, nfs, improve, copy, offload, space, reservation, option, deploy, deploy the nfs plug-in for vmware vaai
+summary: "The plug-in is a software library that integrates the VMware Virtual Disk Libraries that are installed on the ESXi host. Downloading and installing the NFS Plug-In for VMware VAAI enables you to improve the performance of cloning operations by using the copy offload and space reservation options."
+---
+= Deploy the NFS Plug-in for VMware VAAI
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The plug-in is a software library that integrates the VMware Virtual Disk Libraries that are installed on the ESXi host. Downloading and installing the NFS Plug-In for VMware VAAI enables you to improve the performance of cloning operations by using the copy offload and space reservation options.
+
+.About this task
+
+To provide consistent access to the virtual machines residing on the ESXi host on which you are installing the NFS plug-in, you can migrate virtual machines or install the NFS plug-in during planned maintenance.
+
+.Steps
+
+. Download the NFS Plug-In for VMware VAAI.
++
+https://mysupport.netapp.com/site/global/dashboard[NetApp Support]
++
+You should download the online bundle (`NetAppNasPlugIn.vib`) of the most recent plug-in
+
+. Verify that VAAI is enabled on each ESXi host.
++
+In VMware vSphere 5.0 and later, VAAI is enabled by default.
+
+. In Virtual Storage Console, go to *Tools* > *NFS VAAI Tools*.
+. Click *Select File* to upload the `NetAppNasPlugIn.vib` file.
+. Click *Upload*.
++
+You see an `uploaded successfully` message.
+
+. Click *Install on host*.
+. Select the ESXi hosts on which you want to install the plug-in, click *Install*, and then click *OK*.
+. Reboot the ESXi host to enable the plug-in.
++
+After installing the plug-in, you must reboot the ESXi host before installation is complete.
++
+You do not need to reboot the storage system.

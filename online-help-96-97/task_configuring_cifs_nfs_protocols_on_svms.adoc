@@ -1,0 +1,97 @@
+---
+permalink: online-help-96-97/task_configuring_cifs_nfs_protocols_on_svms.html
+sidebar: sidebar
+keywords: system, manager, configuring, cifs, nfs, protocols, svm, online, help
+summary: "You can use System Manager to configure CIFS and NFS protocols on a storage virtual machine (SVM) to provide file-level data access for NAS clients. To enable the CIFS protocol, you must create data LIFs and the CIFS server. To enable the NFS protocol, you can specify the NIS details and the data LIFs."
+---
+= Configure CIFS and NFS protocols on SVMs with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to configure CIFS and NFS protocols on a storage virtual machine (SVM) to provide file-level data access for NAS clients. To enable the CIFS protocol, you must create data LIFs and the CIFS server. To enable the NFS protocol, you can specify the NIS details and the data LIFs.
+
+.Before you begin
+
+* The protocols that you want to configure or enable on the SVM must be licensed.
++
+If the protocol that you want to configure is not enabled on the SVM, you can use the Edit Storage Virtual Machine window to enable the protocol for the SVM.
+
+* You must have the Active Directory, organizational unit, and administrative account credentials for configuring the CIFS protocol.
+
+.About this task
+
+SnapLock aggregates are not considered for automatically creating volumes.
+
+.Steps
+
+. If you have not configured the protocols while creating the SVM, click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. In the *Protocols* pane, click the protocol that you want to configure.
+. In the *Data LIF Configuration* section, if you want to retain the same data LIF configuration for both CIFS and NFS, select the *Retain the CIFS data LIF's configuration for NFS client* check box.
++
+If you do not retain the same data LIF configuration for both CIFS and NFS, you must specify the IP address and ports separately for CIFS and NFS.
+
+. Specify the IP address by choosing one of the following options:
++
+[options="header"]
+|===
+| If you want to...| Then...
+a|
+Specify the IP address by using a subnet
+a|
+
+ .. Select *Using a subnet*.
+ .. In the Add Details dialog box, select the subnet from which the IP address must be assigned.
++
+For intercluster LIFs, only the subnets that are associated with the selected IPspace are displayed.
+
+ .. If you want to assign a specific IP address to the interface, select *Use a specific IP address*, and then type the IP address.
++
+The IP address that you specify is added to the subnet if the IP address is not already present in the subnet range.
+
+ .. Click *OK*.
+
+a|
+Specify the IP address manually without using a subnet
+a|
+
+ .. Select *Without a subnet*.
+ .. In the Add Details dialog box, perform the following steps:
+  ... Specify the IP address and the network mask or prefix.
+  ... Optional: Specify the gateway.
+  ... If you do not want to use the default value for the Destination field, specify a new destination value.
++
+If you do not specify a destination value, the Destination field is populated with the default value based on the family of the IP address.
+
++
+If a route does not exist, a new route is automatically created based on the gateway and destination.
+ .. Click *OK*.
+
+|===
+
+. Specify a port to create a data LIF:
+ .. Click *Browse*.
+ .. In the *Select Network Port or Adapter* dialog box, select a port.
+ .. Click *OK*.
+. Configure the CIFS server by performing the following steps:
+ .. Specify the following information to create a CIFS server:
+  *** CIFS server name
+  *** Active Directory to associate with the CIFS server
+  *** Organizational unit (OU) within the Active Directory domain to associate with the CIFS server
++
+By default, this parameter is set to CN=Computers.
+
+  *** Credentials of an administrative account that has sufficient privileges to add the CIFS server to the OU
+ .. *Optional:* Select *Encrypt Data while accessing all shares of this SVM* to enable SMB 3.0 encryption for all of the shares of the SVM.
+ .. Provision a volume for CIFS storage when configuring the protocol by specifying the share name, size of the share, and access permissions.
+ .. Select *Encrypt Data while accessing this share* to enable SMB 3.0 encryption for a particular share.
+. *Optional:* Configure NIS services:
+ .. Specify the IP addresses of the NIS servers and NIS domain name to configure NIS services on the SVM.
+ .. Select the appropriate database type for which you want to add the "`nis`" name service source.
+ .. Provision a volume for NFS storage by specifying the export name, size, and permission.
+. Click *Submit & Continue*.
+
+.Results
+
+The CIFS server and NIS domain are configured with the specified configuration, and the data LIFs are created. By default, the data LIFs have management access. You can view the configuration details on the Summary page.

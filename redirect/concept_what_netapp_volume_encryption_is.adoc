@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_what_netapp_volume_encryption_is.html
+redirect: ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html
+---

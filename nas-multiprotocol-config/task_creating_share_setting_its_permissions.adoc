@@ -1,0 +1,37 @@
+---
+permalink: nas-multiprotocol-config/task_creating_share_setting_its_permissions.html
+sidebar: sidebar
+keywords: windows, user, access, volume, create, cifs, restrict, access, modify, control, list, acl, share, create a share and set its permission
+summary: "Before Windows users can access a volume, you must create a CIFS share on the volume and restrict access to the share by modifying the access control list (ACL) for the share."
+---
+= Create a share and set its permissions
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before Windows users can access a volume, you must create a CIFS share on the volume and restrict access to the share by modifying the access control list (ACL) for the share.
+
+.About this task
+
+For testing purposes, you should permit access only to administrators. Later, after you have verified that the volume is accessible, you can permit access to more clients.
+
+.Steps
+
+. Navigate to the *Shares* window.
+. Create a share so that SMB clients can access the volume:
+ .. Click *Create Share*.
+ .. In the *Create Share* dialog box, click *Browse*, expand the namespace hierarchy, and then select the volume that you created earlier.
+ .. If you want the share name to be different from the volume name, change the share name.
+ .. Click *Create*.
+
++
+The share is created with a default ACL set to Full Control for the Everyone group.
+. Restrict access to the share by modifying the share ACL:
+ .. Select the share, and then click *Edit*.
+ .. In the *Permissions* tab, select the *Everyone* group, and then click *Remove*.
+ .. Click *Add*, and then enter the name of an administrator group defined in the Windows Active Directory domain that includes the SVM.
+ .. With the new administrator group selected, select all permissions for it.
+ .. Click *Save and Close*.
+
++
+The updated share access permissions are listed in the Share Access Control pane.

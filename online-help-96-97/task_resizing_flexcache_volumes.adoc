@@ -1,0 +1,39 @@
+---
+permalink: online-help-96-97/task_resizing_flexcache_volumes.html
+sidebar: sidebar
+keywords: system, manager, flexcache, resize, volume, online, help
+summary: "Beginning with System Manager 9.6, you can resize a FlexCache volume by resizing existing resources or by adding new resources."
+---
+= Resizing FlexCache volumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with System Manager 9.6, you can resize a FlexCache volume by resizing existing resources or by adding new resources.
+
+.Before you begin
+
+* To resize a FlexCache volume, there must be enough free space on the existing aggregates.
+* To expand a FlexCache volume, there must be enough free space on the aggregate that you are using for expansion.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Select the FlexCache volume that you want to resize, and then click *More Actions* > *Resize*.
+. In the *Resize FlexCache Volume* window, specify the size to which you want to resize the FlexCache volume.
++
+By default, existing aggregates are used to resize the FlexCache volume. Beginning with System Manager 9.6, the maximum size that is allowed for the volume is displayed next to the size field.
++
+[NOTE]
+====
+If you want to expand the FlexCache volume by adding new resources, click image:../media/advanced_options.gif[] (advanced options). Refer to link:https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_specifying_advanced_options_for_flexcache_volume.html[Specifying advanced options for FlexCache volumes].
+====
+
+. Click *Save* to resize the FlexCache volume.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]
+
+// 2023-Dec-6, issue# 88

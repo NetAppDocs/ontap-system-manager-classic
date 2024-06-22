@@ -1,0 +1,62 @@
+---
+permalink: online-help-96-97/concept_subnets.html
+sidebar: sidebar
+keywords: system, manager, manage, subnet, online, help, edit, settings, modify, delete, ip, address
+summary: "You can use System Manager to manage subnets."
+---
+= Manage subnets with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to manage subnets.
+
+== Edit subnet settings
+
+[.lead]
+You can use System Manager to modify subnet attributes such as the name, subnet address, range of IP addresses, and gateway address of the subnet.
+
+.About this task
+
+* You cannot use System Manager to edit subnets in the cluster IPspace.
++
+You must use the command-line interface (CLI) instead.
+
+* Modifying the gateway address does not update the route.
++
+You must use the CLI to update the route.
+
+.Steps
+
+. Click *Network* > *Subnets*.
+. Select the subnet that you want to modify, and then click *Edit*.
++
+You can modify the subnet even when the LIF in that subnet is still in use.
+
+. In the *Edit Subnet* dialog box, modify the subnet attributes as required.
+. Click *Save and Close*.
+
+
+== Delete subnets
+
+You can use System Manager to delete a subnet when you no longer require the subnet and you want to reallocate the IP addresses that were assigned to the subnet.
+
+.Before you begin
+
+The subnet that you want to delete must not have any LIFs that are using the IP addresses from the subnet.
+
+.About this task
+
+You cannot use System Manager to delete subnets in the Cluster IPspace. You must use the command-line interface (CLI) instead.
+
+.Steps
+
+. Click *Network* > *Subnets*.
+. Select the subnet that you want to delete, and then click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+
+*Related information*
+
+xref:reference_network_window.adoc[Network window]
+
+// 2021-12-10, Created by Aoife, sm-classic rework

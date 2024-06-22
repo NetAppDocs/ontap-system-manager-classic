@@ -1,0 +1,177 @@
+---
+permalink: online-help-96-97/task_updating_cluster_name.html
+sidebar: sidebar
+keywords: system, manager, update, cluster, name, online, help
+summary: "You can use System Manager to modify the name of a cluster when required."
+---
+= Set up the cluster with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manger classic (available in ONTAP 9.7 and earlier) to set up the cluster.
+
+Setting up the cluster involves gathering the configuration information, creating cluster-management and node-management interfaces, adding licenses, setting up the cluster time, and monitoring HA pairs.
+
+== Update the cluster name
+
+You can use System Manager to modify the name of a cluster when required.
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Configuration Updates*.
+. In the *Cluster Details* pane, click *Update Cluster Name*.
+. In the *Update Cluster Name* dialog box, specify a new name for the cluster, and then click *Submit*.
+
+== Change the cluster password
+
+You can use System Manager to reset the password of a cluster.
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Configuration Updates*.
+. In the *Cluster Details* pane, click *Change Password*.
+. In the *Change Password* dialog box, specify a new password, confirm the new password, and then click *Change*.
+
+== Edit DNS configurations
+
+You can use System Manager to add host information to centrally manage DNS configurations. You can modify the DNS details when you want to change the domain names or IP addresses.
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Configuration Updates*.
+. In the *Cluster Details* pane, click *Edit DNS Configuration*.
+. In the *DNS Domains* area, add or modify the DNS domain names.
+. In the *Name Servers* area, add or modify the IP addresses.
+. Click *OK*.
+
+== Create a cluster management logical interface
+
+You can use System Manager to create a cluster management logical interface (LIF) to provide a single management interface for a cluster. You can use this LIF to manage all of the activities of the cluster.
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Configuration Updates*.
+. In the *Cluster Details* pane, click *Create Cluster-management LIF*.
+. In the *Create Cluster-Management LIF* dialog box, specify a name for the cluster management LIF.
+. Assign an IP address to the cluster management LIF:
++
+[options="header"]
+|===
+| If you want to...| Then...
+a|
+Specify the IP address by using a subnet
+a|
+
+ .. Select *Using a subnet*.
+ .. In the Add Details dialog box, select the subnet from which the IP address should be assigned.
++
+For an intercluster LIF, only the subnets that are associated with the selected IPspace are displayed.
+
+ .. If you want to assign a specific IP address to the LIF, select *Use a specific IP address*, and then type the IP address.
++
+The IP address that you specify is added to the subnet if the IP address is not already present in the subnet range.
+
+ .. Click *OK*.
+
+a|
+Specify the IP address manually without using a subnet
+a|
+
+ .. Select *Without a subnet*.
+ .. In the Add Details dialog box, perform the following steps:
+  ... Specify the IP address and the network mask or prefix.
+  ... Optional: Specify the gateway.
+  ... If you do not want to use the default value for the Destination field, specify a new destination value.
++
+If you do not specify a value, the Destination field is populated with the default value based on the family of the IP address.
+
++
+If a route does not exist, a new route is automatically created based on the gateway and destination.
+ .. Click *OK*.
+
+|===
+
+. Select the required ports from the *Port details* area.
+. Click *Create*.
+
+== Edit the node name
+
+You can use System Manager to modify the name of a node when required.
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Configuration Updates*.
+. In the *Nodes* tab, select the node that you want to rename, and then click *Edit Node Name*.
+. In the *Edit Node Name* dialog box, type the new name for the node, and then click *Submit*.
+
+== Create a node management logical interface
+
+You can use System Manager to create a dedicated node management logical interface (LIF) for managing a particular node in a cluster. You can use this LIF to manage the system maintenance activities of the node.
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Configuration Updates*.
+. In the *Nodes* tab, select the node for which you want to create a node management LIF, and then click *Create Node-Management LIF*.
+. In the *Create Node-Management LIF* dialog box, specify a name for the node management LIF.
+. Assign the IP address to the node management LIF:
++
+[options="header"]
+|===
+| If you want to...| Then...
+a|
+Specify the IP address by using a subnet
+a|
+
+ .. Select *Using a subnet*.
+ .. In the Add Details dialog box, select the subnet from which the IP address should be assigned.
++
+For an intercluster LIF, only the subnets that are associated with the selected IPspace are displayed.
+
+ .. If you want to assign a specific IP address to the LIF, select *Use a specific IP address*, and then type the IP address.
++
+The IP address that you specify is added to the subnet if the IP address is not already present in the subnet range.
+
+ .. Click *OK*.
+
+a|
+Specify the IP address manually without using a subnet
+a|
+
+ .. Select *Without a subnet*.
+ .. In the Add Details dialog box, perform the following steps:
+  ... Specify the IP address and the network mask or prefix.
+  ... Optional: Specify the gateway.
+  ... If you do not want to use the default value for the Destination field, specify a new destination value.
++
+If you do not specify a value, the Destination field is populated with the default value based on the family of the IP address.
+
++
+If a route does not exist, a new route is automatically created based on the gateway and destination.
+ .. Click *OK*.
+
+|===
+
+. Select the required ports from the *Ports details* area.
+. Click *Create*.
+
+=== What to do next
+
+If you want to delete an existing node management LIF, you must use the command-line interface (CLI).
+
+== Edit AutoSupport settings
+
+You can use System Manager to modify your AutoSupport settings to specify an email address from which email notifications are sent and to add multiple email host names.
+
+.Steps
+
+. Click *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[]* > *AutoSupport*.
+. Select the node for which you want to modify AutoSupport settings, and then click *Edit*.
+. In the *Email Recipient* tab, type the email address from which email notifications are sent, specify the email recipients and the message content for each email recipient, and then add the mail hosts.
++
+You can add up to five email addresses for each host.
+
+. In the *Others* tab, select a transport protocol for delivering the email messages, and then specify the HTTP or HTTPS proxy server details.
+. Click *OK*.
+
+// 2022-04-19, sm-classic rework

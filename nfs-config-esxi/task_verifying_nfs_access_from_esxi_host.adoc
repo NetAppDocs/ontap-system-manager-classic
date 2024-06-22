@@ -1,0 +1,24 @@
+---
+permalink: nfs-config-esxi/task_verifying_nfs_access_from_esxi_host.html
+sidebar: sidebar
+keywords: provision, datastore, esxi, verify, nfs, access, creating, create, virtual, machine, power, verify nfs access from an esxi host
+summary: "After you have provisioned a datastore, you can verify that the ESXi host has NFS access by creating a virtual machine on the datastore and powering it on."
+---
+= Verify NFS access from an ESXi host
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+After you have provisioned a datastore, you can verify that the ESXi host has NFS access by creating a virtual machine on the datastore and powering it on.
+
+.Steps
+
+. From the vSphere Web Client *Home* page, click *Hosts and Clusters*.
+. In the navigation pane, expand the datacenter to locate the datastore you previously created.
+. Click *Create a new virtual machine* and provide the required information in the wizard.
++
+To verify NFS access, you should select the datacenter, ESXi host, and datastore that you previously created.
++
+The virtual machine appears in the vSphere Web Client inventory.
+
+. Power on the virtual machine.

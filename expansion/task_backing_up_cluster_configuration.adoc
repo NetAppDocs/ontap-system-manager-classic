@@ -1,0 +1,25 @@
+---
+permalink: expansion/task_backing_up_cluster_configuration.html
+sidebar: sidebar
+keywords: expand, cluster, advance, privilege, backup, file, configuration, information, back up the cluster configuration
+summary: "Before you expand a cluster, you should use advanced privilege to create a backup file to save the cluster configuration information and optionally save the node configurations."
+---
+= Back up the cluster configuration
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before you expand a cluster, you should use advanced privilege to create a backup file to save the cluster configuration information and optionally save the node configurations.
+
+.Steps
+
+. Set the privilege level to advanced by using the `set -privilege advanced` command.
+. Create a backup file of the cluster configuration by using the `system configuration backup create` command with the `-backup-type cluster` parameter.
++
+----
+cluster1::*> system configuration backup create -node cluster1-1 -backup-name clusterbeforeexpansion.7z -backup-type cluster
+[Job 5573] Job is queued: Cluster Backup OnDemand Job.
+----
+
+. Create a backup file of each node's configuration by using the `system configuration backup create` command with the `-backup-type node` parameter for each node.
+. Return the privilege level to admin by using the `set -privilege admin` command.
