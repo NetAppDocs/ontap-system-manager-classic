@@ -6,7 +6,6 @@ settings:
   prod:
     pdf_enabled: true
     harmony_enabled: true
-  search: ontap-system-manager-classic
 
 sidebar:
   entries:
