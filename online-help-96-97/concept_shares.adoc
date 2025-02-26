@@ -1,0 +1,241 @@
+---
+permalink: online-help-96-97/concept_shares.html
+sidebar: sidebar
+keywords: online, help, share, system, manager, qtress, cifs, create, edit, manage, share, access, stop, home, directory, configure, smb
+summary: "You can use System Manager to create, edit, and manage shares."
+---
+= Manage shares with System Manager - ONTAP 9.7 and earlier
+
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create, edit, and manage shares.
+
+== Create a CIFS share
+
+You can use System Manager to create a CIFS share that enables you to specify the folder, qtree, or volume that CIFS users can access.
+
+.Before you begin
+
+You must have installed the CIFS license before you set up and start CIFS.
+
+.Steps
+
+. Click *Storage* > *Shares*.
+. From the drop-down menu in the *SVM* field, select the SVM on which you want to create a CIFS share.
+. Click *Create Share*.
+. In the *Create Share* window, click *Browse*, and then select the folder, qtree, or volume that should be shared.
+. Specify a name for the new CIFS share.
+. *Optional:* Select the *Enable continuous availability for Hyper-V and SQL* check box to permit clients that support SMB 3.0 and later to open files persistently during nondisruptive operations.
++
+Files that are opened by using this option are protected from disruptive events such as failover, giveback, and LIF migration.
++
+Starting with System Manager 9.6, continuous availability is supported for FlexGroup volumes.
+
+. Select the *Encrypt data while accessing this share* check box to enable SMB 3.0 encryption.
+. Provide a description or comment for the share, and then click *Create*.
+
+.Results
+
+The CIFS share is created with the access permissions set to "`Full Control for Everyone`" in the group.
+
+== Stop share access
+
+You can use System Manager to stop a share when you want to remove the shared network access to a folder, qtree, or volume.
+
+.Before you begin
+
+You must have installed the CIFS license.
+
+.Steps
+
+. Click *Storage* > *Shares*.
+. From the drop-down menu in the *SVM* field, select the SVM on which the CIFS share that you want to stop resides.
+. From the list of shares, select the share that you want to stop sharing, and then click *Stop Sharing*.
+. Select the confirmation check box, and then click *Stop*.
+. Verify that the share is no longer listed in the *Shares* window.
+
+== Create home directory shares
+
+You can use System Manager to create a home directory share and to manage home directory search paths.
+
+.Before you begin
+
+CIFS must be set up and started.
+
+.Steps
+
+. Click *Storage* > *Shares*.
+. Click *Create Home Directory*, and then provide the pattern information that determines how a user is mapped to a directory.
+. Click *Create*.
+. Verify that the home directory that you created is listed in the *Shares* window.
+
+== Edit share settings
+
+You can use System Manager to modify the settings of a share such as the symbolic link settings, share access permissions of users or groups, and the type of access to the share. You can also enable or disable continuous availability of a share over Hyper-V, and enable or disable access-based enumeration (ABE). Starting with System Manager 9.6, continuous availability is supported for FlexGroup volumes.
+
+.Steps
+
+. Click *Storage* > *Shares*.
+. Select the share that you want to modify from the list of shares, and then click *Edit*.
+. In the *Edit Share Settings* dialog box, modify the share settings as required:
+ .. In the *General* tab, enable continuous availability of a share over Hyper-V.
++
+Enabling continuous availability permits SMB 3.0 and clients that support SMB 3.0 to open files persistently during nondisruptive operations. Files that are opened persistently are protected from disruptive events such as failover, giveback, and LIF migration.
+
+ .. In the *Permissions* tab, add users or groups, and then assign permissions to specify the type of access.
+ .. In the *Options* tab, select the required options.
+. Click *Save and Close*.
+. Verify the changes that you made to the selected share in the *Shares* window.
+
+== How ONTAP enables dynamic home directories
+
+ONTAP home directories enable you to configure an SMB share that maps to different directories based on the user that connects to it and a set of variables. Instead of creating separate shares for each user, you can configure one share with a few home directory parameters to define a user's relationship between an entry point (the share) and the home directory (a directory on the SVM).
+
+A user who is logged in as a guest user does not have a home directory and cannot access other users' home directories. There are four variables that determine how a user is mapped to a directory:
+
+* *Share name*
++
+This is the name of the share that you create to which the user connects. You must set the home directory property for this share.
++
+The share name can use the following dynamic names:
+
+ ** `%w` (the user's Windows user name)
+ ** `%d` (the user's Windows domain name)
+ ** `%u` (the user's mapped UNIX user name)
+
++
+To make the share name unique across all home directories, the share name must contain either the `%w` or the `%u` variable. The share name can contain both the `%d` and the `%w` variable (for example, `%d`/`%w`), or the share name can contain a static portion and a variable portion (for example, home_``%w``).
+
+* *Share path*
++
+This is the relative path, which is defined by the share and is therefore associated with one of the share names, that is appended to each search path to generate the user's entire home directory path from the root of the SVM. It can be static (for example, `home`), dynamic (for example, `%w`), or a combination of the two (for example, `eng/%w`).
+
+* *Search paths*
++
+This is the set of absolute paths from the root of the SVM that you specify that directs the ONTAP search for home directories. You can specify one or more search paths by using the `vserver cifs home-directory search-path add` command. If you specify multiple search paths, ONTAP tries them in the order specified until it finds a valid path.
+
+* *Directory*
++
+This is the user's home directory that you create for the user. The directory name is usually the user's name. You must create the home directory in one of the directories that are defined by the search paths.
+
+As an example, consider the following setup:
+
+* User: John Smith
+* User domain: acme
+* User name: jsmith
+* SVM name: vs1
+* Home directory share name #1: home_``%w`` - share path: `%w`
+* Home directory share name #2: `%w` - share path: `%d/%w`
+* Search path #1: `/vol0home/home`
+* Search path #2: `/vol1home/home`
+* Search path #3: `/vol2home/home`
+* Home directory: `/vol1home/home/jsmith`
+
+Scenario 1: The user connects to `\\vs1\home_jsmith`. This matches the first home directory share name and generates the relative path `jsmith`. ONTAP now searches for a directory named `jsmith` by checking each search path in order:
+
+* `/vol0home/home/jsmith` does not exist; moving on to search path #2.
+* `/vol1home/home/jsmith` does exist; therefore, search path #3 is not checked; the user is now connected to his home directory.
+
+Scenario 2: The user connects to `\\vs1\jsmith`. This matches the second home directory share name and generates the relative path `acme/jsmith`. ONTAP now searches for a directory named `acme/jsmith` by checking each search path in order:
+
+* `/vol0home/home/acme/jsmith` does not exist; moving on to search path #2.
+* `/vol1home/home/acme/jsmith` does not exist; moving on to search path #3.
+* `/vol2home/home/acme/jsmith` does not exist; the home directory does not exist; therefore, the connection fails.
+
+== Shares window
+
+You can use the Shares window to manage your shares and to view information about the shares.
+
+=== Command buttons
+
+* *Create Share*
++
+Opens the Create Share dialog box, which enables you to create a share.
+
+* *Create Home Directory*
++
+Opens the Create Home Directory Share dialog box, which enables you to create a new home directory share.
+
+* *Edit*
++
+Opens the Edit Settings dialog box, which enables you to modify the properties of a selected share.
+
+* *Stop Sharing*
++
+Stops the selected object from being shared.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Shares list
+
+The shares list displays the name and path of each share.
+
+* *Share Name*
++
+Displays the name of the share.
+
+* *Path*
++
+Displays the complete path name of an existing folder, qtree, or volume that is shared. Path separators can be backward slashes or forward slashes, although ONTAP displays all path separators as forward slashes.
+
+* *Home Directory*
++
+Displays the name of the home directory share.
+
+* *Comment*
++
+Displays additional descriptions of the share, if any.
+
+* *Continuously Available Share*
++
+Displays whether the share is enabled for continuous availability. Starting with System Manager 9.6, continuous availability is supported for FlexGroup volumes.
+
+=== Details area
+
+The area below the shares list displays the share properties and the access rights for each share.
+
+* *Properties*
+ ** Name
++
+Displays the name of the share.
+
+ ** Oplocks status
++
+Specifies whether the share uses opportunistic locks (oplocks).
+
+ ** Browsable
++
+Specifies whether the share can be browsed by Windows clients.
+
+ ** Show Snapshot
++
+Specifies whether Snapshot copies can be viewed by clients.
+
+ ** Continuously Available Share
++
+Specifies whether the share is enabled or disabled for continuous availability. Starting with System Manager 9.6, continuous availability is supported for FlexGroup volumes.
+
+ ** Access-Based Enumeration
++
+Specifies whether access-based enumeration (ABE) is enabled or disabled on the share.
+
+ ** BranchCache
++
+Specifies whether BranchCache is enabled or disabled on the share.
+
+ ** SMB Encryption
++
+Specifies whether data encryption using SMB 3.0 is enabled at the storage virtual machine (SVM) level or at the share level. If SMB encryption is enabled at the SVM level, SMB encryption applies for all of the shares and the value is shown as Enabled (at the SVM level).
+
+ ** Previous Versions
++
+Specifies whether the previous versions can be viewed and restored from the client.
+* *Share access control*
++
+Displays the access rights of the domain users, domain groups, local users, and local groups for the share.
+
+*Related information*
+
+xref:task_setting_up_cifs.adoc[Setting up CIFS]
+
+// 2021-12-17, Created by Aoife, sm-classic rework

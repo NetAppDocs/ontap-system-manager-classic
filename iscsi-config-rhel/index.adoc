@@ -1,0 +1,40 @@
+---
+permalink: iscsi-config-rhel/index.html
+sidebar: sidebar
+keywords: iscsi, service, storage, virtual, machine, svm, lun, initiator, red, hat, enterprise, linux, server, configuration, san, provision, provisioning
+summary: "These procedures describes how to quickly set up the iSCSI service on a storage virtual machine, provision a LUN, and make the LUN available using an iSCSI initiator on a Red Hat Enterprise Linux server."
+---
+= iSCSI configuration for Red Hat Enterprise Linux overview
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Using the ONTAP System Manager classic interface (ONTAP 9.7 and earlier), you can quickly set up the iSCSI service on a storage virtual machine (SVM), provision a LUN, and make the LUN available on a Red Hat Enterprise Linux server.
+
+These procedures are based on the following assumptions:
+
+* You are using the iSCSI software initiator on a Red Hat Enterprise Linux host running a supported version of RHEL Series 6.4 or higher.
+* Your network uses IPv4 addressing.
+* You want to assign addresses to logical interfaces using any of the following methods:
+ ** Automatically, from a subnet you define
+ ** Manually, using an address selected from an existing subnet
+ ** Manually, using an address that will be added to an existing subnet
+* You are not configuring iSCSI SAN boot.
+
+
+For more information on how to configure your specific host with ONTAP, see https://docs.netapp.com/us-en/ontap-sanhost/index.html[ONTAP SAN Host Configuration].
+
+For additional details about SAN Administration, consult the https://docs.netapp.com/us-en/ontap/san-admin/index.html[ONTAP 9 SAN administration overview]
+
+
+== Other ways to do this in ONTAP
+
+|===
+
+h| To complete this task using... h| Refer to...
+
+| The redesigned System Manager (available with 9.7 and later) | https://docs.netapp.com/us-en/ontap/san-admin/provision-storage.html[Provision SAN storage^]
+| The ONTAP command line interface (CLI) | https://docs.netapp.com/us-en/ontap/san-admin/lun-setup-workflow-concept.html[LUN setup workflow with the CLI^]
+|===
+
+// BURT 1448684, 31 JAN 2022

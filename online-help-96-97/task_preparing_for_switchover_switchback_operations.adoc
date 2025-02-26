@@ -1,0 +1,40 @@
+---
+permalink: online-help-96-97/task_preparing_for_switchover_switchback_operations.html
+sidebar: sidebar
+keywords: prepare, switchover, switchback, operation, system, manager, online, help
+summary: "Before you perform switchover operations using System Manager 9.6, you should verify that the necessary steps have been performed on the affected site."
+---
+= Prepare for switchover and switchback operations
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before you perform switchover operations using ONTAP System Manager classic 9.6, you should verify that the necessary steps have been performed on the affected site.
+
+.Steps
+
+. If you are recovering from a disaster on Site B, you must perform the following steps:
+ .. Repair or replace any damaged disks or hardware.
+ .. Restore power.
+ .. Rectify error issues that occur.
+ .. Bring up the disaster site.
+. Ensure the following conditions exist in your cluster:
+ ** Both sites are in Active state if you are performing a planned switchover.
+ ** The MetroCluster system uses configuration type "`IP_Fabric`".
+ ** Both sites are operating with a two-node configuration (two nodes in each cluster). Sites with a single-node or four-node configuration are not supported for switchover and switchback operations using System Manager.
+. If you are launching the remote site (Site B) from the local site (Site A), ensure that Site B is running System Manager 9.6 or a later version.
+
+== Rename the MetroCluster local site (Site A) with System Manger - ONTAP 9.7 and earlier
+
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to rename the MetroCluster local site (Site A) in a cluster.
+
+.Steps
+
+. Click *Configuration* > *Configuration Updates*.
+. Click *Update cluster name*.
+. Update the name in the text box, then click *Submit*.
++
+You can view the updated name when the MetroCluster Site A status is displayed.
+
+. To display the updated name of MetroCluster Site A when viewing it from the remote site (Site B), execute the following command within the CLI on the remote site (Site B): `cluster peer modify-local-name`
+// sm-classic rework, 13-04-2022

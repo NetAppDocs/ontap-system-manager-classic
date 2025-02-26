@@ -1,0 +1,37 @@
+---
+permalink: volume-disaster-prep/task_setting_up_destination_svm_for_data_access.html
+sidebar: sidebar
+keywords: minimize, data, access, disruption, activating, activate, destination, volume, configuration, cifs, policies, policy, nas, environment, initiator, group, svm, set up the destination svm for data access
+summary: "You can minimize data access disruption when activating the destination volume by setting up required configurations such as LIFs, CIFS shares, and export policies for the NAS environment, and LIFs and initiator groups for the SAN environment on the SVM containing the destination volume."
+---
+= Set up the destination SVM for data access
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can minimize data access disruption when activating the destination volume by setting up required configurations such as LIFs, CIFS shares, and export policies for the NAS environment, and LIFs and initiator groups for the SAN environment on the SVM containing the destination volume.
+
+.About this task
+
+You must perform this task on the *destination* cluster for the SVM containing the destination volume.
+
+== Procedure
+
+* NAS environment:
+ .. Create NAS LIFs.
+ .. Create CIFS shares with the same share names that were used on the source.
+ .. Create appropriate NFS export policies.
+ .. Create appropriate quota rules.
+* SAN environment:
+ .. Create SAN LIFs.
+ .. *Optional:* Configure portsets.
+ .. Configure initiator groups.
+ .. For FC, zone the FC switches to enable the SAN clients to access the LIFs.
+
+== What to do next
+
+If any changes were made on the SVM containing the source volume, you must replicate the changes manually on the SVM containing the destination volume.
+
+*Related information*
+
+https://docs.netapp.com/ontap-9/index.jsp[ONTAP 9 Documentation Center]

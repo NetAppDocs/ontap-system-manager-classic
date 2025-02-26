@@ -1,0 +1,129 @@
+---
+permalink: online-help-96-97/concept_ldap_client_services.html
+sidebar: sidebar
+keywords: ldap, client, service, system, manager, add, edit, delete, client, configuration, online, help, cluster, level, storage, virtual, machine,
+summary: "You can use System Manager to add, edit, and delete LDAP client configurations."
+---
+= Configure LDAP client services with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to add, edit, and delete LDAP client configurations.
+
+== Add an LDAP client configuration
+
+You can use System Manager to add an LDAP client configuration at the cluster level or the storage virtual machine (SVM) level if you want to use LDAP services. You must first set up an LDAP client to use LDAP services.
+
+.About this task
+
+At the SVM level, you can add an LDAP client only for a selected SVM.
+
+.Steps
+
+. Add an LDAP client configuration by using one of the following methods:
+ ** Cluster level: click *image:../media/advanced_options.gif[]* > *LDAP*.
+ ** SVM level: click *SVM* > *SVM Settings* > *LDAP Client*.
+. Click *Add*.
+. Type the name of the LDAP client.
+. Add either the Active Directory domain or the LDAP server.
+. Click image:../media/advanced_options.gif[] (advanced options), select the *Schema*, and click *Apply*.
+. Specify the *Base DN* and *TCP Port*.
+. Click *Binding*, and then specify the authentication details.
+. Click *Save and Close*.
+. Verify that the LDAP client that you added is displayed.
+
+== Delete an LDAP client configuration
+
+You can use System Manager to delete an LDAP client configuration at the cluster level or the storage virtual machine (SVM) level.
+
+.About this task
+
+At the SVM level, you can delete an LDAP client only for a selected SVM.
+
+.Steps
+
+. To delete an LDAP client configuration:
+ ** Cluster level: Click *image:../media/advanced_options.gif[]* > *LDAP*.
+ ** SVM level: Click *SVM* > *SVM Settings* > *LDAP Client*.
+. Select the LDAP client that you want to delete, and then click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+. Verify that the LDAP client that you deleted is no longer displayed.
+
+== Edit an LDAP client configuration
+
+You can use System Manager to edit an LDAP client configuration at the cluster level or the storage virtual machine (SVM) level.
+
+.About this task
+
+At the SVM level, you can edit an LDAP client only for a selected SVM.
+
+.Steps
+
+. To edit an LDAP client configuration:
+ ** Cluster level: Click *image:../media/advanced_options.gif[]* > *LDAP*.
+ ** SVM level: Click *SVM* > *SVM Settings* > *LDAP Client*.
+. Select the LDAP client that you want to modify, and then click *Edit*.
+. In the *Edit LDAP Client* dialog box, edit the LDAP client configuration as required.
+. Click *Save and Close*.
+. Verify that the changes that you made to the LDAP client configuration are displayed.
+
+== LDAP Client window
+
+You can use the LDAP Client window to create LDAP clients for user authentication, file access authorization, user search, and mapping services between NFS and CIFS at the storage virtual machine (SVM) level.
+
+=== Command buttons
+
+* *Add*
++
+Opens the Create LDAP Client dialog box, which enables you to create and configure LDAP clients.
+
+* *Edit*
++
+Opens the Edit LDAP Client dialog box, which enables you to edit LDAP client configurations. You can also edit active LDAP clients.
+
+* *Delete*
++
+Opens the Delete LDAP Client(s) dialog box, which enables you to delete LDAP client configurations. You can also delete an active LDAP client.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== LDAP client list
+
+Displays (in tabular format) details about LDAP clients.
+
+* *LDAP Client Configuration*
++
+Displays the name of the LDAP client configuration that you specified.
+
+* *Storage Virtual Machine*
++
+Displays the name of the SVM for each LDAP client configuration.
+
+* *Schema*
++
+Displays the schema for each LDAP client.
+
+* *Minimum Bind Level*
++
+Displays the minimum bind level for each LDAP client.
+
+* *Active Directory Domain*
++
+Displays the Active Directory domain for each LDAP client configuration.
+
+* *LDAP Servers*
++
+Displays the LDAP server for each LDAP client configuration.
+
+* *Preferred Active Directory Servers*
++
+Displays the preferred Active Directory server for each LDAP client configuration.
+
+*Related information*
+
+xref:concept_ldap.adoc[LDAP]
+
+// 2021-12-21, Created by Aoife, sm-classic rework

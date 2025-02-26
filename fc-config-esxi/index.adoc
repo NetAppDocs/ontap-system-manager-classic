@@ -1,0 +1,37 @@
+---
+permalink: fc-config-esxi/index.html
+sidebar: sidebar
+keywords: fc, service, storage, virtual, machine, svm, provision, lun, fc, hba, esx, host, computer, virtual storage console, vsc
+summary: "Using the ONTAP System Manager classic interface (ONTAP 9.7 and earlier), you can quickly set up the FC service on a storage virtual machine (SVM), provision a LUN, and make the LUN available as a datastore using an FC HBA on an ESX host computer."
+---
+= FC configuration for ESXi using VSC overview
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Using the ONTAP System Manager classic interface (ONTAP 9.7 and earlier), you can quickly set up the FC service on a storage virtual machine (SVM), provision a LUN, and make the LUN available as a datastore using an FC HBA on an ESX host computer.
+
+Use this procedure if:
+
+* You are using a supported version of Virtual Storage Console for VMware vSphere (VSC) to configure storage settings for your ESX host and to provision the datastores.
+** Beginning with VSC 7.0, VSC is part of the https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere/index.html[ONTAP Tools for VMware vSphere^] virtual appliance, which includes VSC, vStorage APIs for Storage Awareness (VASA) Provider, and Storage Replication Adapter (SRA) for VMware vSphere capabilities.
+** Be sure to check the https://imt.netapp.com/matrix/[NetApp Interoperability Matrix Tool^] to confirm compatibility between your current ONTAP and VSC releases.
+* Your network uses IPv4 addressing.
+* You are using traditional FC HBAs on ESXi 5.x and traditional FC switches.
++
+This procedure does not cover FCoE.
+
+* You have at least two FC target ports available on each node in the cluster.
++
+Onboard FC and UTA2 (also called "`CNA`") ports, as well as some adapters are configurable. Configuring those ports is done in the ONTAP CLI and is not covered in this procedure.
+
+* You are not configuring FC SAN boot.
+* You are creating datastores on the host.
++
+This procedure does not cover raw device mapping (RDM) disks or using N-port ID virtualization (NPIV) to provide FC directly to VMs.
+
+For more information, see https://docs.netapp.com/us-en/netapp-solutions/virtualization/vsphere_ontap_ontap_for_vsphere.html[TR-4597: VMware vSphere for ONTAP^] and the documentation for your VSC release.
+
+// BURT 1449742, 2022 Feb 16
+// BURT 1448684, 31 JAN 2022
+// BURT 1449742, 11 JAN 2022

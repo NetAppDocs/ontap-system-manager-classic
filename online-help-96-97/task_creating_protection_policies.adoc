@@ -1,0 +1,29 @@
+---
+permalink: online-help-96-97/task_creating_protection_policies.html
+sidebar: sidebar
+keywords: create, protection, policies, online, help, system, manager
+summary: "You can use System Manager to create asynchronous mirror policies, vault policies, or mirror and vault policies, and to apply these policies to a data protection relationship."
+---
+= Create protection policies
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use System Manager to create asynchronous mirror policies, vault policies, or mirror and vault policies, and to apply these policies to a data protection relationship.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the storage virtual machine (SVM) for which you want to create a protection policy, and then click *SVM Settings*.
+. In the *Policies* pane, click *Protection Policies*.
+. Click *Create*.
+. In the *Create Policy* dialog box, select the policy type that you want to create.
+. Specify the policy name and transfer priority.
++
+Low indicates that the transfer has the least priority, and the transfer is usually scheduled after normal priority transfers. By default, the priority is set to Normal.
+
+. For a policy of type asynchronous mirror, select the *Transfer All Source Snapshot Copies* check box to include the "`all_source_snapshots`" rule to the mirror policy, which backs up all of the Snapshot copies from the source volume.
+. Select the *Enable Network Compression* check box to compress the data that is being transferred during a data transfer.
+. Click *Add Comments* to add additional comments for the policy.
+. For a policy of type vault or mirror vault, specify a SnapMirror label and a destination retention count.
+. Click *Create*.

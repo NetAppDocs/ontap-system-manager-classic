@@ -1,0 +1,98 @@
+---
+permalink: online-help-96-97/reference_protection_window.html
+sidebar: sidebar
+keywords: command, buttons, protection, window, relationship, vault, mirror, online, help, ls
+summary: "You can use the Protection window to create and manage mirror relationships, vault relationships, and mirror and vault relationships and to display details about these relationships. The Protection window does not display load-sharing (LS) relationships and transition data protection (TDP) relationships."
+---
+= Protection window with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the Protection window with ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create and manage mirror relationships, vault relationships, and mirror and vault relationships and to display details about these relationships. The Protection window does not display load-sharing (LS) relationships and transition data protection (TDP) relationships.
+
+== Command buttons
+
+* *Create*
++
+Opens the Create Protection Relationship dialog box, which you can use to create a mirror relationship, vault relationship, or mirror and vault relationship from a destination volume.
++
+System Manager does not display any storage virtual machine (SVM) that is configured for disaster recovery (DR) in the Create Protection Relationship dialog box.
+
+* *Edit*
++
+Opens the Edit Protection Relationship dialog box, which you can use to edit the schedule and policy of a relationship.
++
+For a vault relationship, mirror and vault relationship, or version-flexible mirror relationship, you can modify the relationship type by modifying the policy type.
+
+* *Delete*
++
+Opens the Delete Protection Relationship dialog box, which you can use to delete a relationship.
+
+* *Operations*
++
+Displays the operations that can be performed on a protection relationship.
+
+* *Refresh*
++
+Updates the information in the window.
+
+== Protection relationships list
+
+* *Source Storage Virtual Machine*
++
+Displays the SVM that contains the volume from which data is mirrored or vaulted in a relationship.
+
+* *Source Volume*
++
+Displays the volume from which data is mirrored or vaulted in a relationship.
+
+* *Destination Volume*
++
+Displays the volume to which data is mirrored or vaulted in a relationship.
+
+* *Is Healthy*
++
+Displays whether the relationship is healthy or not.
+
+* *Object Type*
++
+Displays the object type of the relationship, such as Volume, FlexGroup, or SVM.
+
+* *Relationship State*
++
+Displays the state of the relationship, such as Snapmirrored, Uninitialized, or Broken Off.
+
+* *Transfer Status*
++
+Displays the status of the relationship.
+
+* *Relationship Type*
++
+Displays the type of relationship, such as mirror, vault, or mirror and vault.
+
+* *Lag Time*
++
+Lag time is the difference between the current time and the timestamp of the last Snapshot copy that was successfully transferred to the destination system. The lag time will always be at least as much as the duration of the last successful transfer, unless the clocks on the source and destination systems are not synchronized. The time zone difference is automatically calculated into the lag time.
+
+* *Policy Name*
++
+Displays the name of the policy that is assigned to the relationship.
+
+* *Policy Type*
++
+Displays the type of policy that is assigned to the relationship. The policy type can be StrictSync, Sync, Asynchronous Mirror, Asynchronous Vault, or Asynchronous Mirror Vault.
+
+== Details area
+
+* *Details tab*
++
+Displays general information about the selected relationship, such as the source cluster and destination cluster, data transfer rate, state of the relationship, details about the network compression ratio, data transfer status, type of current data transfer, type of last data transfer, latest Snapshot copy, and timestamp of the latest Snapshot copy.
+
+* *Policy Details tab*
++
+Displays details about the policy that is assigned to the selected protection relationship. This tab also displays the SnapMirror label and the Snapshot copy schedules in the source volume that match the specified label.
+
+* *Snapshot Copies tab*
++
+Displays the count of Snapshot copies with the SnapMirror label attribute for the selected protection relationship and the timestamp of the latest Snapshot copy.

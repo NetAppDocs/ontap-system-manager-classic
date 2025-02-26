@@ -1,0 +1,47 @@
+---
+permalink: online-help-96-97/task_updating_cifs_group_policy_configuration.html
+sidebar: sidebar
+keywords: update, cifs, group, policy, configuration, online, help, enable, disable, modify, reload, set, up
+summary: "You have to update the group policy after the policy configuration is changed through the command-line interface (CLI). You can use the CIFS window in System Manager to update the group policy."
+---
+= Manage the CIFS group policy configuration with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the CIFS window in ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to update and manage the group policy.
+
+== Update the CIFS group policy configuration
+
+You have to update the group policy after the policy configuration is changed through the command-line interface (CLI).
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. Click the *Domain* tab.
+. In the *Group Policy* area, select the group policy configuration that you want to update, and then click *Update*.
+
+== Enable or disable a CIFS group policy configuration
+
+You can enable or disable the CIFS group policy configuration from the CIFS window in System Manager.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. Click the *Domain* tab.
+. In the *Group Policy* area, select the group policy configuration that you want to enable or disable, and then click *Enable* or *Disable*, as required.
+
+== Reload CIFS group policy
+
+You have to reload a CIFS group policy if the status of the policy is changed. You can use the CIFS window in System Manager to reload the group policy.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM, and then click *SVM Settings*.
+. Click the *Domain* tab.
+. In the *Group Policy* area, select the group policy configuration that you want to reload, and then click *Reload*.
+
+// 2021-12-20, Created by Aoife, sm-classic rework

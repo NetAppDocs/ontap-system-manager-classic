@@ -1,0 +1,34 @@
+---
+permalink: fc-config-rhel/task_installing_hba_utility_from_hba_vendor.html
+sidebar: sidebar
+keywords: hba, utility, enable, view, worldwide, port, name, wwpn, fc, port, troubleshoot, issue, install the hba utility from the hba vendor
+summary: "The HBA utility enables you to view the worldwide port name (WWPN) of each FC port. The utility is also useful for troubleshooting FC issues."
+---
+= Install the HBA utility from the HBA vendor
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The HBA utility enables you to view the worldwide port name (WWPN) of each FC port. The utility is also useful for troubleshooting FC issues.
+
+.About this task
+
+Each HBA vendor offers an HBA utility for their FC HBAs. You must download the correct version for your host operating system and CPU.
+
+The following is a partial list of HBA utilities:
+
+* Emulex HBA Manager, formerly known as OneCommand Manager, for Emulex HBAs
+* QLogic QConvergeConsole for QLogic HBAs
+
+.Steps
+
+. Download the appropriate utility from your HBA vendor's web site.
+. Run the installation program and follow the prompts to complete the installation.
+
+*Related information*
+
+https://www.broadcom.com/support/download-search?tab=search[Broadcom (Emulex) Support Documents and Downloads]
+
+https://www.broadcom.com/products/storage/fibre-channel-host-bus-adapters/emulex-hba-manager[Emulex HBA Manager]
+
+http://driverdownloads.qlogic.com/QLogicDriverDownloads_UI/OEM_Product_List.aspx?oemid=372[QLogic: NetApp Downloads]

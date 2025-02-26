@@ -1,0 +1,60 @@
+---
+permalink: expansion/task_adding_nodes_to_cluster_using_system_manager.html
+sidebar: sidebar
+keywords: system, manager, increase, size, capabilities, capability, storage, node, automatic, ontap, add nodes to a cluster using system manager
+summary: "You can use System Manager to increase the size and capabilities of your storage system by adding nodes to an existing cluster. This feature is automatically enabled in System Manager when the effective cluster version is ONTAP 9.2."
+---
+= Add nodes to a cluster using System Manager
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use System Manager to increase the size and capabilities of your storage system by adding nodes to an existing cluster. This feature is automatically enabled in System Manager when the effective cluster version is ONTAP 9.2.
+
+.Before you begin
+
+* New compatible nodes must be cabled to the cluster.
++
+Only the ports that are in the default broadcast domain will be listed in the Network window.
+
+* All of the nodes in the cluster must be up and running.
+* All of the nodes must be of the same version.
+
+.Step
+
+. Add the new compatible nodes to the cluster:
++
+[cols="1,3"]
+|===
+
+h| If you are... h| Do this...
+a|
+Not logged in to System Manager
+a|
+
+ .. Log in to System Manager.
++
+[NOTE]
+====
+The new compatible nodes are automatically detected by System Manager at login. System Manager prompts you to add the new compatible nodes to the cluster.
+====
+
+ .. Click *Add Nodes to Cluster*.
+ .. Modify the name of the nodes.
+ .. Specify the node licenses.
+ .. Click *Submit and Proceed*.
+
+a|
+Logged in to System Manager
+a|
+
+ .. Depending on the System Manager version that you are running, perform one of the following steps:
+  *** ONTAP 9.4 or earlier: Click *Configuration* > *Cluster Expansion*.
+  *** Beginning with ONTAP 9.5: Click *Configuration* > *Cluster* > *Expansion*
+System Manager searches for newly added nodes. If any warnings are displayed, you must fix them before proceeding. If new compatible nodes are discovered, proceed to the next step.
+ .. Modify the name of the nodes.
+ .. Specify the node licenses.
+ .. Click *Submit and Proceed*.
+
++
+|===

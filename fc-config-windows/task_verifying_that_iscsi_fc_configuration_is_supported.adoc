@@ -1,0 +1,37 @@
+---
+permalink: fc-config-windows/task_verifying_that_iscsi_fc_configuration_is_supported.html
+sidebar: sidebar
+keywords: reliable, operation, verify, entire, fc, configuration, support, verify that the fc configuration is support
+summary: "For reliable operation, you must verify that the entire FC configuration is supported."
+---
+= Verify that the FC configuration is supported
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+For reliable operation, you must verify that the entire FC configuration is supported.
+
+.Steps
+
+. Go to the Interoperability Matrix to verify that you have a supported combination of the following components:
+ ** ONTAP software
+ ** Host computer CPU architecture (for standard rack servers)
+ ** Specific processor blade model (for blade servers)
+ ** FC host bus adapter (HBA) model and driver, firmware, and BIOS versions
+ ** Storage protocol (FC)
+ ** Windows operating system version
+ ** Windows Unified Host Utilities
+. Click the configuration name for the selected configuration.
++
+Details for that configuration are displayed in the Configuration Details window.
+
+. Review the information in the following tabs:
+ ** Notes
++
+Lists important alerts and information that are specific to your configuration.
++
+Review the alerts to identify the hotfixes that are required for your operating system.
+
+ ** Policies and Guidelines
++
+Provides general guidelines for all SAN configurations.

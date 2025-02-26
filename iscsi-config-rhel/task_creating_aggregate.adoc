@@ -1,0 +1,25 @@
+---
+permalink: iscsi-config-rhel/task_creating_aggregate.html
+sidebar: sidebar
+keywords: exist, aggregate, physical, storage, volume, provision, create, create an aggregate
+summary: "If you do not want to use an existing aggregate, you can create a new aggregate to provide physical storage to the volume which you are provisioning."
+---
+= Create an aggregate
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+If you do not want to use an existing aggregate, you can create a new aggregate to provide physical storage to the volume which you are provisioning.
+
+.Steps
+
+. Enter the URL `+https://IP-address-of-cluster-management-LIF+` in a web browser and log in to System Manager using your cluster administrator credential.
+. Navigate to the *Aggregates* window.
+. Click *Create.*
+. Follow the instructions on the screen to create the aggregate using the default RAID-DP configuration, and then click *Create*.
++
+image::../media/aggregate_creation_iscsi_rhel.gif[Creating an aggregate screen in System Manager]
+
+.Results
+
+The aggregate is created with the specified configuration and added to the list of aggregates in the Aggregates window.

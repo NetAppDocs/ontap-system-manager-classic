@@ -1,0 +1,28 @@
+---
+permalink: online-help-96-97/task_setting_snapshot_copy_reserve.html
+sidebar: sidebar
+keywords: set, up, snapshot, copy, reserve, system, manager, online, help
+summary: "You can use System Manager to reserve space (measured as a percentage) for the Snapshot copies in a volume. By setting the Snapshot copy reserve, you can allocate enough disk space for the Snapshot copies so that they do not consume the active file system space."
+---
+= Set the Snapshot copy reserve with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (avaiable in ONTAP 9.7 and earlier) to reserve space (measured as a percentage) for the Snapshot copies in a volume. By setting the Snapshot copy reserve, you can allocate enough disk space for the Snapshot copies so that they do not consume the active file system space.
+
+.About this task
+
+The default space that is reserved for Snapshot copies is 5 percent for SAN and VMware volumes.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Select the volume for which you want to set the Snapshot copy reserve.
+. Click *More Actions* > *Manage Snapshots* > *Configuration Settings*.
+. Type or select the percentage of volume space that you want to reserve for the Snapshot copies, and then click *OK*.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

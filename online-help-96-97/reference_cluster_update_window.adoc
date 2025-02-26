@@ -1,0 +1,93 @@
+---
+permalink: online-help-96-97/reference_cluster_update_window.html
+sidebar: sidebar
+keywords: online, help, cluster, update, window, tab, update, command, button, history, tab
+summary: "You can use the Cluster Update window to perform an automated cluster update nondisruptively or you can update single-node clusters disruptively."
+---
+= Cluster Update window with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the Cluster Update window to perform an automated cluster update nondisruptively or you can update single-node clusters disruptively with ONTAP System Manager classic (available in ONTAP 9.7 and earlier).
+
+== Tabs
+
+* *Cluster Update*
++
+Enables you to perform an automated cluster update nondisruptively or you can update single-node clusters disruptively.
+
+* *Update History*
++
+Displays the details of previous cluster updates.
+
+== Cluster Update tab
+
+The Cluster Update tab enables you perform an automated cluster update nondisruptively or you can update single-node clusters disruptively.
+
+== Command buttons
+
+* *Refresh*
++
+Updates the information in the window.
+
+* *Select*
++
+You can select the version of the software image for the update.
+
+ ** Cluster Version Details: Displays the current cluster version in use and the version details of the nodes or high-availability (HA) pairs.
+ ** Available Software Images: Enables you to select an existing software image for the update.
++
+Alternatively, you can download a software image from the NetApp Support Site and add the image for the update.
+
+* *Validate*
++
+You can view and validate the cluster against the software image version for the update. A pre-update validation checks whether the cluster is in a state that is ready for an update. If the validation is completed with errors, a table displays the status of the various components and the required corrective action for the errors.
++
+You can perform the update only when the validation is completed successfully.
+
+* *Update*
++
+You can update all of the nodes in the cluster or an HA pair in the cluster to the selected version of the software image. While the update is in progress, you can choose to pause the update, and you can then either cancel or resume the update.
++
+If an error occurs, the update is paused and an error message is displayed with the remedial steps. You can choose to either resume the update after performing the remedial steps or cancel the update. You can view the table with the node name, uptime, state, and ONTAP version when the update is successfully completed.
+
+== Update History tab
+
+Displays details about the cluster update history.
+
+== Update History list
+
+* *Image Version*
++
+Specifies the version of the ONTAP image to which the node will be updated.
+
+* *Software Updates Installed on*
++
+Specifies the type of disk on which the updates are installed.
+
+* *Status*
++
+Specifies the status of the software image update (whether the update is successful or cancelled).
+
+* *Start Time*
++
+Specifies the time when the update was started.
+
+* *Completion Time*
++
+Specifies the time when the update was completed.
++
+This field is hidden by default.
+
+* *Time Taken for the Update*
++
+Specifies the time taken for the update to finish.
+
+* *Previous Version*
++
+Specifies the ONTAP version of the node before the update.
+
+* *Updated Version*
++
+Specifies the ONTAP version of the node after the update.

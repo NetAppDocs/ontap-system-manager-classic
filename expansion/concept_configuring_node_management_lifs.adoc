@@ -1,0 +1,57 @@
+---
+permalink: expansion/concept_configuring_node_management_lifs.html
+sidebar: sidebar
+keywords: controller, module, physical, install, power, configure, node-mangement, lif, configure node-management lifs
+summary: "After the controller modules are physically installed, you can power on each one and configure its node-management LIF."
+---
+= Configure node-management LIFs
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+After the controller modules are physically installed, you can power on each one and configure its node-management LIF.
+
+.About this task
+
+You must perform this procedure on both the nodes.
+
+.Steps
+
+. Access the controller module through the serial console.
+. Power on the controller module, and wait while the node boots and the Cluster Setup wizard automatically starts on the console.
++
+----
+Welcome to the cluster setup wizard.
+
+You can enter the following commands at any time:
+  "help" or "?" - if you want to have a question clarified,
+  "back" - if you want to change previously answered questions, and
+  "exit" or "quit" - if you want to quit the cluster setup wizard.
+   Any changes you made before quitting will be saved.
+
+You can return to cluster setup at any time by typing "cluster setup".
+To accept a default or omit a question, do not enter a value.
+----
+
+. Follow the prompts in the web-based Cluster Setup wizard to configure a node management LIF using the networking information you gathered earlier.
+. Type `exit` after node management LIF configuration is complete to exit the setup wizard and complete the administration tasks.
++
+----
+Use your web browser to complete cluster setup by accessing
+https://10.63.11.29
+
+Otherwise, press Enter to complete cluster setup using the command line interface:
+exit
+----
+
+. Log in to the node as the `admin` user, which does not require a password.
++
+----
+Tue Mar 4 23:13:33 UTC 2015
+login: admin
+******************************************************
+* This is a serial console session. Output from this *
+* session is mirrored on the SP console session.     *
+----
+
+. Repeat the entire procedure for the second newly installed controller module.

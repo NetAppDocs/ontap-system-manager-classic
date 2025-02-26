@@ -1,0 +1,67 @@
+---
+permalink: online-help-96-97/concept_high_availability.html
+sidebar: sidebar
+keywords: high, availability, system, manager, hardware, redundancy, nondisruptive, operations, fault, tolerance
+summary: "You can use System Manager to create high availability (HA) pairs that provide hardware redundancy that is required for nondisruptive operations and fault tolerance."
+---
+= Create high availability pairs with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create high availability (HA) pairs that provide hardware redundancy that is required for nondisruptive operations and fault tolerance.
+
+== High Availability window
+
+The High Availability window provides a pictorial representation of the high-availability (HA) state, interconnect status, and takeover or giveback status of all of the HA pairs in ONTAP. You can also manually initiate a takeover operation or giveback operation by using the High Availability window.
+
+You can view details such as the takeover or giveback status and the interconnect status by clicking the HA pair image.
+
+The color indicates the HA pair status:
+
+* Green: Indicates that the HA pair and the interconnect are optimally configured and available for takeover or giveback.
++
+Green also indicates the takeover in progress state, giveback in progress state, and waiting for giveback state.
+
+* Red: Indicates a downgraded state such as a takeover failure.
+* Yellow: Indicates that the interconnect status is down.
+
+When multiple HA pairs in a cluster are simultaneously involved in storage failover operations, the cluster status that is displayed is based on the status and severity of the HA pair. The following order of severity is considered while displaying the cluster status: takeover in progress, giveback in progress, waiting for giveback.
+
+=== Actions
+
+You can perform tasks such as takeover or giveback based on the status of the nodes in the HA pair.
+
+* Takeover `node_name`
++
+Enables you to perform a takeover operation when maintenance is required on the partner node.
+
+* Giveback `node_name`
++
+Enables you to perform a giveback operation when the partner node that has been taken over is waiting for giveback or is in a partial giveback state.
+
+* Enable or Disable automatic giveback
++
+Enables or disables the automatic giveback operation.
++
+[NOTE]
+====
+Automatic giveback is enabled by default.
+====
+
+=== Command buttons
+
+* *Refresh*
++
+Updates the information in the window.
++
+[NOTE]
+====
+The information that is displayed in the High Availability window is automatically refreshed every 60 seconds.
+====
+
+*Related information*
+
+xref:task_monitoring_ha_pairs.adoc[Monitoring HA pairs]
+
+// 2021-12-08, Created by Aoife, sm-classic rework

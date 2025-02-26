@@ -1,0 +1,19 @@
+---
+permalink: online-help-96-97/task_viewing_aggregate_information.html
+sidebar: sidebar
+keywords: view, aggregate, information, online, help, system, manager
+summary: "You can use the Aggregates window in System Manager to view the name, status, and space information about an aggregate."
+---
+= View aggregate information with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the Aggregates window in ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to view the name, status, and space information about an aggregate.
+
+.Steps
+
+. Choose one of the following methods:
+ ** Click *Applications & Tiers* > *Storage Tiers*.
+ ** Click *Storage* > *Aggregates & Disks* > *Aggregates*.
+. Click on the aggregate name to view the details of the selected aggregate.

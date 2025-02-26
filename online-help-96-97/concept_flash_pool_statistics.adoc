@@ -1,0 +1,32 @@
+---
+permalink: online-help-96-97/concept_flash_pool_statistics.html
+sidebar: sidebar
+keywords: flash, pool, statistics, system, manager, ssd, tier, read, write, workload, aggregate, online, help
+summary: "You can use System Manager to view the real-time SSD tier read and write workloads for a selected Flash Pool aggregate."
+---
+= View Flash Pool statistics with System Manger - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier ) to view the real-time SSD tier read and write workloads for a selected Flash Pool aggregate.
+
+== Flash Pool aggregate Statistics window
+
+You can view the real-time SSD tier read and write workloads for a selected Flash Pool aggregate.
+
+This page is not available for a cluster containing nodes with All Flash Optimized personality.
+
+* *Displaying Statistics for Flash Pool aggregate*
++
+From the list of Flash Pool aggregates, you can select the Flash Pool aggregate whose statistics you want to view.
+
+=== SSD Cache Read Workload
+
+Displays a graphical view of the total read requests that are sent to the Flash Pool aggregate in comparison with the read operations that are performed by the SSD tier.
+
+=== SSD Cache Write Workload
+
+Displays a graphical view of the total write requests that are sent to the Flash Pool aggregate in comparison with the write operations that are performed by the SSD tier.
+
+// 2021-12-15, Created by Aoife, sm-classic rework

@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_reassigning_array_luns_to_nodes.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_array_luns.html
+---

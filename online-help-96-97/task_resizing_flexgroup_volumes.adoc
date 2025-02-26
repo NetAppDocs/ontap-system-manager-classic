@@ -1,0 +1,38 @@
+---
+permalink: online-help-96-97/task_resizing_flexgroup_volumes.html
+sidebar: sidebar
+keywords: system, manager, online, help, resize, flexgroup, volume, resources
+summary: "You can use System Manager to resize a FlexGroup volume by resizing existing resources or by adding new resources."
+---
+= Resize FlexGroup volumes with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to resize a FlexGroup volume by resizing existing resources or by adding new resources.
+
+.Before you begin
+
+* To resize a FlexGroup volume, there must be enough free space on the existing aggregates.
+* To expand a FlexGroup volume, there must be enough free space on the aggregate that you are using for expansion.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Select the FlexGroup volume that you want to resize, and then click *More Actions* > *Resize*.
+. In the *Resize FlexGroup Volume* window, specify the size to which you want to resize the FlexGroup volume.
++
+By default, existing aggregates are used to resize the FlexGroup volume. Beginning with System Manager 9.6, the minimum size that is allowed for the volume is displayed next to the size fields.
++
+[NOTE]
+====
+If you want to expand the FlexGroup volume by adding new resources, click image:../media/advanced_options.gif[] (advanced options).
+====
+
+. Specify the percentage of the Snapshot copy reserve.
+. Click *Resize* to resize the FlexGroup volume.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

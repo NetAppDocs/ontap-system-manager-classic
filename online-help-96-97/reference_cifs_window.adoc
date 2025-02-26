@@ -1,0 +1,117 @@
+---
+permalink: online-help-96-97/reference_cifs_window.html
+sidebar: sidebar
+keywords: cifs, window, configuration, tab, domain, symlink, branchcache, online, help
+summary: "You can use the CIFS window to configure the CIFS server, to manage domain controllers, to manage symbolic UNIX mappings, and to configure BranchCache."
+---
+= CIFS window in System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the CIFS window in ONTAP System Manager (available in ONTAP 9.7 and earlier) to configure the CIFS server, to manage domain controllers, to manage symbolic UNIX mappings, and to configure BranchCache.
+
+== Configuration tab
+
+The Configuration tab enables you to create and manage the CIFS server.
+
+* *Server*
++
+Specifies the status of the CIFS server, name of the server, authentication mode, name of the active directory domain, and status of SMB multichannel.
+
+* *Home Directories*
++
+Specifies home directory paths and the style for determining how PC user names are mapped to home directory entries.
+
+* *Command buttons*
+ ** Setup
++
+Opens the CIFS Setup wizard, which enables you to set up CIFS on your storage virtual machine (SVM).
+
+ ** Options
++
+Displays the CIFS Options dialog box, which enables you to enable or disable SMB 3.0 signing, to enable or disable SMB 3.0 encryption, and to add Windows Internet Name Service (WINS) servers.
++
+SMB signing prevents the network traffic between the CIFS server and the client from being compromised.
+
+ ** Delete
++
+Enables you to delete the CIFS server.
+
+ ** Refresh
++
+Updates the information in the window.
+
+== Domain tab
+
+The Domain tab enables you to view and reset your CIFS domain controllers, and to add or delete preferred domain controllers. You can also use this tab to manage CIFS group policy configurations.
+
+* *Servers*
++
+Displays information about discovered authentication servers and your preferred domain controllers on the CIFS-enabled SVM.
++
+You can also reset the information about the discovered servers, add a preferred domain controller, delete a domain controller, or refresh the list of domain controllers.
+
+* *Group Policy*
++
+Enables you to view, enable, or disable group policy configurations on the CIFS server. You can also reload a group policy if the status of the policy is changed.
+
+== Symlinks tab
+
+The Symlinks tab enables you to manage the mappings of UNIX symbolic links for CIFS users.
+
+* *Path Mappings*
++
+Displays the list of symbolic link mappings for CIFS.
+
+* *Command buttons*
+ ** Create
++
+Opens the Create New Symlink Path Mappings dialog box, which enables you to create a UNIX symbolic link mapping.
+
+ ** Edit
++
+Opens the Edit Symlink Path Mappings dialog box, which enables you to modify the CIFS share and path.
+
+ ** Delete
++
+Enables you to delete the symbolic link mapping.
+
+ ** Refresh
++
+Updates the information in the window.
+
+== BranchCache tab
+
+The BranchCache tab enables you to set up and manage BranchCache settings on CIFS-enabled SVMs.
+
+You can view the status of the BranchCache service, the path to the hash store, the size of the hash store, and the operating mode, server key, and version of BranchCache.
+
+* *Command buttons*
+ ** Setup
++
+Opens the BranchCache Setup dialog box, which enables you to configure BranchCache for the CIFS server.
+
+ ** Edit
++
+Opens the Modify BranchCache Settings dialog box, which enables you to modify the properties of the BranchCache configuration.
+
+ ** Delete
++
+Enables you to delete the BranchCache configuration.
+
+ ** Refresh
++
+Updates the information in the window.
+
+*Related information*
+
+xref:task_setting_up_cifs.adoc[Setting up CIFS]
+
+xref:task_editing_cifs_general_properties.adoc[Editing the general properties for CIFS]
+
+xref:task_adding_home_directory_paths.adoc[Adding home directory paths]
+
+xref:task_deleting_home_directory_paths.adoc[Deleting home directory paths]
+
+xref:task_resetting_cifs_domain_controllers.adoc[Resetting CIFS domain controllers]

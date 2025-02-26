@@ -1,0 +1,43 @@
+---
+permalink: expansion/task_adding_node_locked_licenses.html
+sidebar: sidebar
+keywords: cluster, feature, node-locked, license, entitle, functionality, add, add node-locked licenses
+summary: "If the cluster has features that use node-locked licenses, you must ensure that node-locked licenses are installed for the new nodes."
+---
+= Add node-locked licenses
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+If the cluster has features that use node-locked licenses (which entitle only specific nodes to the licensed functionality), you must ensure that node-locked licenses are installed for the new nodes. You should add the licenses before the nodes are joined to the cluster.
+
+Complete this task if you are using the _Classic_ System Manager UI with ONTAP 9.7 and earlier releases. If you are using the System Manager UI with ONTAP 9.7 and later, see link:https://docs.netapp.com/us-en/ontap/task_admin_enable_new_features.html[Enable new features by adding license keys].
+
+For more information about managing licenses, see link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html[Manage licenses overview].
+
+.Steps
+
+. Add each license key by using the `system license add` command.
++
+----
+cluster1::> system license add -license-code AAAAAAAAAAAAAA
+----
+
+. View the existing licenses by using the `system license show` command.
++
+----
+cluster1::> system license show
+
+Serial Number: 9-99-999999
+Owner: cluster1
+Package           Type    Description           Expiration
+----------------- ------- --------------------- --------------------
+Base              site    Cluster Base License  -
+NFS               license NFS License           -
+CIFS              license CIFS License          -
+...
+----
+
+. Review the output to ensure that a node-locked license is displayed for all serial numbers, including serial numbers for existing and new nodes.
+
+// 2023-Apr-4, issue# 75

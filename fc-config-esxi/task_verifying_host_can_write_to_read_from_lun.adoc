@@ -1,0 +1,41 @@
+---
+permalink: fc-config-esxi/task_verifying_host_can_write_to_read_from_lun.html
+sidebar: sidebar
+keywords: lun, verify, write, data, verify that the host can write to and read from the lun
+summary: "Before using the LUN, you should verify that the host can write data to the LUN and read it back."
+---
+= Verify that the host can write to and read from the LUN
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before using the LUN, you should verify that the host can write data to the LUN and read it back.
+
+.About this task
+
+If the cluster node on which the LUN is created can be failed over to its partner node, you should verify reading the data while the node is failed over. This test might not be possible if the cluster is in production use.
+
+.Steps
+
+. On the vSphere Web Client *Home* page, click *Hosts and Clusters*.
+. In the navigation pane, click the *Storage* tab.
+. Expand the datacenter, and then select the new datastore.
+. In the center pane, click *Manage* > *Files*.
++
+The contents of the datastore are displayed.
+
+. Create a new folder in the datastore and upload a file to the new folder.
++
+You might need to install the Client Integration Plug-in.
+
+. Verify that you can access the file you just wrote.
+. *Optional:* Fail over the cluster node containing the LUN and verify that you can still write and read a file.
++
+If any of the tests fail, verify that the FC service is running on the storage cluster and check the FC paths to the LUN and FC switch zoning.
+
+. *Optional:* If you failed over the cluster node, be sure to give back the node and return all LIFs to their home ports.
+. For an ESXi cluster, view the datastore from each ESXi host in the cluster and verify that the file you uploaded is displayed.
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/high-availability/index.html[ONTAP 9 High-Availability Configuration]

@@ -1,0 +1,14 @@
+---
+permalink: expansion/concept_cluster_expansion_workflow.html
+sidebar: sidebar
+keywords: cluster, expansion, workflow
+summary: "Cluster expansion workflow"
+---
+= Cluster expansion workflow
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Adding two nodes to an existing cluster involves verifying that the cluster is ready for expansion, preparing the cluster, installing the new nodes, and completing the expansion.
+
+image::../media/cluster_expansion_workflow.gif[This image is explained by the surrounding text.]

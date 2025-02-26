@@ -1,0 +1,24 @@
+---
+permalink: iscsi-config-esxi/task_enabling_iscsi_software_adapter.html
+sidebar: sidebar
+keywords: iscsi, software, adapter, create, connection, esx, host, operating, system, enable, enable the iscsi software adapter, esxi
+summary: "The iSCSI software adapter creates the iSCSI connection on the ESX host. It is built into the operating system, but must be enabled before it can be used."
+---
+= Enable the iSCSI software adapter
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The iSCSI software adapter creates the iSCSI connection on the ESXi host. It is built into the operating system, but must be enabled before it can be used.
+
+.Before you begin
+
+You must have a VMware vSphere Client installed on your workstation or you must have access to a vSphere Web Client.
+
+.Steps
+
+. Log in to the vSphere Client.
+. Select the ESX host from the inventory pane.
+. Click *Configuration* > *Storage Adapters*.
+. Select the iSCSI software adapter and click *Properties* > *Configure*.
+. Select *Enabled* and then click *OK*.

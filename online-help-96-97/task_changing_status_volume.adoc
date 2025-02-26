@@ -1,0 +1,33 @@
+---
+permalink: online-help-96-97/task_changing_status_volume.html
+sidebar: sidebar
+keywords: flexvol, change, status, volume, online, help, system, manager
+summary: "You can use System Manager to change the status of a FlexVol volume when you want to take a volume offline, bring a volume back online, or restrict access to a volume."
+---
+= Change the status of a volume with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to change the status of a FlexVol volume when you want to take a volume offline, bring a volume back online, or restrict access to a volume.
+
+.Before you begin
+
+* If you want a volume to be the target of a volume copy operation or a SnapMirror replication operation, the volume must be in the restricted state.
+* If you want to take a NAS volume offline, the NAS volume must be unmounted.
+
+.About this task
+
+You can take a volume offline to perform maintenance on the volume, to move the volume, or to destroy the volume. When a volume is offline, the volume is unavailable for read or write access by clients. You cannot take a root volume offline.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Select the volume for which you want to modify the status.
+. From the *More Actions* > *Change status to* menu, select the required volume status.
+. Click *Ok* in the confirmation dialog box to change the volume status.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

@@ -1,0 +1,49 @@
+---
+permalink: online-help-96-97/task_deleting_snapshot_copies.html
+sidebar: sidebar
+keywords: delete, snapshot, copy, online, help, system, manager
+summary: "You can delete a Snapshot copy to conserve disk space or to free disk space by using System Manager. You can also delete a Snapshot copy if the Snapshot copy is no longer required."
+---
+= Delete Snapshot copies with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can delete a Snapshot copy to conserve disk space or to free disk space by using ONTAP System Manager classic (available in ONTAP 9.7 and earlier). You can also delete a Snapshot copy if the Snapshot copy is no longer required.
+
+.Before you begin
+
+If you want to delete a Snapshot copy that is busy or locked, you must have released the Snapshot copy from the application that was using the Snapshot copy.
+
+.About this task
+
+* You cannot delete the base Snapshot copy in a parent volume if a FlexClone volume is using that Snapshot copy.
++
+The base Snapshot copy is the Snapshot copy that is used to create a FlexClone volume. The base Snapshot copy always displays the status `busy` and Application Dependency as `busy,vclone` in the parent volume.
+
+* You cannot delete a locked Snapshot copy that is used in a SnapMirror relationship.
++
+The Snapshot copy is locked and is required for the next update.
+
+* You cannot delete a Snapshot copy from a SnapLock DP volume that is used in a SnapVault relationship before the expiry time of the Snapshot copy.
+* You cannot delete the unexpired Snapshot copies (which are committed to WORM state) of a SnapLock DP volume that is in a SnapVault relationship.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Expand the required volume.
+. Click the *Show More Details* link to view more information about the volume.
+. Click the *Snapshot Copies* tab.
++
+The list of available Snapshot copies for the selected volume is displayed.
+
+. Select the Snapshot copy that you want to delete.
+. Click *Delete*.
+. Select the confirmation check box, and then click *Delete*.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]
+
+https://docs.netapp.com/ontap-9/index.jsp[ONTAP 9 Documentation Center]

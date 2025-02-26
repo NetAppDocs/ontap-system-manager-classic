@@ -1,0 +1,34 @@
+---
+permalink: expansion/task_configuring_node_details_system_manager.html
+sidebar: sidebar
+keywords: system, manager, configure, node, management, lif, service, processor, setting, add, configure the node details in system manager
+summary: "You can use System Manager to configure the node management LIF and Service Processor settings for the newly added nodes."
+---
+= Configure the node details in System Manager
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use System Manager to configure the node management LIF and Service Processor settings for the newly added nodes.
+
+.Before you begin
+
+* Sufficient number of ports must be present in the default IPspace for LIF creation.
+* All the ports must be up and running.
+
+.Steps
+
+. Configure node management:
+ .. Enter the IP address in the *IP Address* field.
+ .. Select the port for node management in the *Port* field.
+ .. Enter the netmask and gateway details.
+. Configure Service Processor settings:
+ .. Select the *Override defaults* check box to override the default values.
+ .. Enter the IP address, netmask, and gateway details.
+. Click *Submit and Proceed* to complete the network configuration of the nodes.
+. Verify the details of the nodes in the *Summary* page.
+
+== What to do next
+
+* If your cluster is protected, you should create the required number of intercluster LIFs in the newly added nodes to avoid partial peering and unhealthy protection.
+* If SAN data protocols are enabled in your cluster, you should create the required number of SAN Data LIFs for serving data.

@@ -1,0 +1,38 @@
+---
+permalink: volume-disaster-recovery/task_configuring_destination_volume_for_data_access.html
+sidebar: sidebar
+keywords: activating, activate, destination, volume, configure, data, access, nas, client, san, host, access, data, source, reactivate, configure the destination volume for data access
+summary: "After activating the destination volume, you must configure the volume for data access. NAS clients and SAN hosts can access the data from the destination volume until the source volume is reactivated."
+---
+= Configure the destination volume for data access
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+After activating the destination volume, you must configure the volume for data access. NAS clients and SAN hosts can access the data from the destination volume until the source volume is reactivated.
+
+.About this task
+
+You must perform this task from the *destination* cluster.
+
+== Procedure
+
+* NAS environment:
+ .. Mount the NAS volumes to the namespace using the same junction path that the source volume was mounted to in the source SVM.
+ .. Apply the appropriate ACLs to the CIFS shares at the destination volume.
+ .. Assign the NFS export policies to the destination volume.
+ .. Apply the quota rules to the destination volume.
+ .. Redirect clients to the destination volume by performing the necessary steps such as changing the DNS name resolution.
+ .. Remount the NFS and CIFS shares on the clients.
+* SAN environment:
+ .. Map the LUNs to the appropriate initiator group to make the LUNs in the volume available to the SAN clients.
+ .. For iSCSI, create iSCSI sessions from the SAN host initiators to the SAN LIFs.
+ .. On the SAN client, perform a storage re-scan to detect the connected LUNs.
+
+== What to do next
+
+You should resolve the problem that caused the source volume to become unavailable. You must bring the source volume back online when possible, and then resynchronize and reactivate the source volume.
+
+*Related information*
+
+https://docs.netapp.com/ontap-9/index.jsp[ONTAP 9 Documentation Center]

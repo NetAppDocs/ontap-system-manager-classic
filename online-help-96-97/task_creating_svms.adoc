@@ -1,0 +1,103 @@
+---
+permalink: online-help-96-97/task_creating_svms.html
+sidebar: sidebar
+keywords: create, svm, system, manager, cluster, online, help
+summary: "You can use System Manager to create fully configured storage virtual machines (SVMs) that can serve data immediately. A cluster can have one or more SVMs."
+---
+= Create SVMs with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create fully configured storage virtual machines (SVMs) that can serve data immediately. A cluster can have one or more SVMs.
+
+.Before you begin
+
+* The cluster must have at least one non-root aggregate in the online state.
+* The aggregate must have sufficient space for the SVM root volume.
+* You must have synchronized the time across the cluster by configuring and enabling NTP to prevent CIFS creation and authentication failures.
+* The protocols that you want to configure on the SVM must be licensed.
+* You must have configured the CIFS protocol for secure DDNS to work.
+
+.About this task
+
+* While creating SVMs, you can perform the following tasks:
+ ** Create and fully configure SVMs.
+ ** Configure the volume type that is allowed on SVMs.
+ ** Create and configure SVMs with minimal network configuration.
+ ** Delegate the administration to SVM administrators.
+* To name the SVM, you can use alphanumeric characters and the following special characters: "`.`" (period), "`-`" (hyphen), and "`_`" (underscore).
++
+The SVM name should start with an alphabet or "`_`" (underscore) and must not contain more than 47 characters.
++
+[NOTE]
+====
+You should use unique fully qualified domain names (FQDNs) for the SVM name such as vs0.example.com.
+====
+
+* You can establish SnapMirror relationships only between volumes that have the same language settings.
++
+The language of the SVM determines the character set that is used to display file names and data for all NAS volumes in the SVM.
+
+* You cannot use a SnapLock aggregate as the root aggregate of SVMs.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Click *Create*.
+. In the *Storage Virtual Machine (SVM) Setup* window, specify the following details:
+ ** SVM name
+ ** IPspace allocated to the SVM
+ ** Volume type allowed
+ ** Protocols allowed
+ ** SVM language
+ ** Security style of the root volume
+ ** Root aggregate
+
+
++
+The default language setting for any SVM is C.UTF-8.
+
++
+By default, the aggregate with the maximum free space is selected as the container for the root volume of the SVM. Based on the protocols selected, the default security style and the root aggregate are selected.
++
+The security style is set to NTFS if you select CIFS protocol or a combination of CIFS protocol with the other protocols. The security style is set to UNIX if you select NFS, iSCSI, NVMe, or FC/FCoE, or a combination of these protocols.
++
+
+[NOTE]
+====
+NVMe does not allow the combination of protocols.
+====
+
++
+In a MetroCluster configuration, only the aggregates that are contained in the cluster are displayed.
+. Specify the DNS domain names and the name server IP addresses to configure the DNS services.
++
+The default values are selected from the existing SVM configurations.
+
+. *Optional:* When configuring a data LIF to access data using a protocol, specify the target alias, subnets, and the number of LIFs per node.
++
+You can select the *Review or Modify LIFs configuration (Advanced Settings)* checkbox to modify the number of portsets in the LIF.
++
+You can edit the details of the portset in a particular node by selecting the node from the nodes list in the details area.
+
+. *Optional:* Enable host-side applications such as SnapDrive and SnapManager for the SVM administrator by providing the SVM credentials.
+. *Optional:* For protocols other than NVMe, create a new LIF for SVM management by clicking *Create a new LIF for SVM management*, and then specify the portsets and the IP address with or without a subnet for the new management LIF.
++
+For CIFS and NFS protocols, data LIFs have management access by default. You must create a new management LIF only if required. For iSCSI and FC, a SVM management LIF is required because data protocols and management protocols cannot share the same LIF.
+
+. *Optional:* For NVMe protocol, Beginning with ONTAP 9.5, configure a minimum of one LIF for each node on the second page of the SVM Setup wizard: *Configure NVMe Protocol.*
++
+You must configure at least one LIF for each node in the HA pair. You can also specify two LIFs per node. Click the settings icon to toggle between one or two LIFs configurations.
+
+. Click *Submit & Continue*.
++
+The SVM is created with the specified configuration.
+
+.Results
+
+The SVM that you created is started automatically. The root volume name is automatically generated as `SVM name_root`. By default, the `vsadmin` user account is created and is in the locked state.
+
+== What to do next
+
+You must configure at least one protocol on the SVM to allow data access.

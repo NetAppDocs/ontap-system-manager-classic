@@ -1,0 +1,61 @@
+section: expansion
+title: Cluster administration
+entries:
+      - title: Cluster expansion administration
+        entries:
+            - title: Overview
+              url: "/expansion/index.html"
+            - title: Cluster expansion workflow
+              url: "/expansion/concept_cluster_expansion_workflow.html"
+              entries:
+              - title: Verify the cluster is ready for expansion
+                url: "/expansion/task_verifying_cluster_is_ready_for_expansion.html"
+                entries:
+                - title: Verify the planned configuration
+                  url: "/expansion/task_verifying_planned_configuration.html"
+                - title: Gather the required network information
+                  url: "/expansion/task_gathering_required_information.html"
+                - title: Add or replace switches
+                  url: "/expansion/task_adding_or_replacing_switches.html"
+              - title: Prepare the cluster for expansion
+                url: "/expansion/task_preparing_cluster_for_expansion.html"
+                entries:
+                - title: Add node-locked licenses
+                  url: "/expansion/task_adding_node_locked_licenses.html"
+                - title: Verify the health of the system
+                  url: "/expansion/task_verifying_health_system.html"
+                - title: Back up the cluster configuration
+                  url: "/expansion/task_backing_up_cluster_configuration.html"
+                - title: Generate an AutoSupport message about starting expansion
+                  url: "/expansion/task_generating_autosupport_message_about_starting_expansion.html"
+              - title: Install the new nodes
+                url: "/expansion/task_installing_new_nodes.html"
+                entries:
+                - title: Install the controllers
+                  url: "/expansion/task_installing_controllers.html"
+                - title: Configure node-management LIFs
+                  url: "/expansion/concept_configuring_node_management_lifs.html"
+                - title: Upgrade or downgrade the nodes
+                  url: "/expansion/task_upgrading_or_downgrading_nodes.html"
+                - title: Ensure hardware-level HA is enabled
+                  url: "/expansion/task_ensuring_hardware_level_ha_is_enabled.html"
+                - title: Add nodes to a cluster using System Manager
+                  url: "/expansion/task_adding_nodes_to_cluster_using_system_manager.html"
+                - title: Join nodes to the cluster using the CLI
+                  url: "/expansion/concept_joining_nodes_to_cluster_using_cli.html"
+              - title: Complete the expansion
+                url: "/expansion/task_completing_expansion.html"
+                entries:
+                - title: Configure the node details in System Manager
+                  url: "/expansion/task_configuring_node_details_system_manager.html"
+                - title: Configure AutoSupport on the new nodes
+                  url: "/expansion/task_configuring_autosupport_on_new_nodes_using_cli.html"
+                - title: Configure the Service Processor network
+                  url: "/expansion/task_configuring_service_processor_network_cli.html"
+                - title: Validate the configuration of the expanded cluster
+                  url: "/expansion/task_validating_configuration_expanded_cluster.html"
+                - title: Generate an AutoSupport message about completing expansion
+                  url: "/expansion/task_generating_autosupport_message_about_completing_expansion.html"
+                - title: Update LUN paths for the new nodes
+                  url: "/expansion/task_updating_lun_paths_for_new_nodes.html"
+          

@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_what_fabricpool_is.html
+redirect: ontap/concept_cloud_overview.html
+---

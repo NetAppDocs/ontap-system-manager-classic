@@ -1,0 +1,12 @@
+---
+permalink: online-help-96-97/concept_updating_clusters.html
+sidebar: sidebar
+keywords: update, clusters, online, help, system, manager
+summary: "You can use System Manager to update a cluster or the individual nodes in a high-availability (HA) pair. You can also update a cluster in a MetroCluster configuration."
+---
+= Update clusters with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to update a cluster or the individual nodes in a high-availability (HA) pair. You can also update a cluster in a MetroCluster configuration.

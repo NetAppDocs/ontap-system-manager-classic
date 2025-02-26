@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_how_you_update_cluster_nondisruptively.html
+redirect: ontap/upgrade/task_upgrade_andu_sm.html
+---

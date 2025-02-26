@@ -1,0 +1,94 @@
+---
+permalink: online-help-96-97/concept_unix.html
+sidebar: sidebar
+keywords: system, manager, unix, svm, online, help, command, button, group, tab, storage, virtual, machine
+summary: "You can use System Manager to maintain a list of local UNIX users and groups for each storage virtual machine (SVM)."
+---
+= Local UNIX users and groups with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to maintain a list of local UNIX users and groups for each storage virtual machine (SVM).
+
+== UNIX window
+
+You can use the UNIX window to maintain a list of local UNIX users and groups for each storage virtual machine (SVM). You can use local UNIX users and groups for authentication and name mappings.
+
+=== Groups tab
+
+You can use the Groups tab to add, edit, or delete UNIX groups that are local to an SVM.
+
+== Command buttons
+
+* *Add Group*
++
+Opens the Add Group dialog box, which enables you to create UNIX groups that are local to SVMs. Local UNIX groups are used with local UNIX users.
+
+* *Edit*
++
+Opens the Edit Group dialog box, which enables you to edit a group ID.
+
+* *Delete*
++
+Deletes the selected group.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Groups list
+
+* *Group Name*
++
+Displays the name of the group.
+
+* *Group ID*
++
+Displays the ID of the group.
+
+=== Users tab
+
+You can use the *Users* tab to add, edit, and delete UNIX users that are local to SVMs.
+
+=== Command buttons
+
+* *Add User*
++
+Opens the Add User dialog box, which enables you to create UNIX users that are local to SVMs.
+
+* *Edit*
++
+Opens the Edit User dialog box, which enables you to edit the User ID, UNIX group to which the user belongs, and the full name of the user.
+
+* *Delete*
++
+Deletes the selected user.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Users list
+
+* *User Name*
++
+Displays the name of the user.
+
+* *User ID*
++
+Displays the ID of the user.
+
+* *Full Name*
++
+Displays the full name of the user.
+
+* *Primary Group ID*
++
+Displays the ID of the group to which the user belongs.
+
+* *Primary Group Name*
++
+Displays the name of the group to which the user belongs.
+
+// 2021-12-21, Created by Aoife, sm-classic rework

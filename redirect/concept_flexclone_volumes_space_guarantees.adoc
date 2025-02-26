@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_flexclone_volumes_space_guarantees.html
+redirect: ontap/volumes/space-reservation-flexclone-files-luns-concept.html
+---

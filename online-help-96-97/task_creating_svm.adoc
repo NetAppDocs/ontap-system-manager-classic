@@ -1,0 +1,97 @@
+---
+permalink: online-help-96-97/task_creating_svm.html
+sidebar: sidebar
+keywords: svm, create, storage, virtual, machine, online, help
+summary: "You can use the Storage Virtual Machine (SVM) window to create fully configured SVMs. The SVMs serve data after storage objects are created on these SVMs."
+---
+= Create an SVM with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+In ONTAP System Manager classic (available in ONTAP 9.7 and earlier), you can use the Storage Virtual Machine (SVM) window to create fully configured SVMs. The SVMs serve data after storage objects are created on these SVMs.
+
+.Before you begin
+
+* You must have created an aggregate and the aggregate must be online.
+* You must have ensured that the aggregate has sufficient space for the SVM root volume.
+
+.Steps
+
+. Enter a name for the SVM.
+. Select data protocols for the SVM:
++
+[options="header"]
+|===
+| If you want to...| Then...
+a|
+Enable CIFS protocol by configuring the CIFS server using an Active Directory
+a|
+
+ .. Select the *Active Directory* box.
+ .. Enter the Active Directory administrator name.
+ .. Enter the Active Directory administrator password.
+ .. Enter a name for the CIFS server.
+ .. Enter a name for the Active Directory domain.
+ .. Depending on your requirements, select the *One data LIF on this SVM* or *One data LIF per node on this SVM* box.
+ .. Provide data LIF details such as IP address, netmask, gateway, and port.
+ .. Provide DNS details.
+
+a|
+Enable CIFS protocol by configuring the CIFS server using a workgroup
+a|
+
+ .. Select the *Workgroup* box.
+ .. Enter a name for the workgroup.
+ .. Enter a name for the CIFS server.
+ .. Depending on your requirements, select the *One data LIF on this SVM* or *One data LIF per node on this SVM* check box.
+ .. Provide data LIF details such as IP address, netmask, gateway, and port.
+
+a|
+Enable NFS protocol
+a|
+
+ .. Select the *NFS* box.
+ .. Depending on your requirements, select the *One data LIF on this SVM* or *One data LIF per node on this SVM* check box.
+ .. Provide data LIF details such as IP address, netmask, gateway, and port.
+
+a|
+Enable iSCSI protocol
+a|
+
+ .. Select the *iSCSI* box.
+ .. Provide data LIF details such as IP address, netmask, gateway, and port.
+
+a|
+Enable FC/FCoE protocol
+a|
+
+ .. Select the *FC/FCoE* box.
+ .. Select the FC/FCoE ports for FC or FCoE protocols.
++
+[NOTE]
+====
+Each node must have at least one correctly configured port for each protocol (FC and FCoE).
+====
+
+a|
+Enable NVMe protocol
+a|
+
+ .. Select the *NVMe* box.
+ .. Select the NVMe ports for NVMe protocols.
++
+[NOTE]
+====
+At least one NVMe capable adapter must be available in one of the nodes to configure NVMe.        Also, Beginning with ONTAP 9.5, at least one NVMe LIF must be configured for each node of a HA pair associated with the SVM. You can create a maximum of two NVMe LIFs for each node in the pair.
+
+====
+
+|===
+
+. *Optional:* Click the *Advanced Options* icon and provide details to configure advanced options such as the default language, security style, CIFS server details, and NFS details.
+. Click *Submit and Continue* to create the SVM.
+
+== What to do next
+
+If you have clicked *Submit and Continue*, you must verify the details that you have provided in the Summary window, and then click *Manage your Cluster* to launch System Manager, or click *Provision an Application* to provision storage applications, or click *Export Configuration* to download the configuration file.

@@ -1,0 +1,29 @@
+---
+permalink: online-help-96-97/task_zeroing_disks.html
+sidebar: sidebar
+keywords: zero, spare, disks, system, manager, erase, data, online, help
+summary: "You can use System Manager to erase all the data and to format the spare disks by writing zeros to the disk. These disks can then be used in new aggregates."
+---
+= Zero spare disks with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to erase all the data and to format the spare disks by writing zeros to the disk. These disks can then be used in new aggregates.
+
+.About this task
+
+When you zero the spare disks, all the spares in the cluster, including array LUNs, are zeroed. You can zero the spare disks for a specific node or for the entire cluster.
+
+.Steps
+
+. Click *Storage* > *Aggregates & Disks* > *Disks*.
+. In the *Disks* window, select the *Inventory* tab.
+. Click *Zero Spares*.
+. In the *Zero Spares* dialog box, select a node or "`All nodes`" from which you want to zero the disks.
+. Select the *Zero all non-zeroed spares* check box to confirm the zeroing operation.
+. Click *Zero Spares*.
+
+*Related information*
+
+xref:concept_storage_recommendations_for_creating_aggregates.adoc[Storage recommendations for creating aggregates]

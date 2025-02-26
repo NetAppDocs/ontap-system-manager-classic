@@ -1,0 +1,102 @@
+---
+permalink: online-help-96-97/reference_storage_tiers_window.html
+sidebar: sidebar
+keywords: online, help, storage, tier, window, command, button
+summary: "You can use the Storage Tiers window to view cluster-wide space details and to add and view aggregate details."
+---
+= Storage Tiers window in System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the Storage Tiers window in ONTAP System Manager classic (available in ONTAP 9.7 and earier) to view cluster-wide space details and to add and view aggregate details.
+
+The Internal Tier panel, or the Performance Tier panel if the cluster has all flash (all SSD) aggregates, displays cluster-wide space details such as the sum of the total sizes of all of the aggregates, the space used by the aggregates in the cluster, and the available space in the cluster.
+
+The Cloud Tier panel displays the total licensed cloud tiers in the cluster, the licensed space that is used in the cluster, and the licensed space that is available in the cluster. The Cloud Tier panel also displays the unlicensed cloud capacity that is used.
+
+Aggregates are grouped by type, and the aggregate panel displays details about the total aggregate space, space used, and the available space. If inactive (cold) data is available on a solid-state drive (SSD) or All Flash FAS aggregate, the amount of space it uses is also displayed. You can select the aggregate and perform any of the aggregate-related actions.
+
+== Command buttons
+
+* *Add Aggregate*
++
+Enables you to create an aggregate.
+
+* *Actions*
++
+Provides the following options:
+
+ ** *Change status to*
++
+Changes the status of the selected aggregate to one of the following statuses:
+
+  *** *Online*
++
+Read and write access to the volumes that are contained in this aggregate is allowed.
+
+  *** *Offline*
++
+Read and write access is not allowed.
+
+  *** *Restrict*
++
+Some operations such as parity reconstruction are allowed, but data access is not allowed.
+
+ ** *Add Capacity*
++
+Enables you to add capacity (HDDs or SSDs) to existing aggregates.
+
+ ** *Add Cache*
++
+Enables you to add cache disks (SSDs) to existing HDD aggregates or Flash Pool aggregates.
++
+You cannot add cache disks to FabricPool-enabled aggregates.
++
+This option is not available for a cluster containing nodes with All Flash Optimized personality.
+
+ ** *Mirror*
++
+Enables you to mirror the aggregates.
+
+ ** *Volume Move*
++
+Enables you to move a FlexVol volume.
+
+== Details area
+
+You can click the aggregate name to view detailed information about the aggregate.
+
+* *Overview tab*
++
+Displays detailed information about the selected aggregate, and displays a pictorial representation of the space allocation of the aggregate, the space savings of the aggregate, and the performance of the aggregate.
+
+* *Disk Information tab*
++
+Displays the disk layout information for the selected aggregate.
+
+* *Volumes tab*
++
+Displays details about the total number of volumes on the aggregate, the total aggregate space, and the space committed to the aggregate.
+
+* *Performance tab*
++
+Displays graphs that show the performance metrics of the aggregates, including throughput and IOPS. Performance metrics data for read, write, and total transfers is displayed for throughput and IOPS, and the data for SSDs and HDDs is recorded separately.
++
+Changing the client time zone or the cluster time zone impacts the performance metrics graphs. If you change the client time zone or the cluster time zone, you should refresh your browser to view the updated graphs.
+
+*Related information*
+
+xref:task_adding_cloud_tier.adoc[Adding a cloud tier]
+
+xref:task_attaching_aggregate_to_cloud_tier.adoc[Attaching an aggregate to a cloud tier]
+
+xref:task_deleting_cloud_tier.adoc[Deleting a cloud tier]
+
+xref:task_editing_cloud_tier.adoc[Editing a cloud tier]
+
+xref:task_provisioning_storage_through_aggregates.adoc[Provisioning storage through aggregates]
+
+xref:task_deleting_aggregates.adoc[Deleting aggregates]
+
+xref:task_editing_aggregates.adoc[Editing aggregates]

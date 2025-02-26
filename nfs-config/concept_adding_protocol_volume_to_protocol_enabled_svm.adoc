@@ -1,0 +1,16 @@
+---
+permalink: nfs-config/concept_adding_protocol_volume_to_protocol_enabled_svm.html
+sidebar: sidebar
+keywords: add, nfs, volume, svm, configure, configuring, export, policy, verify, access, unix, administration, host, client, access, add an nfs volume to an nfs-enabled svm
+summary: "Adding an NFS volume to an NFS-enabled SVM involves creating and configuring a volume, creating an export policy, and verifying access from a UNIX administration host. You can then configure NFS client access."
+---
+= Add an NFS volume to an NFS-enabled SVM
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Adding an NFS volume to an NFS-enabled SVM involves creating and configuring a volume, creating an export policy, and verifying access from a UNIX administration host. You can then configure NFS client access.
+
+.Before you begin
+
+NFS must be completely set up on the SVM.

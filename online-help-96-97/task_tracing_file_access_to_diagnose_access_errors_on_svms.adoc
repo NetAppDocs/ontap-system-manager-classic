@@ -1,0 +1,57 @@
+---
+permalink: online-help-96-97/task_tracing_file_access_to_diagnose_access_errors_on_svms.html
+sidebar: sidebar
+keywords: trace, file, access, diagnost, error, svm, system, manager, online, help
+summary: "Beginning with System Manager 9.6, you can diagnose CIFS or NFS file access errors on a storage virtual machine (SVM)."
+---
+= Trace file access to diagnose access errors on SVMs with System Manager
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with System Manager 9.6, you can diagnose CIFS or NFS file access errors on a storage virtual machine (SVM).
+
+.About this task
+
+File access issues, such as an "`access denied`" error, are likely to occur when there are problems with a share configuration, permissions, or user mapping. You can use System Manager to help you resolve file access problems by viewing the access trace results for the file or share that a user wants to access. System Manager shows whether the file or share has effective read, write, or execute permissions and the reasons why access is or is not effective.
+
+.Steps
+
+. Click *Storage* > *SVMs*.
+. Select the SVM that contains the files or shares for which file access errors were received.
+. Click *Trace File Access*.
++
+The Trace File Access window for the selected SVM shows the prerequisites and steps required to trace file access permissions.
+
+. Click *Continue* to begin the file tracing process.
+. Select the protocol that is used to access files or shares on the selected SVM.
+. In the *User Name* field, enter the name of the user who was trying to access the file or share.
+. *Optional:* Click image:../media/advanced_options.gif[] to specify more details to narrow the scope of the trace.
++
+The Advanced Options dialog window allows you to specify the following details:
+
+ ** *Client IP Address*: Specify the IP address of the client.
+ ** *File*: Specify the file name or file path to trace.
+ ** *Show in Trace Results*: Specify whether you want to view only access denied entries or all entries.
+Click *Apply* to apply the details you specified and to return to the Trace File Access window.
+
+. Click *Start Tracing*.
++
+The trace is initiated and a results table is displayed. The table is empty until users receive errors when requesting file access. The results table is refreshed every 15 seconds and displays messages in reverse chronological order.
+
+. Notify the affected user or users that they should try accessing the files within the next 60 minutes.
++
+Details of the denied file access requests are shown in the results table when errors occur for the specified username for the duration of the trace. The Reasons column identifies the problems that are preventing the user from accessing files and reasons why they occurred.
+
+. *Optional:* In the *Reasons* column of the result table, click *View Permissions* to view permissions for the file that the user is trying to access.
+ ** When the trace result shows a message saying that access is not granted for "Synchronize", "Read Control", "Read Attributes", "Execute", "Read EA", "Write", or "Read"', the message is indicating that the desired access has not been granted for the set of permissions listed. In order to view the actual permissions status, you need to view the permissions using the provided link.
+ ** If you specified the CIFS protocol, the Effective File and Share Permissions dialog box displays, listing both file and share permissions associated with the share and file that the user is trying to access.
+ ** If you specified the NFS protocol, the Effective File Permissions dialog box displays, listing the file permissions associated with the file that the user is trying to access.
+A check mark indicates that permissions are granted, and an "`X`" indicates that permissions are not granted.
+
++
+Click *OK* to return to the Trace File Access window.
+. *Optional:* The results table displays read-only data. You can perform the following actions with the results of the trace:
+ ** Click *Copy to Clipboard* to copy the results to the clipboard.
+ ** Click *Export Trace Results* to export the results to a comma-separatedvalues (CSV) file.
+. When you want to end the tracing operation, click *Stop Tracing*.

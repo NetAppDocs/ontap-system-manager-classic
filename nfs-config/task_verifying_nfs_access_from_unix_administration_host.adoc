@@ -1,0 +1,58 @@
+---
+permalink: nfs-config/task_verifying_nfs_access_from_unix_administration_host.html
+sidebar: sidebar
+keywords: configure, nfs, access, storage, virtual, machine, svm, verify, configuration, log, administration, host, read, data, verify nfs access from a unix administration host
+summary: "After you configure NFS access to storage virtual machine (SVM), you should verify the configuration by logging in to an NFS administration host and reading data from and writing data to the SVM."
+---
+= Verify NFS access from a UNIX administration host
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+After you configure NFS access to storage virtual machine (SVM), you should verify the configuration by logging in to an NFS administration host and reading data from and writing data to the SVM.
+
+.Before you begin
+
+* The client system must have an IP address that is allowed by the export rule you specified earlier.
+* You must have the login information for the root user.
+
+.Steps
+
+. Log in as the root user to the client system.
+. Enter `cd /mnt/` to change the directory to the mount folder.
+. Create and mount a new folder using the IP address of the SVM:
+ .. Enter `mkdir /mnt/folder` to create a new folder.
+ .. Enter `mount -t nfs -o nfsvers=3,hard IPAddress:/volume_name /mnt/folder` to mount the volume at this new directory.
+ .. Enter `cd folder` to change the directory to the new folder.
++
+The following commands create a folder named test1, mount the vol1 volume at the 192.0.2.130 IP address on the test1 mount folder, and change to the new test1 directory:
++
+----
+host# mkdir /mnt/test1
+host# mount -t nfs -o nfsvers=3,hard 192.0.2.130:/vol1 /mnt/test1
+host# cd /mnt/test1
+----
+. Create a new file, verify that it exists, and write text to it:
+ .. Enter `touch filename` to create a test file.
+ .. Enter `ls -l filename` to verify that the file exists.
+ .. Enter `cat >filename`, type some text, and then press Ctrl+D to write text to the test file.
+ .. Enter `cat filename` to display the content of the test file.
+ .. Enter `rm filename` to remove the test file.
+ .. Enter `cd ..` to return to the parent directory.
+
++
+----
+host# touch myfile1
+host# ls -l myfile1
+-rw-r--r-- 1 root root 0 Sep 18 15:58 myfile1
+host# cat >myfile1
+This text inside the first file
+host# cat myfile1
+This text inside the first file
+host# rm -r myfile1
+host# cd ..
+----
+
+.Results
+
+You have confirmed that you have enabled NFS access to the SVM.

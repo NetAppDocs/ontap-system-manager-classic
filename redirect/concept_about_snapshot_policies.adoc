@@ -1,0 +1,5 @@
+---
+permalink: online-help-96-97/concept_about_snapshot_policies.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_snapshot_policies.html
+---
+//2022-02-21, Created by Mairead sm-classic-rework

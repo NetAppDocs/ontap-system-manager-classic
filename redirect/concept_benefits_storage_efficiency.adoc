@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_benefits_storage_efficiency.html
+redirect: ontap/concepts/thin-provisioning-concept.html
+---

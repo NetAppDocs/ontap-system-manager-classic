@@ -1,0 +1,12 @@
+---
+permalink: expansion/task_verifying_cluster_is_ready_for_expansion.html
+sidebar: sidebar
+keywords: expand, cluster, verify, plan, configuration, require, network, information, add, replace, switch, verify the cluster is ready for expansion
+summary: "Before you start expanding a cluster, you must verify the planned configuration, gather the required network information, and add or replace switches, if necessary."
+---
+= Verify the cluster is ready for expansion
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before you start expanding a cluster, you must verify the planned configuration, gather the required network information, and add or replace switches, if necessary.

@@ -1,0 +1,65 @@
+---
+permalink: iscsi-config-rhel/task_verifying_that_host_can_write_to_read_fom_lun.html
+sidebar: sidebar
+keywords: multipath, device, verify, host, data, verify that the host can write to and read from a multipath device
+summary: "Before using a multipath device, you should verify that the host can write data to the multipath device and read it back."
+---
+= Verify that the host can write to and read from a multipath device
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before using a multipath device, you should verify that the host can write data to the multipath device and read it back.
+
+.Before you begin
+
+DM-Multipath must be configured on the Linux host for the storage cluster nodes you are accessing.
+
+.About this task
+
+If the storage cluster node that the multipath device corresponds to can be failed over to its partner node, you should verify reading the data while the node is failed over. This verification might not be possible if the storage cluster is in production use.
+
+.Steps
+
+. Run some I/O on the specified multipath device:
++
+`dd if=/dev/zero of=<multipath_device_name\>`
+. Verify that I/O is running on the multipath device, specifying the number of seconds to refresh statistics (for example, every two seconds, as shown):
++
+`iostat 2`
++
+When I/O is running on the multipath device, you can see the various I/O counters output change dynamically, indicating that I/O is running successfully on the multipath device.
++
+----
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+            0.00    0.00    0.01    0.00    0.00   99.98
+
+Device:            tps   Blk_read/s   Blk_wrtn/s   Blk_read   Blk_wrtn
+sda               0.18         1.34         2.29     832606    1428026
+dm-0              0.37         1.29         2.29     801530    1427984
+dm-1              0.00         0.00         0.00       2576          0
+dm-2              0.00         0.00         0.00       1770         24
+sdd               0.17         1.18        17.87     734688   11128584
+sde               0.17         1.18        18.01     734560   11219016
+sdf               0.00         0.00         0.00       1344          0
+sdg               0.00         0.00         0.00       1344          0
+dm-3              0.68         4.71        71.96    2932496   44816008
+sdh               0.17         1.18        18.22     734360   11343920
+sdi               0.17         1.18        17.86     734272   11124488
+sdj               0.00         0.00         0.00       1344          0
+sdk               0.00         0.00         0.00       1344          0
+.............
+----
+
+. If possible, run the `takeover` command on the storage cluster node:
++
+`storage failover takeover -ofnode <node_name\>`
+. Verify that I/O is still running on the multipath device by re-running the `iostat` command.
+. Run the `giveback` command on the storage cluster node:
++
+`storage failover giveback -ofnode <node_name\>`
+. Check `iostat` output to verify that I/O is still running.
+
+== What to do next
+
+If any of the tests fail, verify that the iSCSI service is running and re-check the DM-Multipath configuration and the iSCSI paths to the multipath device.

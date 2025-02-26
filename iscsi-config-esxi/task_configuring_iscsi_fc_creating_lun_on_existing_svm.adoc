@@ -1,0 +1,41 @@
+---
+permalink: iscsi-config-esxi/task_configuring_iscsi_fc_creating_lun_on_existing_svm.html
+sidebar: sidebar
+keywords: configure, iscsi, exist, storage, virtual, machine, svm, protocol, enable, configure iscsi on an existing svm
+summary: "You can configure iSCSI on an existing storage virtual machine (SVM). The iSCSI protocol must already be enabled but not configured on the SVM. This information is intended for SVMs for which you are configuring multiple protocols, but have not yet configured iSCSI."
+---
+= Configure iSCSI on an existing SVM
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can configure iSCSI on an existing storage virtual machine (SVM). The iSCSI protocol must already be enabled but not configured on the SVM. This information is intended for SVMs for which you are configuring multiple protocols, but have not yet configured iSCSI.
+
+.Before you begin
+
+You must have enough network addresses available to create two LIFs for each node.
+
+.Steps
+
+. Navigate to the *SVMs* window.
+. Select the SVM that you want to configure.
+. In the SVM **Details** pane, verify that *iSCSI* is displayed with a gray background, which indicates that the protocol is enabled but not fully configured.
++
+If *iSCSI* is displayed with a green background, the SVM is already configured.
++
+image::../media/existing_svm_protocols_iscsi_esxi.gif[Image shows the details page with all four protocols having gray backgrounds.]
+
+. Click the *iSCSI* protocol link with the gray background.
++
+The Configure iSCSI Protocol window is displayed.
+
+. Configure the iSCSI service and LIFs from the *Configure iSCSI protocol* page:
+ .. Enter a target alias name.
+ .. Enter `*2*` in the *LIFs per node* field.
++
+Two LIFs are required for each node to ensure availability and data mobility.
+
+ .. Assign IP addresses for the LIFs either with a subnet or without a subnet.
+ .. Ignore the optional *Provision a LUN for iSCSI storage* area, because the LUN is provisioned by Virtual Storage Console for VMware vSphere in a later step.
+ .. Click *Submit & Close*.
+. Review the *Summary* page, record the LIF information, and then click *OK*.

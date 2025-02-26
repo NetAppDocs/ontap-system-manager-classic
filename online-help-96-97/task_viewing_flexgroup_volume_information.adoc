@@ -1,0 +1,34 @@
+---
+permalink: online-help-96-97/task_viewing_flexgroup_volume_information.html
+sidebar: sidebar
+keywords: flexgroup, volume, graphical, online, help, system, manager
+summary: "You can use System Manager to view information about a FlexGroup volume. You can view a graphical representation of the space allocated, the protection status, and the performance of a FlexGroup volume."
+---
+= View FlexGroup volume information with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to view information about a FlexGroup volume. You can view a graphical representation of the space allocated, the protection status, and the performance of a FlexGroup volume.
+
+.About this task
+
+You can also view the Snapshot copies that are available for the FlexGroup volume, the data protection relationships for the FlexGroup volume, and the average performance metrics, read performance metrics, and write performance metrics of the FlexGroup volume based on latency, IOPS, and throughput.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. From the displayed list of FlexGroup volumes, select the FlexGroup volume about which you want to view information.
++
+The information about the FlexGroup volume, the space allocated to the FlexGroup volume, the protection status of the FlexGroup volume, and the performance information about the FlexGroup volume are displayed.
+
+. Click the *Show More Details* link to view more information about the FlexGroup volume.
+. Click the *Snapshot Copies* tab to view the Snapshot copies of the FlexGroup volume.
+. Click the *Data Protection* tab to view the data protection relationships for the FlexGroup volume.
+. Click the *Storage Efficiency* tab to view the storage efficiency settings.
+. Click the *Performance* tab to view the average performance metrics, read performance metrics, and write performance metrics of the FlexGroup volume based on latency, IOPS, and throughput.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

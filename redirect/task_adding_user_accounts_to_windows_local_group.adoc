@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_adding_user_accounts_to_windows_local_group.html
+redirect: ontap-system-manager-classic/online-help-96-97/task_editing_local_windows_group_properties.html
+---

@@ -1,0 +1,38 @@
+---
+permalink: volume-move/task_updating_lun_reporting_nodes_after_moving_volume.html
+sidebar: sidebar
+keywords: volume, move, lun, ha, pair, remote, node, lun, map, slm, reporting-node, partner, lun reporting nodes
+summary: "If the volume that you moved contained LUNs and the volume is now on a different HA pair, you should remove all remote nodes from the Selective LUN Map (SLM) reporting-nodes list. The LUN map then contains only the owner node and its HA partner, which ensures that only optimized LUN paths are used."
+---
+= Update LUN reporting nodes after moving a volume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+If the volume that you moved contained LUNs and the volume is now on a different HA pair, you should remove all remote nodes from the Selective LUN Map (SLM) reporting-nodes list. The LUN map then contains only the owner node and its HA partner, which ensures that only optimized LUN paths are used.
+
+.About this task
+
+This procedure is necessary only if you moved the volume from its HA pair to a different HA pair. If the volume is on a different node of the same HA pair, you can skip this procedure.
+
+.Steps
+
+. Remove all of the remote nodes from the reporting-nodes list by using the `lun mapping remove-reporting-nodes` command with the `-remote-nodes` parameter.
++
+----
+cluster1::> lun mapping remove-reporting-nodes -vserver SVM1 -volume vol1 -igroup ig1 -remote-nodes true
+----
+
+. Verify that the LUN map contains only the owner node and its partner by using the `lun mapping show` command with the `-fields reporting-nodes` parameter.
++
+----
+cluster1::> lun mapping show -vserver SVM1 -volume vol1 -fields reporting-nodes
+vserver  path        igroup   reporting-nodes
+-------- ----------- -------- ---------------------------------------------
+SVM1     /vol/vol1   ig1      cluster1-3,cluster1-4
+----
+
+. Remove stale device entries for the host operating system.
+. Rescan from the host to refresh the host's available paths.
++
+See your host documentation for specific steps to rescan your hosts.

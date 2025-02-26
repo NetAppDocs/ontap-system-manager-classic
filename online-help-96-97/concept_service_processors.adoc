@@ -1,0 +1,130 @@
+---
+permalink: online-help-96-97/concept_service_processors.html
+sidebar: sidebar
+keywords: service, processors, monitor, manage, storage, system, manager, temperature, voltage, current, fan, speed, online, help, isolate, management, network, traffic, sp, bmc, e0m, interface, subnet, performance, routing, ip, address, edit
+summary: "You can use a Services Processor to monitor and manage your storage system parameters such as temperature, voltage, current, and fan speeds through System Manager."
+---
+= Use a Service Processor with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use a Services Processor with ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to monitor and manage your storage system parameters such as temperature, voltage, current, and fan speeds.
+
+== Isolate management network traffic
+
+It is a best practice to configure SP/BMC and the e0M management interface on a subnet dedicated to management traffic. Running data traffic over the management network can cause performance degradation and routing problems.
+
+The management Ethernet port on most storage controllers (indicated by a wrench icon on the rear of the chassis) is connected to an internal Ethernet switch. The internal switch provides connectivity to SP/BMC and to the e0M management interface, which you can use to access the storage system via TCP/IP protocols like Telnet, SSH, and SNMP.
+
+
+If you plan to use both the remote management device and e0M, you must configure them on the same IP subnet. Since these are low-bandwidth interfaces, the best practice is to configure SP/BMC and e0M on a subnet dedicated to management traffic.
+
+If you cannot isolate management traffic, or if your dedicated management network is unusually large, you should try to keep the volume of network traffic as low as possible. Excessive ingress broadcast or multicast traffic may degrade SP/BMC performance.
+
+[NOTE]
+====
+Some storage controllers, such as the AFF A800, have two external ports, one for BMC and the other for e0M. For these controllers, there is no requirement to configure BMC and e0M on the same IP subnet.
+====
+
+== Assign IP addresses to Service Processors
+
+You can use System Manager to assign IP addresses to all of your Service Processors at the same time and to use these Service Processors to monitor and manage various system parameters of your storage systems.
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Configuration Updates*.
+. In the *Service Processor* window, click *Global Settings*.
+. In the *Global Settings* dialog box, choose the source for assigning the IP addresses:
++
+[options="header"]
+|===
+| If you want to...| Then...
+a|
+Assign IP addresses automatically from a DHCP server
+a|
+Select *DHCP*.
+a|
+Assign IP addresses from a subnet
+a|
+Select *Subnet*.
+a|
+Manually provide IP addresses
+a|
+Select *Manual Assignment*.
+|===
+
+. Click *Save*.
+
+== Edit Service Processor settings
+
+You can modify Service Processor attributes, such as the IP address, the network mask or the prefix length, and the gateway address, by using System Manager. You can also allocate IP addresses to Service Processors that do not have any IP addresses assigned.
+
+.About this task
+
+* You can edit the settings of a Service Processor that was assigned an IP address manually.
+* You cannot edit the settings of a Service Processor that was assigned an IP address through a DHCP server or through a subnet.
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Service Processor*.
+. In the *Service Processor* window, select the Service Processor that you want to modify, and then click *Edit*.
+. In the *Edit Service Processor* dialog box, make the required changes, and then click *Save and Close*.
+
+== Understand the Service Processor
+
+A Service Processor is a system-independent resource in the storage system that helps you to monitor and manage storage system parameters such as temperature, voltage, current, and fan speeds.
+
+When the Service Processor detects an abnormal condition in any of the storage system parameters, the Service Processor logs an event, notifies ONTAP about the issue, and generates AutoSupport messages through email or through SNMP traps.
+
+The Service Processor monitors ONTAP through a watchdog mechanism and can facilitate a quick failover to the partner node. The Service Processor also tracks numerous system events and saves the events in a log file. The events include boot progress, field-replaceable unit (FRU) changes, ONTAP generated events, and user transaction history.
+
+The Service Processor can remotely log in and administer the storage system and can diagnose, shut down, power cycle, or reboot the system, regardless of the state of the storage system. In addition, the Service Processor provides remote diagnostic features.
+
+The combined monitoring and managing capabilities of the Service Processor enables you to evaluate the storage system in the event of an issue, and then immediately perform effective service actions.
+
+== Service Processors window
+
+You can use the Service Processors window to view and modify Service Processors attributes, such as the IP address, network mask (IPv4) or prefix-length (IPv6), and gateway, and to configure the IP source for a Service Processor.
+
+=== Command buttons
+
+* *Edit*
++
+Opens the Edit Service Processor dialog box, which enables you to modify the IP address, network mask (IPv4) or prefix-length (IPv6), and gateway information of a Service Processor.
+
+* *Global Settings*
++
+Opens the Global Settings dialog box, which allows you to configure the source of IP address for all your Service Processors as one of the following: DHCP, subnet, or manual.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Service processors list
+
+* *Node*
++
+Specifies the node on which the Service Processor is located.
+
+* *IP Address*
++
+Specifies the IP addresses of the Service Processor.
+
+* *Status*
++
+Specifies the status the Service Processor, which can be online, offline, daemon offline, node offline, degraded, rebooted, or unknown.
+
+* *MAC Address*
++
+Specifies the MAC address of the Service Processor.
+
+=== Details area
+
+The area below the Service Processor list displays detailed information about the Service Processor, including network details, such as the IP address, network mask (IPv4) or prefix-length (IPv6), gateway, IP source, and MAC address, as well as general details, such as the firmware version and whether automatic update of the firmware is enabled.
+
+*Related information*
+
+xref:task_setting_up_network_when_ip_address_range_is_disabled.adoc[Setting up a network when an IP address range is disabled]
+
+// 2021-12-08, Created by Aoife, sm-classic rework

@@ -1,0 +1,178 @@
+---
+permalink: online-help-96-97/concept_aggregates.html
+sidebar: sidebar
+keywords: aggregates, system, manager, security, backup, performance, data, sharing, classic, online, help, window
+summary: "You can use System Manager to create aggregates to support the differing security, backup, performance, and data sharing requirements of your users."
+---
+= Manage aggregates with System Manager - ONTAP 9.7 and earlier
+
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create aggregates to support the differing security, backup, performance, and data sharing requirements of your users.
+
+== Aggregates window
+
+You can use the Aggregates window to create, display, and manage information about aggregates.
+
+=== Command buttons
+
+* *Create*
++
+Opens the Create Aggregate dialog box, which enables you to create an aggregate.
+
+* *Edit*
++
+Opens the Edit Aggregate dialog box, which enables you to change the name of an aggregate or the level of RAID protection that you want to provide for the aggregate.
+
+* *Delete*
++
+Deletes the selected aggregate.
++
+[NOTE]
+====
+This button is disabled for the root aggregate.
+====
+
+* *More Actions*
++
+Provides the following options:
+
+* *Change status to*
++
+Changes the status of the selected aggregate to one of the following statuses:
+
+ ** Online
++
+Read and write access to the volumes that are contained in this aggregate is allowed.
+
+ ** Offline
++
+Read and write access is not allowed.
+
+ ** Restrict
++
+Some operations--such as parity reconstruction--are allowed, but data access is not allowed.
+
+* *Add Capacity*
++
+Enables you to add capacity (HDDs or SSDs) to existing aggregates.
+
+* *Add Cache*
++
+Enables you to add cache disks (SSDs) to existing HDD aggregates or Flash Pool aggregates.
++
+This button is not available for a cluster containing nodes with All Flash Optimized personality.
+
+* *Mirror*
++
+Enables you to mirror the aggregates.
+
+* *Volume Move*
++
+Enables you to move a FlexVol volume.
+
+* *Attach Cloud Tier*
++
+Enables you to attach a cloud tier to the aggregate.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Aggregate list
+
+Displays the name and the space usage information for each aggregate.
+
+* *Status*
++
+Displays the status of the aggregate.
+
+* *Name*
++
+Displays the name of the aggregate.
+
+* *Node*
++
+Displays the name of the node to which the disks of the aggregate are assigned.
++
+This field is available only at the cluster level.
+
+* *Type*
++
+Displays the type of the aggregate.
++
+This field is not displayed for a cluster containing nodes with All Flash Optimized personality.
+
+* *Used (%)*
++
+Displays the percentage of space that is used in the aggregate.
+
+* *Available Space*
++
+Displays the available space in the aggregate.
+
+* *Used Space*
++
+Displays the amount of space that is used for data in the aggregate.
+
+* *Total Space*
++
+Displays the total space of the aggregate.
+
+* *FabricPool*
++
+Displays whether the selected aggregate is attached to a cloud tier.
+
+* *Cloud Tier*
++
+If the selected aggregate is attached to a cloud tier, it displays the name of the cloud tier.
+
+* *Volume Count*
++
+Displays the number of volumes that are associated with the aggregate.
+
+* *Disk Count*
++
+Displays the number of disks that are used to create the aggregate.
+
+* *Flash Pool*
++
+Displays the total cache size of the Flash Pool aggregate. A value of NA indicates that the aggregate is not a Flash Pool aggregate.
++
+This field is not displayed for a cluster containing nodes with All Flash Optimized personality.
+
+* *Mirrored*
++
+Displays whether the aggregate is mirrored.
+
+* *SnapLock Type*
++
+Displays the SnapLock type of the aggregate.
+
+=== Details area
+
+Select an aggregate to view information about the selected aggregate. You can click Show More Details to view detailed information about the selected aggregate.
+
+* *Overview tab*
++
+Displays detailed information about the selected aggregate, and displays a pictorial representation of the space allocation of the aggregate, the space savings of the aggregate, and the performance of the aggregate in IOPS and total data transfers.
+
+* *Disk Information tab*
++
+Displays disk layout information such as the name of the disk, disk type, physical size, usable size, disk position, disk status, plex name, plex status, RAID group, RAID type, and storage pool (if any) for the selected aggregate. The disk port that is associated with the disk primary path and the disk name with the disk secondary path for a multipath configuration are also displayed.
+
+* *Volumes tab*
++
+Displays details about the total number of volumes on the aggregate, total aggregate space, and the space committed to the aggregate.
+
+* *Performance tab*
++
+Displays graphs that show the performance metrics of the aggregates, including throughput and IOPS. Performance metrics data for read, write, and total transfers is displayed for throughput and IOPS, and the data for SSDs and HDDs is recorded separately.
++
+Changing the client time zone or the cluster time zone impacts the performance metrics graphs. You should refresh your browser to view the updated graphs.
+
+*Related information*
+
+xref:task_provisioning_storage_through_aggregates.adoc[Provisioning storage through aggregates]
+
+xref:task_deleting_aggregates.adoc[Deleting aggregates]
+
+xref:task_editing_aggregates.adoc[Editing aggregates]

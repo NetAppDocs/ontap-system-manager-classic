@@ -1,0 +1,16 @@
+---
+permalink: fc-config-windows/concept_fc_configuration_workflow.html
+sidebar: sidebar
+keywords: storage, available, host, fc, provision, volume, lun, storage, virtual, machine, svm, connect, fc configuration workflow
+summary: "When you make storage available to a host using FC, you provision a volume and LUN on the storage virtual machine, and then connect to the LUN from the host."
+---
+= FC configuration workflow
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When you make storage available to a host using FC, you provision a volume and LUN on the storage virtual machine (SVM), and then connect to the LUN from the host.
+
+image::../media/fc_windows_workflow.png[This illustration is a flowchart of the FC workflow. The steps in the workflow match the topics.]
+
+// BURT 1448684, 31 JAN 2022

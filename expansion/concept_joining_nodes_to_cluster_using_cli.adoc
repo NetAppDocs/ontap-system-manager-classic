@@ -1,0 +1,117 @@
+---
+permalink: expansion/concept_joining_nodes_to_cluster_using_cli.html
+sidebar: sidebar
+keywords: install, controller, module, cluster, setup, command, join nodes to the cluster using the cli
+summary: "When the newly installed controller modules are ready, you can add each one to the cluster by using the cluster setup command."
+---
+= Join nodes to the cluster using the CLI
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When the newly installed controller modules are ready, you can add each one to the cluster by using the `cluster setup` command.
+
+.About this task
+
+* You must perform this procedure on both nodes.
+* You must join each node one at a time, not concurrently.
+
+.Steps
+
+. [[step1]]Start the Cluster Setup wizard by using the `cluster setup` command at the CLI prompt.
++
+----
+::> cluster setup
+
+Welcome to the cluster setup wizard....
+
+Use your web browser to complete cluster setup by accessing
+https://10.63.11.29
+
+Otherwise, press Enter to complete cluster setup using the
+command line interface:
+----
++
+[NOTE]
+====
+For instructions using the GUI-based cluster setup wizard, see xref:task_adding_nodes_to_cluster_using_system_manager.html[Adding nodes to the cluster using System Manager].
+====
+
+. Press Enter to use the CLI to complete this task. When prompted to create a new cluster or join an existing one, enter `join`.
++
+----
+Do you want to create a new cluster or join an existing cluster? {create, join}:
+join
+----
+
+. When prompted with the existing cluster interface configuration, press `Enter` to accept it.
++
+----
+Existing cluster interface configuration found:
+
+Port    MTU     IP              Netmask
+e1a     9000    169.254.87.75   255.255.0.0
+
+Do you want to use this configuration? {yes, no} [yes]:
+----
+
+. Follow the prompts to join the existing cluster.
++
+----
+Step 1 of 3: Join an Existing Cluster
+You can type "back", "exit", or "help" at any question.
+
+Enter the name of the cluster you would like to join [cluster1]: cluster1
+
+Joining cluster cluster1
+
+Starting cluster support services ..
+
+This node has joined the cluster cluster1.
+
+Step 2 of 3: Configure Storage Failover (SFO)
+You can type "back", "exit", or "help" at any question.
+
+SFO will be enabled when the partner joins the cluster.
+
+Step 3 of 3: Set Up the Node
+
+Cluster setup is now complete.
+----
++
+The node is automatically renamed to match the name of the cluster.
+
+. [[step5]]On the cluster, verify that the node is part of the cluster by using the `cluster show` command.
++
+----
+cluster1::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+cluster1-1            true    true
+cluster1-2            true    true
+cluster1-3            true    true
+3 entries were displayed.
+----
+
+. Repeat link:#step1[step 1] through link:#step5[step 5] for the second newly installed controller module.
++
+The Cluster Setup wizard differs on the second node in the following ways:
+
+ ** It defaults to joining the existing cluster because its partner is already part of a cluster.
+ ** It automatically enables storage failover on both nodes.
+
+. Verify that storage failover is enabled and possible by using the `storage failover show` command.
++
+The following output shows that storage failover is enabled and possible on all nodes of the cluster, including the newly added nodes:
++
+----
+cluster1::> storage failover show
+                              Takeover
+Node           Partner        Possible State
+-------------- -------------- -------- -------------------------------------
+cluster1-1     cluster1-2     true     Connected to cluster1-2
+cluster1-2     cluster1-1     true     Connected to cluster1-1
+cluster1-3     cluster1-4     true     Connected to cluster1-3
+cluster1-4     cluster1-3     true     Connected to cluster1-4
+4 entries were displayed.
+----

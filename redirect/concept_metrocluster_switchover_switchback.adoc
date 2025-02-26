@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_metrocluster_switchover_switchback.html
+redirect: online-help-96-97/concept_metrocluster_switchover_switchback_workflow.html
+---

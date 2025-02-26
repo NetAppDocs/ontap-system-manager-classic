@@ -1,0 +1,27 @@
+---
+permalink: online-help-96-97/task_editing_flexcache_volumes.html
+sidebar: sidebar
+keywords: online, help, edit, flexcache, vaolume, system, manager
+summary: "Beginning with System Manager 9.6, you can edit the properties of an existing FlexCache volume."
+---
+= Editing FlexCache volumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with System Manager 9.6, you can edit the properties of an existing FlexCache volume.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Select the FlexCache volume that you want to modify, and click *Edit*.
+. *Optional:* Enter a new name for the FlexCache volume in the *Volume* field under *FlexCache Volume*.
+. *Optional:* Enter a new size for the FlexCache volume in the *Size* field under *FlexCache Volume*, and select the measurement unit from the drop-down menu.
+. *Optional:* Enable or disable encryption.
+. *Optional:* Click image:../media/advanced_options.gif[] to modify the FlexCache volume advanced settings. Refer to link:task_specifying_advanced_options_for_flexcache_volume.html[Specifying advanced options for a FlexCache volume].
+. Click *Save* to save the changes.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

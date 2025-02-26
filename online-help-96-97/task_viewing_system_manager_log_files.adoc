@@ -1,0 +1,51 @@
+---
+permalink: online-help-96-97/task_viewing_system_manager_log_files.html
+sidebar: sidebar
+keywords: view, ontap, system, manager, log, file, online, help
+summary: "If you encounter any issues when using System Manager, you can send the log files to technical support to help troubleshoot the issues. The System Manager log files are located in the mlog directory along with the ONTAP log files."
+---
+= View System Manager log files - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+If you encounter any issues when using ONTAP System Manager classic (available in ONTAP 9.7 and earlier), you can send the log files to help troubleshoot the issues if directed by NetApp Support. The System Manager log files are located in the `mlog` directory along with the ONTAP log files.
+
+.Steps
+
+. Identify the node that hosts the cluster management LIF.
+. Enter the following URL in a web browser: `+https://cluster-mgmt-LIF/spi+`
++
+`cluster-mgmt-LIF` is the IP address of the cluster management LIF.
+
+. Type your cluster administrator credentials, and then click *OK*.
+. In the *Data ONTAP - Root Volume File Access* window, click the *logs* link for the node that hosts the cluster management LIF.
+. Navigate to the `mlog` directory to access the System Manager log files.
++
+You might require the following log files, depending on the type of issue that you encountered:
+
+ ** `sysmgr.log`
++
+This file contains the latest logs for System Manager.
+
+ ** `mgwd.log`
+ ** `php.log`
+ ** `apache_access.log`
+ ** `messages.log`
+
+== How system logging works
+
+System logging is an essential tool for application troubleshooting. You should enable system logging so that if there is a problem with an application, the problem can be located. You can enable System Manager logging at runtime without modifying the application binary.
+
+Log output can be voluminous and therefore can become difficult to manage. System Manager enables you to refine the logging output by selecting which type of log statements are output. By default, system logging is set to INFO. You can choose one of the following log levels:
+
+ * OFF
+ * ERROR
+ * WARN
+ * INFO
+ * DEBUG
+
+These levels function hierarchically. A log level set to OFF indicates no logging of messages.
+
+// 2022-06-14, BURT 1485039
+// 2022-03-23, sm-classic rework, created by Aoife

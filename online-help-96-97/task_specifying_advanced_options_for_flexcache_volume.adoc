@@ -1,0 +1,26 @@
+---
+permalink: online-help-96-97/task_specifying_advanced_options_for_flexcache_volume.html
+sidebar: sidebar
+keywords: flexcache, volume, online, help, advanced, options, specify
+summary: "Beginning with System Manager 9.6, when you edit a FlexCache volume, you can specify the advanced options that you want to associate with the FlexCache volume."
+---
+= Specifying advanced options for a FlexCache volume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with System Manager 9.6, when you edit a FlexCache volume, you can specify the advanced options that you want to associate with the FlexCache volume.
+
+.Steps
+
+. *Optional:* In the *Edit FlexCache volume* window, click image:../media/advanced_options.gif[] to specify the advanced options.
++
+The Advanced Options window displays. It contains sections (the headings in the left column), in which you can specify various options.
+
+. *Optional:* In the *General Details* section, you can edit the permissions for the volume.
+. In the *Aggregates* section, you can enable the *Select Aggregates* toggle button to override the best practices defaults and select your choices from a list of aggregates.
+. In the *Storage Efficiency* section, you can enable compression and deduplication on the volume.
++
+Deduplication is not enabled by default for FlexCache volumes. System Manager uses the default deduplication schedule if the specified volume size exceeds the limit that is required for running deduplication.
+
+. Click *Apply* to update the changes.

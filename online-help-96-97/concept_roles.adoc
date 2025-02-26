@@ -1,0 +1,82 @@
+---
+permalink: online-help-96-97/concept_roles.html
+sidebar: sidebar
+keywords: system, manager, role, create, user, access, control, online, help
+summary: "You can use System Manager to create access-controlled user roles."
+---
+= Manage roles with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create access-controlled user roles.
+
+== Add roles
+
+You can use System Manager to add an access-control role and to specify the command or command directory that users of the role can access. You can also control the level of access that the role has to the command or command directory, and you can specify a query that applies to the command or command directory.
+
+.Steps
+
+. Click *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[]*.
+. In the *Management* pane, click *Roles*.
+. In the *Roles* window, click *Add*.
+. In the *Add Role* dialog box, type the role name and add the role attributes.
+. Click *Add*.
+
+== Edit roles
+
+You can use System Manager to modify an access-control role's access to a command or command directory and to restrict a user's access to only a specified set of commands. You can also remove a role's access to the default command directory.
+
+.Steps
+
+. Click *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[]*.
+. In the *Management* pane, click *Roles*.
+. In the *Roles* window, select the role that you want to modify, and then click *Edit*.
+. In the *Edit Role* dialog box, modify the role attributes, and then click *Modify*.
+. Verify the changes that you made in the *Roles* window.
+
+== Roles and permissions
+
+The cluster administrator can restrict a user's access to only a specified set of commands by creating a restricted access-control role and then assigning the role to a user.
+
+You can manage access-control roles in the following ways:
+
+* By creating an access-control role, and then specifying the command or command directory that the role's users can access.
+* By controlling the level of access that the role has for the command or command directory, and then specifying a query that applies to the command or command directory.
+* By modifying an access-control role's access to a command or command directory.
+* By displaying information about access-control roles, such as the role name, the command or command directory that a role can access, the access level, and the query.
+* By deleting an access-control role.
+* By restricting a user's access to only a specified set of commands.
+* By displaying ONTAP APIs and their corresponding command-line interface (CLI) commands.
+
+== Roles window
+
+You can use the Roles window to manage the roles that are associated with user accounts.
+
+=== Command buttons
+
+* *Add*
++
+Opens the Add Role dialog box, which enables you to create an access-control role and specify the command or command directory that the role's users can access.
+
+* *Edit*
++
+Opens the Edit Role dialog box, which enables you to add or modify role attributes.
+
+* *Refresh*
++
+Updates the information in the window.
+
+=== Roles list
+
+The roles list provides a list of roles that are available to be assigned to users.
+
+=== Role Attributes area
+
+The details area displays the role attributes, such as the command or command directory that the selected role can access, the access level, and the query that applies to the command or command directory.
+
+*Related information*
+
+https://docs.netapp.com/us-en/ontap/authentication/index.html[Administrator authentication and RBAC^]
+
+// 2021-12-10, Created by Aoife, sm-classic rework

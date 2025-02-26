@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/task_changing_fc_or_fcoe_node_name.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_fc_fcoe_protocol.html
+---

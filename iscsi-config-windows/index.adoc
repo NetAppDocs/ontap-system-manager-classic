@@ -1,0 +1,40 @@
+---
+permalink: iscsi-config-windows/index.html
+sidebar: sidebar
+keywords: iscsi, service, storage, virtual, machine, svm, provision, lun, isvsi, initiator, windows, host, computer
+summary: "Using the ONTAP System Manager classic interface (ONTAP 9.7 and earlier), you can quickly set up the iSCSI service on a storage virtual machine (SVM), provision a LUN, and make the LUN available using an iSCSI initiator on a Windows host computer."
+---
+= iSCSI configuration for Windows overview
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Using the ONTAP System Manager classic interface (ONTAP 9.7 and earlier), you can quickly set up the iSCSI service on a storage virtual machine (SVM), provision a LUN, and make the LUN available using an iSCSI initiator on a Windows host computer.
+
+These procedures are based on the following assumptions:
+
+* You are using the Microsoft iSCSI software initiator on Windows Server 2008 or Windows Server 2012.
+* Your network uses IPv4 addressing.
+* You want to assign addresses to logical interfaces using any of the following methods:
+ ** Automatically, from a subnet you define
+ ** Manually, using an address selected from an existing subnet
+ ** Manually, using an address that will be added to an existing subnet
+* You are not configuring iSCSI SAN boot.
+
+For more information on how to configure your specific host with ONTAP, see https://docs.netapp.com/us-en/ontap-sanhost/index.html[ONTAP SAN Host Configuration].
+
+For additional details about SAN administration, consult the https://docs.netapp.com/us-en/ontap/san-admin/index.html[ONTAP 9 SAN administration overview]
+
+
+== Other ways to do this in ONTAP
+
+|===
+
+h| To complete this task using... h| Refer to...
+
+| The redesigned System Manager (available with 9.7 and later) | https://docs.netapp.com/us-en/ontap/task_san_provision_windows.html[Provision SAN storage for Windows servers]
+| The ONTAP command line interface (CLI) | https://docs.netapp.com/us-en/ontap/san-admin/lun-setup-workflow-concept.html[LUN setup workflow with the CLI]
+|===
+
+// BURT 1449741, 11 JAN 2022
+// BURT 1448684, 31 JAN 2022

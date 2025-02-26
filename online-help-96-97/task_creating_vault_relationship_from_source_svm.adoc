@@ -1,0 +1,99 @@
+---
+permalink: online-help-96-97/task_creating_vault_relationship_from_source_svm.html
+sidebar: sidebar
+keywords: system, manager, online, help, vault, policy, relationship, create, source
+summary: "You can use System Manager to create a vault relationship from the source storage virtual machine (SVM), and to assign a vault policy to the vault relationship to create a backup vault. In the event of data loss or corruption on a system, backed-up data can be restored from the backup vault destination."
+---
+= Create a vault relationship from a source SVM with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create a vault relationship from the source storage virtual machine (SVM), and to assign a vault policy to the vault relationship to create a backup vault. In the event of data loss or corruption on a system, backed-up data can be restored from the backup vault destination.
+
+.Before you begin
+
+* The SnapVault license or SnapMirror license must be enabled on both the source cluster and the destination cluster.
++
+[NOTE]
+====
+
+* For some platforms, it is not mandatory for the source cluster to have the SnapVault license or the SnapMirror license enabled if the destination cluster has the SnapVault license or the SnapMirror license, and the Data Protection Optimization \(DPO\) license enabled.
+* After the DPO license is enabled on the destination cluster, you must refresh the browser of the source cluster to enable the `Protect` option.
+
+====
+
+* The source cluster and destination cluster and the source SVM and destination SVM must be in a healthy peer relationship.
+* The destination aggregate must have space available.
+* The source aggregate and the destination aggregate must be 64-bit aggregates.
+* A vault (XDP) policy must exist.
++
+If a vault policy does not exist, you must create a vault policy or accept the default vault policy (named XDPDefault) that is automatically assigned.
+
+* FlexVol volumes must be online and of type read/write.
+* The SnapLock aggregate type must be the same.
+* A maximum of 25 volumes can be protected in one selection.
+* If you are connecting from a cluster running ONTAP 9.2 or earlier to a remote cluster on which Security Assertion Markup Language (SAML) authentication is enabled, password-based authentication must be enabled on the remote cluster.
+
+.About this task
+
+* System Manager does not support a cascade relationship.
++
+For example, a destination volume in a relationship cannot be the source volume in another relationship.
+
+* You can create a lock-vault relationship only between a non-SnapLock (primary) volume and a SnapLock destination (secondary) volume.
+* If encryption is enabled on the source volume and the destination cluster is running a version of ONTAP software earlier than ONTAP 9.3, then encryption is disabled on the destination volume by default.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. From the drop-down menu in the *SVM* field, select *All SVMs*.
+. Select the volumes for which you want to create vault relationships, and then click *More Actions* > *Protect*.
++
+The *Protect* option is available only for a read/write volume.
+
+. Select the *Replication* type:
++
+[options="header"]
+|===
+| If you selected the replication type as...| Do this...
+a|
+Asynchronous
+a|
+
+ .. *Optional:* If you do not know the replication type and relationship type, click *Help me Choose*, specify the values, and then click *Apply*.
+ .. Select the relationship type.
++
+The relationship type can be mirror, vault, or mirror and vault.
+
+ .. Select a cluster and an SVM.
++
+If the selected cluster is running a version of ONTAP software earlier than ONTAP 9.3, then only peered SVMs are listed. If the selected cluster is running ONTAP 9.3 or later, peered SVMs and permitted SVMs are listed.
+
+ .. Modify the volume name suffix, if required.
+
+a|
+Synchronous
+a|
+
+ .. *Optional:* If you do not know the replication type and relationship type, click *Help me Choose*, specify the values, and then click *Apply*.
+ .. Select the synchronization policy.
++
+The synchronization policy can be StrictSync or Sync.
+
+ .. Select a cluster and an SVM.
++
+If the selected cluster is running a version of ONTAP software earlier than ONTAP 9.3, then only peered SVMs are listed. If the selected cluster is running ONTAP 9.3 or later, peered SVMs and permitted SVMs are listed.
+
+ .. Modify the volume name suffix, if required.
+
+|===
+
+. Click *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[]*, update the protection policy and protection schedule, enable SnapLock properties on the destination volume, select a FabricPool-enabled aggregate, and then initialize the protection relationship.
+. Click *Save*.
+
+*Related information*
+
+xref:reference_protection_window.adoc[Protection window]
+
+// sm-classic rework, 2022-04-13

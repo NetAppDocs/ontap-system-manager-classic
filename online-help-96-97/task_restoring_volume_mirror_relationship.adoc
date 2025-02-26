@@ -1,0 +1,74 @@
+---
+permalink: online-help-96-97/task_restoring_volume_mirror_relationship.html
+sidebar: sidebar
+keywords: restore, volume, mirror, relationship, snapmirror, online, help, system, manager
+summary: "For a version-independent mirror relationship, you can use System Manager to restore Snapshot copies to a source volume or to other volumes if the source data is corrupted and is no longer usable. You can replace the original data with the Snapshot copies in the destination volume."
+---
+= Restore a volume in a mirror relationship with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+For a version-independent mirror relationship, you can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to restore Snapshot copies to a source volume or to other volumes if the source data is corrupted and is no longer usable. You can replace the original data with the Snapshot copies in the destination volume.
+
+.Before you begin
+
+* The SnapMirror license must be enabled on both the source cluster and the destination cluster or on the nodes that contain the source volume and destination volume.
+* The source cluster and destination cluster must be in a healthy peer relationship.
+* The source aggregate or any other aggregate that you select for the restore operation must be a 64-bit aggregate.
+* If you are connecting from a cluster running ONTAP 9.2 or earlier to a remote cluster on which Security Assertion Markup Language (SAML) authentication is enabled, password-based authentication must also be enabled on the remote cluster.
+
+.About this task
+
+* You cannot restore a volume that is in a mirror relationship between a source storage virtual machine (SVM) and a destination SVM in a MetroCluster configuration.
+* You cannot perform a restore operation on SnapLock volumes.
+* You can restore a mirror relationship between sync-source SVMs in a MetroCluster configuration.
+* You can restore a mirror relationship from a volume on a sync-source SVM to a default SVM.
+* You can restore a mirror relationship from a volume on a default SVM to a DP volume on a sync-source SVM.
+
+.Steps
+
+. Click *Protection* > *Volume Relationships*.
+. Select the mirror relationship, and then click *Operations* > *Restore*.
+. In the *Restore* dialog box, restore the data to the source volume in the mirror relationship or select any other volume:
++
+[options="header"]
+|===
+| If you want to restore the data to...| Do this...
+a|
+The source volume
+a|
+
+ .. Select *Source volume*.
+ .. Go to Step 7.
+
+a|
+Any other volume
+a|
+Select *Other volume*, and then select the cluster and SVM from the list.
+|===
+
+. Restore the data to a new volume or to an existing volume:
++
+[options="header"]
+|===
+| If you want to restore the data to...| Do this...
+a|
+A new volume
+a|
+If you want to change the default name, displayed in the format `destination_SVM_name_destination_volume_name_` restore, specify a new name, and then select the containing aggregate for the volume.
+a|
+An existing volume
+a|
+Select the *Select Volume* option.
+
+You must select a volume other than the source volume, or a read/write volume with some data in it and with a common Snapshot copy.
+
+Only those volumes with the same language attribute as the source volume are listed.
+
+|===
+
+. Select either the latest Snapshot copy or the specific Snapshot copy that you want to restore.
+. Select the confirmation checkbox to restore the volume from the Snapshot copy.
+. *Optional:* Select the *Enable Network Compression* checkbox to compress the data that is being transferred during the restore operation.
+. Click *Restore*.

@@ -1,0 +1,268 @@
+---
+permalink: online-help-96-97/task_provisioning_storage_through_aggregates.html
+sidebar: sidebar
+keywords: provision, storage, aggregates, snaplock, fabricpool, online, help, flash, pool
+summary: "You can create an aggregate based on storage recommendations or manually depending on your requirement. You can create Flash Pool aggregates, SnapLock aggregates, and a FabricPool-enabled aggregates to provide storage for one or more volumes by using System Manager."
+---
+= Provision storage through aggregates with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create an aggregate based on storage recommendations or manually depending on your requirement. You can create Flash Pool aggregates, SnapLock aggregates, and a FabricPool-enabled aggregates to provide storage for one or more volumes by using System Manager.
+
+.Before you begin
+
+You must have enough spare disks to create an aggregate.
+
+.About this task
+
+You cannot perform the following actions by using System Manager:
+
+* Combine disks of different sizes even if there are enough spare disks of different sizes.
++
+You can initially create an aggregate with disks of the same size and then add disks of a different size later.
+
+* Combine disks with different checksum types.
++
+You can initially create an aggregate with a single checksum type and add storage of a different checksum type later.
+
+== Create an aggregate based on storage recommendations
+
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create an aggregate based on storage recommendations. System Manager analyzes the configuration of your storage system and provides storage recommendations such as the number of aggregates that will be created, the available nodes, and the available spare disks.
+
+.About this task
+
+* You cannot create an aggregate based on storage recommendations in Cloud Volumes ONTAP, ONTAP Select, and MetroCluster configurations.
+* Errors, if any, are displayed on the screen.
++
+You can fix these errors and then create an aggregate based on the storage recommendations, or you can create an aggregate manually.
+
+.Steps
+
+. Create an aggregate by using one of the following methods:
+ ** Click *Applications & Tiers* > *Storage Tiers* > *Add Aggregate*.
+ ** Click *Storage* > *Aggregate & Disks* > *Aggregates* > *Create*.
+. Review the storage recommendations, and then click *Submit*.
++
+The Information dialog box displays the status of the aggregates.
+
+. Click *Run in Background* to navigate to the *Aggregates* window.
+. Click *Refresh* to view the aggregates that are created.
+
+== Manually create an aggregate
+
+You can manually create an aggregate that consists of only HDDs or only SSDs by using ONTAP System Manager classic (available in ONTAP 9.7 and earlier).
+
+.Before you begin
+
+All of the disks must be of the same size.
+
+.About this task
+
+* If you are creating an aggregate on a four-node cluster in ONTAP Select, the mirrored aggregate option is selected by default.
+* Beginning with ONTAP 9.0, you can create aggregates with disk size equal to or larger than 10 TB.
+* If the disk type of the aggregate disks is FSAS or MSATA, and the disk size is equal to or larger than 10 TB, then RAID-TEC is the only available RAID type.
+
+.Steps
+
+. Create an aggregate by using one of the following methods:
+ ** Click *Applications & Tiers* > *Storage Tiers* > *Add Aggregate*.
+ ** Click *Storage* > *Aggregate & Disks* > *Aggregates* > *Create*.
+. Enable the *Manually Create Aggregate* option to create an aggregate.
+. To create an aggregate:
+ .. Specify the name of the aggregate, the disk type, and the number of disks or partitions to include in the aggregate.
++
+The minimum hot spare rule is applied to the disk group that has the largest disk size.
+
+ .. *Optional:* Modify the RAID configuration of the aggregate:
+  ... Click *Change*.
+  ... In the *Change RAID Configuration* dialog box, specify the RAID type and the RAID group size.
++
+Shared disks support two RAID types: RAID DP and RAID-TEC.
+
+  ... Click *Save*.
+ .. If you want to mirror the aggregate, select the *Mirror this aggregate* check box.
++
+For MetroCluster configurations, creating unmirrored aggregates is restricted. Therefore, the mirroring option is enabled by default for MetroCluster configurations.
+. Click *Create*.
+
+.Results
+
+The aggregate is created with the specified configuration, and is added to the list of aggregates in the Aggregates window.
+
+== Create a Flash Pool aggregate manually
+
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create a Flash Pool aggregate manually, or to convert an existing HDD aggregate to a Flash Pool aggregate by adding SSDs. When you create a new HDD aggregate, you can provision an SSD cache to it and create a Flash Pool aggregate.
+
+.Before you begin
+
+* You must be aware of the platform-specific best practices and workload-specific best practices for the Flash Pool aggregate SSD tier size and configuration.
+* All of the HDDs must be in the zeroed state.
+* If you want to add SSDs to the aggregate, all of the existing SSDs and dedicated SSDs must be of the same size.
+
+.About this task
+
+* You cannot use partitioned SSDs while creating a Flash Pool aggregate.
+* You cannot mirror the aggregates if the cache source is storage pools.
+* Beginning with ONTAP 9.0, you can create aggregates with disk size equal to or larger than 10 TB.
+* If the disk type of the aggregate disks is FSAS or MSATA, and the disk size is equal to or larger than 10 TB, then RAID-TEC is the only option available for RAID type.
+
+.Steps
+
+. Create an aggregate by using one of the following methods:
+ ** Click *Applications & Tiers* > *Storage Tiers* > *Add Aggregate*.
+ ** Click *Storage* > *Aggregate & Disks* > *Aggregates* > *Create*.
+. Enable the *Manually Create Aggregate* option to create an aggregate.
+. In the *Create Aggregate* window, specify the name of the aggregate, the disk type, and the number of disks or partitions to include for the HDDs in the aggregate.
+. If you want to mirror the aggregate, select the *Mirror this aggregate* check box.
++
+For MetroCluster configurations, creating unmirrored aggregates is restricted. Therefore, the mirroring option is enabled by default for MetroCluster configurations.
+
+. Click *Use Flash Pool Cache with this aggregate*.
+. Specify the cache source:
++
+[options="header"]
+|===
+| If you want to select the cache source as...| Then...
+a|
+Storage pools
+a|
+
+ .. Select *Storage pools* as the Cache Source.
+ .. Select the storage pool from which the cache can be obtained, and then specify the cache size.
+ .. Modify the RAID type, if required.
+
+a|
+Dedicated SSDs
+a|
+
+ .. Select *Dedicated SSDs* as the Cache Source.
+ .. Select the SSD size and the number of SSDs to include in the aggregate.
+ .. Modify the RAID configuration, if required:
+  ... Click *Change*.
+  ... In the Change RAID Configuration dialog box, specify the RAID type and the RAID group size.
+  ... Click *Save*.
+
+|===
+
+. Click *Create*.
+
+.Results
+
+The Flash Pool aggregate is created with the specified configuration, and is added to the list of aggregates in the Aggregates window.
+
+== Create a SnapLock aggregate manually
+
+You can use System Manager classic (available in ONTAP 9.7 and earlier) to create a SnapLock Compliance aggregate or a SnapLock Enterprise aggregate manually. You can create SnapLock volumes on these aggregates, which provide "`write once, read many`" (WORM) capabilities.
+
+.Before you begin
+
+The SnapLock license must have been added.
+
+.About this task
+
+* In MetroCluster configurations, you can create only SnapLock Enterprise aggregates.
+* For array LUNs, only SnapLock Enterprise aggregates are supported.
+* Beginning with ONTAP 9.0, you can create aggregates with disk size equal to or larger than 10 TB.
+* If the disk type of the aggregate disks is FSAS or MSATA, and the disk size is equal to or larger than 10 TB, then RAID-TEC is the only option available for RAID type.
+* Beginning with ONTAP 9.1, you can create a SnapLock aggregate on an AFF platform.
+
+.Steps
+
+. Create a SnapLock aggregate by using one of the following methods:
+ ** Click *Applications & Tiers* > *Storage Tiers* > *Add Aggregate*.
+ ** Click *Storage* > *Aggregate & Disks* > *Aggregates* > *Create*.
+. Enable the *Manually Create Aggregate* option to create an aggregate.
+. To create a SnapLock aggregate:
+ .. Specify the name of the aggregate, the disk type, and the number of disks or partitions to include in the aggregate.
++
+You cannot change the name of a SnapLock Compliance aggregate after you create the aggregate.
++
+The minimum hot spare rule is applied to the disk group that has the largest disk size.
+
+ .. *Optional:* Modify the RAID configuration of the aggregate:
+  ... Click *Change*.
+  ... In the Change RAID Configuration dialog box, specify the RAID type and the RAID group size.
++
+Shared disks support two RAID types: RAID-DP and RAID-TEC.
+
+  ... Click *Save*.
+ .. Specify the SnapLock type.
+ .. If you have not initialized the system ComplianceClock, select the *Initialize ComplianceClock* check box.
++
+This option is not displayed if the ComplianceClock is already initialized on the node.
++
+[NOTE]
+====
+You must ensure that the current system time is correct. The ComplianceClock is set based on the system clock. Once the ComplianceClock is set, you cannot modify or stop the ComplianceClock.
+====
+
+ .. *Optional:* If you want to mirror the aggregate, select the *Mirror this aggregate* check box.
++
+For MetroCluster configurations, creating unmirrored aggregates is restricted. Therefore, the mirroring option is enabled by default for MetroCluster configurations.
++
+By default, the mirroring option is disabled for SnapLock Compliance aggregates.
+. Click *Create*.
+
+== Create a FabricPool-enabled aggregate manually
+
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create a FabricPool-enabled aggregate manually or to convert an existing SSD aggregate to a FabricPool-enabled aggregate by attaching a cloud tier to the SSD aggregate.
+
+.Before you begin
+
+* You must have created a cloud tier and attached it to the cluster in which the SSD aggregate resides.
+* An on-premises cloud tier must have been created.
+* A dedicated network connection must exist between the cloud tier and the aggregate.
+
+.About this task
+
+The following object stores can be used as cloud tiers:
+
+* StorageGRID
+* Alibaba Cloud (Beginning with System Manager 9.6)
+* Amazon Web Services (AWS) Simple Storage Service (S3)
+* Amazon Web Services (AWS) Commercial Cloud Service (C2S)
+* Microsoft Azure Blob storage
+* IBM Cloud
+* Google Cloud
+
+[NOTE]
+====
+
+* Azure Stack, which is an on-premises Azure services, is not supported.
+* If you want to use any object store as a cloud tier, other than StorageGRID, you must have the FabricPool capacity license.
+
+====
+
+.Steps
+
+. Create a FabricPool-enabled aggregate by using one of the following methods:
+ ** Click *Applications & Tiers* > *Storage Tiers* > *Add Aggregate*.
+ ** Click *Storage* > *Aggregate & Disks* > *Aggregates* > *Create*.
+. Enable the *Manually Create Aggregate* option to create an aggregate.
+. Create a FabricPool-enabled aggregate:
+ .. Specify the name of the aggregate, the disk type, and the number of disks or partitions to include in the aggregate.
++
+[NOTE]
+====
+Only all flash (all SSD) aggregates support FabricPool-enabled aggregates.
+====
++
+The minimum hot spare rule is applied to the disk group that has the largest disk size.
+
+ .. *Optional:* Modify the RAID configuration of the aggregate:
+  ... Click *Change*.
+  ... In the Change RAID Configuration dialog box, specify the RAID type and the RAID group size.
++
+Shared disks support two RAID types: RAID-DP and RAID-TEC.
+
+  ... Click *Save*.
+. Select the *FabricPool* checkbox, and then select a cloud tier from the list.
+. Click *Create*.
+
+*Related information*
+
+http://www.netapp.com/us/media/tr-4070.pdf[NetApp Technical Report 4070: Flash Pool Design and Implementation^]
+
+// sm-classic rework, 2022-05-12

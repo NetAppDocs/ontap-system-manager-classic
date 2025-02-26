@@ -1,0 +1,16 @@
+---
+permalink: online-help-96-97/concept_rules_for_mixing_disk_types_disk_rpms.html
+sidebar: sidebar
+keywords: rule, online, help, create, aggregate, add, capacity, disk, rpm
+summary: "When you are creating an aggregate and adding capacity disks to an aggregate, you should understand the rules that apply when disk types and disk RPM are displayed."
+---
+= Rules for displaying disk types and disk RPM in System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When you are creating an aggregate and adding capacity disks to an aggregate, you should understand the rules that apply when disk types and disk RPM are displayed in ONTAP System Manager classic (available in ONTAP 9.7 and earlier).
+
+When the disk type mixing and the disk RPM mixing options are not enabled, the actual disk type and actual disk RPM are displayed.
+
+When these mixing options are enabled, the effective disk type and effective disk RPM are displayed instead of the actual disk type and actual disk RPM. For example, when the disk mixing option is enabled, System Manager displays BSAS disks as FSAS. Similarly, when the disk RPM mixing option is enabled, if the RPM of the disks is 10K and 15K, System Manager displays the effective RPM as 10K.

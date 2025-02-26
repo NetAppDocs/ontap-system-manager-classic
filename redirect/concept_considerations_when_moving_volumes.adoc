@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_considerations_when_moving_volumes.html
+redirect: ontap/volumes/recommendations-moving-concept.html
+---

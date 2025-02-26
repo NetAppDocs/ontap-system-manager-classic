@@ -1,0 +1,22 @@
+---
+permalink: online-help-96-97/task_viewing_disk_information.html
+sidebar: sidebar
+keywords: view, disk, information, system, manager, name, online, help
+summary: "You can use the Disks window in System Manager to view the name, size, and container details of disks along with graphical information about capacity disks and cache disks."
+---
+= View disk information with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the Disks window in ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to view the name, size, and container details of disks along with graphical information about capacity disks and cache disks.
+
+.Steps
+
+. Click *Storage* > *Aggregates & Disks* > *Disks*.
+. Select the disk that you want to view information about from the displayed list of disks.
+. Review the disk details.
+
+*Related information*
+
+xref:reference_disks_window.adoc[Disks window]

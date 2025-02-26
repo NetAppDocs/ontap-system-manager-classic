@@ -1,0 +1,54 @@
+---
+permalink: online-help-96-97/reference_metrocluster_switchover_switchback_window.html
+sidebar: sidebar
+keywords: metrocluster, switchover, switchback, operations, window, command, button, other, action, online, help, status
+summary: "Beginning with System Manager 9.6, you can use the MetroCluster Switchover and Switchback Operations window to initiate a negotiated (planned) switchover or an unplanned switchover from one site or cluster (Site B) to another site or cluster (Site A). After you perform maintenance or repairs on Site B, you can initiate a switchback from Site A to Site B and view the status of the operation in this window."
+---
+= MetroCluster Switchover and Switchback Operations window
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with System Manager 9.6, you can use the MetroCluster Switchover and Switchback Operations window to initiate a negotiated (planned) switchover or an unplanned switchover from one site or cluster (Site B) to another site or cluster (Site A). After you perform maintenance or repairs on Site B, you can initiate a switchback from Site A to Site B and view the status of the operation in this window.
+
+== Command Buttons
+
+* *Switchover Site B to Site A*
++
+Initiates the process that switches Site B over to Site A.
+
+* *Switchback Site A to Site B*
++
+Initiates the process that switches Site A back to Site B.
+
+== Other actions
+
+* *Navigate to Site B cluster*
++
+Enter the cluster management IP address of Site B.
+
+* *Checkbox for unplanned switchover*
++
+If you want to initiate an unplanned switchover, check the box labeled *Continue with unplanned switchover*.
+
+== Status areas
+
+As the system progresses through the process of switching over or switching back, System Manager displays status with the following methods:
+
+* *Progress line graphic*
++
+Displays phases of the operations and indicates the phases that have been completed. The phases are Switchover, Site B Operations, and Switchback.
+
+* ***Show Details***
++
+Displays a list of time-stamped system events as the MetroCluster operations progress.
+
+* *Local: Site A*
++
+Displays a graphic of the configuration of the cluster at Site A, including the status of that site as it progresses through the phases of the operation.
+
+* *Remote: Site B*
++
+Displays a graphic of the configuration of the cluster at Site B, including the status of that site as it progresses through the phases of the operation.
+
+If you log in to Site B and view the MetroCluster Switchover and Switchback Operations window, then the status of Site A is shown as "`INACTIVE`" and the status of Site B is shown as "`SWITCHOVER MODE`".

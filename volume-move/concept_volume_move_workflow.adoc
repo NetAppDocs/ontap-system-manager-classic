@@ -1,0 +1,32 @@
+---
+permalink: volume-move/concept_volume_move_workflow.html
+sidebar: sidebar
+keywords: move, moving, volume, method, operation, plan, timing, system, manager, ndmp, backup, configuration, volume move workflow
+summary: "Before moving a volume, you should select a method for the volume move operation and plan the timing of the operation. You can move a volume by using System Manager. After the move, you might have to update the NDMP backup configuration."
+---
+= Volume move workflow
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can move a volume by using the ONTAP System Manager _classic_ interface with ONTAP 9.7 or earlier.
+
+Before moving a volume, you should select a method for the volume move operation and plan the timing of the operation. After the move, you might have to update the NDMP backup configuration.
+
+image::../media/volume_move_workflow.jpg[Volume move workflow]
+
+== Other ways to do this in ONTAP
+
+|===
+
+h| To complete this workflow using... h| Refer to...
+
+a| The redesigned System Manager (available with ONTAP 9.7 and later)
+a| https://docs.netapp.com/us-en/ontap/volumes/manage-volumes-task.html[Manage volumes^]
+
+a| The ONTAP command-line interface
+a| https://docs.netapp.com/us-en/ontap/volumes/index.html[Logical storage management^]
+
+|===
+
+// BURT 1415751, 10 JAN 2022

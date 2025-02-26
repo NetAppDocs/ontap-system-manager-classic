@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/reference_usesr_window_cluster_scope.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_cluster_user_accounts.html
+---

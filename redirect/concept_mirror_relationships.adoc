@@ -1,0 +1,4 @@
+---
+permalink: online-help-96-97/concept_mirror_relationships.html
+redirect: ontap/concept_dp_overview.html
+---

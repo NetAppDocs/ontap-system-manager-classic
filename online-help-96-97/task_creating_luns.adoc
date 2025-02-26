@@ -1,0 +1,88 @@
+---
+permalink: online-help-96-97/task_creating_luns.html
+sidebar: sidebar
+keywords: create, lun, system, manager, qtree, online, help
+summary: "You can use System Manager to create LUNs for an existing aggregate, volume, or qtree when there is available free space. You can create a LUN in an existing volume or create a new FlexVol volume for the LUN. You can also enable storage Quality of Service (QoS) to manage the workload performance."
+---
+= Create LUNs with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create LUNs for an existing aggregate, volume, or qtree when there is available free space. You can create a LUN in an existing volume or create a new FlexVol volume for the LUN. You can also enable storage Quality of Service (QoS) to manage the workload performance.
+
+.About this task
+
+If you specify the LUN ID, System Manager checks the validity of the LUN ID before adding it. If you do not specify a LUN ID, ONTAP software automatically assigns one.
+
+While selecting the LUN multiprotocol type, you should have considered the guidelines for using each type. The LUN Multiprotocol Type, or operating system type, determines the layout of data on the LUN, and the minimum and maximum sizes of the LUN. After the LUN is created, you cannot modify the LUN host operating system type.
+
+In a MetroCluster configuration, System Manager displays only the following aggregates for creating FlexVol volumes for the LUN:
+
+* In normal mode, when you create volumes on sync-source SVMs or data-serving SVMs in the primary site, only those aggregates that belong to the cluster in the primary site are displayed.
+* In switched-over mode, when you create volumes on sync-destination SVMs or data-serving SVMs in the surviving site, only switched-over aggregates are displayed.
+
+.Steps
+
+. Click *Storage* > *LUNs*.
+. In the *LUN Management* tab, click *Create*.
+. Browse and select an SVM in which you want to create the LUNs.
+. In the *Create LUN Wizard*, specify the name, size, type, description for the LUN, and select the *Space Reserve*, and then click *Next*.
+. Create a new FlexVol volume for the LUN or select an existing volume or qtree, and then click *Next*.
+. Add initiator groups if you want to control host access to the LUN, and then click *Next*.
+. Select the *Manage Storage Quality of Service* check box if you want to manage the workload performance of the LUN.
+. Create a new storage QoS policy group or select an existing policy group to control the input/output (I/O) performance of the LUN:
++
+[options="header"]
+|===
+| If you want to...| Do this...
+a|
+Create a new policy group
+a|
+
+ .. Select *New Policy Group*
+ .. Specify the policy group name.
+ .. Specify the minimum throughput limit.
+  *** In System Manager 9.5, you can set the minimum throughput limit only on a performance-based All Flash Optimized personality. In System Manager 9.6, you can also set the minimum throughput limit for ONTAP Select Premium systems.
+  *** You cannot set the minimum throughput limit for volumes on a FabricPool-enabled aggregate.
+  *** If you do not specify the minimum throughput value or if the minimum throughput value is set to 0, the system automatically displays "`None`" as the value.
++
+This value is case-sensitive.
+ .. Specify the maximum throughput limit to ensure that the workload of the objects in the policy group does not exceed the specified throughput limit.
+  *** The minimum throughput limit and the maximum throughput limit must be of the same unit type.
+  *** If you do not specify the minimum throughput limit, then you can set the maximum throughput limit in IOPS and B/s, KB/s, MB/s, and so on.
+  *** If you do not specify the maximum throughput value, the system automatically displays "`Unlimited`" as the value and this value is case-sensitive.
++
+The unit that you specify does not affect the maximum throughput.
+
+a|
+Select an existing policy group
+a|
+
+ .. Select *Existing Policy Group*, and then click *Choose* to select an existing policy group from the Select Policy Group dialog box.
+ .. Specify the minimum throughput limit.
+  *** In System Manager 9.5, you can set the minimum throughput limit only on a performance-based All Flash Optimized personality. In System Manager 9.6, you can also set the minimum throughput limit for ONTAP Select Premium systems.
+  *** You cannot set the minimum throughput limit for volumes on a FabricPool-enabled aggregate.
+  *** If you do not specify the minimum throughput value or if the minimum throughput value is set to 0, the system automatically displays "`None`" as the value.
++
+This value is case-sensitive.
+ .. Specify the maximum throughput limit to ensure that the workload of the objects in the policy group does not exceed the specified throughput limit.
+  *** The minimum throughput limit and the maximum throughput limit must be of the same unit type.
+  *** If you do not specify the minimum throughput limit, then you can set the maximum throughput limit in IOPS and B/s, KB/s, MB/s, and so on.
+  *** If you do not specify the maximum throughput value, the system automatically displays "`Unlimited`" as the value and this value is case-sensitive.
++
+The unit that you specify does not affect the maximum throughput.
+
++
+If the policy group is assigned to more than one object, the maximum throughput that you specify is shared among the objects.
+
+|===
+
+. Review the specified details in the *LUN summary* window, and then click *Next*.
+. Confirm the details, and then click *Finish* to complete the wizard.
+
+*Related information*
+
+xref:reference_luns_window.adoc[LUNs window]
+
+xref:concept_lun_multiprotocol_type_guidelines.adoc[Guidelines for using LUN multiprotocol type]

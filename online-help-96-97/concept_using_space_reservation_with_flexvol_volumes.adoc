@@ -1,0 +1,24 @@
+---
+permalink: online-help-96-97/concept_using_space_reservation_with_flexvol_volumes.html
+sidebar: sidebar
+keywords: space, reservation, flexvol, volume, online, help
+summary: "Using space reservation, you can provision FlexVol volumes. Thin provisioning appears to provide more storage than is actually available from a given aggregate, as long as not all of that storage is currently being used."
+---
+= Use space reservations with FlexVol volumes with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+In ONTAP System Manager classic (available in ONTAP 9.7 and earlier), you can use space reservation to provision FlexVol volumes. Thin provisioning appears to provide more storage than is actually available from a given aggregate, as long as not all of that storage is currently being used.
+
+Thick provisioning sets aside enough storage from the aggregate to ensure that any block in the volume can be written to at any time.
+
+Aggregates can provide storage to volumes contained by more than one storage virtual machine (SVM). If you are using thin provisioning, and you need to maintain strict separation between your SVMs (for example, if you are providing storage in a multi-tenancy environment), you should either use fully allocated volumes (thick provisioning) or ensure that your aggregates are not shared between tenants.
+
+When the space reserve is set to "`Default`", the ONTAP space reservation settings apply to the volumes.
+
+*Related information*
+
+http://www.netapp.com/us/media/tr-3563.pdf[NetApp Technical Report 3563: NetApp Thin Provisioning Increases Storage Utilization With On Demand Allocation^]
+
+http://www.netapp.com/us/media/tr-3483.pdf[NetApp Technical Report 3483: Thin Provisioning in a NetApp SAN or IP SAN Enterprise Environment^]

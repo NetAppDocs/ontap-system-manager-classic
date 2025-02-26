@@ -1,0 +1,12 @@
+---
+permalink: smb-config/task_configuring_access_to_existing_svm.html
+sidebar: sidebar
+keywords: add, access, smb, cifs, client, exist, svm, involve, configuration, map, dns, server, verify, windows, administration, host, configure, configure smb/cifs access to an existing svm
+summary: "Adding access for SMB/CIFS clients to an existing SVM involves adding CIFS configurations to the SVM, adding a mapping on the DNS server, and verifying CIFS access from a Windows administration host. You can then configure CIFS client access."
+---
+= Configure SMB/CIFS access to an existing SVM
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Adding access for SMB/CIFS clients to an existing SVM involves adding CIFS configurations to the SVM, adding a mapping on the DNS server, and verifying CIFS access from a Windows administration host. You can then configure CIFS client access.

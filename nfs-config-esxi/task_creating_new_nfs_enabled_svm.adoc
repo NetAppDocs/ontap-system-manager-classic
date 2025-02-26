@@ -1,0 +1,86 @@
+---
+permalink: nfs-config-esxi/task_creating_new_nfs_enabled_svm.html
+sidebar: sidebar
+keywords: set, up, creating, create, enable, enabling, nfs, esxi, create a new nfs-enabled SVM
+summary: "Setting up a new SVM involves creating the new and enabling NFS. You can then configure NFS access on the ESXi host and verify that NFS is enabled for ESXi by using Virtual Storage Console."
+---
+= Create a new NFS-enabled SVM
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Setting up a new SVM involves creating the new and enabling NFS. You can then configure NFS access on the ESXi host and verify that NFS is enabled for ESXi by using Virtual Storage Console.
+
+.Before you begin
+
+* Your network must be configured and the relevant physical ports must be connected to the network.
+* You must know which of the following networking components the will use:
+ ** The node and the specific port on that node where the data logical interface (LIF) will be created
+ ** The subnet from which the data LIF's IP address will be provisioned, or optionally the specific IP address you want to assign to the data LIF
+* Any external firewalls must be appropriately configured to allow access to network services.
+
+.About this task
+
+You can use a wizard that guides you through the process of creating the SVM, configuring DNS, creating a data LIF, and enabling NFS.
+
+.Steps
+
+. Navigate to the *SVMs* window.
+. Click *Create*.
+. In the *Storage Virtual Machine (SVM) Setup* window, create the SVM:
+ .. Specify a unique name for the SVM.
++
+The name must either be a fully qualified domain name (FQDN) or follow another convention that ensures unique names across a cluster.
+
+ .. Select *NFS* for the data protocol.
++
+If you plan to use additional protocols on the same SVM, you should select them even if you do not want to configure them immediately.
+
+ .. Keep the default language setting, C.UTF-8.
++
+This language is inherited by the volume that you create later, and a volume's language cannot be changed.
+
+ .. *Optional*: If you enabled the CIFS protocol, change the security style to *UNIX*.
++
+Selecting the CIFS protocol sets the security style to NTFS by default.
+
+ .. *Optional*: Select the root aggregate to contain the root volume.
++
+The aggregate that you select for the root volume does not determine the location of the data volume.
++
+image::../media/svm_setup_details_unix_selected_nfs_esxi.gif[SVM setup]
+
+ .. *Optional*: In the *DNS Configuration* area, ensure that the default DNS search domain and name servers are the ones that you want to use for this SVM.
++
+image::../media/svm_setup_details_dns_nfs_esxi.gif[This graphic is explained by the surrounding text.]
+
+ .. Click *Submit & Continue*.
+
++
+The is created, but protocols are not yet configured.
+. In the *Data LIF Configuration* section of the *Configure CIFS/NFS protocol* page, specify the details of the first data LIF of the first datastore.
+ .. Assign an IP address to the LIF automatically from a subnet you specify or manually enter the address.
+ .. Click *Browse* and select a node and port that will be associated with the LIF.
++
+image::../media/svm_setup_cifs_nfs_page_lif_multi_nas_nfs_esxi.gif[This graphic is described by the surrounding text.]
+
++
+Do not enter any information to provision a volume. You can provision datastores later using
+. Click *Submit & Continue*.
++
+The following objects are created:
+
+ ** A data LIF named after the with the suffix "`_nfs_lif1`"
+ ** An NFS server
+
+. For all other protocol configuration pages that are displayed, click *Skip*, and then configure the protocol later.
+. When the *SVM Administration* page is displayed, configure or defer configuring a separate administrator for this SVM:
+ ** Click *Skip*, and then configure an administrator later if required.
+ ** Enter the requested information, and then click *Submit & Continue*.
+. Review the *Summary* page, record any information that you might require later, and then click *OK*.
++
+NFS clients need to know the IP address of the data LIF.
+
+.Results
+
+A new SVM is created with NFS enabled.

@@ -1,0 +1,100 @@
+---
+permalink: online-help-96-97/task_updating_single_node_clusters.html
+sidebar: sidebar
+keywords: update, singe, node, cluster, system, manager, online, help
+summary: "You can use System Manager to update single-node clusters."
+---
+= Update single-node clusters with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to update single-node clusters.
+
+.Before you begin
+
+* The clusters must be running ONTAP 9.4 or later.
+* You must have copied the software image from the NetApp Support Site to an HTTP server on your network, to an FTP server on your network, or to your local system so that the nodes can access the image.
++
+link:task_obtaining_ontap_software_images.html[Obtaining ONTAP software images]
+
+.About this task
+
+* Beginning with System Manager 9.5, you can update single-node clusters in two-pack MetroCluster configurations.
++
+You must perform this operation on both the sites.
+
+* Updating single-node clusters in MetroCluster configurations is not disruptive.
++
+The System Manager user interface is not available while the cluster is rebooting.
+
+* In System Manager 9.4 and later, you can update single-node clusters in non-MetroCluster configurations.
++
+Updating single-node clusters in non-MetroCluster configurations is disruptive. The client data is not available while the update is in progress.
+
+* If you try to perform other tasks while updating the node that hosts the cluster management LIF, an error message might be displayed.
++
+You must wait for the update to finish before performing any operations.
+
+* If the NVMe protocol is configured in System Manager 9.4 and you perform an update from System Manager 9.4 to System Manager 9.5, then the NVMe protocol is available for a grace period of 90 days without a license.
++
+This feature is not available in MetroCluster configurations.
+
+* If the NVMe protocol is not configured in System Manager 9.5 and you perform an update from System Manager 9.5 to System Manager 9.6, then the grace period is not provided, and you must install the NVMe license to use the NVMe protocol.
++
+This feature is not available in MetroCluster configurations.
+
+.Steps
+
+. Click *Configuration* > *Cluster* > *Update*.
+. In the *Cluster Update* tab, add a new software image or select an available software image.
++
+[options="header"]
+|===
+| If you want to...| Then...
+a|
+Add a new software image from the local client
+a|
+
+ .. Click *Add from Local Client*.
+ .. Search for the software image, and then click *Open*.
+
+a|
+Add a new software image from the NetApp Support Site
+a|
+
+ .. Click *Add from Server*.
+ .. In the Add a New Software Image dialog box, enter the URL of the HTTP server or FTP server on which you have saved the image that was downloaded from the NetApp Support Site.
++
+For anonymous FTP, you must specify the URL in the `+ftp://anonymous@ftpserver+` format.
+
+ .. Click *Add*.
+
+a|
+Select an available image
+a|
+Choose one of the listed images.
+|===
+
+. Click *Validate* to run the pre-update validation checks to verify whether the cluster is ready for an update.
++
+The validation operation checks the cluster components to validate that the update can be completed, and then displays any errors or warnings. The validation operation also displays any required remedial action that you must perform before updating the software.
++
+[NOTE]
+====
+You must perform all of the required remedial actions for the errors before proceeding with the update. Although you can ignore the remedial actions for the warnings, the best practice is to perform all of the remedial actions before proceeding with the update.
+====
+
+. Click *Next*.
+. Click *Update*.
++
+Validation is performed again.
+
+ ** When the validation is complete, a table displays any errors and warnings, along with any required remedial actions to be taken before proceeding.
+ ** If the validation is completed with warnings, you can choose to select the *Continue update with warnings* checkbox, and then click *Continue*.
+When the validation is complete and the update is in progress, the update might be paused because of errors. You can click the error message to view the details, and then perform the remedial actions before resuming the update.
+
++
+After the update is completed successfully, the node reboots, and you are redirected to the System Manager login page. If the node takes a long time to reboot, you must refresh your browser.
+
+. Log in to System Manager, and verify that the cluster is successfully updated to the selected version by clicking *Configuration* > *Cluster* > *Update* > *Update History*, and then viewing the details.

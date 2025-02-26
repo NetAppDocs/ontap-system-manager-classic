@@ -1,0 +1,38 @@
+---
+permalink: iscsi-config-rhel/task_deciding_where_to_provision_volume.html
+sidebar: sidebar
+keywords: provision, volume, lun, add, storage, virtual, machine, svm, volume, exist, decide where to provision the volume
+summary: "Before you provision a volume to contain your LUNs, you need to decide whether to add the volume to an existing storage virtual machine or to create a new SVM for the volume. You might also need to configure iSCSI on an existing SVM."
+---
+= Decide where to provision the volume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before you provision a volume to contain your LUNs, you need to decide whether to add the volume to an existing storage virtual machine (SVM) or to create a new SVM for the volume. You might also need to configure iSCSI on an existing SVM.
+
+.About this task
+
+If an existing SVM is already configured with the needed protocols and has LIFs that can be accessed from the host, it is easier to use the existing SVM.
+
+You can create a new SVM to separate data or administration from other users of the storage cluster. There is no advantage to using separate SVMs just to separate different protocols.
+
+== Procedure
+
+* If you want to provision volumes on an SVM that is already configured for iSCSI, you must verify that the iSCSI service is running and then create a LUN on the SVM.
++
+link:task_verifying_iscsi_is_running_on_existing_vserver.html[Verifying that the iSCSI service is running on an existing SVM]
++
+link:task_creating_lun_its_containing_volume.html[Creating a LUN]
+
+* If you want to provision volumes on an existing SVM that has iSCSI enabled but not configured, configure iSCSI on the existing SVM.
++
+link:task_configuring_iscsi_fc_creating_lun_on_existing_svm.html[Configuring iSCSI on an existing SVM]
++
+This is the case when you did not follow this procedure to create the SVM while configuring a different protocol.
+
+* If you want to provision volumes on a new SVM, create the SVM.
++
+link:task_creating_svm.html[Creating a new SVM]
+
+// BURT 1448684, 31 JAN 2022

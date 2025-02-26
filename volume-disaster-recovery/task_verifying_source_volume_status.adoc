@@ -1,0 +1,29 @@
+---
+permalink: volume-disaster-recovery/task_verifying_source_volume_status.html
+sidebar: sidebar
+keywords: source, volume, unavailable, verify, offline, identify, destination, volume, activate, providing, provide, data, access, verify the status of the source volume
+summary: "When the source volume is unavailable, you must verify that the source volume is offline and then identify the destination volume that must be activated for providing data access."
+---
+= Verify the status of the source volume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When the source volume is unavailable, you must verify that the source volume is offline and then identify the destination volume that must be activated for providing data access.
+
+.About this task
+
+You must perform this task from the *source* cluster.
+
+.Steps
+
+. Navigate to the *Volumes* window.
+. Select the source volume, and then verify that the source volume is offline.
+. Identify the destination volume in the SnapMirror relationship.
+ ** Beginning with ONTAP 9.3: Double-click the source volume to view the details, and then click *PROTECTION* to identify the destination volume in the SnapMirror relationship and the name of the SVM that contains the volume.
++
+image::../media/snapmirror_destination_93.gif[]
+
+ ** ONTAP 9.2 or earlier: Click the *Data Protection* tab at the bottom of the Volumes page to identify the destination volume in the SnapMirror relationship and the name of the SVM that contains the volume.
++
+image::../media/volume_status_2.gif[Image shows the destination volume]

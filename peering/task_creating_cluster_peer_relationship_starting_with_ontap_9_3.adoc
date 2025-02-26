@@ -1,0 +1,51 @@
+---
+permalink: peering/task_creating_cluster_peer_relationship_starting_with_ontap_9_3.html
+sidebar: sidebar
+keywords: create, cluster, peer, relationship, cluster, system-generated, passphrase, ip, address, intercluster, lif, remote, create a cluster peer relationship, Beginning with ontap 9.3
+summary: "You can create a cluster peer relationship between two clusters by providing a system-generated passphrase and the IP addresses of the intercluster LIFs of the remote cluster."
+---
+= Create a cluster peer relationship (Beginning with ONTAP 9.3)
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with ONTAP 9.3, until ONTAP 9.7, you can use the ONTAP System Manager _classic_ interface create a cluster peer relationship between two clusters by providing a system-generated passphrase and the IP addresses of the intercluster LIFs of the remote cluster.
+
+.About this task
+
+Beginning with ONTAP 9.6, cluster peering encryption is enabled by default on all newly created cluster peering relationships. Cluster peering encryption must be enabled manually for peering relationship created prior to upgrading to ONTAP 9.6. Cluster peering encryption is not available for clusters running ONTAP 9.5 or earlier. Therefore, both clusters in the peering relationship must be running ONTAP 9.6 in order to enable cluster peering encryption.
+
+Cluster peering encryption uses the Transport Security Layer (TLS) to secure cross-cluster peering communications for ONTAP features such as SnapMirror and FlexCache.
+
+.Steps
+
+. In the *Target Cluster Intercluster LIF IP addresses* field, enter the IP addresses of the intercluster LIFs of the remote cluster.
+. [[step2-passphrase]]Generate a passphrase from the remote cluster.
+ .. Specify the management address of the remote cluster.
+ .. Click *Management URL* to launch ONTAP System Manager on the remote cluster.
+ .. Log in to the remote cluster.
+ .. In the *Cluster Peers* window, click *Generate Peering Passphrase*.
+ .. Select the IPspace, validity of the passphrase, and SVM permissions.
++
+You can allow all of the SVMs or selected SVMs for peering. When a SVM peer request is generated, the permitted SVMs are automatically peered with the source SVMs without requiring you to accept the peer relationship from the remote SVMs.
+
+ .. Click *Generate*.
++
+The passphrase information is displayed.
++
+image::../media/generate_passphrase.gif[This image is explained by the surrounding text.]
+
+ .. Click *Copy passphrase details* or *Email passphrase details*.
+ .. Click *Done*.
+. In the source cluster, enter the generated passphrase that you obtained in <<step2-passphrase,Step 2>>.
+. Click *Initiate Cluster Peering*.
++
+The cluster peer relationship is successfully created.
+
+. Click *Continue*.
+
+== What to do next
+
+You should specify the SVM details in the SVM Peering window to continue with the peering process.
+
+// BURT 1415746, 10 JAN 2022

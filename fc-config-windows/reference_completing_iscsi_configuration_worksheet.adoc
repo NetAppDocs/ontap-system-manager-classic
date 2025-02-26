@@ -1,0 +1,135 @@
+---
+permalink: fc-config-windows/reference_completing_iscsi_configuration_worksheet.html
+sidebar: sidebar
+keywords: require, fc, initiator, target, wwpn, storage, configuration, information, perform, fc, task, complete the fc configuration worksheet
+summary: "You require FC initiator and target WWPNs and storage configuration information to perform FC configuration tasks."
+---
+= Complete the FC configuration worksheet
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You require FC initiator and target WWPNs and storage configuration information to perform FC configuration tasks.
+
+== FC host WWPNs
+
+[options="header"]
+|===
+| Port| WWPN
+a|
+Initiator (host) port connected to FC switch 1
+a|
+
+a|
+Initiator (host) port connected to FC switch 2
+a|
+
+|===
+
+== FC target WWPNs
+
+You require two FC data LIFs for each node in the cluster. The WWPNs are assigned by ONTAP when you create the LIFs as part of creating the storage virtual machine (SVM).
+
+image::../media/network_fc_or_iscsi_express_fc_windows.gif[The figure shows four nodes, two switches, and a host. Each node has two LIFs, one connected to each switch. The host also connects to both switches.]
+
+[options="header"]
+|===
+| LIF| WWPN
+a|
+Node 1 LIF with port connected to FC switch 1
+a|
+
+a|
+Node 2 LIF with port connected to FC switch 1
+a|
+
+a|
+Node 3 LIF with port connected to FC switch 1
+a|
+
+a|
+Node 4 LIF with port connected to FC switch 1
+a|
+
+a|
+Node 1 LIF with port connected to FC switch 2
+a|
+
+a|
+Node 2 LIF with port connected to FC switch 2
+a|
+
+a|
+Node 3 LIF with port connected to FC switch 2
+a|
+
+a|
+Node 4 LIF with port connected to FC switch 2
+a|
+
+|===
+
+== Storage configuration
+
+If the aggregate and SVM are already created, record their names here; otherwise, you can create them as required:
+
+[options="header"]
+|===
+a|
+Node to own LUN
+a|
+Aggregate name
+a|
+SVM name
+|===
+
+== LUN information
+
+[options="header"]
+|===
+a|
+LUN size
+a|
+Host operating system
+a|
+LUN name (optional)
+a|
+LUN description (optional)
+|===
+
+== SVM information
+
+If you are not using an existing SVM, you require the following information to create a new one:
+
+[cols="1a,1a",options="header"]
+|===
+2+a|
+SVM name
+2+a|
+SVM IPspace
+2+a|
+Aggregate for SVM root volume
+2+a|
+SVM user name (optional)
+2+a|
+SVM password (optional)
+2+a|
+SVM management LIF (optional)
+a|
+| Subnet:
+a|
+a|
+IP address:
+a|
+a|
+Network mask:
+a|
+a|
+Gateway:
+a|
+a|
+Home node:
+a|
+a|
+Home port:
+|===

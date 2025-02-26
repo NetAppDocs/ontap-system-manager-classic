@@ -1,0 +1,94 @@
+---
+permalink: online-help-96-97/task_creating_flexgroup_volumes.html
+sidebar: sidebar
+keywords: create, flexgroup, volume, online, help, system, manager
+summary: "A FlexGroup volume can contain many volumes that can be administered as a group instead of individually. You can use System Manager to create a FlexGroup volume by selecting specific aggregates or by selecting system-recommended aggregates."
+---
+= Create FlexGroup volumes with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to create a FlexGroup volume by selecting specific aggregates or by selecting system-recommended aggregates. A FlexGroup volume can contain many volumes that can be administered as a group instead of individually.
+
+.About this task
+
+* You can create only read/write (rw) FlexGroup volumes.
+* Beginning with System Manager 9.6, you can create FlexGroup volumes in a MetroCluster configuration.
+
+.Steps
+
+. Click *Storage* > *Volumes*.
+. Click *Create* > *Create FlexGroup*.
+. In the *Create FlexGroup* window, specify a name for the FlexGroup volume.
++
+By default, the aggregates are selected according to best practices.
+
+. Click the**Volume Encryption** button to enable encryption for the volume.
++
+This option is available only if you have enabled the Volume Encryption license and if the corresponding platform supports encryption.
++
+Turning on volume encryption might affect the cross-volume storage efficiency when the selected aggregates are encrypted.
+
+. Specify a size for the FlexGroup volume.
++
+[NOTE]
+====
+You must also specify the measurement units.
+====
+
+. Enable the *FabricPool* toggle button to use FabricPool aggregates in the FlexGroup volume.
+ ** When you enable *FabricPool*, you can select the Tiering policy from the following choices in the drop-down menu:
+  *** *Snapshot-only*
++
+Moves the Snapshot copies of only those volumes that are currently not being referenced by the active file system. Snapshot-only policy is the default tiering policy.
+
+  *** *Auto*
++
+Moves the inactive (cold) data and the Snapshot copies from the active file system to the cloud tier.
+
+  *** *Backup (for System Manager 9.5)*
++
+Moves the newly transferred data of a data protection (DP) volume to the cloud tier.
+
+  *** *All (Beginning with System Manager 9.6)*
++
+Moves all data to the cloud tier.
+
+  *** *None*
++
+Prevents the data on the volume from being moved to a cloud tier.
+ ** If you leave *FabricPool* in the "`not enabled`" position, only non-FabricPool aggregates are included in the created FlexGroup volume, and the tiering policy is set to"`None`".
+ ** If no FabricPool aggregates exist in the SVM, then *FabricPool* displays in the "not enabled" position and cannot be changed.
+ ** If only FabricPool aggregates exist in the SVM, then the *FabricPool* button is displays in the "enabled" position and cannot be changed.
+. If you want to specify particular aggregates, click image:../media/advanced_options.gif[] (advanced options).
++
+The aggregates associated with the FlexGroup volume you are creating are selected by default, according to best practices. They are displayed next to the *Aggregates* label.
+
+. In the *Protection* section, perform the following actions:
+ .. Enable the *Volume Protection* option.
+ .. Select the *Replication* type.
++
+[NOTE]
+====
+The *Synchronous* replication type is not supported for FlexGroup volumes.
+====
+
+ .. Click *Help me Choose*, if you do not know the replication type and relationship type.
+  *** Specify the values and click *Apply*.
++
+The replication type and the relationship type is automatically selected based on the values specified.
+ .. Select the relationship type.
++
+The relationship types can be mirror, vault, or mirror and vault.
+
+ .. Select a cluster and an SVM for the destination volume.
++
+If the selected cluster is running a version of ONTAP software earlier than ONTAP 9.3, then only peered SVMs are listed. If the selected cluster is running ONTAP 9.3 or later, peered SVMs and permitted SVMs are listed.
+
+ .. Modify the volume name suffix as required.
+. Click *Create* to create the FlexGroup volume.
+
+*Related information*
+
+xref:reference_volumes_window.adoc[Volumes window]

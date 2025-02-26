@@ -1,0 +1,60 @@
+---
+permalink: volume-move/task_planning_method_timing_volume_move.html
+sidebar: sidebar
+keywords: system, manager, volume, manual, cutover, lun, report, node, advance, procedure, command-line, interface, cli, plan, plan the method and timing of a volume move
+summary: "You can use the ONTAP System Manager 'classic' interface with ONTAP 9.7 or earlier to move a volume and to decide whether to have a manual cutover. If you need to update LUN reporting nodes, you must follow an advanced procedure in the command-line interface (CLI). Optionally, you can also plan the timing of a volume move."
+---
+= Plan the method and timing of a volume move
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the ONTAP System Manager _classic_ interface with ONTAP 9.7 or earlier to move a volume and to decide whether to have a manual cutover. If you need to update LUN reporting nodes, you must follow an advanced procedure in the command-line interface (CLI). Optionally, you can also plan the timing of a volume move.
+
+.About this task
+
+The source volume of a SnapMirror or SnapVault relationship can be moved while the volume is being mirrored. SnapMirror services encounter a brief pause during the cutover phase of the volume move job.
+
+The destination volume can also be moved. In the iterative phase, SnapMirror or SnapVault updates and volume move operations run concurrently. When evaluating whether a cutover is possible in the cutover phase, priority between the cutover and SnapMirror or SnapVault updates is determined on a first-come, first-served basis. Until the first operation finishes, other operations are blocked.
+
+.Steps
+
+. Decide whether you require a manual cutover.
++
+_Cutover_ is the moment at which the move operation finishes and ONTAP starts serving data from the volume on the new aggregate. The cutover can occur automatically or you can trigger the cutover manually.
++
+If your company's standard practice requires you to control when changes occur in the storage system, you can manually perform the final cutover of the move operation during a maintenance window.
++
+A cutover does not require an outage, but you can use a maintenance window to control _when_ it occurs.
++
+[NOTE]
+====
+The volume move operation is nondisruptive, regardless of whether you choose automatic or manual cutover.
+====
+
+. If the volume contains LUNs and the cluster contains four or more nodes, use the CLI to update the LUN reporting nodes if the volume moves to a different HA pair.
++
+If the volume does not contain LUNs or if the cluster contains only two nodes, you can skip this step.
+
+. *Optional:* Plan a time using the following considerations:
+* A volume move operation might take more time than expected because moves are designed to occur nondisruptively in the background in a manner that preserves client access and overall system performance.
++
+For example, ONTAP throttles the resources that are available to the volume move operation.
+
+* If you want the move to occur as quickly as possible, you must select a time with less cluster activity, especially the following activities:
+** I/O operations on the volume
+** Jobs using background resources, for example, when controller CPU usage is less than 50 percent
+** Jobs using the cluster interconnect
+* A move cannot be started while the volume is affected by the following operations: volume offline, restrict, or destroy; SnapMirror resync, break, or restore; and Snapshot restore.
++
+You must wait for any of these specific operations to finish before you can start the move.
+
+* While the volume move operation occurs, a MetroCluster switchback cannot occur, although a switchover can occur.
+* MetroCluster switchbacks are blocked when volume move operations are in progress for volumes belonging to the switched over site. Switchbacks are not blocked when volume move operations are in progress for volumes local to the surviving site.
+* Forced MetroCluster switchovers can occur when volume move operations are in progress.
+
+.Related information
+
+link:task_verifying_lun_reporting_nodes_after_moving_volume.html[Verifying LUN reporting nodes after moving a volume]
+
+// BURT 1415751, 10 JAN 2022

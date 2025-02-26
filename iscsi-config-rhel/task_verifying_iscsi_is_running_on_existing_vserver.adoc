@@ -1,0 +1,33 @@
+---
+permalink: iscsi-config-rhel/task_verifying_iscsi_is_running_on_existing_vserver.html
+sidebar: sidebar
+keywords: exist, storage, virtual, machine, svm, verify, iscsi, run, verify that the iscsi service is running on an existing svm
+summary: "If you choose to use an existing storage virtual machine (SVM), you must verify that the iSCSI service is running on the SVM."
+---
+= Verify that the iSCSI service is running on an existing SVM
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+If you choose to use an existing storage virtual machine (SVM), you must verify that the iSCSI service is running on the SVM.
+
+.Before you begin
+
+You must have selected an existing SVM on which you plan to create a new LUN.
+
+.Steps
+
+. Navigate to the *SVMs* window.
+. Click the *SVM Settings* tab.
+. In the *Protocols* pane, click *iSCSI*.
+. Verify that the iSCSI service is running.
++
+image::../media/vserver_service_iscsi_running_iscsi_rhel.gif[Illustration shows the iSCSI protocol page with a green icon and the text iSCSI service is running.]
+
+. Record the iSCSI interfaces listed for the SVM.
+
+== What to do next
+
+If the iSCSI service is not running, start the iSCSI service or create a new SVM.
+
+If there are fewer than two iSCSI interfaces per node, update the iSCSI configuration on the SVM or create a new SVM for iSCSI.

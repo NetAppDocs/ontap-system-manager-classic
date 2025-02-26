@@ -1,0 +1,5 @@
+---
+permalink: online-help-96-97/task_creating_svm_relationships.html
+redirect: ontap-system-manager-classic/online-help-96-97/concept_svm_relationships.html
+---
+

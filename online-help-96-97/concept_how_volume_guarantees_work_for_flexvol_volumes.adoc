@@ -1,0 +1,38 @@
+---
+permalink: online-help-96-97/concept_how_volume_guarantees_work_for_flexvol_volumes.html
+sidebar: sidebar
+keywords: volume, guarantee, work, flexvol, volume, space, preallocated, aggregate, online, help
+summary: "Volume guarantees (sometimes called space guarantees) determine how space for a volume is allocated from its containing aggregate—whether or not the space is preallocated for the volume."
+---
+= About volume guarantees for FlexVol volumes with System Manager - ONTAP 9.7 and earlier
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can set volume guarantees for FlexVol volumes with System Manager classic (available in ONTAP 9.7 and earlier). Volume guarantees (sometimes called _space guarantees_) determine how space for a volume is allocated from its containing aggregate--whether or not the space is preallocated for the volume.
+
+The guarantee is an attribute of the volume.
+
+You set the guarantee when you create a new volume; you can also change the guarantee for an existing volume, provided that sufficient free space exists to honor the new guarantee.
+
+Volume guarantee types can be `volume` (the default type) or `none`.
+
+* A guarantee type of `volume` allocates space in the aggregate for the entire volume when you create the volume, regardless of whether that space is used for data yet.
++
+The allocated space cannot be provided to or allocated for any other volume in that aggregate.
+
+* A guarantee of `none` allocates space from the aggregate only as it is needed by the volume.
++
+The amount of space consumed by volumes with this guarantee type grows as data is added instead of being determined by the initial volume size, which might leave space unused if the volume data does not grow to that size. The maximum size of a volume with a guarantee of `none` is not limited by the amount of free space in its aggregate. It is possible for the total size of all volumes associated with an aggregate to exceed the amount of free space for the aggregate, although the amount of space that can actually be used is limited by the size of aggregate.
++
+Writes to LUNs or files (including space-reserved LUNs and files) contained by that volume could fail if the containing aggregate does not have enough available space to accommodate the write.
+
+When space in the aggregate is allocated for a `volume` guarantee for an existing volume, that space is no longer considered free in the aggregate, even if the volume is not yet using the space. Operations that consume free space in the aggregate, such as creation of aggregate Snapshot copies or creation of new volumes in the containing aggregate, can occur only if there is enough available free space in that aggregate; these operations are prevented from using space already allocated to another volume.
+
+When the free space in an aggregate is exhausted, only writes to volumes or files in that aggregate with preallocated space are guaranteed to succeed.
+
+Guarantees are honored only for online volumes. If you take a volume offline, any allocated but unused space for that volume becomes available for other volumes in that aggregate. When you try to bring that volume back online, if there is insufficient available space in the aggregate to fulfill its guarantee, it will remain offline. You must force the volume online, at which point the volume's guarantee will be disabled.
+
+*Related information*
+
+http://www.netapp.com/us/media/tr-3965.pdf[NetApp Technical Report 3965: NetApp Thin Provisioning Deployment and Implementation Data ONTAP 8.1 (7-Mode)^]

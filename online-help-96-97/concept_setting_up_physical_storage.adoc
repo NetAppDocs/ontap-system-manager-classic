@@ -1,0 +1,12 @@
+---
+permalink: online-help-96-97/concept_setting_up_physical_storage.html
+sidebar: sidebar
+keywords: physical, storage, set, up, online, help, disk, node, spare, aggregates
+summary: "Setting up the physical storage consists of assigning disks to nodes, zeroing the spare disks, and creating aggregates."
+---
+= Setting up physical storage
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Setting up the physical storage consists of assigning disks to nodes, zeroing the spare disks, and creating aggregates.
