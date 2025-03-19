@@ -35,42 +35,6 @@ The broadcast domain and IPspace where you plan to add the subnet must already e
 
 You can create a subnet with ONTAP System Manager or the ONTAP CLI. 
 
-[role="tabbed-block"]
-====
-.System Manager
---
-Beginning with ONTAP 9.12.0, you can use System Manager to create a subnet.
-
-.Steps
-
-. Select *Network > Overview > Subnets*.
-
-. Click image:icon_add.gif[Add icon] to create a subnet.
-
-. Name the subnet.
-
-. Specify the subnet IP address.
-
-. Set the subnet mask.
-
-. Define the range of IP addresses that comprise the subnet.
-
-. If useful, specify a gateway.
-
-. Select the broadcast domain to which the subnet belongs.
-
-. Save your changes.
-
-.. If the IP address or range entered is already used by an interface, the following message is displayed:
-`An IP address in this range is already in use by a LIF. Associate the LIF with this subnet?`
-
-.. When you click *OK*, the existing LIF will be associated with the subnet.
---
-
-.CLI
---
-Use the CLI to create a subnet.
-
 .Steps
 
 ....
@@ -111,8 +75,6 @@ You can assign SVMs and interfaces to an IPspace using the addresses in the subn
 
 If you need to change the name of an existing subnet, use the `network subnet rename` command.
 
---
-====
 
 // 2024 Dec 09, ONTAPDOC-2507
 // 2022 OCT 6, Jira ONTAPDOC-573

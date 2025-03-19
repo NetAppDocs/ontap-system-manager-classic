@@ -5,7 +5,7 @@ entries:
       entries:
       - title: About NAS path failover (ONTAP 9.7 and earlier)
         url: "/networking/set_up_nas_path_failover_9_to_97_cli.html"
-      - title: Workflow (ONTAP 9.7 and earlier)
+      - title: NAS path failover workflow (ONTAP 9.7 and earlier)
         url: "/networking/workflow__nas_path_failover_overview_manual.html"
       - title: Worksheet for NAS path failover configuration (ONTAP 9.7 and earlier)
         url: "/networking/worksheet_for_nas_path_failover_configuration_manual.html"
