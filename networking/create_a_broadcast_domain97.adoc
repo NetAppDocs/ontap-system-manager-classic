@@ -13,8 +13,6 @@ summary: Broadcast domains group network ports in the cluster that belong to the
 :imagesdir: ../media/
 
 
-
-
 [.lead]
 In ONTAP 9.7 and earlier, you create a broadcast domain to group network ports in the cluster that belong to the same layer 2 network. The ports can then be used by SVMs. You must create a broadcast domain for a custom IPspace. The SVMs created in the IPspace use the ports in the broadcast domain.
 
