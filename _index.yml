@@ -58,6 +58,16 @@ indexpage:
           url: "/snmp-config/index.html"
         - title: Cluster management using System Manger 9.6 and 9.7
           url: "/online-help-96-97/index.html"
+    - title: Network management
+      links:
+        - title: NAS path failover workflow (ONTAP 9.7 and earlier)
+          url: "/networking/set_up_nas_path_failover_9_to_97_cli.html"
+        - title: Broadcast domain management (ONTAP 9.7 or earlier)
+          url: "/networking/configure_broadcast_domains_97_overview.html"
+        - title: LIF roles (ONTAP 9.5 and earlier)
+          url: "/networking/lif_roles95.html"
+        - title: Configure DNS services (ONTAP 9.7 and earlier)
+          url: "/networking/configure_dns_services_manual.html"
     - title: More resources
       links:
         - title: ONTAP 9 documentation

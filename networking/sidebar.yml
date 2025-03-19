@@ -1,0 +1,35 @@
+section: networking
+title: Network management
+entries:
+    - title: NAS path failover workflow (ONTAP 9.7 and earlier)
+      entries:
+      - title: About NAS path failover (ONTAP 9.7 and earlier)
+        url: "/networking/set_up_nas_path_failover_9_to_97_cli.html"
+      - title: Workflow (ONTAP 9.7 and earlier)
+        url: "/networking/workflow__nas_path_failover_overview_manual.html"
+      - title: Worksheet for NAS path failover configuration (ONTAP 9.7 and earlier)
+        url: "/networking/worksheet_for_nas_path_failover_configuration_manual.html"
+    - title: Removing a NIC from the node (ONTAP 9.7 or earlier)
+      url: "/networking/remove_a_nic_from_the_node_97.html"
+    - title: Broadcast domains (ONTAP 9.7 or earlier)
+      entries:
+      - title: Broadcast domain overview (ONTAP 9.7 and earlier)
+        url: "/networking/configure_broadcast_domains_97_overview.html"
+      - title: Determining which ports can be used for a broadcast domain (ONTAP 9.7 and earlier)
+        url: "/networking/determine_which_ports_can_be_used_for_a_broadcast_domains.html"
+      - title: Create a broadcast domain (ONTAP 9.7 and earlier)
+        url: "/networking/create_a_broadcast_domain97.html"
+      - title: Add or remove ports from a broadcast domain (ONTAP 9.7 and earlier)
+        url: "/networking/add_or_remove_ports_from_a_broadcast_domain97.html"        
+      - title: Split broadcast domains (ONTAP 9.7 or earlier)
+        url: "/networking/split_broadcast_domains97.html"
+      - title: Merge broadcast domains (ONTAP 9.7 and earlier)
+        url: "/networking/merge_broadcast_domains97.html"
+      - title: Change the MTU value for ports in a broadcast domain (ONTAP 9.7 and earlier)
+        url: "/networking/change_the_mtu_value_for_ports_in_a_broadcast_domain97.html"
+      - title: Display broadcast domains (ONTAP 9.7 and earlier)
+        url: "/networking/display_broadcast_domains97.html"
+    - title: LIF roles (ONTAP 9.5 and earlier)
+      url: "/networking/lif_roles95.html"
+    - title: Configure DNS services (ONTAP 9.7 and earlier)
+      url: "/networking/configure_dns_services_manual.html"
