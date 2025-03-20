@@ -1,0 +1,69 @@
+---
+sidebar: sidebar
+permalink: networking/delete_a_broadcast_domain.html
+keywords: delete, deleting, remove, removing, broadcast, domain, delete a broadcast domain, delete unnecessary broadcast domains; this moves associated ports to the "default" IPspace
+summary: Delete unnecessary broadcast domains; this moves associated ports to the "Default" IPspace
+---
+
+= Delete a broadcast domain
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+//
+// Created with NDAC Version 2.0 (August 17, 2020)
+// restructured: March 2021
+// enhanced keywords May 2021 
+// 28-FEB-2024 merged delete a broadcast domain 97 and created redirect
+
+
+[.lead]
+If you no longer need a broadcast domain, you can delete it. This moves the ports associated with that broadcast domain to the "Default" IPspace.
+
+.Before you begin
+
+There must be no subnets, network interfaces, or SVMs associated with the broadcast domain you want to delete.
+
+.About this task
+
+* The system-created "Cluster" broadcast domain cannot be deleted.
+* All failover groups related to the broadcast domain are removed when you delete the broadcast domain.
+
+The procedure you follow depends on the interface that you use--System Manager or the CLI:
+
+[role="tabbed-block"]
+====
+.System Manager
+--
+*Beginning with ONTAP 9.12.0, you can use System Manager to delete a broadcast domain*
+
+The delete option is not shown when the broadcast domain contains ports or is associated with a subnet.
+
+.Steps
+
+. Select *Network > Overview > Broadcast domain*.
+
+. Select image:icon_kabob.gif[Menu options icon] *> Delete* beside the broadcast domain you want to remove.
+
+--
+
+.CLI
+--
+*Use the CLI to delete a broadcast domain*
+
+.Step
+
+Delete a broadcast domain:
+
+
+`network port broadcast-domain delete -broadcast-domain _broadcast_domain_name_ [-ipspace _ipspace_name_]`
+
+
+The following command deletes broadcast domain Default-1 in IPspace ipspace1:
+
+`network port broadcast-domain delete -broadcast-domain _Default-1_ -ipspace _ipspace1_`
+
+--
+====

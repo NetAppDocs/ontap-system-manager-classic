@@ -1,5 +1,4 @@
 section: networking
-title: Network management
 entries:
     - title: NAS path failover workflow (ONTAP 9.7 and earlier)
       entries:
