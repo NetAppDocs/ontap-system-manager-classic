@@ -1,0 +1,9 @@
+section: networking-failover
+title: NAS path failover workflow (ONTAP 9.7 and earlier)
+entries:
+  - title: About NAS path failover (ONTAP 9.7 and earlier)
+    url: "/networking-failover/set_up_nas_path_failover_9_to_97_cli.html"
+  - title: NAS path failover workflow (ONTAP 9.7 and earlier)
+    url: "/networking-failover/workflow__nas_path_failover_overview_manual.html"
+  - title: Worksheet for NAS path failover configuration (ONTAP 9.7 and earlier)
+    url: "/networking-failover/worksheet_for_nas_path_failover_configuration_manual.html"

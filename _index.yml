@@ -61,9 +61,11 @@ indexpage:
     - title: Network management
       links:
         - title: NAS path failover workflow (ONTAP 9.7 and earlier)
-          url: "/networking/set_up_nas_path_failover_9_to_97_cli.html"
+          url: "/networking-failover/set_up_nas_path_failover_9_to_97_cli.html"
         - title: Broadcast domain management (ONTAP 9.7 or earlier)
-          url: "/networking/configure_broadcast_domains_97_overview.html"
+          url: "/networking-bd/configure_broadcast_domains_97_overview.html"
+        - title: Removing a NIC from the node (ONTAP 9.7 or earlier)
+          url: "/networking/remove_a_nic_from_the_node_97.html"
         - title: LIF roles (ONTAP 9.5 and earlier)
           url: "/networking/lif_roles95.html"
         - title: Configure DNS services (ONTAP 9.7 and earlier)

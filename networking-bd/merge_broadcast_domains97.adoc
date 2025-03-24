@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: networking/merge_broadcast_domains97.html
+permalink: networking-bd/merge_broadcast_domains97.html
 keywords: merge, combine, broadcast, domain, reachability, merge broadcast domains, merge the ports from one broadcast domain into an existing broadcast domain
 summary: Merge the ports from one broadcast domain into an existing broadcast domain
 ---

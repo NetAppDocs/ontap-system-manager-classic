@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: networking/split_broadcast_domains97.html
+permalink: networking-bd/split_broadcast_domains97.html
 keywords: split, broadcast, domain, separate, splitting, separating, reachability, port, split a broadcast domain to synchronize the ontap configuration with the physical network topology, unreachable ports, broadcast-domain split, split broadcast domains
 summary:  Split a broadcast domain to synchronize the ONTAP 9.0 to 9.7 configuration with the physical network topology
 ---
