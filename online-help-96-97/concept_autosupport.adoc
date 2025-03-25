@@ -5,6 +5,11 @@ keywords: autosupport, notification, message, monitor, system, health, storage, 
 summary: "You can use System Manager to configure AutoSupport notifications that help you to monitor your storage system health."
 ---
 = Manage AutoSupport notifications with System Manager - ONTAP 9.7 and earlier
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
 
 You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to configure AutoSupport notifications that help you to monitor your storage system health.
 
