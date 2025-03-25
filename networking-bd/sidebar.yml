@@ -1,0 +1,19 @@
+section: networking-bd
+title: Broadcast domains (ONTAP 9.7 or earlier)
+entries:
+  - title: Broadcast domain overview (ONTAP 9.7 and earlier)
+    url: "/networking-bd/configure_broadcast_domains_97_overview.html"
+  - title: Determining which ports can be used for a broadcast domain (ONTAP 9.7 and earlier)
+    url: "/networking-bd/determine_which_ports_can_be_used_for_a_broadcast_domains.html"
+  - title: Create a broadcast domain (ONTAP 9.7 and earlier)
+    url: "/networking-bd/create_a_broadcast_domain97.html"
+  - title: Add or remove ports from a broadcast domain (ONTAP 9.7 and earlier)
+    url: "/networking-bd/add_or_remove_ports_from_a_broadcast_domain97.html"        
+  - title: Split broadcast domains (ONTAP 9.7 or earlier)
+    url: "/networking-bd/split_broadcast_domains97.html"
+  - title: Merge broadcast domains (ONTAP 9.7 and earlier)
+    url: "/networking-bd/merge_broadcast_domains97.html"
+  - title: Change the MTU value for ports in a broadcast domain (ONTAP 9.7 and earlier)
+    url: "/networking-bd/change_the_mtu_value_for_ports_in_a_broadcast_domain97.html"
+  - title: Display broadcast domains (ONTAP 9.7 and earlier)
+    url: "/networking-bd/display_broadcast_domains97.html"
