@@ -24,7 +24,7 @@ indexpage:
           url: "/smb-config/index.html"
     - title: Provision SAN storage
       links:
-        - title: FC configruation for ESXi using VSC
+        - title: FC configuration for ESXi using VSC
           url: "/fc-config-esxi/index.html"
         - title: FC configuration for Red Hat Enterprise Linux
           url: "/fc-config-rhel/index.html"
