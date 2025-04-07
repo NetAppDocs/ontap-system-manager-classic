@@ -1,9 +1,0 @@
----
-permalink: online-help-96-97/reference_copyright_trademark.html
-sidebar: sidebar
-keywords: 
-summary: ''
----
-= Copyright, trademark, and machine translation
-:icons: font
-:imagesdir: ../media/
