@@ -15,4 +15,4 @@ Beginning with ONTAP 9.5, you must configure at least one NVMe LIF for each node
 
 The following illustration shows the workflow for setting up NVMe:
 
-image::../media/nvme_setup_workflow.gif[]
+image::../media/nvme_setup_workflow.gif[workflow for setting up nvme]

@@ -61,7 +61,7 @@ Prevents the data on the volume from being moved to a cloud tier.
  ** If you leave *FabricPool* in the "`not enabled`" position, only non-FabricPool aggregates are included in the created FlexGroup volume, and the tiering policy is set to"`None`".
  ** If no FabricPool aggregates exist in the SVM, then *FabricPool* displays in the "not enabled" position and cannot be changed.
  ** If only FabricPool aggregates exist in the SVM, then the *FabricPool* button is displays in the "enabled" position and cannot be changed.
-. If you want to specify particular aggregates, click image:../media/advanced_options.gif[] (advanced options).
+. If you want to specify particular aggregates, click image:../media/advanced_options.gif[advanced options icon] (advanced options).
 +
 The aggregates associated with the FlexGroup volume you are creating are selected by default, according to best practices. They are displayed next to the *Aggregates* label.
 

@@ -43,7 +43,7 @@ In the second phase, the site is made ready for the switchback process.
 
 The following flowchart illustrates the phases and processes that occur when you initiate switchover and switchback operations.
 
-image::../media/switchover_switchback_workflow.jpg[]
+image::../media/switchover_switchback_workflow.jpg[metrocluster switchover and switchback workflow flowchart]
 
 
 // 2022-04-01, sm-classic rework

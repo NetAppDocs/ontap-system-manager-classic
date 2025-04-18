@@ -47,7 +47,7 @@ All data protection relationships are initialized by default.
 
  .. Click *Apply* to save the changes.
 +
-image::../media/snapvault_advanced_options.gif[]
+image::../media/snapvault_advanced_options.gif[snapvault advanced options tab]
 . In the *Volumes: Protect Volumes* page, click *Validate* to verify whether the volumes have matching SnapMirror labels.
 . Click *Save* to create the SnapVault relationship.
 . Verify that the status of the SnapVault relationship is in the `Snapmirrored` state.
@@ -55,4 +55,4 @@ image::../media/snapvault_advanced_options.gif[]
  .. Expand the volume and click *PROTECTION* to view the data protection status of the volume.
 
 +
-image::../media/snapvault_9_3.gif[]
+image::../media/snapvault_9_3.gif[volumes window showing data protection status of the volume]

@@ -13,7 +13,7 @@ Beginning with System Manager 9.6, when you edit a FlexCache volume, you can spe
 
 .Steps
 
-. *Optional:* In the *Edit FlexCache volume* window, click image:../media/advanced_options.gif[] to specify the advanced options.
+. *Optional:* In the *Edit FlexCache volume* window, click image:../media/advanced_options.gif[advanced options icon] to specify the advanced options.
 +
 The Advanced Options window displays. It contains sections (the headings in the left column), in which you can specify various options.
 

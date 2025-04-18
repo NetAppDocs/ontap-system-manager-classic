@@ -30,4 +30,4 @@ The cluster setup operation is not supported on MetroCluster configurations for 
 
 You can set up the cluster by using a template file or by manually entering the values in the cluster setup wizard.
 
-image::../media/cluster_setup_workflow.gif[]
+image::../media/cluster_setup_workflow.gif[workflow for setting up cluster with ontap system manager]
