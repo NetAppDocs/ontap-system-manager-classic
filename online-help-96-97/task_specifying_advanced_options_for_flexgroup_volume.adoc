@@ -13,7 +13,7 @@ When you create a FlexGroup volume, you can use ONTAP System Manager classic (av
 
 .Steps
 
-. *Optional:* In the *Create FlexGroup* window, click image:../media/advanced_options.gif[] to specify the advanced options.
+. *Optional:* In the *Create FlexGroup* window, click image:../media/advanced_options.gif[advanced options icon] to specify the advanced options.
 +
 The Advanced Options window displays. It contains sections (the headings in the left column), in which you can specify various options.
 

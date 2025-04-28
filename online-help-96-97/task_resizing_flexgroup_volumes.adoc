@@ -27,7 +27,7 @@ By default, existing aggregates are used to resize the FlexGroup volume. Beginni
 +
 [NOTE]
 ====
-If you want to expand the FlexGroup volume by adding new resources, click image:../media/advanced_options.gif[] (advanced options).
+If you want to expand the FlexGroup volume by adding new resources, click image:../media/advanced_options.gif[advanced options icon] (advanced options).
 ====
 
 . Specify the percentage of the Snapshot copy reserve.

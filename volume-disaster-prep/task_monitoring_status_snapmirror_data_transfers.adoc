@@ -37,4 +37,4 @@ You should troubleshoot any issues in the SnapMirror relationships.
 +
 http://www.netapp.com/us/media/tr-4015.pdf[NetApp Technical Report 4015: SnapMirror Configuration and Best Practices for ONTAP 9.1, 9.2^]
 +
-image::../media/snapmirror_monitor_3_health_state_lag.gif[]
+image::../media/snapmirror_monitor_3_health_state_lag.gif[snapmirror data transfers status]

@@ -80,7 +80,6 @@ Specify the advanced cron options in months, days, week days (if applicable), ho
 
 == Delete schedules
 
-[.lead]
 You can use System Manager to delete the schedules that run specific storage management tasks.
 
 .Steps

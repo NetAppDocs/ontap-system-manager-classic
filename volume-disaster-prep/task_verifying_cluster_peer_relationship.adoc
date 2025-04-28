@@ -17,7 +17,7 @@ Before you set up a volume for disaster recovery, you must verify that the sourc
  .. Click *Configuration* > *Cluster Peers*.
  .. Verify that the peered cluster is authenticated and is available.
 +
-image::../media/cluster_pper_930_disaster.gif[]
+image::../media/cluster_pper_930_disaster.gif[verifying  peered cluster is authenticated and is available]
 
  .. Click *Configuration* > *SVM Peers*.
  .. Verify that the destination SVM is peered with the source SVM.
@@ -26,7 +26,7 @@ image::../media/cluster_pper_930_disaster.gif[]
  .. In the *Cluster Details* pane, click *Cluster Peers*.
  .. Verify that the peered cluster is authenticated and available.
 +
-image::../media/cluster_peer_health_disaster.gif[]
+image::../media/cluster_peer_health_disaster.gif[cluster peers section showing that the peered cluster is authenticated and available]
 
  .. Click the *SVMs* tab and select the source SVM.
  .. In the *Peer Storage Virtual Machines* area, verify the destination SVM is peered with the source SVM.

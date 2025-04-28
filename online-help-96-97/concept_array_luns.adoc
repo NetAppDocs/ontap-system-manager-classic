@@ -151,8 +151,4 @@ Displays the name of the pool to which the selected array LUN is assigned.
 The area below the Array LUNs list displays detailed information about the selected array LUN.
 
 
-*Related information*
-
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-irrg/home.html[FlexArray virtualization installation requirements and reference]
-
 // 2021-12-14, Created by Aoife, sm-classic rework

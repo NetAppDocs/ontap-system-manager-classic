@@ -26,6 +26,3 @@ Drivers, firmware, BIOS, and HBA utilities are provided by the HBA vendors.
 +
 Installation instructions and any required installation utilities are available with the download.
 
-*Related information*
-
-http://kb.vmware.com/kb/1002413[VMware KB article 1002413: Identifying the firmware of a Qlogic or Emulex FC HBA]
