@@ -15,6 +15,4 @@ You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to
 
 https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html[Disk and aggregate management^]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-irrg/home.html[FlexArray virtualization installation requirements and reference^]
-
 https://docs.netapp.com/us-en/ontap/concepts/index.html[ONTAP concepts^]

@@ -13,7 +13,7 @@ You can use ONTAP System Manger classic (available in ONTAP 9.7 and earlier) to 
 * You must be running ONTAP 9.2 or later.
 * You must have all flash (all SSD) aggregates
 
-image::../media/fabricpool_workflow.gif[]
+image::../media/fabricpool_workflow.gif[workflow for configuring and managing cloud tiers with system manager]
 
 = Add a cloud tier
 :icons: font
@@ -69,7 +69,7 @@ Based on your selection, the *Service Name (FQDN)* field is automatically popula
 +
 If you have selected AWS Commercial Cloud Service (C2S) as the type, you must specify the CAP URL, server CA certificates, and client certificates.
 
-. If you want to modify any of the following settings, then click the Advanced Options icon image:../media/advanced_options.gif[] to display the *Advanced Options* dialog window where you can make the changes:
+. If you want to modify any of the following settings, then click the Advanced Options icon image:../media/advanced_options.gif[advanced options icon] to display the *Advanced Options* dialog window where you can make the changes:
  ** The port number used to access the cloud tier
  ** Enable or disable the *SSL* option that lets you transfer data securely to the cloud tier
 . *Optional:* If you want to add a cloud tier for StorageGRID or you want to use IBM Cloud Object Storage environment (such as Cleversafe) with FabricPool, you should specify a CA certificate. Specify the CA certificate by moving the *Object Store Certificate* toggle button and copying the contents of the certificate. Then paste the certificate contents in the signed certification.

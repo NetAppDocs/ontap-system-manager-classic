@@ -26,7 +26,7 @@ The Trace File Access window for the selected SVM shows the prerequisites and st
 . Click *Continue* to begin the file tracing process.
 . Select the protocol that is used to access files or shares on the selected SVM.
 . In the *User Name* field, enter the name of the user who was trying to access the file or share.
-. *Optional:* Click image:../media/advanced_options.gif[] to specify more details to narrow the scope of the trace.
+. *Optional:* Click image:../media/advanced_options.gif[advanced options icon] to specify more details to narrow the scope of the trace.
 +
 The Advanced Options dialog window allows you to specify the following details:
 

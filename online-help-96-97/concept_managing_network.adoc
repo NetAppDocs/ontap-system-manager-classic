@@ -12,10 +12,7 @@ summary: "You can use System Manager to manage the network of your storage syste
 You can use ONTAP System Manager classic (available in ONTAP 9.7 and earlier) to manage the network of your storage system by creating and managing IPspaces, broadcast domains, subnets, network interfaces, Ethernet ports, and FC/FCoE adapters.
 
 == Network window
-:icons: font
-:imagesdir: ../media/
 
-[.lead]
 You can use the Network window to view the list of network components, such as subnets, network interfaces, Ethernet ports, broadcast domains, FC/FCoE and NVMe adapters, and IPspaces, and to create, edit, or delete these components in your storage system.
 
 === Tabs

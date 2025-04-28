@@ -21,7 +21,7 @@ You must perform this task from the *source* cluster.
  .. Click *Configuration* > *Cluster Peers*.
  .. Verify that the peered cluster is authenticated and is available.
 +
-image::../media/cluster_pper_930_backup.gif[]
+image::../media/cluster_pper_930_backup.gif[verification of the peered cluster]
 
  .. Click *Configuration* > *SVM Peers*.
  .. Verify that the destination SVM is peered with the source SVM.
@@ -30,7 +30,7 @@ image::../media/cluster_pper_930_backup.gif[]
  .. In the *Cluster Details* pane, click *Cluster Peers*.
  .. Verify that the peered cluster is authenticated and available.
 +
-image::../media/cluster_peer_health_backup.gif[]
+image::../media/cluster_peer_health_backup.gif[cluster details pane showing cluster peers section to verify that the peered cluster is authenticated and available]
 
  .. Click the *SVMs* tab and select the source SVM.
  .. In the *Peer Storage Virtual Machines* area, verify the destination SVM is peered with the source SVM.

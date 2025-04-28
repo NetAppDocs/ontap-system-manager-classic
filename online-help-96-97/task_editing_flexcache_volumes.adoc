@@ -19,7 +19,7 @@ Beginning with System Manager 9.6, you can edit the properties of an existing Fl
 . *Optional:* Enter a new name for the FlexCache volume in the *Volume* field under *FlexCache Volume*.
 . *Optional:* Enter a new size for the FlexCache volume in the *Size* field under *FlexCache Volume*, and select the measurement unit from the drop-down menu.
 . *Optional:* Enable or disable encryption.
-. *Optional:* Click image:../media/advanced_options.gif[] to modify the FlexCache volume advanced settings. Refer to link:task_specifying_advanced_options_for_flexcache_volume.html[Specifying advanced options for a FlexCache volume].
+. *Optional:* Click image:../media/advanced_options.gif[advanced options icon] to modify the FlexCache volume advanced settings. Refer to link:task_specifying_advanced_options_for_flexcache_volume.html[Specifying advanced options for a FlexCache volume].
 . Click *Save* to save the changes.
 
 *Related information*

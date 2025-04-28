@@ -55,21 +55,21 @@ a|
  .. Ensure that the *Enable dedupe* check box is selected.
 
 +
-image::../media/dest_vol_snapvault.gif[]
+image::../media/dest_vol_snapvault.gif[configuration destination volume tab with enable dedupe checkbox]
 . In the *Configuration Details* section, select `XDPDefault` as the protection policy.
 . Select a protection schedule from the list of schedules.
 . Ensure that the *Initialize Relationship* check box is selected to transfer the base Snapshot copy, and then click *Create*
 +
-image::../media/config_details_snapvault.gif[]
+image::../media/config_details_snapvault.gif[configuration details tab with initialize relationship checkbox]
 +
 The wizard creates the relationship with the specified vault policy and schedule. The relationship is initialized by starting a baseline transfer of data from the source volume to the destination volume.
 +
 The Status section shows the status of each job.
 +
-image::../media/create_snapvault_success.gif[]
+image::../media/create_snapvault_success.gif[create protection relationship tab with status section showing the status of each job]
 
 . Verify that the relationship status of the SnapVault relationship is in the `Snapmirrored` state.
  .. Select the volume from the Volumes list, and then click *Data Protection*.
  .. In the *Data Protection* bottom tab, verify that the SnapMirror relationship you created is listed and the relationship state is `Snapmirrored` and type is `Vault`.
 +
-image::../media/data_protection_window_sv.gif[]
+image::../media/data_protection_window_sv.gif[data protection bottom tab, verifying that the snapmirror relationship is listed and the relationship state is snapmirrored and type is Vault]
