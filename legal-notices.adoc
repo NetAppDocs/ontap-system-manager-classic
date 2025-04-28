@@ -17,8 +17,6 @@ include::https://raw.githubusercontent.com/NetAppDocs/common/main/_include/open-
 
 Provides information about third-party copyright and licenses used in this product.
 
-link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2876856[Notice for ONTAP 9.9.1^]
-link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2873871[Notice for ONTAP 9.8^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2860921[Notice for ONTAP 9.7^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2855145[Notice for ONTAP 9.6^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2850702[Notice for ONTAP 9.5^]
