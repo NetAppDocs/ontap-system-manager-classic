@@ -72,10 +72,6 @@ Virtual machine disk
 a|
 value
 a|
-FlexArray LUN
-a|
-value
-a|
 Hybrid
 a|
 value
@@ -92,3 +88,6 @@ Performance-optimized Flash - SSD (AFF)
 a|
 extreme, performance, value
 |===
+
+
+// GH issue #8, rm FlexArray, 2025-SEPT-04
