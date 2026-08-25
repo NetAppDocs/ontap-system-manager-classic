@@ -1,4 +1,5 @@
 ---
 permalink: online-help-96-97/reference_nvme_namespaces_window.html
-redirect: ontap/san-admin/nvme-namespaces-considerations-concept.html
+redirect: ontap/nvme/support-limitations.html
 ---
+

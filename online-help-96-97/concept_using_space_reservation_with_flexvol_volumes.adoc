@@ -21,4 +21,4 @@ When the space reserve is set to "`Default`", the ONTAP space reservation settin
 
 http://www.netapp.com/us/media/tr-3563.pdf[NetApp Technical Report 3563: NetApp Thin Provisioning Increases Storage Utilization With On Demand Allocation^]
 
-http://www.netapp.com/us/media/tr-3483.pdf[NetApp Technical Report 3483: Thin Provisioning in a NetApp SAN or IP SAN Enterprise Environment^]
+https://www.netapp.com/pdf.html?item=/media/19670-tr-3483.pdf[NetApp Technical Report 3483: Thin Provisioning in a NetApp SAN or IP SAN Enterprise Environment^]

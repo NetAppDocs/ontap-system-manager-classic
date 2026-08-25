@@ -19,7 +19,7 @@ IPv6 must be enabled on the cluster if you configure SNMP traphosts that have IP
 
 SNMP and SNMP traps are enabled by default. The NetApp Technical Report TR-4220 on SNMP support contains lists of all default events that are supported by SNMP traps.
 
-http://www.netapp.com/us/media/tr-4220.pdf[NetApp Technical Report 4220: SNMP Support in Data ONTAP^]
+https://www.netapp.com/pdf.html?item=/media/16417-tr-4220.pdf[NetApp Technical Report 4220: SNMP Support in Data ONTAP^]
 
 .Steps
 

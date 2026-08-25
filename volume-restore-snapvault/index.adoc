@@ -24,7 +24,7 @@ Use this procedure if you want to restore from the vault backup in the following
 
 If these assumptions are not correct for your situation, or if you want more conceptual background information, you should see the following resource:
 
-link:http://www.netapp.com/us/media/tr-4183.pdf[NetApp Technical Report 4183: SnapVault Best Practices^]
+link:https://www.netapp.com/pdf.html?item=/media/19684-tr-4183.pdf[NetApp Technical Report 4183: SnapVault Best Practices^]
 
 == Other ways to do this in ONTAP
 

@@ -35,4 +35,4 @@ Guarantees are honored only for online volumes. If you take a volume offline, an
 
 *Related information*
 
-http://www.netapp.com/us/media/tr-3965.pdf[NetApp Technical Report 3965: NetApp Thin Provisioning Deployment and Implementation Data ONTAP 8.1 (7-Mode)^]
+https://www.netapp.com/pdf.html?item=/media/19678-tr-3965.pdf[NetApp Technical Report 3965: NetApp Thin Provisioning Deployment and Implementation Data ONTAP 8.1 (7-Mode)^]
