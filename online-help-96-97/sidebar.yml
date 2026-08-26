@@ -188,8 +188,6 @@ entries:
         url: "/online-help-96-97/reference_storage_tiers_window.html"
     - title: Configure and managing cloud tiers
       url: "/online-help-96-97/task_configuring_managing_cloud_tiers.html"
-    - title: Aggregates
-      url: "/online-help-96-97/concept_aggregates.html"
     - title: Storage pools
       url: "/online-help-96-97/concept_storage_pools.html"
     - title: Reassigning disks to nodes
@@ -214,8 +212,6 @@ entries:
       url: "/online-help-96-97/concept_events.html"
     - title: System alerts
       url: "/online-help-96-97/concept_system_alerts.html"
-    - title: AutoSupport notifications
-      url: "/online-help-96-97/concept_autosupport.html"
     - title: Jobs
       url: "/online-help-96-97/concept_jobs.html"
     - title: Flash Pool statistics
@@ -341,8 +337,6 @@ entries:
         url: "/online-help-96-97/reference_volumes_window.html"
     - title: Junction Path
       url: "/online-help-96-97/concept_namespace.html"
-    - title: Shares
-      url: "/online-help-96-97/concept_shares.html"
     - title: LUNs
       url: "/online-help-96-97/concept_luns.html"
       entries:
