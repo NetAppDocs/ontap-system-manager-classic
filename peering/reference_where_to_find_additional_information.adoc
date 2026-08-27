@@ -28,7 +28,7 @@ More information is available:
 +
 Describes how to prevent data loss using Snapshot copies and SnapMirror replication to a remote system
 
-* http://www.netapp.com/us/media/tr-4015.pdf[NetApp Technical Report 4015: SnapMirror Configuration and Best Practices for ONTAP 9.1, 9.2^]
+* https://www.netapp.com/pdf.html?item=/media/17229-tr-4015-snapmirror-configuration-ontap.pdf[NetApp Technical Report 4015: SnapMirror Configuration and Best Practices for ONTAP 9.1, 9.2^]
 +
 Describes information and best practices about configuring replication, including cluster peering.
 

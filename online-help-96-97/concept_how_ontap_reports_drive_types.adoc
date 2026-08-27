@@ -102,4 +102,4 @@ Logical storage device that is backed by storage arrays and used by ONTAP as a d
 
 https://hwu.netapp.com[NetApp Hardware Universe^]
 
-http://www.netapp.com/us/media/tr-3437.pdf[NetApp Technical Report 3437: Storage Subsystem Resiliency^]
+https://www.netapp.com/pdf.html?item=/media/19667-tr-3437.pdf[NetApp Technical Report 3437: Storage Subsystem Resiliency^]
